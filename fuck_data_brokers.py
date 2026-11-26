@@ -53,11 +53,13 @@ PLACES = {
     'canada_other': ('Canada, outside Quebec', 'pipeda'),
     'eu': ('European Union', 'gdpr'),
     'uk': ('United Kingdom', 'uk_gdpr'),
+    'brazil': ('Brazil', 'lgpd'),
     'other': ('Anywhere else', 'policy'),
 }
 
 # Days a broker gets before you chase it.
-DEADLINE_DAYS = {'ccpa': 45, 'us_other': 45, 'pipeda': 30, 'quebec': 30, 'gdpr': 30, 'uk_gdpr': 30, 'policy': 30}
+# For Brazil and for requests under a broker's own policy no law fixes the time; 30 days is how long this tool waits.
+DEADLINE_DAYS = {'ccpa': 45, 'us_other': 45, 'pipeda': 30, 'quebec': 30, 'gdpr': 30, 'uk_gdpr': 30, 'lgpd': 30, 'policy': 30}
 
 LAW_NAME = {
     'ccpa': 'California Consumer Privacy Act deletion and opt-out request',
@@ -66,6 +68,7 @@ LAW_NAME = {
     'quebec': 'Quebec Law 25 cessation of dissemination request',
     'gdpr': 'GDPR Article 17 erasure and Article 21 objection',
     'uk_gdpr': 'UK GDPR Article 17 erasure and Article 21 objection',
+    'lgpd': 'LGPD Article 18 elimination and objection request',
     'policy': 'Deletion request under your privacy policy',
 }
 
@@ -76,6 +79,7 @@ LAW_TEXT = {
     'quebec': 'Under section 28.1 of Quebec\'s Act respecting the protection of personal information in the private sector, I request that you cease disseminating my personal information and de-index any hyperlink attached to my name that gives access to it. Under sections 28 and 30, I also request correction or deletion of the information and a written response within 30 days.',
     'gdpr': 'Under Article 17(1) of the General Data Protection Regulation, I request erasure of the personal data you hold about me, and under Article 21(1) and 21(2) I object to further processing, including for direct marketing. Article 12(3) requires a response without undue delay and in any event within one month; Article 17(2) requires you to inform other controllers to which you disclosed the data.',
     'uk_gdpr': 'Under Article 17(1) of the UK General Data Protection Regulation and the Data Protection Act 2018, I request erasure of the personal data you hold about me, and under Article 21 I object to further processing, including for direct marketing. A response is required within one month of receipt.',
+    'lgpd': 'Under Article 18 of Brazil\'s General Data Protection Law (LGPD, Law No. 13,709/2018), I request the anonymization, blocking or elimination of my personal data that is unnecessary, excessive or processed in non-compliance with the Law (item IV), and the elimination of any personal data processed with my consent (item VI). I revoke any such consent (item IX). I also request information on the public and private entities with which you have shared my data (item VII). Under paragraph 2 of Article 18, I object to any processing carried out without my consent that does not comply with the Law. Under paragraph 4, if you cannot act on this at once, please reply stating that you are not the processing agent and naming that agent where possible, or giving the reasons of fact or law that prevent you.',
     'policy': 'Under your privacy policy and any privacy law that applies where I live, I request that you delete the personal information you hold about me, stop publishing it, and confirm the action taken or the reason it is declined.',
 }
 
@@ -85,7 +89,8 @@ REGULATOR = {
     'pipeda': ('the Office of the Privacy Commissioner of Canada', 'File at https://www.priv.gc.ca/en/report-a-concern/file-a-formal-privacy-complaint/file-a-complaint-about-a-business/ . They expect you to have tried the company first (you have). Complain within six months of the refusal.'),
     'quebec': ('the Commission d\'acces a l\'information du Quebec', 'Fill in the form at https://www.cai.gouv.qc.ca/uploads/pdfs/CAI_FO_Plainte_Citoyen.pdf and email it to cai.communications@cai.gouv.qc.ca .'),
     'uk_gdpr': ('the Information Commissioner\'s Office', 'File at https://ico.org.uk/make-a-complaint/data-protection-complaints/ . Complain within three months of the company\'s response and attach your original request.'),
-    'gdpr': ('your national data protection authority', 'GDPR Article 77 gives you the right to complain to the data protection authority of the country where you live or work.'),
+    'gdpr': ('your national data protection authority', 'GDPR Article 77 gives you the right to complain to the data protection authority of the country where you live or work. Every authority and its contact details are listed at https://www.edpb.europa.eu/about-edpb/about-edpb/members_en'),
+    'lgpd': ('the Autoridade Nacional de Proteção de Dados (ANPD)', 'Read https://www.gov.br/anpd/pt-br/canais_atendimento/cidadao-titular-de-dados/denuncia-peticao-de-titular-referente-lgpd . A petition has to name you and include proof that you asked the company first; your letter is that proof. It is filed with a gov.br login. The ANPD says it usually does not reply to each person.'),
     'us_other': ('your state attorney general', 'Most US state privacy laws are enforced by the state attorney general. Search for your state attorney general\'s consumer complaint form.'),
     'policy': ('', 'No privacy law backs this request, so there is no regulator to complain to. The broker was asked nicely and said no. Classy.'),
 }
@@ -145,6 +150,11 @@ def set_profile(state, name, email, city, region, country, place):
     state['profile'] = {'name': name, 'email': email, 'city': str(city).strip(), 'region': str(region).strip(),
                         'country': str(country).strip(), 'place': place}
     return state['profile']
+
+
+DROP_TIP = ('You live in California, so use the state\'s own free service as well: DROP, at https://privacy.ca.gov/drop/ . One request there reaches every data broker '
+            'registered in California, and they have to check it again at least every 45 days. It asks for your name, date of birth and ZIP code. '
+            'This tool still covers brokers registered elsewhere, and it reads and answers what brokers write back.')
 
 
 def need_profile(state):
@@ -432,7 +442,7 @@ def reminder_letter(profile, broker, law, request):
     return 'Re: ' + request['subject'], '\n'.join([
         'To the privacy contact at ' + broker['name'] + ',',
         '',
-        'I sent you the request below on ' + day(request['sent_at']) + ' (reference ' + request['ref'] + '). The time to respond has passed and I have no answer.',
+        'I sent you a privacy request on ' + day(request['sent_at']) + ' (reference ' + request['ref'] + '). That was ' + str(max(1, (now() - request['sent_at']) // DAY)) + ' days ago and I have no answer.',
         '',
         'Please act on it now and confirm the action taken and the date, or state the specific reason any part is declined. If you hold no record matching the details in that request, a reply saying so settles it.',
         '',
@@ -602,15 +612,41 @@ def log(request, text):
     request.setdefault('log', []).append(day(now()) + '  ' + text)
 
 
-def prepare(state, limit=20):
-    """Write first letters for brokers that have an email address and no request yet."""
+def find_brokers(state, text='', limit=50):
+    """Look through the list by name, so you can see who is on it before you write to anyone."""
+    asked, skipped, want = {r['broker'] for r in state['requests'].values()}, set(state.get('skip', [])), str(text).strip().lower()
+    found = [{'name': b['name'], 'email': b.get('email', ''), 'website': b.get('website', ''), 'from': b.get('source', ''),
+              'status': 'skipped by you' if key in skipped else 'already asked' if key in asked else 'not asked yet'}
+             for key, b in sorted(state['brokers'].items(), key=lambda item: item[1]['name'].lower()) if want in b['name'].lower()]
+    return {'matching': len(found), 'brokers': found[:limit]}
+
+
+def skip_brokers(state, text, undo=False):
+    """Leave brokers out. You decide who gets a letter: a broker you skip is never written to, and a letter
+    already written for it but not yet sent is thrown away."""
+    want = str(text).strip().lower()
+    if not want:
+        raise Oops('Say which brokers: a word from their name.')
+    keys = [key for key, b in state['brokers'].items() if want in b['name'].lower()]
+    skipped = set(state.get('skip', []))
+    skipped = skipped - set(keys) if undo else skipped | set(keys)
+    state['skip'] = sorted(skipped)
+    if not undo:
+        for ref in [ref for ref, r in state['requests'].items() if r['broker'] in keys and r['state'] == 'draft' and not r['sent_at']]:
+            del state['requests'][ref]
+    return {'brokers': sorted(state['brokers'][key]['name'] for key in keys), 'skipped_now': not undo}
+
+
+def prepare(state, limit=20, match=''):
+    """Write first letters for brokers that have an email address and no request yet. `match` keeps it to
+    brokers whose name contains that text."""
     profile, law = need_profile(state), law_of(state)
-    asked = {r['broker'] for r in state['requests'].values()}
+    asked, skipped, want = {r['broker'] for r in state['requests'].values()}, set(state.get('skip', [])), str(match or '').strip().lower()
     made = []
     for key, broker in sorted(state['brokers'].items(), key=lambda item: item[1]['name'].lower()):
         if len(made) >= limit:
             break
-        if key in asked or not broker.get('email'):
+        if key in asked or key in skipped or not broker.get('email') or want not in broker['name'].lower():
             continue
         ref = new_ref()
         subject, body = first_letter(profile, broker, law, ref)
@@ -647,12 +683,12 @@ def prepare_forms(state, limit=10):
     """For brokers with no email address: the form you fill in yourself, with everything ready to paste.
     You are the person, so you press submit and you do any CAPTCHA. Nothing is bypassed and nothing is submitted for you."""
     profile, law = need_profile(state), law_of(state)
-    asked = {r['broker'] for r in state['requests'].values()}
+    asked, skipped = {r['broker'] for r in state['requests'].values()}, set(state.get('skip', []))
     made = []
     for key, broker in sorted(state['brokers'].items(), key=lambda item: item[1]['name'].lower()):
         if len(made) >= limit:
             break
-        if key in asked or broker.get('email') or not form_url(broker):
+        if key in asked or key in skipped or broker.get('email') or not form_url(broker):
             continue
         ref = new_ref()
         request = {'ref': ref, 'broker': key, 'law': law, 'state': 'draft', 'via': 'form', 'subject': LAW_NAME[law] + ' [' + ref + ']', 'body': form_text(profile, law, ref),
@@ -680,7 +716,8 @@ def write_forms_page(state):
             'pre{white-space:pre-wrap;background:#f4f4f4;padding:1rem}small{font-weight:400;color:#555}.go,button{display:inline-block;margin:.2rem .3rem .2rem 0;padding:.5rem .8rem;'
             'border:2px solid #000;background:#fff;color:#000;text-decoration:none;font:inherit;cursor:pointer}.go{background:#000;color:#fff}</style>'
             '<h1>' + str(len(cards)) + ' brokers that hide behind a form</h1><p>These ones will not act on an email, so you fill in their form. Open it, pick "delete" and "do not sell or share", '
-            'paste your details, do their CAPTCHA, submit. Give them only what is on this page. If a form demands a photo of your ID, close the tab. '
+            'paste your details, do their CAPTCHA, submit. Give them only what is on this page. If a form demands a photo of your ID, close the tab '
+            'and run <code>noid</code> with that reference: the request carries on without the form. '
             'When you are done, run <code>sent</code> with the references you submitted.</p>' + ''.join(cards) +
             COPY_SCRIPT)
     box = home() / 'outbox'
@@ -825,6 +862,40 @@ def read_reply(state, ref, text):
     return result
 
 
+ID_WALL = 'Your web form will not accept this request without a government identity document, which I do not agree to provide. This letter is my request, made in writing to the address you publish for privacy matters.'
+WALL_WHY = 'takes requests only through a form that demands an identity document'
+
+
+def form_demands_id(state, ref):
+    """Their form wants a photo of your ID. Closing the tab is right, and it is not the end: the request goes on
+    in writing, and if they still refuse it goes to the regulator. Refusing to hand over ID is not giving up."""
+    profile = need_profile(state)
+    request = state['requests'].get(str(ref or '').strip())
+    if not request:
+        raise Oops('No request with reference ' + str(ref) + '.')
+    if not (form_waiting(request) or request.get('via') == 'form'):
+        raise Oops('That request is not waiting on a form.')
+    broker = state['brokers'][request['broker']]
+    log(request, 'Their form demands an identity document.')
+    if request['sent_at'] and broker.get('email'):
+        # They already have the request by email and sent you to the form: answer the demand as any ID demand.
+        return read_reply(state, request['ref'], 'Your form requires a government-issued photo ID.')
+    result = {'ref': request['ref'], 'broker': broker['name'], 'kind': 'wants_id', 'answer': None}
+    if broker.get('email'):
+        subject, body = first_letter(profile, broker, request['law'], request['ref'])
+        body = body.replace('\n\nReference ' + request['ref'] + '.', '\n\n' + ID_WALL + '\n\nReference ' + request['ref'] + '.')
+        request.update(state='draft', subject=subject, body=body)
+        request.pop('via', None)
+        request['draft'] = write_draft(profile, broker['email'], subject, body, request['ref'], 'request')
+        result['meaning'] = 'You did the right thing. Your request now goes to them by email instead, and says why. It is on your send page.'
+        return result
+    request['state'] = 'id_wall'
+    regulator, how = REGULATOR[request['law']]
+    result['meaning'] = ('This broker publishes no email address and its only form demands your ID. ' +
+                         ('That is a refusal. Complain to ' + regulator + '. ' + how if regulator else 'No privacy law backs this request, so it ends here.'))
+    return result
+
+
 SILENCE_DAYS = 14
 
 
@@ -846,13 +917,16 @@ def chase(state):
             why = 'refused twice and ignored the final notice'
         elif waiting and request.get('reminded') and request['reminded'] + SILENCE_DAYS * DAY < now():
             why = 'never answered, even after a reminder'
+        elif request['state'] == 'id_wall':
+            why = WALL_WHY
         if why and regulator:
             out['complaints'].append({'ref': request['ref'], 'broker': broker['name'], 'why': why, 'regulator': regulator, 'how': how,
-                                      'include': 'Your original request (' + day(request['sent_at']) + '), anything the broker wrote back, and your reminder or final notice.'})
+                                      'include': 'A screenshot of the form demanding the document, and the address of that page.' if why == WALL_WHY else
+                                      'Your original request (' + day(request['sent_at']) + '), anything the broker wrote back, and your reminder or final notice.'})
     return out
 
 
-STATE_WORDS = {'form': 'they want their form filled in', 'draft': 'letter written, not sent', 'sent': 'sent, waiting', 'acknowledged': 'they said "received"', 'answered': 'you answered their excuse',
+STATE_WORDS = {'id_wall': 'their only form demands ID', 'form': 'they want their form filled in', 'draft': 'letter written, not sent', 'sent': 'sent, waiting', 'acknowledged': 'they said "received"', 'answered': 'you answered their excuse',
                'refused': 'refused twice', 'done': 'they say deleted', 'no_record': 'they hold nothing'}
 
 
@@ -876,8 +950,11 @@ TOOLS = [
      ['name', 'email', 'place']),
     ('fdb_import_brokers', 'Download California\'s public data broker registry (several hundred brokers with privacy contacts).', {}, []),
     ('fdb_add_broker', 'Add one broker by hand. Use only a privacy email address published on the broker\'s own site.', {'name': 'Broker name', 'email': 'Privacy email address', 'website': 'Website'}, ['name', 'email']),
-    ('fdb_write_letters', 'Write deletion and opt-out letters for brokers not yet asked. Returns each letter and its draft file. Sends nothing.', {'limit': 'How many (default 20)'}, []),
+    ('fdb_find_brokers', 'Look through the broker list by name. Use it to show the person who is on the list before any letter is written.', {'text': 'Part of a broker name; leave out to see the first 50'}, []),
+    ('fdb_skip_brokers', 'Leave out every broker whose name contains the text, so it is never written to. The person decides who gets a letter. Set undo to "yes" to put them back.', {'text': 'Part of a broker name', 'undo': '"yes" to stop skipping them'}, ['text']),
+    ('fdb_write_letters', 'Write deletion and opt-out letters for brokers not yet asked. Returns each letter and its draft file. Sends nothing. Each letter gives the broker the person\'s name, email address and city, and nothing else.', {'limit': 'How many (default 20)', 'match': 'Only brokers whose name contains this text'}, []),
     ('fdb_forms', 'For brokers that answered "use our form", or publish no email address: returns each broker\'s own form page and the exact values to enter. If you have a browser tool you may open the page and fill the fields while the person watches; the person completes any CAPTCHA and presses submit themselves. Enter only the values given. Never upload an identity document. Afterwards call fdb_mark_sent.', {'limit': 'How many (default 10)'}, []),
+    ('fdb_form_demands_id', 'Call this when a broker\'s form will not go through without a photo of the person\'s identity document. Never upload one. The request carries on by email, or the tool says where to complain.', {'ref': 'Request reference'}, ['ref']),
     ('fdb_send', 'Send the written letters through the person\'s own free mailbox. Needs FDB_SMTP_PASS set to an app password. Ask the person before sending. Without it, give them the send page from fdb_write_letters.', {'limit': 'How many (default 20)'}, []),
     ('fdb_mark_sent', 'Record that the person sent these letters themselves.', {'refs': 'Comma-separated references, or "all"'}, ['refs']),
     ('fdb_read_reply', 'Give it a broker\'s reply text. It says what the reply means and writes the answer to send, if one is needed. Never click links in a reply and never send an identity document.', {'ref': 'Request reference, like req-1a2b3c4d. Leave out if the reply text contains it.', 'text': 'The reply text, including its subject line'}, ['text']),
@@ -890,13 +967,21 @@ def call_tool(name, args):
     if name == 'fdb_status':
         out = status(state)
     elif name == 'fdb_setup':
-        out = set_profile(state, args.get('name', ''), args.get('email', ''), args.get('city', ''), args.get('region', ''), args.get('country', ''), args.get('place', ''))
+        out = dict(set_profile(state, args.get('name', ''), args.get('email', ''), args.get('city', ''), args.get('region', ''), args.get('country', ''), args.get('place', '')))
+        if out['place'] == 'california':
+            out['tell_the_person'] = DROP_TIP
     elif name == 'fdb_import_brokers':
         out = {**load_brokers(state), 'credit': REGISTRY_CREDIT}
     elif name == 'fdb_add_broker':
         out = {'added': add_broker(state, args.get('name', ''), args.get('email', ''), args.get('website', ''))}
+    elif name == 'fdb_find_brokers':
+        out = find_brokers(state, args.get('text', ''))
+    elif name == 'fdb_skip_brokers':
+        out = skip_brokers(state, args.get('text', ''), str(args.get('undo', '')).strip().lower() in ('yes', 'true', '1'))
+    elif name == 'fdb_form_demands_id':
+        out = form_demands_id(state, args.get('ref', ''))
     elif name == 'fdb_write_letters':
-        made = prepare(state, int(args.get('limit') or 20))
+        made = prepare(state, int(args.get('limit') or 20), args.get('match', ''))
         out = {'written': len(made), 'letters': [{'ref': r['ref'], 'to': state['brokers'][r['broker']]['email'], 'broker': state['brokers'][r['broker']]['name'], 'subject': r['subject'], 'draft': r['draft']} for r in made],
                'send_page': write_send_page(state),
                'next': 'The person opens send_page in a browser and clicks one button per letter (free, no setup), then you call fdb_mark_sent. Or use fdb_send if an app password is set.'}
@@ -1013,6 +1098,8 @@ def do_setup(state):
         except Oops as problem:
             print('\n' + str(problem) + ' Try again; press Enter to keep an answer.\n')
     print('Saved. No street address, no birthday, no ID. They get the minimum.')
+    if old['place'] == 'california':
+        print('\n' + DROP_TIP)
 
 
 def do_import(state):
@@ -1021,11 +1108,14 @@ def do_import(state):
     print(REGISTRY_CREDIT)
 
 
-def do_letters(state, limit=20):
-    made = prepare(state, limit)
+def do_letters(state, limit=20, match=None):
+    if match is None:
+        match = ask('\nWrite to every broker, or only names containing a word? (Enter for every broker)')
+    made = prepare(state, limit, match)
     if not made:
-        print('\nNo new letters to write. Either everyone has been asked, or you have no brokers yet (run "brokers").')
+        print('\nNo new letters to write. Either everyone ' + ('matching "' + match + '" ' if match else '') + 'has been asked, or you have no brokers yet (run "brokers").')
         return
+    print('\nEach letter gives the broker three things: your name, your email address and your city. Nothing else.')
     print('\nWrote ' + str(len(made)) + ' letters. Drafts are in ' + str(home() / 'outbox') + '\n')
     for request in made[:5]:
         broker = state['brokers'][request['broker']]
@@ -1048,6 +1138,7 @@ def do_forms(state, limit=10):
     print('\n' + str(len(waiting)) + ' brokers insist on their own form. Of course they do.')
     print('Open this page. It has each form and your details ready to paste:\n  ' + write_forms_page(state))
     print('You press submit and you do the CAPTCHA. Then run "sent" with the references you finished.')
+    print('If a form demands a photo of your ID, close the tab and run "noid" with its reference. The request carries on without it.')
 
 
 def do_send(state, limit=20):
@@ -1142,6 +1233,14 @@ def main(argv=None):
     add.add_argument('name'), add.add_argument('email'), add.add_argument('website', nargs='?', default='')
     letters = sub.add_parser('letters', help='write deletion letters as drafts')
     letters.add_argument('--limit', type=int, default=20)
+    letters.add_argument('--match', default='', help='only brokers whose name contains this text')
+    find = sub.add_parser('find', help='look through the broker list by name')
+    find.add_argument('text', nargs='?', default='')
+    skip = sub.add_parser('skip', help='never write to brokers whose name contains this text')
+    skip.add_argument('text')
+    skip.add_argument('--undo', action='store_true', help='stop skipping them')
+    noid = sub.add_parser('noid', help='a form demanded your ID: carry the request on without it')
+    noid.add_argument('ref')
     send = sub.add_parser('send', help='send the drafts from your own mailbox')
     send.add_argument('--limit', type=int, default=20)
     forms = sub.add_parser('forms', help='brokers with no email: their form and your details, ready to paste')
@@ -1194,7 +1293,20 @@ def main(argv=None):
         elif args.command == 'add':
             print('Added ' + add_broker(state, args.name, args.email, args.website))
         elif args.command == 'letters':
-            do_letters(state, args.limit)
+            do_letters(state, args.limit, args.match)
+        elif args.command == 'find':
+            found = find_brokers(state, args.text)
+            for broker in found['brokers']:
+                print('  ' + broker['name'] + '  <' + (broker['email'] or 'no email, form only') + '>  ' + broker['status'])
+            print(str(found['matching']) + ' brokers match.' + (' Showing the first 50.' if found['matching'] > 50 else ''))
+        elif args.command == 'skip':
+            done = skip_brokers(state, args.text, args.undo)
+            print(('No longer skipping ' if args.undo else 'Skipping ') + str(len(done['brokers'])) + ' brokers' + (': ' + ', '.join(done['brokers'][:8]) + (' ...' if len(done['brokers']) > 8 else '') if done['brokers'] else '.'))
+        elif args.command == 'noid':
+            result = form_demands_id(state, args.ref)
+            print('\n' + result['broker'] + ': ' + result['meaning'])
+            if result.get('answer'):
+                print('\nYour answer is written and on your send page:\n  ' + write_send_page(state) + '\n\n' + result['answer']['body'])
         elif args.command == 'send':
             do_send(state, args.limit)
         elif args.command == 'forms':

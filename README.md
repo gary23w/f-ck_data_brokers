@@ -86,6 +86,14 @@ Run `python fuck_data_brokers.py forms`. You get a page with a link to each brok
 
 If a form demands a photo of your ID, close the tab. They sell personal data. They are not getting more of it from you.
 
+Then tell the tool, so the request does not die there:
+
+```
+python fuck_data_brokers.py noid req-1a2b3c4d
+```
+
+The request carries on in writing without the form. See [What happens when I refuse to send ID?](#what-happens-when-i-refuse-to-send-id)
+
 ## Use it with your AI
 
 The tool is also an MCP server, so an AI assistant that supports MCP can do the boring part for you. Add this to your AI app's MCP settings, with the real path to the file:
@@ -132,6 +140,65 @@ A broker that refuses twice gets a final notice with seven days to act. After th
 - Write to a broker twice with the same request.
 - Tell you that you are deleted when all it knows is that a letter was sent.
 
+## Where it works
+
+The letter quotes the law of the place you live. You pick it once, in setup.
+
+| You live in | The letter quotes | Who takes complaints |
+|---|---|---|
+| California | California Consumer Privacy Act | California Privacy Protection Agency |
+| Another US state | Your state's privacy law | Your state attorney general |
+| Canada, outside Quebec | PIPEDA | Office of the Privacy Commissioner of Canada |
+| Quebec | Law 25 | Commission d'accès à l'information |
+| European Union | GDPR, Articles 17 and 21 | Your national data protection authority |
+| United Kingdom | UK GDPR | Information Commissioner's Office |
+| Brazil | LGPD, Article 18 | ANPD |
+| Anywhere else | The broker's own privacy policy | Nobody, sadly |
+
+**In the EU, UK or Brazil?** The broker list comes from US registries, because the US is where brokers are made to register. Your law still reaches them: the GDPR covers a company outside the EU that offers services to people in the EU or tracks what they do there (Article 3(2)), and Brazil's law covers a company that processes the data of people in Brazil (Article 3). Add any broker from your own country with the `add` command.
+
+**In California?** Use the state's own free service too: [DROP](https://privacy.ca.gov/drop/). One request there reaches every broker registered in California, and they have to check it again at least every 45 days. This tool still covers brokers registered elsewhere, and it reads and answers what brokers write back.
+
+## Questions people ask
+
+### Am I handing my details to brokers who never heard of me?
+
+Sometimes, yes. That is the honest trade-off, and you should make it with your eyes open.
+
+A deletion request has to say who you are, or the broker cannot find you. Some of the companies on the list will hold nothing on you until your letter arrives. Here is what the tool does about it:
+
+- **It sends three things and no more:** your name, your email address and your city. No street address, no birthday, no phone number, no ID.
+- **Every letter tells the broker** not to use those details for anything except the request.
+- **You choose who gets a letter.** Look before you write, write to some, leave others out:
+
+```
+python fuck_data_brokers.py find "people"
+python fuck_data_brokers.py letters --match "people"
+python fuck_data_brokers.py skip "advertising"
+```
+
+- **The law is on your side, up to a point.** In California, information a business collects to verify your request may be used only for that (Civil Code 1798.130(a)(7)). In the EU, the general rule that data is used only for the purpose it was given for applies here too (GDPR Article 5(1)(b)). Neither stops a dishonest company. Both give you something to complain about.
+
+If you want to be careful, start with the brokers most likely to have you, such as the people-search sites, and skip the rest.
+
+### What happens when I refuse to send ID?
+
+The broker will try to treat that as the end of the matter. It is not.
+
+Run `noid` with the request's reference and the tool keeps going:
+
+1. It writes to the broker's privacy address, says you will not send an identity document, and asks them to verify you from what they already hold. At the very least it asks them to stop selling and sharing your data, which gives nothing away to the person asking.
+2. If they refuse again, they get a final notice with seven days to act.
+3. After that, the tool tells you which regulator takes complaints for your law and how to file.
+
+A broker that publishes no email address and whose only form demands ID has refused you by design. For those, the tool goes straight to step 3.
+
+One fair point for the brokers: a company with real doubts about who is asking may ask for something more to confirm it (in the EU, GDPR Article 12(6)). That is not the same as demanding a photo of your passport. In California, a business may not require a verified request at all for an opt-out of sale or sharing (11 CCR section 7026).
+
+### Does it actually get me deleted?
+
+It gets the request made properly, answered, chased and escalated. Whether a broker really deleted you is the broker's word, and the tool says so: it reports "they say deleted", not "deleted".
+
 ## Where your data lives
 
 In one file, `state.json`, in a folder called `.fuck_data_brokers` in your home directory. Letters waiting to be sent are in `outbox` beside it. Nothing is uploaded anywhere. Delete the folder and it is gone.
@@ -157,6 +224,15 @@ You can also add any broker for yourself:
 ```
 python fuck_data_brokers.py add "Some Broker" privacy@somebroker.example
 ```
+
+## Contributing
+
+Two kinds of help are worth the most:
+
+- **A place that is missing.** Adding a law is a few lines in one file: an entry in `PLACES`, the letter wording in `LAW_TEXT`, the complaint route in `REGULATOR`, and a test. Quote the law's own text and link to it. Wording from memory will not be merged.
+- **A registry that is missing.** If your country or state publishes a list of data brokers, open an issue with the link. If its website allows programs to fetch the file, it can be checked every hour.
+
+Know a broker that is on no registry? See [The broker list](#the-broker-list).
 
 ## Tests
 

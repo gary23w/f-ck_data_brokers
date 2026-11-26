@@ -84,7 +84,7 @@ class Case(unittest.TestCase):
 
     def test_each_place_gets_its_own_law_and_the_letter_carries_no_street_address(self):
         cites = {'california': '1798.105', 'us_other': 'my state of residence', 'quebec': 'section 28.1', 'canada_other': 'Principle 4.3.8', 'eu': 'Article 17(1) of the General Data Protection Regulation',
-                 'uk': 'UK General Data Protection Regulation', 'other': 'your privacy policy'}
+                 'uk': 'UK General Data Protection Regulation', 'brazil': 'Law No. 13,709/2018', 'other': 'your privacy policy'}
         for place, cite in cites.items():
             state = {'profile': None, 'brokers': {}, 'requests': {}}
             fdb.set_profile(state, 'Avery Exampleton', 'avery@example.com', 'Sampleville', 'CA', 'USA', place)
@@ -197,7 +197,7 @@ class Case(unittest.TestCase):
         c['due_at'] = fdb.now() - 1
         reminders = fdb.chase(self.state)['reminders']
         self.assertEqual([r['ref'] for r in reminders], [c['ref']])
-        self.assertIn('The time to respond has passed', reminders[0]['body'])
+        self.assertRegex(reminders[0]['body'], r'That was \d+ days ago and I have no answer')
         self.assertEqual(fdb.chase(self.state)['reminders'], [], 'one reminder, not a campaign')
 
     def test_the_send_page_needs_no_password_and_escapes_what_brokers_put_in_their_names(self):
@@ -395,7 +395,7 @@ class Case(unittest.TestCase):
         self.assertEqual(self.state['profile']['name'], 'Avery Exampleton', 'nothing they typed was thrown away')
         self.assertIn('Pick one number from the list', shown.getvalue())
         # A bad name keeps the other answers and asks again.
-        answers = iter(['Avery', 'avery@example.com', '', '', '', '7', 'Avery Exampleton', '', '', '', '', ''])
+        answers = iter(['Avery', 'avery@example.com', '', '', '', '8', 'Avery Exampleton', '', '', '', '', ''])
         with mock.patch('builtins.input', lambda prompt='': next(answers)), contextlib.redirect_stdout(io.StringIO()):
             fdb.do_setup(self.state)
         self.assertEqual((self.state['profile']['name'], self.state['profile']['place']), ('Avery Exampleton', 'other'))
@@ -603,6 +603,116 @@ class Case(unittest.TestCase):
         self.assertEqual(data['brokers']['more-reported-broker']['source'], 'reported, with evidence')
         self.assertEqual(data['brokers']['more-example-broker-7']['same_as'], 'ca-7', 'a report never overrides an official registry')
 
+
+    def test_you_choose_who_gets_a_letter(self):
+        self.person()
+        found = fdb.find_brokers(self.state, 'broker 1')
+        self.assertEqual(found['matching'], 11, 'Example Broker 1 and 10 to 19')
+        self.assertEqual({b['status'] for b in found['brokers']}, {'not asked yet'})
+        self.assertEqual(fdb.find_brokers(self.state)['matching'], 30)
+        only = fdb.prepare(self.state, 100, 'BROKER 2')
+        self.assertEqual(len(only), 11, 'only names containing the text, whatever the case')
+        self.assertTrue(all('Example Broker 2' in self.state['brokers'][r['broker']]['name'] for r in only))
+        # Skipping leaves brokers out for good and throws away an unsent letter for them.
+        skipped = fdb.skip_brokers(self.state, 'broker 2')
+        self.assertEqual(len(skipped['brokers']), 11)
+        self.assertEqual(len(self.state['requests']), 0, 'the unsent letters are gone')
+        rest = fdb.prepare(self.state, 100)
+        self.assertEqual(len(rest), 19)
+        self.assertFalse(any('Example Broker 2' in self.state['brokers'][r['broker']]['name'] for r in rest))
+        self.assertEqual(fdb.find_brokers(self.state, 'broker 20')['brokers'][0]['status'], 'skipped by you')
+        # A letter already sent is never thrown away by skipping.
+        fdb.mark_sent(self.state, [rest[0]['ref']])
+        fdb.skip_brokers(self.state, self.state['brokers'][rest[0]['broker']]['name'])
+        self.assertIn(rest[0]['ref'], self.state['requests'])
+        fdb.skip_brokers(self.state, 'broker 2', undo=True)
+        self.assertEqual(len(fdb.prepare(self.state, 100)), 11, 'put back, they get letters again')
+        with self.assertRaises(fdb.Oops):
+            fdb.skip_brokers(self.state, '  ')
+
+    def test_a_form_that_demands_id_is_not_the_end_of_the_request(self):
+        # 1. They already had the request by email and sent you to a form that wants ID: the demand is answered.
+        request = self.sent_request('california')
+        fdb.read_reply(self.state, request['ref'], 'Please submit your request through our privacy portal.')
+        self.assertEqual(request['state'], 'form')
+        result = fdb.form_demands_id(self.state, request['ref'])
+        self.assertEqual(result['kind'], 'wants_id')
+        self.assertIn('I do not agree to send one', result['answer']['body'])
+        self.assertEqual(request['state'], 'answered')
+        self.assertEqual([m['label'] for m in self.state['mail']], ['answer-wants_id'])
+        # 2. A broker that also has an email address, and whose form was never submitted: the letter goes by email and says why.
+        self.state['brokers']['me-both'] = {'name': 'Both Ways Broker', 'email': 'privacy@both.example.com', 'website': 'both.example.com', 'rights_url': 'both.example.com/privacy', 'source': 'added by you'}
+        ref = fdb.new_ref()
+        self.state['requests'][ref] = {'ref': ref, 'broker': 'me-both', 'law': 'ccpa', 'state': 'draft', 'via': 'form', 'subject': 'x', 'body': 'x', 'sent_at': 0, 'due_at': 0, 'answers': []}
+        result = fdb.form_demands_id(self.state, ref)
+        moved = self.state['requests'][ref]
+        self.assertEqual((moved['state'], 'via' in moved), ('draft', False))
+        self.assertIn('will not accept this request without a government identity document', moved['body'])
+        self.assertIn('1798.105', moved['body'])
+        self.assertIn(ref, [item['ref'] for item in fdb.unsent(self.state)], 'it is on the send page now')
+        self.assertIn('send page', result['meaning'])
+        # 3. No email anywhere and the only form wants ID: that is a refusal, and the regulator is next.
+        self.state['brokers']['me-wall'] = {'name': 'Form Only Broker', 'email': '', 'website': 'wall.example.com', 'rights_url': '', 'source': 'added by you'}
+        wall = fdb.prepare_forms(self.state, 5)[0]
+        result = fdb.form_demands_id(self.state, wall['ref'])
+        self.assertEqual(wall['state'], 'id_wall')
+        self.assertIn('Complain to the California Privacy Protection Agency', result['meaning'])
+        complaints = [c for c in fdb.chase(self.state)['complaints'] if c['ref'] == wall['ref']]
+        self.assertEqual(complaints[0]['why'], 'takes requests only through a form that demands an identity document')
+        self.assertIn('screenshot of the form', complaints[0]['include'])
+        self.assertIn('their only form demands ID', fdb.status(self.state)['by_state'])
+        # A request that is not on a form cannot be marked this way.
+        other = fdb.prepare(self.state, 1)[0]
+        with self.assertRaises(fdb.Oops):
+            fdb.form_demands_id(self.state, other['ref'])
+        with self.assertRaises(fdb.Oops):
+            fdb.form_demands_id(self.state, 'req-nope')
+
+    def test_the_new_choices_work_from_the_command_line_and_for_an_ai(self):
+        self.person()
+        fdb.save(self.state)
+        with contextlib.redirect_stdout(io.StringIO()) as shown:
+            self.assertEqual(fdb.main(['find', 'broker 7']), 0)
+            self.assertEqual(fdb.main(['skip', 'broker 7']), 0)
+            self.assertEqual(fdb.main(['letters', '--limit', '50', '--match', 'broker']), 0)
+            self.assertEqual(fdb.main(['skip', 'broker 7', '--undo']), 0)
+        text = shown.getvalue()
+        self.assertIn('Example Broker 7  <privacy@broker7.example.com>  not asked yet', text)
+        self.assertIn('Skipping 1 brokers: Example Broker 7', text)
+        self.assertIn('Wrote 29 letters', text)
+        self.assertIn('your name, your email address and your city', text)
+        result = fdb.mcp_reply({'jsonrpc': '2.0', 'id': 1, 'method': 'tools/call', 'params': {'name': 'fdb_find_brokers', 'arguments': {'text': 'broker 7'}}})['result']
+        self.assertFalse(result['isError'])
+        self.assertEqual(json.loads(result['content'][0]['text'])['brokers'][0]['status'], 'not asked yet')
+        result = fdb.mcp_reply({'jsonrpc': '2.0', 'id': 2, 'method': 'tools/call', 'params': {'name': 'fdb_form_demands_id', 'arguments': {'ref': 'req-nope'}}})['result']
+        self.assertTrue(result['isError'])
+
+    def test_brazil_gets_its_own_law_and_no_deadline_is_claimed_that_the_law_does_not_set(self):
+        self.assertEqual(fdb.PLACES['brazil'], ('Brazil', 'lgpd'))
+        self.assertEqual(list(fdb.PLACES)[-1], 'other', 'the catch-all stays last')
+        request = self.sent_request('brazil')
+        for words in ('item IV', 'item VI', 'item IX', 'item VII', 'paragraph 2 of Article 18'):
+            self.assertIn(words, request['body'])
+        self.assertNotRegex(request['body'], r'within \d+ days|fifteen days|15 days', 'the law fixes no time for deletion, so the letter claims none')
+        fdb.read_reply(self.state, request['ref'], 'Your request has been denied.')
+        notice = fdb.read_reply(self.state, request['ref'], 'Your request has been denied.')['answer']
+        self.assertIn('Autoridade Nacional de Proteção de Dados (ANPD)', notice['body'])
+        self.assertIn('gov.br/anpd', fdb.REGULATOR['lgpd'][1])
+        self.assertIn('edpb.europa.eu', fdb.REGULATOR['gdpr'][1])
+
+    def test_a_californian_is_told_about_the_states_own_service(self):
+        answers = iter(['Avery Exampleton', 'avery@example.com', '', '', '', '1'])
+        with mock.patch('builtins.input', lambda prompt='': next(answers)), contextlib.redirect_stdout(io.StringIO()) as shown:
+            fdb.do_setup(self.state)
+        self.assertIn('https://privacy.ca.gov/drop/', shown.getvalue())
+        self.assertIn('every 45 days', shown.getvalue())
+        answers = iter(['Avery Exampleton', 'avery@example.com', '', '', '', '6'])
+        with mock.patch('builtins.input', lambda prompt='': next(answers)), contextlib.redirect_stdout(io.StringIO()) as shown:
+            fdb.do_setup(self.state)
+        self.assertNotIn('DROP', shown.getvalue())
+        fdb.save(self.state)
+        result = fdb.mcp_reply({'jsonrpc': '2.0', 'id': 1, 'method': 'tools/call', 'params': {'name': 'fdb_setup', 'arguments': {'name': 'Avery Exampleton', 'email': 'avery@example.com', 'place': 'california'}}})['result']
+        self.assertIn('privacy.ca.gov/drop', result['content'][0]['text'])
 
 if __name__ == '__main__':
     unittest.main()
