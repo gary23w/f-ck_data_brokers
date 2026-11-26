@@ -1,5 +1,11 @@
 # f*ck_data_brokers.py
 
+"Today was funny: I was dealing with some scumbag data broker this morning, trying to get a
+good friend of mine's information deleted, and they WOULDN'T do it. No matter what I tried. I
+felt so ugh! I just wanted to reach through the screen and punch them in the face. Well, Mr.
+Data Broker, here's me reaching through the screen and punching you in the face. Enjoy
+f*ck_data_brokers.py"
+
 I remove people's data from data brokers. It is one of my main part-time jobs, and it has been a wild ride.
 
 All I want to do is help people. In the world of AI that has become next to impossible. From where I sit, data brokers have ramped up production almost 1000x since GPT-4 came out. Every scraper got smarter, every profile got fatter, and every "people search" site got a hundred cousins.
