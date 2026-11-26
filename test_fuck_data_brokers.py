@@ -4,10 +4,12 @@ Everything runs in a temporary folder with made-up people and brokers. Nothing i
 """
 import json
 import os
+import ssl
 import tempfile
 import contextlib
 import io
 import unittest
+import urllib.parse
 from pathlib import Path
 from unittest import mock
 
@@ -163,6 +165,11 @@ class Case(unittest.TestCase):
         # A form address that is not a plain web address is never offered.
         self.assertEqual(fdb.form_url({'rights_url': 'javascript:alert(1)'}), '')
         self.assertEqual(fdb.form_url({'rights_url': 'https://x.example.com/a b'}), '')
+        # Brokers often register the address without https:// in front; that is still their page.
+        self.assertEqual(fdb.form_url({'rights_url': 'www.example.com'}), 'https://www.example.com')
+        self.assertEqual(fdb.form_url({'rights_url': 'example.com/privacy;'}), 'https://example.com/privacy')
+        self.assertEqual(fdb.form_url({'rights_url': 'call us', 'website': 'https://example.com'}), 'https://example.com')
+        self.assertEqual(fdb.form_url({'rights_url': 'call us on the phone', 'website': ''}), '')
 
     def test_done_and_no_record_close_the_request_and_quiet_brokers_get_one_reminder(self):
         self.person()
@@ -195,8 +202,166 @@ class Case(unittest.TestCase):
         self.person()
         fdb.prepare(self.state, 1)
         with self.assertRaises(fdb.Oops) as caught:
-            fdb.send_drafts(self.state)
+            fdb.send_all(self.state)
         self.assertIn('app password', str(caught.exception))
+
+    def mail_server(self, fail_after=None):
+        """A stand-in for the mail provider: records what the tool does with it and sends nothing anywhere."""
+        seen = {'messages': [], 'tls': None, 'login': None, 'host': None}
+
+        class Server:
+            def __init__(self, host, port, timeout=None):
+                seen['host'] = (host, port)
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *problem):
+                return False
+
+            def starttls(self, context=None):
+                seen['tls'] = context
+
+            def login(self, user, password):
+                seen['login'] = (user, password)
+
+            def send_message(self, message):
+                if fail_after is not None and len(seen['messages']) >= fail_after:
+                    raise fdb.smtplib.SMTPServerDisconnected('connection lost')
+                seen['messages'].append(message)
+
+        return seen, mock.patch.object(fdb.smtplib, 'SMTP', Server), mock.patch.object(fdb.time, 'sleep', lambda seconds: None)
+
+    def test_sending_goes_through_an_encrypted_checked_connection_and_records_each_letter(self):
+        fdb.set_profile(self.state, 'Avery Exampleton', 'avery@gmail.com', 'Sampleville', 'CA', 'USA', 'california')
+        fdb.import_registry(self.state, REGISTRY)
+        fdb.prepare(self.state, 3)
+        seen, server, no_wait = self.mail_server()
+        with server, no_wait:
+            done = fdb.send_all(self.state, 20, 'app-password-for-test')
+        self.assertEqual(seen['host'], ('smtp.gmail.com', 587))
+        self.assertIsInstance(seen['tls'], ssl.SSLContext)
+        self.assertEqual(seen['tls'].verify_mode, ssl.CERT_REQUIRED, 'the server is checked before the password is given')
+        self.assertTrue(seen['tls'].check_hostname)
+        self.assertEqual(seen['login'], ('avery@gmail.com', 'app-password-for-test'))
+        self.assertEqual(len(seen['messages']), 3)
+        first = seen['messages'][0]
+        self.assertEqual(first['From'], 'avery@gmail.com')
+        self.assertEqual(first['To'], 'privacy@broker1.example.com')
+        self.assertIn('1798.105', first.get_content())
+        self.assertEqual(len(done), 3)
+        self.assertEqual({r['state'] for r in self.state['requests'].values()}, {'sent'})
+        self.assertNotIn('app-password-for-test', Path(self.folder.name, 'state.json').read_text(encoding='utf-8'), 'the password is never saved')
+        with server, no_wait:
+            self.assertEqual(fdb.send_all(self.state), [], 'nothing is sent twice')
+
+    def test_a_connection_lost_half_way_never_causes_a_second_copy(self):
+        fdb.set_profile(self.state, 'Avery Exampleton', 'avery@gmail.com', '', '', '', 'other')
+        fdb.import_registry(self.state, REGISTRY)
+        fdb.prepare(self.state, 5)
+        seen, server, no_wait = self.mail_server(fail_after=2)
+        with server, no_wait, self.assertRaises(fdb.Oops) as caught:
+            fdb.send_all(self.state, 20, 'x')
+        self.assertIn('2 sent and recorded', str(caught.exception))
+        states = sorted(r['state'] for r in fdb.load()['requests'].values())
+        self.assertEqual(states, ['draft'] * 3 + ['sent'] * 2, 'the two that went are saved as sent')
+        again, server, no_wait = self.mail_server()
+        with server, no_wait:
+            fdb.send_all(self.state, 20, 'x')
+        self.assertEqual(len(again['messages']), 3, 'only the three that never went are sent')
+        self.assertEqual({m['To'] for m in again['messages']} & {m['To'] for m in seen['messages']}, set())
+
+    def test_answers_reminders_and_notices_wait_on_the_send_page_and_go_out_with_send(self):
+        request = self.sent_request('california')
+        ref = request['ref']
+        fdb.read_reply(self.state, ref, 'Please send a copy of your passport.')
+        self.assertEqual([m['label'] for m in self.state['mail']], ['answer-wants_id'])
+        page = Path(fdb.write_send_page(self.state)).read_text(encoding='utf-8')
+        self.assertIn('answer wants id', page)
+        self.assertIn('I do not agree to send one', page)
+        fdb.set_profile(self.state, 'Avery Exampleton', 'avery@gmail.com', 'Sampleville', 'CA', 'USA', 'california')
+        seen, server, no_wait = self.mail_server()
+        with server, no_wait:
+            done = fdb.send_all(self.state, 20, 'x')
+        self.assertEqual(done, [ref + ' (answer-wants_id)'])
+        self.assertEqual(self.state['mail'], [])
+        self.assertTrue(seen['messages'][0]['Subject'].startswith('Re: '))
+        # Marking a request as sent by hand clears its follow-ups too.
+        fdb.read_reply(self.state, ref, 'We still need your passport.')
+        self.assertEqual([m['label'] for m in self.state['mail']], ['final-notice'])
+        fdb.mark_sent(self.state, [ref])
+        self.assertEqual(self.state['mail'], [])
+
+    def test_a_reply_finds_its_own_request_and_an_empty_paste_is_refused(self):
+        request = self.sent_request()
+        other = fdb.prepare(self.state, 1)[0]
+        fdb.mark_sent(self.state, [other['ref']])
+        text = 'Subject: RE: ' + request['subject'].upper() + '\n\nYour information has been deleted.'
+        result = fdb.read_reply(self.state, '', text)
+        self.assertEqual((result['ref'], result['kind']), (request['ref'], 'done'))
+        self.assertEqual(other['state'], 'sent', 'the other request is untouched')
+        with self.assertRaises(fdb.Oops) as caught:
+            fdb.read_reply(self.state, '', 'Your information has been deleted.')
+        self.assertIn('which request', str(caught.exception))
+        with self.assertRaises(fdb.Oops):
+            fdb.read_reply(self.state, other['ref'], '   \n')
+        reply = Path(self.folder.name, 'reply.txt')
+        reply.write_text('About ' + other['ref'] + ': we found no records matching your details.', encoding='utf-8')
+        fdb.save(self.state)
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(fdb.main(['reply', str(reply)]), 0, 'a file alone is enough')
+        self.assertEqual(fdb.load()['requests'][other['ref']]['state'], 'no_record')
+
+    def test_a_long_letter_never_rides_in_a_link_that_mail_programs_cut_short(self):
+        profile = {'name': 'Alexandria Montgomery-Fitzgerald', 'email': 'alexandria.montgomery@example.com', 'city': 'Sault Ste. Marie', 'region': 'Ontario', 'country': 'Canada'}
+        broker = {'name': 'Example Data Broker Holdings International LLC', 'email': 'privacy@broker.example.com'}
+        for law in fdb.LAW_TEXT:
+            subject, body = fdb.first_letter(profile, broker, law, 'req-1a2b3c4d')
+            link, paste = fdb.mail_link(broker['email'], subject, body)
+            self.assertLessEqual(len(link), fdb.MAILTO_LIMIT, law)
+            self.assertEqual(paste, 'body=' not in link, law)
+            self.assertIn(urllib.parse.quote(subject), link, law)
+        link, paste = fdb.mail_link('p@b.example.com', 'Short', 'Short letter.')
+        self.assertEqual((paste, 'body=Short%20letter.' in link), (False, True))
+        self.person('canada_other')
+        fdb.prepare(self.state, 1)
+        self.assertIn('too long for some mail apps', Path(fdb.write_send_page(self.state)).read_text(encoding='utf-8'))
+
+    def test_a_broker_that_never_answers_a_reminder_can_be_reported_too(self):
+        request = self.sent_request('canada_other')
+        request['due_at'] = fdb.now() - 1
+        self.assertEqual(len(fdb.chase(self.state)['reminders']), 1)
+        self.assertEqual([m['label'] for m in self.state['mail']], ['reminder'])
+        self.assertEqual(fdb.chase(self.state)['complaints'], [], 'not straight after the reminder')
+        request['reminded'] = fdb.now() - 15 * fdb.DAY
+        complaint = fdb.chase(self.state)['complaints'][0]
+        self.assertEqual(complaint['why'], 'never answered, even after a reminder')
+        self.assertEqual(complaint['regulator'], 'the Office of the Privacy Commissioner of Canada')
+        # With no law behind the request there is nobody to report to.
+        state = {'profile': None, 'brokers': {}, 'requests': {}}
+        fdb.set_profile(state, 'Avery Exampleton', 'avery@example.com', '', '', '', 'other')
+        fdb.add_broker(state, 'Example Broker', 'privacy@broker.example.com')
+        quiet = fdb.prepare(state)[0]
+        fdb.mark_sent(state, [quiet['ref']])
+        quiet.update(due_at=fdb.now() - 40 * fdb.DAY, reminded=fdb.now() - 30 * fdb.DAY)
+        self.assertEqual(fdb.chase(state)['complaints'], [])
+
+    def test_without_a_connection_the_list_shipped_with_the_tool_is_used(self):
+        if not fdb.BUNDLED_LIST.exists():
+            self.skipTest('no bundled list yet')
+        with mock.patch.object(fdb.urllib.request, 'urlopen', side_effect=OSError('offline')):
+            counts = fdb.load_brokers(self.state)
+        self.assertEqual(counts['from'], 'the list shipped with this tool')
+        self.assertGreater(len(self.state['brokers']), 100)
+
+    def test_an_ai_cannot_send_without_the_persons_app_password(self):
+        self.person()
+        fdb.prepare(self.state, 1)
+        fdb.save(self.state)
+        result = fdb.mcp_reply({'jsonrpc': '2.0', 'id': 1, 'method': 'tools/call', 'params': {'name': 'fdb_send', 'arguments': {}}})['result']
+        self.assertTrue(result['isError'])
+        self.assertIn('only the person can create', result['content'][0]['text'])
+        self.assertEqual({r['state'] for r in fdb.load()['requests'].values()}, {'draft'})
 
     def test_a_link_to_click_is_explained_and_never_followed_or_answered(self):
         request = self.sent_request()

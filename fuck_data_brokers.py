@@ -30,6 +30,7 @@ import os
 import re
 import secrets
 import smtplib
+import ssl
 import sys
 import time
 import urllib.parse
@@ -363,19 +364,25 @@ def gmail_link(to, subject, body):
     return 'https://mail.google.com/mail/?view=cm&fs=1&to=' + urllib.parse.quote(to) + '&su=' + urllib.parse.quote(subject) + '&body=' + urllib.parse.quote(body)
 
 
+def unsent(state):
+    """Every email waiting to go: first letters, then answers, reminders and final notices."""
+    items = [{'ref': r['ref'], 'label': 'request', 'to': state['brokers'][r['broker']]['email'], 'subject': r['subject'], 'body': r['body'], 'broker': state['brokers'][r['broker']]['name']}
+             for r in state['requests'].values() if r['state'] == 'draft' and r.get('via') != 'form']
+    return items + [dict(item, broker=state['brokers'][state['requests'][item['ref']]['broker']]['name']) for item in state.get('mail', []) if item['ref'] in state['requests']]
+
+
 def write_send_page(state):
-    """One page with every unsent letter: a button that opens it in your mail program, and copy buttons if that fails.
+    """One page with every unsent email: a button that opens it in your mail program, and copy buttons if that fails.
     Free, works with any mailbox, needs no password and no setup."""
-    cards = []
-    for request in state['requests'].values():
-        if request['state'] != 'draft' or request.get('via') == 'form':
-            continue
-        broker = state['brokers'][request['broker']]
-        to, subject, body = broker['email'], request['subject'], request['body']
-        e = html.escape
-        cards.append('<section><h2>' + e(broker['name']) + ' <small>' + e(request['ref']) + '</small></h2>'
-                     '<p><a class="go" href="' + e(mailto(to, subject, body)) + '">Open in my mail app</a> '
+    cards, e = [], html.escape
+    for item in unsent(state):
+        to, subject, body = item['to'], item['subject'], item['body']
+        link, paste = mail_link(to, subject, body)
+        kind = '' if item['label'] == 'request' else ' <small>' + e(item['label'].replace('-', ' ').replace('_', ' ')) + '</small>'
+        cards.append('<section><h2>' + e(item['broker']) + ' <small>' + e(item['ref']) + '</small>' + kind + '</h2>'
+                     '<p><a class="go" href="' + e(link) + '">Open in my mail app</a> '
                      '<a class="go" href="' + e(gmail_link(to, subject, body)) + '" target="_blank" rel="noopener">Open in Gmail</a></p>'
+                     + ('<p><strong>This letter is too long for some mail apps to open in one go.</strong> If it opens empty, press Copy letter and paste it in.</p>' if paste else '') +
                      '<p>Or copy and paste: <button data-copy="' + e(to) + '">Copy address</button> <button data-copy="' + e(subject) + '">Copy subject</button> '
                      '<button data-copy="' + e(body) + '">Copy letter</button></p><pre>' + e(body) + '</pre></section>')
     page = ('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Letters to send</title>'
@@ -411,17 +418,32 @@ def mailto(to, subject, body):
     return 'mailto:' + urllib.parse.quote(to) + '?subject=' + urllib.parse.quote(subject) + '&body=' + urllib.parse.quote(body)
 
 
-def smtp_send(profile, messages, password=None):
-    """Send through your own mailbox. Your password is read from the environment or asked for; it is never saved."""
+MAILTO_LIMIT = 1900  # some mail programs cut a longer link short, and a letter cut in half is worse than none
+
+
+def mail_link(to, subject, body):
+    """The link behind "Open in my mail app". Returns it and whether the letter has to be pasted in by hand."""
+    full = mailto(to, subject, body)
+    if len(full) <= MAILTO_LIMIT:
+        return full, False
+    return 'mailto:' + urllib.parse.quote(to) + '?subject=' + urllib.parse.quote(subject), True
+
+
+def smtp_send(profile, items, password=None, sent=lambda item: None):
+    """Send through your own mailbox. The password is read from the environment or asked for, and never saved.
+    The connection is encrypted and the server's identity is checked before the password is given.
+    `sent` is called after each email the server accepts, so a failure half way never causes a second copy."""
     if not smtp_ready(profile):
         raise Oops(SMTP_HELP)
     host, port = smtp_host(profile), int(os.environ.get('FDB_SMTP_PORT') or 587)
     with smtplib.SMTP(host, port, timeout=60) as server:
-        server.starttls()
+        server.starttls(context=ssl.create_default_context())
         server.login(os.environ.get('FDB_SMTP_USER') or profile['email'], password or os.environ.get('FDB_SMTP_PASS') or '')
-        for message in messages:
-            server.send_message(message)
-            time.sleep(2)  # no need to look like the spammers we are writing to
+        for number, item in enumerate(items):
+            if number:
+                time.sleep(2)  # no need to look like the spammers we are writing to
+            server.send_message(make_email(profile, item['to'], item['subject'], item['body']))
+            sent(item)
 
 
 # ---------------------------------------------------------------- the work
@@ -455,9 +477,17 @@ def prepare(state, limit=20):
     return made
 
 
+def web_address(value):
+    """A plain web address, or nothing. Brokers often register theirs as "www.example.com" with no https:// in front."""
+    url = str(value or '').strip().rstrip(';,.')
+    if url and not re.match(r'https?://', url, re.I) and re.match(r'[A-Za-z0-9][A-Za-z0-9.-]*\.[A-Za-z]{2,}(?:[/?#][^\s"<>]*)?$', url):
+        url = 'https://' + url
+    return url if re.match(r'https?://[^\s"<>]+$', url, re.I) else ''
+
+
 def form_url(broker):
-    url = str(broker.get('rights_url') or '')
-    return url if re.match(r'https?://[^\s"<>]+$', url) else ''
+    """Where the broker takes privacy requests: its registered privacy page, or failing that its website."""
+    return web_address(broker.get('rights_url')) or web_address(broker.get('website'))
 
 
 def form_text(profile, law, ref):
@@ -515,8 +545,15 @@ def write_forms_page(state):
     return str(file)
 
 
+def queue(state, profile, broker, ref, label, subject, body):
+    """Put a follow-up email in the queue and write it as a draft file too."""
+    state.setdefault('mail', []).append({'ref': ref, 'label': label, 'to': broker['email'], 'subject': subject, 'body': body})
+    return write_draft(profile, broker['email'], subject, body, ref, label)
+
+
 def mark_sent(state, refs):
     done = []
+    state['mail'] = [item for item in state.get('mail', []) if item['ref'] not in refs]
     for ref in refs:
         request = state['requests'].get(ref)
         if request and request['state'] in ('draft', 'form'):
@@ -527,11 +564,29 @@ def mark_sent(state, refs):
     return done
 
 
-def send_drafts(state, limit=20, password=None):
+def send_all(state, limit=20, password=None):
+    """Send what is waiting: follow-ups first, then first letters, up to the limit. Each one is recorded the moment
+    the mail server accepts it and the record is saved, so stopping half way never sends anything twice."""
     profile = need_profile(state)
-    drafts = [r for r in state['requests'].values() if r['state'] == 'draft' and r.get('via') != 'form'][:limit]
-    smtp_send(profile, [make_email(profile, state['brokers'][r['broker']]['email'], r['subject'], r['body']) for r in drafts], password)
-    return mark_sent(state, [r['ref'] for r in drafts])
+    items, done = unsent(state), []
+    items = [i for i in items if i['label'] != 'request'] + [i for i in items if i['label'] == 'request'][:limit]
+
+    def accepted(item):
+        if item['label'] == 'request':
+            mark_sent(state, [item['ref']])
+        else:
+            state['mail'] = [m for m in state.get('mail', []) if not (m['ref'] == item['ref'] and m['label'] == item['label'])]
+            log(state['requests'][item['ref']], item['label'].replace('-', ' ').replace('_', ' ').capitalize() + ' sent.')
+        done.append(item['ref'] + (' (' + item['label'] + ')' if item['label'] != 'request' else ''))
+        save(state)
+
+    try:
+        smtp_send(profile, items, password, accepted)
+    except (OSError, smtplib.SMTPException) as problem:
+        if done:
+            raise Oops(str(len(done)) + ' sent and recorded, then it stopped: ' + explain(problem) + ' Run "send" again for the rest; nothing will be sent twice.')
+        raise
+    return done
 
 
 # What a broker's reply usually means. Checked in this order; the first match wins.
@@ -567,9 +622,22 @@ def classify(text):
     return 'unclear'
 
 
+def find_ref(state, text):
+    """Replies quote the subject line, and the subject line carries the reference."""
+    for ref in re.findall(r'req-[0-9a-f]{8}', str(text).lower()):
+        if ref in state['requests']:
+            return ref
+    return ''
+
+
 def read_reply(state, ref, text):
     """Record a broker's reply and say what to do. Returns the answer to send, if there is one."""
     profile = need_profile(state)
+    if not str(text).strip():
+        raise Oops('That reply is empty. Paste what the broker wrote.')
+    ref = str(ref or '').strip() or find_ref(state, text)
+    if not ref:
+        raise Oops('I cannot tell which request this reply is about. Give the reference: it is in the subject line and looks like req-1a2b3c4d.')
     request = state['requests'].get(ref)
     if not request:
         raise Oops('No request with reference ' + ref + '.')
@@ -599,7 +667,7 @@ def read_reply(state, ref, text):
                 subject, body = final_notice(profile, broker, request['law'], request)
                 request['answers'].append('final_notice')
                 request['notice_due'] = now() + NOTICE_DAYS * DAY
-                result['answer'] = {'to': broker['email'], 'subject': subject, 'body': body, 'draft': write_draft(profile, broker['email'], subject, body, ref, 'final-notice'), 'kind': 'final_notice'}
+                result['answer'] = {'to': broker['email'], 'subject': subject, 'body': body, 'draft': queue(state, profile, broker, ref, 'final-notice', subject, body), 'kind': 'final_notice'}
                 log(request, 'Final notice written. They have ' + str(NOTICE_DAYS) + ' days.')
             else:
                 result['meaning'] += ' No law backs this request, so it ends here.'
@@ -607,26 +675,35 @@ def read_reply(state, ref, text):
             subject, body = answer_letter(profile, broker, request['law'], request, kind)
             request['answers'].append(kind)
             request['state'] = 'answered'
-            result['answer'] = {'to': broker['email'], 'subject': subject, 'body': body, 'draft': write_draft(profile, broker['email'], subject, body, ref, 'answer-' + kind), 'kind': kind}
+            result['answer'] = {'to': broker['email'], 'subject': subject, 'body': body, 'draft': queue(state, profile, broker, ref, 'answer-' + kind, subject, body), 'kind': kind}
             log(request, 'Answer written (' + kind + ').')
     return result
 
 
+SILENCE_DAYS = 14
+
+
 def chase(state):
-    """Reminders for brokers that went quiet, and complaint routes for the ones that refused twice."""
+    """Reminders for brokers that went quiet, and where to complain about the ones that refused twice or never answered."""
     profile, out = need_profile(state), {'reminders': [], 'complaints': []}
     for request in state['requests'].values():
-        broker = state['brokers'][request['broker']]
-        if request['state'] in ('sent', 'acknowledged', 'answered') and request['due_at'] and request['due_at'] < now() and not request.get('reminded'):
+        broker, waiting = state['brokers'][request['broker']], request['state'] in ('sent', 'acknowledged', 'answered')
+        if waiting and request['due_at'] and request['due_at'] < now() and not request.get('reminded'):
             subject, body = reminder_letter(profile, broker, request['law'], request)
             request['reminded'] = now()
             log(request, 'Reminder written.')
             out['reminders'].append({'ref': request['ref'], 'broker': broker['name'], 'to': broker['email'], 'subject': subject, 'body': body,
-                                     'draft': write_draft(profile, broker['email'], subject, body, request['ref'], 'reminder')})
+                                     'draft': queue(state, profile, broker, request['ref'], 'reminder', subject, body)})
+            continue
+        regulator, how = REGULATOR[request['law']]
+        why = ''
         if 'final_notice' in request['answers'] and request.get('notice_due', 0) < now() and request['state'] not in ('done', 'no_record'):
-            regulator, how = REGULATOR[request['law']]
-            out['complaints'].append({'ref': request['ref'], 'broker': broker['name'], 'regulator': regulator, 'how': how,
-                                      'include': 'Your original request (' + day(request['sent_at']) + '), the broker\'s replies, and your final notice.'})
+            why = 'refused twice and ignored the final notice'
+        elif waiting and request.get('reminded') and request['reminded'] + SILENCE_DAYS * DAY < now():
+            why = 'never answered, even after a reminder'
+        if why and regulator:
+            out['complaints'].append({'ref': request['ref'], 'broker': broker['name'], 'why': why, 'regulator': regulator, 'how': how,
+                                      'include': 'Your original request (' + day(request['sent_at']) + '), anything the broker wrote back, and your reminder or final notice.'})
     return out
 
 
@@ -658,7 +735,7 @@ TOOLS = [
     ('fdb_forms', 'For brokers that answered "use our form", or publish no email address: returns each broker\'s own form page and the exact values to enter. If you have a browser tool you may open the page and fill the fields while the person watches; the person completes any CAPTCHA and presses submit themselves. Enter only the values given. Never upload an identity document. Afterwards call fdb_mark_sent.', {'limit': 'How many (default 10)'}, []),
     ('fdb_send', 'Send the written letters through the person\'s own free mailbox. Needs FDB_SMTP_PASS set to an app password. Ask the person before sending. Without it, give them the send page from fdb_write_letters.', {'limit': 'How many (default 20)'}, []),
     ('fdb_mark_sent', 'Record that the person sent these letters themselves.', {'refs': 'Comma-separated references, or "all"'}, ['refs']),
-    ('fdb_read_reply', 'Give it a broker\'s reply text. It says what the reply means and writes the answer to send, if one is needed. Never click links in a reply and never send an identity document.', {'ref': 'Request reference, like req-1a2b3c4d', 'text': 'The reply text'}, ['ref', 'text']),
+    ('fdb_read_reply', 'Give it a broker\'s reply text. It says what the reply means and writes the answer to send, if one is needed. Never click links in a reply and never send an identity document.', {'ref': 'Request reference, like req-1a2b3c4d. Leave out if the reply text contains it.', 'text': 'The reply text, including its subject line'}, ['text']),
     ('fdb_chase', 'Write reminders for brokers past their deadline, and list where to complain about the ones that refused twice.', {}, []),
 ]
 
@@ -686,14 +763,18 @@ def call_tool(name, args):
                          for r in state['requests'].values() if form_waiting(r)],
                'page_for_the_person': write_forms_page(state)}
     elif name == 'fdb_send':
-        out = {'sent': send_drafts(state, int(args.get('limit') or 20))}
+        if not os.environ.get('FDB_SMTP_PASS'):
+            raise Oops('Sending from here needs FDB_SMTP_PASS set to an app password, which only the person can create. Without it, give them the send page: ' + write_send_page(state))
+        out = {'sent': send_all(state, int(args.get('limit') or 20))}
     elif name == 'fdb_mark_sent':
         refs = [r['ref'] for r in state['requests'].values() if r['state'] == 'draft' and r.get('via') != 'form'] if str(args.get('refs', '')).strip() == 'all' else [r.strip() for r in str(args.get('refs', '')).split(',') if r.strip()]
+        if str(args.get('refs', '')).strip() == 'all':
+            state['mail'] = []
         out = {'marked_sent': mark_sent(state, refs)}
     elif name == 'fdb_read_reply':
         out = read_reply(state, str(args.get('ref', '')).strip(), args.get('text', ''))
     elif name == 'fdb_chase':
-        out = chase(state)
+        out = {**chase(state), 'send_page': write_send_page(state)}
     else:
         raise Oops('Unknown tool: ' + name)
     save(state)
@@ -826,11 +907,13 @@ def do_forms(state, limit=10):
 
 def do_send(state, limit=20):
     password = None if os.environ.get('FDB_SMTP_PASS') or not smtp_ready(need_profile(state)) else getpass.getpass('App password for ' + state['profile']['email'] + ' (not saved): ')
-    print('Sent: ' + ', '.join(send_drafts(state, limit, password)) + '\nThe clock is running. They hate that.')
+    done = send_all(state, limit, password)
+    print(('Sent: ' + ', '.join(done) + '\nThe clock is running. They hate that.') if done else 'Nothing is waiting to be sent.')
 
 
 def do_reply(state, ref=None, file=None):
-    ref = ref or ask('Which request is the reply about (the req-... reference in the subject)')
+    if ref and not file and not re.fullmatch(r'req-[0-9a-f]{8}', ref) and Path(ref).is_file():
+        ref, file = None, ref  # they gave the file and left the reference to be found in it
     if file:
         text = Path(file).read_text(encoding='utf-8', errors='replace')
     else:
@@ -842,11 +925,13 @@ def do_reply(state, ref=None, file=None):
                 break
             lines.append(line)
         text = ''.join(lines)
+    if not ref and not find_ref(state, text) and text.strip():
+        ref = ask('Which request is this about (the req-... reference in the subject line)')
     result = read_reply(state, ref, text)
     print('\n' + result['broker'] + ': ' + result['meaning'])
     if result['answer']:
         answer = result['answer']
-        print('\nYour answer is written. Reply to their email with this text, or open the draft:\n  ' + answer['draft'] + '\n\n' + answer['body'])
+        print('\nYour answer is written. Reply to their email with this text. It is also on your send page:\n  ' + write_send_page(state) + '\n\n' + answer['body'])
 
 
 def do_chase(state):
@@ -854,10 +939,12 @@ def do_chase(state):
     if not out['reminders'] and not out['complaints']:
         print('\nNobody to chase today. Come back when they are late. They will be late.')
     for item in out['reminders']:
-        print('\nReminder for ' + item['broker'] + ' written: ' + item['draft'])
+        print('\nReminder for ' + item['broker'] + ' written.')
+    if out['reminders']:
+        print('\nSend the reminders from your send page, or run "send":\n  ' + write_send_page(state))
     for item in out['complaints']:
-        print('\n' + item['broker'] + ' refused twice and ignored the final notice.')
-        print('Complain to ' + (item['regulator'] or 'nobody, sadly') + '. ' + item['how'])
+        print('\n' + item['broker'] + ' ' + item['why'] + '.')
+        print('Complain to ' + item['regulator'] + '. ' + item['how'])
         print('Include: ' + item['include'])
 
 
@@ -919,7 +1006,8 @@ def main(argv=None):
     sent = sub.add_parser('sent', help='record that you sent drafts yourself')
     sent.add_argument('refs', nargs='+', help='references, or "all"')
     reply = sub.add_parser('reply', help='read a broker reply and get your answer')
-    reply.add_argument('ref'), reply.add_argument('file', nargs='?', help='file with the reply text; otherwise paste it')
+    reply.add_argument('ref', nargs='?', help='the req-... reference; leave out if the reply contains it')
+    reply.add_argument('file', nargs='?', help='file with the reply text; otherwise paste it')
     sub.add_parser('chase', help='reminders and complaint routes')
     sub.add_parser('status', help='where things stand')
     sub.add_parser('mcp', help='run as an MCP server for your AI')
@@ -952,6 +1040,8 @@ def main(argv=None):
             do_forms(state, args.limit)
         elif args.command == 'sent':
             refs = [r['ref'] for r in state['requests'].values() if r['state'] == 'draft' and r.get('via') != 'form'] if args.refs == ['all'] else args.refs
+            if args.refs == ['all']:
+                state['mail'] = []
             print('Marked as sent: ' + (', '.join(mark_sent(state, refs)) or 'nothing'))
         elif args.command == 'reply':
             do_reply(state, args.ref, args.file)
