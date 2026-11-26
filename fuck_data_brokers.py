@@ -11,7 +11,7 @@ One file. No dependencies. Everything stays on your computer.
     python fuck_data_brokers.py --help   every command
 
 What it does:
-  1. Gets the list of registered data brokers from California's public registry.
+  1. Gets the list of registered data brokers from official public registries.
   2. Writes each one a proper legal deletion and opt-out letter, in your name.
   3. When a broker insists on its web form, gives you the form and what to paste.
   4. Reads their replies and tells you what the excuse means and what to answer.
@@ -33,6 +33,7 @@ import smtplib
 import ssl
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from email.message import EmailMessage
@@ -41,7 +42,7 @@ from pathlib import Path
 VERSION = '1.0.0'
 DAY = 86400
 REGISTRY_URL = 'https://cppa.ca.gov/data_broker_registry/registry.csv'
-REGISTRY_CREDIT = 'Broker list: California Privacy Protection Agency data broker registry (cppa.ca.gov).'
+OREGON_URL = 'https://www4.cbs.state.or.us/ex/shared/downtemp/dfcs_db_optout.csv'
 
 # ---------------------------------------------------------------- the law
 
@@ -165,9 +166,9 @@ def clean_email(value):
     return found.group(0).lower() if found else ''
 
 
-def read_registry(text):
-    """Turn California's registry CSV into brokers. Nothing is invented: a row without a name is skipped."""
-    rows = list(csv.reader(io.StringIO(text.lstrip('﻿'))))
+def rows_of(text):
+    """Split a registry CSV into its rows and a way to find a column by its heading."""
+    rows = list(csv.reader(io.StringIO(text.lstrip('\ufeff'))))
     if not rows:
         raise Oops('The registry file is empty.')
     header = [' '.join(h.lower().split()) for h in rows[0]]
@@ -178,66 +179,182 @@ def read_registry(text):
                 return index
         raise Oops('The registry changed its columns. Nothing was imported.')
 
+    return rows[1:], column
+
+
+def cell(row, index):
+    return row[index].strip() if index < len(row) else ''
+
+
+def read_registry(text):
+    """California's registry. Nothing is invented: a row without a number and a name is skipped."""
+    rows, column = rows_of(text)
     col_id = column(lambda h: h.startswith('broker id'))
     col_name = column(lambda h: h.startswith('data broker name'))
     col_site = column(lambda h: h.startswith('data broker primary website') and 'exercise' not in h)
     col_mail = column(lambda h: 'primary contact email' in h)
     col_rights = column(lambda h: 'how consumers can exercise' in h)
     brokers = {}
-    for row in rows[1:]:
-        if len(row) <= max(col_id, col_name, col_site, col_mail, col_rights):
-            continue
-        number, name = row[col_id].strip(), ' '.join(row[col_name].split())
+    for row in rows:
+        number, name = cell(row, col_id), ' '.join(cell(row, col_name).split())
         if not number.isdigit() or not name:
             continue
-        brokers['ca-' + number] = {'name': name[:200], 'email': clean_email(row[col_mail]), 'website': row[col_site].strip()[:300],
-                                   'rights_url': row[col_rights].strip().split()[0][:300] if row[col_rights].strip() else '',
-                                   'source': 'california registry'}
+        rights = cell(row, col_rights)
+        brokers['ca-' + number] = {'name': name[:200], 'email': clean_email(cell(row, col_mail)), 'website': cell(row, col_site)[:300],
+                                   'rights_url': rights.split()[0][:300] if rights else '', 'source': 'california registry'}
     return brokers
 
 
+def read_oregon(text):
+    """Oregon's registry. It publishes each broker's opt-out email and opt-out page."""
+    rows, column = rows_of(text)
+    col_id, col_name = column(lambda h: h == 'license no.'), column(lambda h: h == 'facility name')
+    col_mail, col_site, col_other = column(lambda h: h == 'opt out email'), column(lambda h: h == 'opt out website'), column(lambda h: h == 'opt out other methods')
+    brokers = {}
+    for row in rows:
+        licence, name = cell(row, col_id), ' '.join(cell(row, col_name).split())
+        if not re.fullmatch(r'[A-Za-z]+-\d+', licence) or not name:
+            continue
+        site, other = cell(row, col_site)[:300], cell(row, col_other)[:300]
+        brokers['or-' + licence.lower()] = {'name': name[:200], 'email': clean_email(cell(row, col_mail)), 'website': site,
+                                            'rights_url': other if web_address(other) else site, 'source': 'oregon registry'}
+    return brokers
+
+
+# Every place the list comes from. Each is an official public registry: a company is on this list because a
+# government record says it is a data broker, never because a program guessed. Earlier sources win when the same
+# company is registered in more than one place. To add a registry, add a reader above and one line here.
+SOURCES = [
+    {'key': 'ca', 'name': 'California Privacy Protection Agency data broker registry', 'page': 'https://cppa.ca.gov/data_broker_registry/', 'url': REGISTRY_URL, 'read': read_registry, 'least': 100},
+    {'key': 'or', 'name': 'Oregon Division of Financial Regulation data broker registry', 'page': 'https://dfr.oregon.gov/business/licensing/data-broker-registry', 'url': OREGON_URL, 'read': read_oregon, 'least': 50},
+]
+REGISTRY_CREDIT = 'Broker list: ' + '; '.join(source['name'] for source in SOURCES) + '.'
+BUNDLED_LIST = Path(__file__).resolve().parent / 'brokers.json'
+MORE_LIST = Path(__file__).resolve().parent / 'more_brokers.json'
+
+
+def name_key(name):
+    """A company name boiled down, so "Acme Data, Inc." and "ACME DATA LLC" are seen as the same company."""
+    text = re.sub(r'\bd/?b/?a\b.*$', '', str(name).lower())
+    text = re.sub(r'[^a-z0-9 ]', ' ', text)
+    text = re.sub(r'\b(?:inc|incorporated|llc|corp|corporation|co|company|ltd|limited|lp|llp|plc|gmbh|bv|the)\b', ' ', text)
+    return ' '.join(text.split())
+
+
+def fetch(url, known=None):
+    """Download a registry politely: say who is asking, and tell the server what we already have so an
+    unchanged file costs it nothing. Returns (None, known) when the file has not changed."""
+    headers = {'Accept': 'text/csv,*/*', 'User-Agent': 'fuck_data_brokers/' + VERSION + ' (public registry list updater)'}
+    for field, header in (('etag', 'If-None-Match'), ('last_modified', 'If-Modified-Since')):
+        if known and known.get(field):
+            headers[header] = known[field]
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=60) as response:
+            text = response.read(16 * 1024 * 1024).decode('utf-8', 'replace')
+            return text, {'etag': response.headers.get('ETag') or '', 'last_modified': response.headers.get('Last-Modified') or ''}
+    except urllib.error.HTTPError as problem:
+        if problem.code == 304:
+            return None, known
+        raise
+
+
+def read_more():
+    """Brokers people reported that are on no registry. Each needs a name, a way to reach it, and evidence."""
+    if not MORE_LIST.exists():
+        return {}
+    brokers = {}
+    for entry in json.loads(MORE_LIST.read_text(encoding='utf-8')).get('brokers', []):
+        name, email = ' '.join(str(entry.get('name', '')).split()), clean_email(entry.get('email'))
+        page = web_address(entry.get('rights_url')) or web_address(entry.get('website'))
+        if name_key(name) and (email or page) and web_address(entry.get('evidence')):
+            brokers['more-' + name_key(name).replace(' ', '-')] = {'name': name[:200], 'email': email, 'website': str(entry.get('website') or '')[:300],
+                                                                  'rights_url': str(entry.get('rights_url') or '')[:300], 'source': 'reported, with evidence'}
+    return brokers
+
+
+def gather(old=None, fetcher=None, conditional=True):
+    """Build the list from every source. A source that fails, or comes back nearly empty, keeps what it had
+    last time, so one broken registry never empties the list. Returns the list and what went wrong."""
+    old, fetcher = old or {}, fetcher or fetch
+    old_brokers, old_sources = old.get('brokers') or {}, old.get('sources') or {}
+    brokers, sources, problems = {}, {}, []
+    for source in SOURCES:
+        key = source['key']
+        kept = {k: dict(v) for k, v in old_brokers.items() if k.startswith(key + '-')}
+        known = old_sources.get(key) or {}
+        try:
+            text, seen = fetcher(source['url'], known if conditional and kept else None)
+            found = kept if text is None else source['read'](text)
+            if text is not None and len(found) < source['least']:
+                raise Oops('it returned only ' + str(len(found)) + ' brokers')
+        except Exception as problem:
+            problems.append(source['name'] + ': ' + (str(problem) or type(problem).__name__)[:160])
+            found, seen = kept, known
+        brokers.update(found)
+        sources[key] = {'name': source['name'], 'page': source['page'], 'url': source['url'], 'brokers': len(found),
+                        'etag': (seen or {}).get('etag', ''), 'last_modified': (seen or {}).get('last_modified', '')}
+    brokers.update(read_more())
+    # The same company registered in two places is written to once. The first source to list it keeps it.
+    order, first = [source['key'] for source in SOURCES] + ['more'], {}
+    for key in sorted(brokers, key=lambda k: (order.index(k.split('-')[0]) if k.split('-')[0] in order else len(order), k)):
+        broker = brokers[key]
+        broker.pop('same_as', None)
+        same = first.setdefault(name_key(broker['name']) or key, key)
+        if same != key:
+            broker['same_as'] = same
+    return {'brokers': brokers, 'sources': sources}, problems
+
+
+def usable(brokers):
+    return {key: {k: v for k, v in broker.items() if k != 'same_as'} for key, broker in brokers.items() if not broker.get('same_as')}
+
+
+def write_list(file):
+    """Used by the scheduled GitHub Action: rebuild brokers.json from every source and say what changed."""
+    target = Path(file)
+    old = json.loads(target.read_text(encoding='utf-8')) if target.exists() else {}
+    new, problems = gather(old)
+    if not new['brokers']:
+        raise Oops('No source could be reached and there is no earlier list. Nothing was written.')
+    before, after = usable(old.get('brokers') or {}), usable(new['brokers'])
+    added = sorted(after[key]['name'] for key in after if key not in before)
+    gone = sorted(before[key]['name'] for key in before if key not in after)
+    with open(target, 'w', encoding='utf-8', newline='\n') as out:  # the same bytes on every system, so the file only changes when a registry does
+        out.write(json.dumps({'credit': REGISTRY_CREDIT, **new}, indent=1, ensure_ascii=False, sort_keys=True) + '\n')
+    line = 'Broker list: ' + str(len(after)) + ' brokers'
+    if added or gone:
+        line += ', ' + str(len(added)) + ' new, ' + str(len(gone)) + ' gone'
+    return {'brokers': len(after), 'with_email': sum(1 for b in after.values() if b['email']), 'listed_twice': len(new['brokers']) - len(after),
+            'new': added, 'gone': gone, 'problems': problems, 'line': line}
+
+
 def import_registry(state, text=None):
+    """With text: read one California registry file (used by the tests). Without: fetch every source."""
     if text is None:
-        request = urllib.request.Request(REGISTRY_URL, headers={'Accept': 'text/csv', 'User-Agent': 'fuck_data_brokers/' + VERSION})
-        with urllib.request.urlopen(request, timeout=60) as response:
-            text = response.read(8 * 1024 * 1024).decode('utf-8', 'replace')
+        return load_brokers(state)
     found = read_registry(text)
     if len(found) < 20:
         raise Oops('The registry returned almost nothing, so nothing was imported.')
-    added = 0
+    return take(state, found)
+
+
+def take(state, found):
+    added = sum(1 for key in found if key not in state['brokers'])
     for key, broker in found.items():
-        if key not in state['brokers']:
-            added += 1
         state['brokers'][key] = {**state['brokers'].get(key, {}), **broker}
     return {'in_registry': len(found), 'new': added, 'with_email': sum(1 for b in found.values() if b['email'])}
 
 
-BUNDLED_LIST = Path(__file__).resolve().parent / 'brokers.json'
-
-
-def write_list(file):
-    """Used by the scheduled GitHub Action: fetch the registry and save it as brokers.json next to this file."""
-    state = {'brokers': {}}
-    counts = import_registry(state)
-    with open(file, 'w', encoding='utf-8', newline='\n') as out:  # the same bytes on every system, so the list only changes when the registry does
-        out.write(json.dumps({'credit': REGISTRY_CREDIT, 'source': REGISTRY_URL, 'brokers': state['brokers']}, indent=1, ensure_ascii=False, sort_keys=True) + '\n')
-    return counts
-
-
 def load_brokers(state):
-    """Get the broker list: live from the registry, or from the copy shipped with this tool when you are offline."""
-    try:
-        return {**import_registry(state), 'from': 'the live registry'}
-    except Oops:
-        raise
-    except Exception:
-        if not BUNDLED_LIST.exists():
-            raise Oops('Could not reach the registry and there is no bundled list. Check your connection and try again.')
-        found = json.loads(BUNDLED_LIST.read_text(encoding='utf-8'))['brokers']
-        new = sum(1 for key in found if key not in state['brokers'])
-        for key, broker in found.items():
-            state['brokers'][key] = {**state['brokers'].get(key, {}), **broker}
-        return {'in_registry': len(found), 'new': new, 'with_email': sum(1 for b in found.values() if b['email']), 'from': 'the list shipped with this tool'}
+    """Get the broker list: live from every registry, with the copy shipped with this tool standing in for any
+    registry that cannot be reached."""
+    shipped = json.loads(BUNDLED_LIST.read_text(encoding='utf-8')) if BUNDLED_LIST.exists() else {}
+    data, problems = gather(shipped, conditional=False)
+    found = usable(data['brokers'])
+    if not found:
+        raise Oops('Could not reach any registry and there is no bundled list. Check your connection and try again.')
+    where = 'the live registries' if not problems else 'the list shipped with this tool' if len(problems) == len(SOURCES) else 'the live registries, and the shipped list for the ones that did not answer'
+    return {**take(state, found), 'from': where}
 
 
 def add_broker(state, name, email, website=''):
@@ -1022,7 +1139,18 @@ def main(argv=None):
     if not args.command:
         return menu()
     if args.command == 'update-list':
-        print(json.dumps(write_list(args.file)))
+        try:
+            report = write_list(args.file)
+        except Oops as problem:
+            print(str(problem))
+            return 1
+        for name in report['new']:
+            print('new:  ' + name)
+        for name in report['gone']:
+            print('gone: ' + name)
+        for problem in report['problems']:
+            print('problem: ' + problem)
+        print(report['line'])
         return 0
     state = load()
     try:

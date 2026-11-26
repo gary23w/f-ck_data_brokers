@@ -1,19 +1,29 @@
-name: Update the broker list
+name: Find new data brokers
 
-# Refreshes brokers.json from the public registry once a week, and commits it only when it changed.
-# The tool refuses to write a list that came back nearly empty, so a broken download never replaces a good list.
+# Every hour: ask each official registry for its list, add the brokers that are new, drop the ones that are gone,
+# and commit only when something changed. The commit message names every broker added or removed.
+#
+# Safe by design:
+# - A registry that is down, or comes back nearly empty, keeps the brokers it had last time.
+# - The tests run before and after, so a list that breaks the tool is never committed.
+# - Each request says who is asking and what it already has, so an unchanged registry costs its server nothing.
 
 on:
   schedule:
-    - cron: '17 6 * * 1'
+    - cron: '23 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: broker-list
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -21,18 +31,23 @@ jobs:
           python-version: '3.12'
       - name: Tests pass before anything changes
         run: python -m unittest
-      - name: Fetch the registry
-        run: python fuck_data_brokers.py update-list brokers.json
+      - name: Ask every registry
+        run: python fuck_data_brokers.py update-list brokers.json | tee update.txt
       - name: Tests pass with the new list
         run: python -m unittest
       - name: Commit if the list changed
         run: |
           if git diff --quiet -- brokers.json; then
-            echo "The list has not changed."
+            echo "No broker was added or removed."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add brokers.json
-          git commit -m "Update the broker list from the public registry"
+          {
+            tail -n 1 update.txt
+            echo
+            grep -E '^(new|gone|problem): ' update.txt || true
+          } > message.txt
+          git commit -F message.txt
           git push

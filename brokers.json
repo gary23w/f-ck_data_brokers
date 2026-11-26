@@ -4374,8 +4374,3131 @@
    "rights_url": "https://www.tracerfy.com",
    "source": "california registry",
    "website": "https://www.tracerfy.com"
+  },
+  "or-data-00009": {
+   "email": "privacy@crunchbase.com",
+   "name": "Crunchbase Inc",
+   "rights_url": "https://preferences.crunchbase.com/dont_sell",
+   "same_as": "ca-1079",
+   "source": "oregon registry",
+   "website": "Crunchbase.com"
+  },
+  "or-data-00010": {
+   "email": "dprivacy@forddirect.com",
+   "name": "DEALERDIRECT LLC",
+   "rights_url": "https://forddirect.privacy.saymine.io/forddirect",
+   "same_as": "ca-1010",
+   "source": "oregon registry",
+   "website": "forddirectprivacy.com"
+  },
+  "or-data-00011": {
+   "email": "",
+   "name": "Deloitte Consulting LLP",
+   "rights_url": "datasubject.deloitte.com",
+   "same_as": "ca-1143",
+   "source": "oregon registry",
+   "website": "datasubject.deloitte.com"
+  },
+  "or-data-00012": {
+   "email": "privacy@healthwisedata.com",
+   "name": "HealthWise Data LLC",
+   "rights_url": "healthwisedata.com",
+   "same_as": "ca-1008",
+   "source": "oregon registry",
+   "website": "healthwisedata.com"
+  },
+  "or-data-00013": {
+   "email": "",
+   "name": "LEAD INTELLIGENCE INC",
+   "rights_url": "marketing.verisk.com/privacy-center/",
+   "same_as": "ca-1154",
+   "source": "oregon registry",
+   "website": "marketing.verisk.com/privacy-center/"
+  },
+  "or-data-00015": {
+   "email": "upscapitalitprivacy@ups.com",
+   "name": "UPS Capital Corporation",
+   "rights_url": "https://upscapital.com/opt-out/",
+   "same_as": "ca-1214",
+   "source": "oregon registry",
+   "website": "https://upscapital.com/opt-out/"
+  },
+  "or-data-00016": {
+   "email": "optout@experian.com",
+   "name": "EXPERIAN MARKETING SOLUTIONS LLC",
+   "rights_url": "consumerprivacy.experian.com",
+   "same_as": "ca-1335",
+   "source": "oregon registry",
+   "website": "consumerprivacy.experian.com"
+  },
+  "or-data-00017": {
+   "email": "optout@experian.com",
+   "name": "EXPERIAN INFORMATION SOLUTIONS INC",
+   "rights_url": "https://consumerprivacy.experian.com",
+   "same_as": "ca-1094",
+   "source": "oregon registry",
+   "website": "https://consumerprivacy.experian.com"
+  },
+  "or-data-00018": {
+   "email": "optout@experian.com",
+   "name": "EXPERIAN HEALTH INC",
+   "rights_url": "consumerprivacy.experian.com",
+   "source": "oregon registry",
+   "website": "consumerprivacy.experian.com"
+  },
+  "or-data-00019": {
+   "email": "consumer.documents@lexisnexisrisk.com",
+   "name": "LEXISNEXIS RISK SOLUTIONS FL INC",
+   "rights_url": "risk.lexisnexis.com",
+   "same_as": "ca-1427",
+   "source": "oregon registry",
+   "website": "risk.lexisnexis.com"
+  },
+  "or-data-00020": {
+   "email": "privacy@foursquare.com",
+   "name": "Foursquare Labs Inc",
+   "rights_url": "https://foursquare.com/products/your-privacy-choices/",
+   "same_as": "ca-1129",
+   "source": "oregon registry",
+   "website": "www.foursquare.com"
+  },
+  "or-data-00021": {
+   "email": "privacy.compliance@accudata.com",
+   "name": "Compact Information Systems LLC",
+   "rights_url": "www.accudata.com",
+   "same_as": "ca-1009",
+   "source": "oregon registry",
+   "website": "www.accudata.com"
+  },
+  "or-data-00022": {
+   "email": "privacy.compliance@deepsync.com",
+   "name": "Compact Information Systems LLC",
+   "rights_url": "www.deepsync.com",
+   "same_as": "ca-1009",
+   "source": "oregon registry",
+   "website": "www.deepsync.com"
+  },
+  "or-data-00023": {
+   "email": "privacy.compliance@deepsync.com",
+   "name": "Compact Information Systems LLC",
+   "rights_url": "www.deepsync.com",
+   "same_as": "ca-1009",
+   "source": "oregon registry",
+   "website": "www.deepsync.com"
+  },
+  "or-data-00024": {
+   "email": "privacy.compliance@deepsync.com",
+   "name": "Compact Information Systems LLC",
+   "rights_url": "www.deepsync.com",
+   "same_as": "ca-1009",
+   "source": "oregon registry",
+   "website": "www.deepsync.com"
+  },
+  "or-data-00026": {
+   "email": "privacy@definitivehc.com",
+   "name": "DEFINITIVE HEALTHCARE LLC",
+   "rights_url": "definitivehc.com",
+   "same_as": "ca-1058",
+   "source": "oregon registry",
+   "website": "definitivehc.com"
+  },
+  "or-data-00028": {
+   "email": "",
+   "name": "MINERVA BI INC",
+   "rights_url": "https://preferences.minerva.io/",
+   "same_as": "ca-1219",
+   "source": "oregon registry",
+   "website": "https://preferences.minerva.io/"
+  },
+  "or-data-00029": {
+   "email": "askprivacy@acxiom.com",
+   "name": "ACXIOM LLC",
+   "rights_url": "acxiom.com",
+   "same_as": "ca-1175",
+   "source": "oregon registry",
+   "website": "acxiom.com"
+  },
+  "or-data-00030": {
+   "email": "",
+   "name": "TRANS UNION LLC",
+   "rights_url": "www.optoutprescreen.com",
+   "same_as": "ca-1316",
+   "source": "oregon registry",
+   "website": "www.optoutprescreen.com"
+  },
+  "or-data-00031": {
+   "email": "",
+   "name": "NEUSTAR INC",
+   "rights_url": "https://www.transunion.com/privacy/neustar",
+   "source": "oregon registry",
+   "website": "https://www.transunion.com/privacy/neustar"
+  },
+  "or-data-00032": {
+   "email": "dpous@merkleinc.com",
+   "name": "Merkle Inc",
+   "rights_url": "www.merkle.com",
+   "same_as": "ca-1127",
+   "source": "oregon registry",
+   "website": "www.merkle.com"
+  },
+  "or-data-00034": {
+   "email": "privacy@blackbaud.com",
+   "name": "BLACKBAUD INC",
+   "rights_url": "www.blackbaud.com/company/Data-Subject-Rights-Request",
+   "same_as": "ca-1149",
+   "source": "oregon registry",
+   "website": "www.blackbaud.com"
+  },
+  "or-data-00036": {
+   "email": "privacy@lusha.com",
+   "name": "LUSHA SYSTEMS INC.",
+   "rights_url": "www.lusha.com",
+   "same_as": "ca-1052",
+   "source": "oregon registry",
+   "website": "www.lusha.com"
+  },
+  "or-data-00037": {
+   "email": "support@nuwber.com",
+   "name": "NUWBER INC",
+   "rights_url": "https://nuwber.com",
+   "same_as": "ca-1042",
+   "source": "oregon registry",
+   "website": "https://nuwber.com"
+  },
+  "or-data-00039": {
+   "email": "privacy@buildertrend.com",
+   "name": "BUILDERTREND SOLUTIONS INC",
+   "rights_url": "buildertrend.com",
+   "same_as": "ca-1356",
+   "source": "oregon registry",
+   "website": "buildertrend.com"
+  },
+  "or-data-00040": {
+   "email": "privacy@throtle.io",
+   "name": "THROTLE INC",
+   "rights_url": "https://www.throtle.io",
+   "source": "oregon registry",
+   "website": "https://www.throtle.io"
+  },
+  "or-data-00041": {
+   "email": "privacy@choreograph.com",
+   "name": "CHOREOGRAPH LLC",
+   "rights_url": "cpp.choreograph.com",
+   "same_as": "ca-1209",
+   "source": "oregon registry",
+   "website": "cpp.choreograph.com"
+  },
+  "or-data-00042": {
+   "email": "privacyofficer@dnb.com",
+   "name": "DUN & BRADSTREET INC",
+   "rights_url": "www.dnb.com",
+   "source": "oregon registry",
+   "website": "www.dnb.com"
+  },
+  "or-data-00044": {
+   "email": "customerservice@edvisors.com",
+   "name": "EDVISORS NETWORK INC",
+   "rights_url": "www.edvisors.com",
+   "same_as": "ca-1225",
+   "source": "oregon registry",
+   "website": "www.edvisors.com"
+  },
+  "or-data-00045": {
+   "email": "",
+   "name": "INTERACTIVE DATA LLC",
+   "rights_url": "ididata.com",
+   "same_as": "ca-1370",
+   "source": "oregon registry",
+   "website": "ididata.com"
+  },
+  "or-data-00046": {
+   "email": "privacy@path2response.com",
+   "name": "PATH2RESPONSE LLC",
+   "rights_url": "www.path2response.com",
+   "same_as": "ca-1339",
+   "source": "oregon registry",
+   "website": "www.path2response.com"
+  },
+  "or-data-00047": {
+   "email": "help@snov.io",
+   "name": "SNOVIO INC",
+   "rights_url": "snov.io",
+   "same_as": "ca-1415",
+   "source": "oregon registry",
+   "website": "snov.io"
+  },
+  "or-data-00048": {
+   "email": "valassisprivacy.request@rrd.com",
+   "name": "VALASSIS COMMUNICATIONS INC",
+   "rights_url": "https://rrd.com",
+   "same_as": "ca-1031",
+   "source": "oregon registry",
+   "website": "https://rrd.com"
+  },
+  "or-data-00049": {
+   "email": "privacy@propertyradar.com",
+   "name": "PropertyRadar Inc",
+   "rights_url": "www.propertyradar.com/privacy-policy",
+   "same_as": "ca-1311",
+   "source": "oregon registry",
+   "website": "www.propertyradar.com"
+  },
+  "or-data-00050": {
+   "email": "jdpowerprivacy@jdpa.com",
+   "name": "JD POWER A CORPORATION OF DELAWARE",
+   "rights_url": "www.jdpower.com",
+   "source": "oregon registry",
+   "website": "www.jdpower.com"
+  },
+  "or-data-00053": {
+   "email": "customercare@spokeo.com",
+   "name": "Spokeo Inc",
+   "rights_url": "www.thatsthem.com",
+   "same_as": "ca-1361",
+   "source": "oregon registry",
+   "website": "www.spokeo.com"
+  },
+  "or-data-00054": {
+   "email": "dataprivacy@connectedinvestors.com",
+   "name": "Connected Investors LLC",
+   "rights_url": "www.connectedinvestors.com",
+   "same_as": "ca-1328",
+   "source": "oregon registry",
+   "website": "www.connectedinvestors.com"
+  },
+  "or-data-00059": {
+   "email": "ccparequests@firstorion.com",
+   "name": "First Orion Corp",
+   "rights_url": "www.firstorion.com",
+   "same_as": "ca-1324",
+   "source": "oregon registry",
+   "website": "www.firstorion.com"
+  },
+  "or-data-00060": {
+   "email": "privacy@digitalvikingmedia.com",
+   "name": "DIGITAL VIKING MEDIA INC",
+   "rights_url": "www.digitalvikingmedia.com",
+   "same_as": "ca-1179",
+   "source": "oregon registry",
+   "website": "www.digitalvikingmedia.com"
+  },
+  "or-data-00061": {
+   "email": "",
+   "name": "PEOPLEFINDERS LLC",
+   "rights_url": "https://www.peoplefinders.com/opt-out",
+   "same_as": "ca-1180",
+   "source": "oregon registry",
+   "website": "https://www.peoplefinders.com/opt-out"
+  },
+  "or-data-00063": {
+   "email": "",
+   "name": "PROPERTY REACH L.P.",
+   "rights_url": "https://www.propertyreach.com/privacy-rights",
+   "same_as": "ca-1206",
+   "source": "oregon registry",
+   "website": "https://www.propertyreach.com/privacy-rights"
+  },
+  "or-data-00064": {
+   "email": "",
+   "name": "EPSILON DATA MANAGEMENT LLC",
+   "rights_url": "https://legal.epsilon.com/dsr/",
+   "same_as": "ca-1026",
+   "source": "oregon registry",
+   "website": "https://legal.epsilon.com/dsr/"
+  },
+  "or-data-00065": {
+   "email": "",
+   "name": "ENFORMION LLC",
+   "rights_url": "https://www.enformion.com/opt-out/",
+   "same_as": "ca-1245",
+   "source": "oregon registry",
+   "website": "https://www.enformion.com/opt-out/"
+  },
+  "or-data-00066": {
+   "email": "privacy@peopledatalabs.com",
+   "name": "People Data Labs Inc",
+   "rights_url": "www.peopledatalabs.com",
+   "same_as": "ca-1028",
+   "source": "oregon registry",
+   "website": "www.peopledatalabs.com"
+  },
+  "or-data-00068": {
+   "email": "privacy@beenverified.com",
+   "name": "BEEN VERIFIED LLC",
+   "rights_url": "https://www.beenverified.com/svc/optout/search/comprehensive_optouts",
+   "source": "oregon registry",
+   "website": "https://www.beenverified.com/svc/optout/search/comprehensive_optouts"
+  },
+  "or-data-00069": {
+   "email": "privacy@truthfinder.com",
+   "name": "TRUTHFINDER LLC",
+   "rights_url": "https://www.truthfinder.com/privacy-center/",
+   "same_as": "ca-1241",
+   "source": "oregon registry",
+   "website": "TruthFinder.com"
+  },
+  "or-data-00070": {
+   "email": "privacy@instantcheckmate.com",
+   "name": "INSTANT CHECKMATE LLC",
+   "rights_url": "https://www.instantcheckmate.com/privacy-center",
+   "same_as": "ca-1243",
+   "source": "oregon registry",
+   "website": "InstantCheckmate.com"
+  },
+  "or-data-00071": {
+   "email": "support@mailer.intelius.com",
+   "name": "INTELIUS LLC",
+   "rights_url": "https://www.intelius.com/privacy-center",
+   "same_as": "ca-1242",
+   "source": "oregon registry",
+   "website": "Intelius.com"
+  },
+  "or-data-00072": {
+   "email": "",
+   "name": "LIVERAMP HOLDINGS INC",
+   "rights_url": "www.liveramp.com/opt_out/",
+   "same_as": "ca-1089",
+   "source": "oregon registry",
+   "website": "www.liveramp.com/opt_out/"
+  },
+  "or-data-00073": {
+   "email": "privacy@mrss.com",
+   "name": "M & R STRATEGIC SERVICES INC",
+   "rights_url": "https://docs.google.com/forms/d/e/1FAIpQLSefr7ccty1bMZza8chUgLe0eWktBpQ_wGhzFpzeUupGlna3CA/viewform",
+   "same_as": "ca-1276",
+   "source": "oregon registry",
+   "website": "https://docs.google.com/forms/d/e/1FAIpQLSefr7ccty1bMZza8chUgLe0eWktBpQ_wGhzFpzeUupGlna3CA/viewform"
+  },
+  "or-data-00074": {
+   "email": "ccparequest@socialcatfish.com",
+   "name": "SOCIAL CATFISH LLC",
+   "rights_url": "https://socialcatfish.com/opt-out/?id=request_optout",
+   "same_as": "ca-1766",
+   "source": "oregon registry",
+   "website": "socialcatfish.com"
+  },
+  "or-data-00075": {
+   "email": "privacy.inquiries@lexisnexis.com",
+   "name": "RELX INC",
+   "rights_url": "www.lexisnexis.com",
+   "same_as": "ca-1165",
+   "source": "oregon registry",
+   "website": "www.lexisnexis.com"
+  },
+  "or-data-00076": {
+   "email": "compliance@alliantdata.com",
+   "name": "ALLIANT COOPERATIVE DATA SOLUTIONS LLC",
+   "rights_url": "https://alliantinsight.com",
+   "same_as": "ca-1057",
+   "source": "oregon registry",
+   "website": "https://alliantinsight.com"
+  },
+  "or-data-00077": {
+   "email": "privacy@zoominfo.com",
+   "name": "ZOOMINFO TECHNOLOGIES LLC",
+   "rights_url": "https://www.zoominfo.com/trust-center/your-privacy",
+   "same_as": "ca-1137",
+   "source": "oregon registry",
+   "website": "https://www.zoominfo.com/trust-center/your-privacy"
+  },
+  "or-data-00078": {
+   "email": "",
+   "name": "SIMIO CLOUD LLC",
+   "rights_url": "www.simiocloud.com/optout",
+   "same_as": "ca-1068",
+   "source": "oregon registry",
+   "website": "www.simiocloud.com/optout"
+  },
+  "or-data-00081": {
+   "email": "privacyteam@anchorcomputer.com",
+   "name": "ANCHOR COMPUTER INC",
+   "rights_url": "https://ecom2.anchorcomputer.com/ccpa",
+   "same_as": "ca-1104",
+   "source": "oregon registry",
+   "website": "https://ecom2.anchorcomputer.com/ccpa"
+  },
+  "or-data-00082": {
+   "email": "privacy@spglobal.com",
+   "name": "S&P GLOBAL INC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/5cb57702-8ef7-437e-a62b-408fe78cd310/93391c3d-d6c8-45b1-a169-39a0b7f9fb74",
+   "same_as": "ca-1594",
+   "source": "oregon registry",
+   "website": "https://privacyportal.onetrust.com/webform/5cb57702-8ef7-437e-a62b-408fe78cd310/93391c3d-d6c8-45b1-a169-39a0b7f9fb74"
+  },
+  "or-data-00084": {
+   "email": "",
+   "name": "FRAISER LLC",
+   "rights_url": "https://fraiser.org/data-request-form/",
+   "same_as": "ca-1124",
+   "source": "oregon registry",
+   "website": "https://fraiser.org/"
+  },
+  "or-data-00087": {
+   "email": "privacyteam@data-axle.com",
+   "name": "DATA AXLE INC",
+   "rights_url": "https://www.data-axle.com",
+   "same_as": "ca-1024",
+   "source": "oregon registry",
+   "website": "https://www.data-axle.com"
+  },
+  "or-data-00091": {
+   "email": "",
+   "name": "VEEVA SYSTEMS INC",
+   "rights_url": "veeva.com/privacy",
+   "same_as": "ca-1032",
+   "source": "oregon registry",
+   "website": "veeva.com/privacy"
+  },
+  "or-data-00092": {
+   "email": "privacy@porchgroupmedia.com",
+   "name": "DATAMENTORS LLC",
+   "rights_url": "www.porchgroupmedia.com",
+   "same_as": "ca-1269",
+   "source": "oregon registry",
+   "website": "www.porchgroupmedia.com"
+  },
+  "or-data-00093": {
+   "email": "",
+   "name": "Deloitte Financial Advisory Services LLP",
+   "rights_url": "datasubject.deloitte.com",
+   "same_as": "ca-1144",
+   "source": "oregon registry",
+   "website": "datasubject.deloitte.com"
+  },
+  "or-data-00094": {
+   "email": "compliance@ctam.com",
+   "name": "CTAM LEADSHARE CORP",
+   "rights_url": "www.smartmove.us",
+   "same_as": "ca-1176",
+   "source": "oregon registry",
+   "website": "www.smartmove.us"
+  },
+  "or-data-00095": {
+   "email": "",
+   "name": "DATA PARTNERS INC",
+   "rights_url": "https://datapartners.com/donotsellmyinformation/",
+   "same_as": "ca-1059",
+   "source": "oregon registry",
+   "website": "https://datapartners.com/donotsellmyinformation/"
+  },
+  "or-data-00096": {
+   "email": "privacy@analyticsiq.com",
+   "name": "ANALYTICSIQ INC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/f6a59500-f900-4652-b030-0cd51afe15a5/87ca07e4-e06c-4ad8-9aa6-ccbbaa8750c1",
+   "same_as": "ca-1053",
+   "source": "oregon registry",
+   "website": "https://privacyportal.onetrust.com/webform/f6a59500-f900-4652-b030-0cd51afe15a5/87ca07e4-e06c-4ad8-9aa6-ccbbaa8750c1"
+  },
+  "or-data-00097": {
+   "email": "privacy@clickagy.com",
+   "name": "CLICKAGY LLC",
+   "rights_url": "https://www.clickagy.com/privacy-center/",
+   "same_as": "ca-1195",
+   "source": "oregon registry",
+   "website": "https://www.clickagy.com/privacy-center/"
+  },
+  "or-data-00098": {
+   "email": "privacy@datanyze.com",
+   "name": "DATANYZE LLC",
+   "rights_url": "https://www.datanyze.com/privacy-center",
+   "same_as": "ca-1200",
+   "source": "oregon registry",
+   "website": "https://www.datanyze.com/privacy-center"
+  },
+  "or-data-00099": {
+   "email": "privacy.officer@datalinedata.com",
+   "name": "DATALINE INC",
+   "rights_url": "WWW.DATALINEDATA.COM",
+   "same_as": "ca-1280",
+   "source": "oregon registry",
+   "website": "WWW.DATALINEDATA.COM"
+  },
+  "or-data-00100": {
+   "email": "privacy@sheerid.com",
+   "name": "SHEERID INC",
+   "rights_url": "https://www.sheerid.com/global-privacy-policy/",
+   "same_as": "ca-1111",
+   "source": "oregon registry",
+   "website": "https://www.sheerid.com/global-privacy-policy/"
+  },
+  "or-data-00101": {
+   "email": "privacy@veraset.com",
+   "name": "VERASET LLC",
+   "rights_url": "https://veraset.com",
+   "same_as": "ca-1557",
+   "source": "oregon registry",
+   "website": "https://veraset.com"
+  },
+  "or-data-00102": {
+   "email": "",
+   "name": "STATARA SOLUTIONS LLC",
+   "rights_url": "https://statara.com/privacy/",
+   "same_as": "ca-1060",
+   "source": "oregon registry",
+   "website": "https://statara.com/privacy/"
+  },
+  "or-data-00103": {
+   "email": "",
+   "name": "ARISTOTLE INTERNATIONAL INC",
+   "rights_url": "https://www.aristotle.com/privacy/do-not-sell-my-personal-info/",
+   "same_as": "ca-1126",
+   "source": "oregon registry",
+   "website": "https://www.aristotle.com/privacy/do-not-sell-my-personal-info/"
+  },
+  "or-data-00105": {
+   "email": "contact@heartbeat.ai",
+   "name": "HEARTBEAT.AI INC",
+   "rights_url": "https://www.heartbeat.ai/optout",
+   "same_as": "ca-1294",
+   "source": "oregon registry",
+   "website": "https://www.heartbeat.ai/optout"
+  },
+  "or-data-00106": {
+   "email": "privacy@decide.co",
+   "name": "DECIDE TECHNOLOGIES INC",
+   "rights_url": "decide.co",
+   "same_as": "ca-1429",
+   "source": "oregon registry",
+   "website": "decide.co"
+  },
+  "or-data-00107": {
+   "email": "lead411_privacy@l4mail.com",
+   "name": "LEAD411 CORPORATION",
+   "rights_url": "https://www.lead411.com/your-privacy-choices/",
+   "same_as": "ca-1476",
+   "source": "oregon registry",
+   "website": "https://www.lead411.com/your-privacy-choices/"
+  },
+  "or-data-00108": {
+   "email": "info@alescodata.com",
+   "name": "THE ALESCO GROUP LLC",
+   "rights_url": "https://alescodata.com/do-not-sell-my-personal-information/",
+   "same_as": "ca-1135",
+   "source": "oregon registry",
+   "website": "https://alescodata.com/do-not-sell-my-personal-information/"
+  },
+  "or-data-00109": {
+   "email": "privacy@attomdata.com",
+   "name": "ATTOM DATA SOLUTIONS LLC",
+   "rights_url": "attomdata.com",
+   "source": "oregon registry",
+   "website": "attomdata.com"
+  },
+  "or-data-00110": {
+   "email": "privacy@fideo.ai",
+   "name": "FIDEO INTELLIGENCE INC",
+   "rights_url": "https://app.fideo.ai/your-privacy-choices",
+   "same_as": "ca-1199",
+   "source": "oregon registry",
+   "website": "https://app.fideo.ai/your-privacy-choices"
+  },
+  "or-data-00111": {
+   "email": "consumerrequest@melissa.ccm",
+   "name": "MELISSA DATA CORPORATOIN",
+   "rights_url": "https://apps.melissa.com/user/consumerprivacy.aspx",
+   "source": "oregon registry",
+   "website": "https://www.melissa.com/state-law-privacy-notice"
+  },
+  "or-data-00112": {
+   "email": "optout@versium.com",
+   "name": "VERSIUM ANALYTICS INC",
+   "rights_url": "https://versium.com/ccpa-opt-out",
+   "source": "oregon registry",
+   "website": "https://versium.com/ccpa-opt-out"
+  },
+  "or-data-00113": {
+   "email": "consumer@n-focus.com",
+   "name": "NFOCUS CONSULTING INC",
+   "rights_url": "www.n-focus.com",
+   "same_as": "ca-1274",
+   "source": "oregon registry",
+   "website": "www.n-focus.com"
+  },
+  "or-data-00115": {
+   "email": "usprivacy@equifax.com",
+   "name": "AUSTIN CONSOLIDATED HOLDINGS INC",
+   "rights_url": "https://myprivacy.equifax.com/opt-in-opt-out/personal-info",
+   "same_as": "ca-1201",
+   "source": "oregon registry",
+   "website": "https://myprivacy.equifax.com/opt-in-opt-out/personal-info"
+  },
+  "or-data-00118": {
+   "email": "usprivacy@equifax.com",
+   "name": "IXI CORPORATION",
+   "rights_url": "https://myprivacy.equifax.com/opt-in-opt-out/personal-info",
+   "same_as": "ca-1379",
+   "source": "oregon registry",
+   "website": "https://myprivacy.equifax.com/opt-in-opt-out/personal-info"
+  },
+  "or-data-00119": {
+   "email": "usprivacy@equifax.com",
+   "name": "KNOWLEDGE WORKS INC",
+   "rights_url": "https://myprivacy.equifax.com/opt-in-opt-out/personal-info",
+   "same_as": "ca-1380",
+   "source": "oregon registry",
+   "website": "https://myprivacy.equifax.com/opt-in-opt-out/personal-info"
+  },
+  "or-data-00120": {
+   "email": "usprivacy@equifax.com",
+   "name": "EQUIFAX INFORMATION SERVICES LLC",
+   "rights_url": "https://myprivacy.equifax.com/opt-in-opt-out/personal-info",
+   "same_as": "ca-1424",
+   "source": "oregon registry",
+   "website": "https://myprivacy.equifax.com/opt-in-opt-out/personal-info"
+  },
+  "or-data-00122": {
+   "email": "privacy@anteriad.com",
+   "name": "ANTERIAD LLC",
+   "rights_url": "https://anteriad.com/privacy-portal",
+   "same_as": "ca-1086",
+   "source": "oregon registry",
+   "website": "https://anteriad.com/privacy-policy"
+  },
+  "or-data-00124": {
+   "email": "privacy@catalist.us",
+   "name": "CATALIST LLC",
+   "rights_url": "https://catalist.us/privacy-policy/",
+   "same_as": "ca-1344",
+   "source": "oregon registry",
+   "website": "https://catalist.us/privacy-policy/"
+  },
+  "or-data-00125": {
+   "email": "privacy@cuebiq.com",
+   "name": "CUEBIQ GROUP LLC",
+   "rights_url": "https://www.cuebiq.com/privacy-request/",
+   "same_as": "ca-1574",
+   "source": "oregon registry",
+   "website": "www.cuebiq.com"
+  },
+  "or-data-00126": {
+   "email": "privacy@achcoop.com",
+   "name": "ACH ADDRESS CLEARING HOUSE LLC",
+   "rights_url": "achcoop.com",
+   "same_as": "ca-1055",
+   "source": "oregon registry",
+   "website": "achcoop.com"
+  },
+  "or-data-00129": {
+   "email": "",
+   "name": "BLACK PEARL GROUP LLC",
+   "rights_url": "https://www.blackpearl.com/your-privacy-choices",
+   "same_as": "ca-1208",
+   "source": "oregon registry",
+   "website": "https://www.blackpearl.com/your-privacy-choices"
+  },
+  "or-data-00130": {
+   "email": "privacy@seamlessleads.com",
+   "name": "SEAMLESS CONTACTS INC",
+   "rights_url": "https://preferences.seamless.ai/",
+   "same_as": "ca-1072",
+   "source": "oregon registry",
+   "website": "https://preferences.seamless.ai/"
+  },
+  "or-data-00131": {
+   "email": "",
+   "name": "US DATA CORPORATION",
+   "rights_url": "https://www.usdatacorporation.com/opt-out",
+   "same_as": "ca-1121",
+   "source": "oregon registry",
+   "website": "https://www.usdatacorporation.com/opt-out"
+  },
+  "or-data-00132": {
+   "email": "",
+   "name": "WHITEPAGES INC",
+   "rights_url": "https://www.whitepages.com/suppression-requests",
+   "same_as": "ca-1170",
+   "source": "oregon registry",
+   "website": "https://www.whitepages.com/suppression-requests"
+  },
+  "or-data-00133": {
+   "email": "legal@hightouch.com",
+   "name": "CARRY TECHNOLOGIES INC",
+   "rights_url": "www.hightouch.com",
+   "same_as": "ca-1076",
+   "source": "oregon registry",
+   "website": "www.hightouch.com"
+  },
+  "or-data-00134": {
+   "email": "privacy@azira.com",
+   "name": "AZIRA LLC",
+   "rights_url": "www.azira.com",
+   "same_as": "ca-1046",
+   "source": "oregon registry",
+   "website": "www.azira.com"
+  },
+  "or-data-00135": {
+   "email": "",
+   "name": "SPEEDEON DATA LLC",
+   "rights_url": "https://optout.speedeondata.com/",
+   "same_as": "ca-1151",
+   "source": "oregon registry",
+   "website": "speedeondata.com"
+  },
+  "or-data-00137": {
+   "email": "sheldon@giantpartners.com",
+   "name": "GIANT PARTNERS INC",
+   "rights_url": "https://giantpartners.com/",
+   "same_as": "ca-1444",
+   "source": "oregon registry",
+   "website": "https://giantpartners.com/"
+  },
+  "or-data-00138": {
+   "email": "privacy@i-360.com",
+   "name": "I360 LLC",
+   "rights_url": "https://www.i-360.com",
+   "same_as": "ca-1181",
+   "source": "oregon registry",
+   "website": "https://www.i-360.com"
+  },
+  "or-data-00142": {
+   "email": "privacy@windfall.com",
+   "name": "WINDFALL DATA INC",
+   "rights_url": "https://www.windfall.com/do-not-sell-my-info",
+   "same_as": "ca-1227",
+   "source": "oregon registry",
+   "website": "https://www.windfall.com/do-not-sell-my-info"
+  },
+  "or-data-00143": {
+   "email": "",
+   "name": "DTN LLC",
+   "rights_url": "www.dtn.com",
+   "same_as": "ca-1177",
+   "source": "oregon registry",
+   "website": "www.dtn.com"
+  },
+  "or-data-00145": {
+   "email": "privacy@semasio.com",
+   "name": "SEMASIO INC",
+   "rights_url": "https://www.semasio.com/legal/privacy-choices",
+   "same_as": "ca-1118",
+   "source": "oregon registry",
+   "website": "https://www.semasio.com/legal/privacy-choices"
+  },
+  "or-data-00146": {
+   "email": "admin@datalane.com",
+   "name": "TASK GENIE INC",
+   "rights_url": "",
+   "same_as": "ca-1265",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00147": {
+   "email": "compliance_privacy@leadspace.com",
+   "name": "LEADSPACE INC",
+   "rights_url": "https://www.leadspace.com/do-not-sell-form/",
+   "same_as": "ca-1229",
+   "source": "oregon registry",
+   "website": "https://www.leadspace.com/do-not-sell-form/"
+  },
+  "or-data-00148": {
+   "email": "privacy@bigdbm.com",
+   "name": "PUBLICNSA LLC",
+   "rights_url": "https://bigdbm.com/privacy-policy/",
+   "source": "oregon registry",
+   "website": "https://bigdbm.com/privacy-policy/"
+  },
+  "or-data-00150": {
+   "email": "privacy@l2political.com",
+   "name": "LABELS & LISTS INC",
+   "rights_url": "https://l2-data.com/",
+   "same_as": "ca-1211",
+   "source": "oregon registry",
+   "website": "https://l2-data.com/"
+  },
+  "or-data-00151": {
+   "email": "privacy@maxmind.com",
+   "name": "MAXMIND INC",
+   "rights_url": "https://www.maxmind.com/en/opt-out",
+   "same_as": "ca-1080",
+   "source": "oregon registry",
+   "website": "https://www.maxmind.com/en/opt-out"
+  },
+  "or-data-00152": {
+   "email": "privacy@erepublic.com",
+   "name": "EREPUBLIC LLC",
+   "rights_url": "https://www.erepublic.com/",
+   "source": "oregon registry",
+   "website": "https://www.erepublic.com/"
+  },
+  "or-data-00153": {
+   "email": "privacy@hireez.com",
+   "name": "HIRETEAMMATE INC",
+   "rights_url": "https://app.hireez.com/ownyourdata",
+   "same_as": "ca-1131",
+   "source": "oregon registry",
+   "website": "https://app.hireez.com/ownyourdata"
+  },
+  "or-data-00154": {
+   "email": "privacy@carneydirect.com",
+   "name": "GUIDESTAR DIRECT CORP",
+   "rights_url": "www.carneydirect.com",
+   "same_as": "ca-1134",
+   "source": "oregon registry",
+   "website": "www.carneydirect.com"
+  },
+  "or-data-00156": {
+   "email": "privacy@mediawallah.com",
+   "name": "MEDIAWALLAH INC",
+   "rights_url": "www.mediawallah.com",
+   "same_as": "ca-1233",
+   "source": "oregon registry",
+   "website": "www.mediawallah.com"
+  },
+  "or-data-00158": {
+   "email": "data@bookyourdata.com",
+   "name": "A DIRECT MARKETING INC",
+   "rights_url": "https://www.bookyourdata.com",
+   "same_as": "ca-1050",
+   "source": "oregon registry",
+   "website": "https://www.bookyourdata.com"
+  },
+  "or-data-00159": {
+   "email": "privacy@theorg.com",
+   "name": "ORGIO INC",
+   "rights_url": "https://theorg.com/",
+   "same_as": "ca-1579",
+   "source": "oregon registry",
+   "website": "https://theorg.com/"
+  },
+  "or-data-00160": {
+   "email": "privacy@taboola.com",
+   "name": "TABOOLA INC",
+   "rights_url": "https://accessrequest.taboola.com/access",
+   "same_as": "ca-1354",
+   "source": "oregon registry",
+   "website": "www.taboola.com"
+  },
+  "or-data-00162": {
+   "email": "privacy@atdata.com",
+   "name": "ATDATA LLC",
+   "rights_url": "https://instantdata.atdata.com/optout",
+   "same_as": "ca-1351",
+   "source": "oregon registry",
+   "website": "https://instantdata.atdata.com/optout"
+  },
+  "or-data-00163": {
+   "email": "optout@revealmobile.com",
+   "name": "REVEAL MOBILE INC",
+   "rights_url": "www.revealmobile.com/ccpa/",
+   "same_as": "ca-1308",
+   "source": "oregon registry",
+   "website": "www.revealmobile.com/ccpa/"
+  },
+  "or-data-00165": {
+   "email": "privacy@leadiq.com",
+   "name": "LEADIQ INC",
+   "rights_url": "www.leadiq.com",
+   "same_as": "ca-1064",
+   "source": "oregon registry",
+   "website": "www.leadiq.com"
+  },
+  "or-data-00166": {
+   "email": "contact@swordfish.ai",
+   "name": "SWORDFISH AI INC",
+   "rights_url": "www.swordfish.ai/Optout",
+   "same_as": "ca-1293",
+   "source": "oregon registry",
+   "website": "www.swordfish.ai/Optout"
+  },
+  "or-data-00167": {
+   "email": "privacy@precisely.com",
+   "name": "PRECISELY SOFTWARE INCORPORATED",
+   "rights_url": "https://www.precisely.com/legal/privacy-policy/your-privacy-choices",
+   "same_as": "ca-1041",
+   "source": "oregon registry",
+   "website": "https://www.precisely.com/legal/privacy-policy/your-privacy-choices"
+  },
+  "or-data-00168": {
+   "email": "pubmaticprivacy@pubmatic.com",
+   "name": "PUBMATIC INC",
+   "rights_url": "https://pubmatic.com/legal/dsr-notice/",
+   "same_as": "ca-1350",
+   "source": "oregon registry",
+   "website": "https://pubmatic.com/legal/dsr-notice/"
+  },
+  "or-data-00169": {
+   "email": "privacy@pipl.com",
+   "name": "PIPL INC",
+   "rights_url": "https://pipl.com/privacy-documents/ccpa-opt-out-form?hsCtaTracking=f47ce206-6476-4259-af65-6e9ec4474dc6%7C916f3fdf-1cc3-4978-b7e7-8bd10cfdcbdb",
+   "same_as": "ca-1156",
+   "source": "oregon registry",
+   "website": "pipl.com"
+  },
+  "or-data-00171": {
+   "email": "privacy@techtarget.com",
+   "name": "TECHTARGET INC",
+   "rights_url": "https://www.informatechtarget.com/privacy-policy/",
+   "same_as": "ca-1085",
+   "source": "oregon registry",
+   "website": "https://www.informatechtarget.com/privacy-policy/"
+  },
+  "or-data-00172": {
+   "email": "billing@exactcustomer.com",
+   "name": "EXACT OPCO LLC",
+   "rights_url": "Exactcustomer.com",
+   "same_as": "ca-1238",
+   "source": "oregon registry",
+   "website": "Exactcustomer.com"
+  },
+  "or-data-00173": {
+   "email": "info@postie.com",
+   "name": "POSTIE INC",
+   "rights_url": "optout.postie.com/",
+   "same_as": "ca-1386",
+   "source": "oregon registry",
+   "website": "optout.postie.com/"
+  },
+  "or-data-00175": {
+   "email": "consumerinquiries@dmsgroup.com",
+   "name": "DIGITAL MEDIA SOLUTIONS",
+   "rights_url": "dmsunsub.io",
+   "same_as": "ca-1220",
+   "source": "oregon registry",
+   "website": "dmsunsub.io"
+  },
+  "or-data-00176": {
+   "email": "privacy@audienceacuity.com",
+   "name": "AUDIENCE ACUITY INC",
+   "rights_url": "https://audienceacuity.com/opt-out-of-database/",
+   "same_as": "ca-1313",
+   "source": "oregon registry",
+   "website": "https://audienceacuity.com/opt-out-of-database/"
+  },
+  "or-data-00177": {
+   "email": "privacy@mobilewalla.com",
+   "name": "MOBILEWALLA INC",
+   "rights_url": "https://www.mobilewalla.com/business-services-privacy-notice-2023",
+   "same_as": "ca-1512",
+   "source": "oregon registry",
+   "website": "https://www.mobilewalla.com/business-services-privacy-notice-2023"
+  },
+  "or-data-00178": {
+   "email": "privacy@steppingblocks.com",
+   "name": "STEPPINGBLOCKS INC",
+   "rights_url": "https://www.steppingblocks.com/personal-information-inquiry",
+   "same_as": "ca-1580",
+   "source": "oregon registry",
+   "website": "https://www.steppingblocks.com/personal-information-inquiry"
+  },
+  "or-data-00180": {
+   "email": "",
+   "name": "T-MOBILE USA INC",
+   "rights_url": "https://www.t-mobile.com/dns",
+   "same_as": "ca-1418",
+   "source": "oregon registry",
+   "website": "https://www.t-mobile.com/dns"
+  },
+  "or-data-00181": {
+   "email": "privacy@outlogic.io",
+   "name": "OUTLOGIC LLC",
+   "rights_url": "https://outlogic.io/opt-out-form/",
+   "same_as": "ca-1095",
+   "source": "oregon registry",
+   "website": "https://outlogic.io/opt-out-form/"
+  },
+  "or-data-00182": {
+   "email": "privacy@matchbookdata.com",
+   "name": "MATCHBOOK DATA LLC",
+   "rights_url": "https://www.matchbookdata.com/opt-out-form/",
+   "same_as": "ca-1097",
+   "source": "oregon registry",
+   "website": "https://www.matchbookdata.com/opt-out-form/"
+  },
+  "or-data-00183": {
+   "email": "",
+   "name": "LEADPOST LLC",
+   "rights_url": "https://client.leadpost.com/PrivacyRequest",
+   "same_as": "ca-1153",
+   "source": "oregon registry",
+   "website": "https://client.leadpost.com/PrivacyRequest"
+  },
+  "or-data-00184": {
+   "email": "privacy@pacificeast.com",
+   "name": "PACIFIC EAST RESEARCH INC",
+   "rights_url": "www.pacificeast.com",
+   "same_as": "ca-1075",
+   "source": "oregon registry",
+   "website": "www.pacificeast.com"
+  },
+  "or-data-00187": {
+   "email": "privacy@focus-usa.com",
+   "name": "FOCUS USA",
+   "rights_url": "https://www.focus-usa.com/your-privacy-choices/",
+   "same_as": "ca-1062",
+   "source": "oregon registry",
+   "website": "https://www.focus-usa.com/optout-form/"
+  },
+  "or-data-00188": {
+   "email": "",
+   "name": "CIVIS ANALYTICS INC",
+   "rights_url": "https://www.civisanalytics.com/privacy-policy/supplemental-privacy-notice/",
+   "same_as": "ca-1197",
+   "source": "oregon registry",
+   "website": "https://www.civisanalytics.com/privacy-policy/supplemental-privacy-notice/"
+  },
+  "or-data-00189": {
+   "email": "",
+   "name": "WILAND INC",
+   "rights_url": "https://wiland.com/privacy-choices/#how-to-submit-privacy-choices",
+   "same_as": "ca-1222",
+   "source": "oregon registry",
+   "website": "https://wiland.com/privacy-choices/#how-to-submit-privacy-choices"
+  },
+  "or-data-00190": {
+   "email": "privacy@cision.com",
+   "name": "CISION US INC",
+   "rights_url": "https://portals.dporganizer.com/fa778b0e-817f-4c96-b13d-e2b614470033",
+   "source": "oregon registry",
+   "website": "https://portals.dporganizer.com/fa778b0e-817f-4c96-b13d-e2b614470033"
+  },
+  "or-data-00191": {
+   "email": "",
+   "name": "WEBBULA LLC",
+   "rights_url": "https://webbula.com/opt-out-request/",
+   "same_as": "ca-1188",
+   "source": "oregon registry",
+   "website": "https://webbula.com/opt-out-request/"
+  },
+  "or-data-00192": {
+   "email": "sales@evs7.com",
+   "name": "ELECTRONIC VOICE SERVICES INC",
+   "rights_url": "https://www.evs7.com/personal-information-request",
+   "same_as": "ca-1456",
+   "source": "oregon registry",
+   "website": "https://www.evs7.com/personal-information-request"
+  },
+  "or-data-00193": {
+   "email": "",
+   "name": "LOOKIFY LLC",
+   "rights_url": "https://lookify.io/opt-out",
+   "source": "oregon registry",
+   "website": "https://lookify.io/opt-out"
+  },
+  "or-data-00195": {
+   "email": "privacy@kloudend.com",
+   "name": "KLOUDEND INC",
+   "rights_url": "https://ipapi.co/contact/",
+   "same_as": "ca-1369",
+   "source": "oregon registry",
+   "website": "https://ipapi.co/contact/"
+  },
+  "or-data-00202": {
+   "email": "privacy@clay.com",
+   "name": "CLAY LABS LLC",
+   "rights_url": "clay.com",
+   "same_as": "ca-1249",
+   "source": "oregon registry",
+   "website": "clay.com"
+  },
+  "or-data-00205": {
+   "email": "",
+   "name": "ZETA GLOBAL CORP",
+   "rights_url": "https://privacyportal-cdn.onetrust.com/dsarwebform/bc2d3301-11a5-4de5-b15e-ce796187a352/d0720d0f-d427-4a7d-a773-5d6793229f15.html",
+   "same_as": "ca-1442",
+   "source": "oregon registry",
+   "website": "https://privacyportal-cdn.onetrust.com/dsarwebform/bc2d3301-11a5-4de5-b15e-ce796187a352/d0720d0f-d427-4a7d-a773-5d6793229f15.html"
+  },
+  "or-data-00206": {
+   "email": "consumerchoice@nexxagroup.com",
+   "name": "NEXXA GROUP INC",
+   "rights_url": "www.nexxagroup.com/consumer-optout/",
+   "source": "oregon registry",
+   "website": "www.nexxagroup.com/consumer-optout/"
+  },
+  "or-data-00209": {
+   "email": "datasubjectrequests@6sense.com",
+   "name": "6SENSE INSIGHTS INC",
+   "rights_url": "https://6sense.com/privacy-center/",
+   "same_as": "ca-1065",
+   "source": "oregon registry",
+   "website": "https://6sense.com/privacy-center/"
+  },
+  "or-data-00210": {
+   "email": "privacy@seekout.com",
+   "name": "ZIPSTORM INC",
+   "rights_url": "https://www.seekout.com/privacy/choices",
+   "same_as": "ca-1599",
+   "source": "oregon registry",
+   "website": "https://www.seekout.com/privacy/choices"
+  },
+  "or-data-00211": {
+   "email": "privacy@datadelivers.com",
+   "name": "CUSTOMER ASSET CONSULTING GROUP INC",
+   "rights_url": "https://trustsuperset.com/dsrs?orgId=275d6c62-eb0f-4f8a-80c2-b72573902714",
+   "source": "oregon registry",
+   "website": "https://trustsuperset.com/dsrs?orgId=275d6c62-eb0f-4f8a-80c2-b72573902714"
+  },
+  "or-data-00212": {
+   "email": "support@privaterecords.net",
+   "name": "PRIVATE RECORDS LLC",
+   "rights_url": "https://www.privaterecords.net/optOut/name/landing",
+   "same_as": "ca-1399",
+   "source": "oregon registry",
+   "website": "https://www.privaterecords.net/optOut/name/landing"
+  },
+  "or-data-00213": {
+   "email": "",
+   "name": "DEMANDBASE INC",
+   "rights_url": "https://www.demandbase.com/privacy-center.html?ketch_preferences_tab=rightsTab",
+   "same_as": "ca-1034",
+   "source": "oregon registry",
+   "website": "https://www.demandbase.com/privacy-center.html?ketch_preferences_tab=rightsTab"
+  },
+  "or-data-00214": {
+   "email": "support@privatereports.com",
+   "name": "INFOMATICS LLC",
+   "rights_url": "https://www.privatereports.com/optOut/name/landing",
+   "same_as": "ca-1397",
+   "source": "oregon registry",
+   "website": "https://www.privatereports.com/optOut/name/landing"
+  },
+  "or-data-00215": {
+   "email": "support@weinform.org",
+   "name": "WE INFORM LLC",
+   "rights_url": "https://www.weinform.org/opt_out/name/landing_page",
+   "same_as": "ca-1395",
+   "source": "oregon registry",
+   "website": "https://www.weinform.org/opt_out/name/landing_page"
+  },
+  "or-data-00216": {
+   "email": "support@peoplesearcher.com",
+   "name": "THE PEOPLE SEARCHERS LLC",
+   "rights_url": "http://www.peoplesearcher.com",
+   "same_as": "ca-1396",
+   "source": "oregon registry",
+   "website": "http://www.peoplesearcher.com"
+  },
+  "or-data-00217": {
+   "email": "support@checksecrets.com",
+   "name": "TRUTH NOW LLC",
+   "rights_url": "http://www.checksecrets.com",
+   "same_as": "ca-1398",
+   "source": "oregon registry",
+   "website": "http://www.checksecrets.com"
+  },
+  "or-data-00218": {
+   "email": "privacy@moodys.com",
+   "name": "MOODYS ANALYTICS INC",
+   "rights_url": "https://www.moodys.com/web/en/us/legal/privacy-policy.html",
+   "source": "oregon registry",
+   "website": "https://www.moodys.com/web/en/us/legal/privacy-policy.html"
+  },
+  "or-data-00220": {
+   "email": "privacy@magnite.com",
+   "name": "MAGNITE INC",
+   "rights_url": "www.magnite.com",
+   "same_as": "ca-1066",
+   "source": "oregon registry",
+   "website": "www.magnite.com"
+  },
+  "or-data-00222": {
+   "email": "privacy@trestleiq.com",
+   "name": "TRESTLE SOLUTIONS INC",
+   "rights_url": "https://trestleiq.com/do-not-sell-my-personal-information/",
+   "same_as": "ca-1392",
+   "source": "oregon registry",
+   "website": "https://trestleiq.com/do-not-sell-my-personal-information/"
+  },
+  "or-data-00223": {
+   "email": "privacy@venpath.net",
+   "name": "VENPATH INC",
+   "rights_url": "https://www.venpath.net/legal/privacy-notice",
+   "source": "oregon registry",
+   "website": "https://www.venpath.net/legal/privacy-notice"
+  },
+  "or-data-00224": {
+   "email": "",
+   "name": "FINTHRIVE HEALTHCARE INC",
+   "rights_url": "",
+   "same_as": "ca-1236",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00225": {
+   "email": "",
+   "name": "TSG HOLDCO LLC",
+   "rights_url": "",
+   "same_as": "ca-1234",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00226": {
+   "email": "dataprivacy@affinityanswers.com",
+   "name": "AFFINITY ANSWERS CORPORATION",
+   "rights_url": "https://www.affinityanswers.com/your-privacy-choices/",
+   "same_as": "ca-1290",
+   "source": "oregon registry",
+   "website": "https://www.affinityanswers.com/"
+  },
+  "or-data-00229": {
+   "email": "mmsprivacy@milestonemarketingsolutions.com",
+   "name": "MILESTONE MARKETING SOLUTIONS",
+   "rights_url": "https://www.milestonemarketingsolutions.com/",
+   "same_as": "ca-1450",
+   "source": "oregon registry",
+   "website": "https://www.milestonemarketingsolutions.com/"
+  },
+  "or-data-00230": {
+   "email": "privacy@collectivedata.io",
+   "name": "COLLECTIVE DATA SOLUTIONS LLC",
+   "rights_url": "https://www.collectivedata.io/opt-out-do-not-sell-request-process/",
+   "same_as": "ca-1069",
+   "source": "oregon registry",
+   "website": "https://www.collectivedata.io/opt-out-do-not-sell-request-process/"
+  },
+  "or-data-00231": {
+   "email": "privacy@clearcompany.com",
+   "name": "CLEARCOMPANY LLC",
+   "rights_url": "clearcompany.com",
+   "same_as": "ca-1360",
+   "source": "oregon registry",
+   "website": "clearcompany.com"
+  },
+  "or-data-00232": {
+   "email": "compliance@grassrootsanalytics.com",
+   "name": "GRASSROOTS ANALYTICS INC",
+   "rights_url": "https://www.grassrootsanalytics.com/california-consumer-privacy-act-ccpa",
+   "same_as": "ca-1517",
+   "source": "oregon registry",
+   "website": "https://www.grassrootsanalytics.com/california-consumer-privacy-act-ccpa"
+  },
+  "or-data-00233": {
+   "email": "privacy@lightcast.io",
+   "name": "LIGHTCAST LLC",
+   "rights_url": "https://lightcast.io/privacy-request",
+   "same_as": "ca-1259",
+   "source": "oregon registry",
+   "website": "https://lightcast.io/privacy-request"
+  },
+  "or-data-00234": {
+   "email": "",
+   "name": "NARVAR INC",
+   "rights_url": "https://narvar.my.onetrust.com/webform/04b3731f-2a9a-42ce-bd6b-106d4b4ec3bf/a7c944bf-3cec-4f00-9dc5-dea5bf2b6f4f",
+   "same_as": "ca-1331",
+   "source": "oregon registry",
+   "website": "https://narvar.my.onetrust.com/webform/04b3731f-2a9a-42ce-bd6b-106d4b4ec3bf/a7c944bf-3cec-4f00-9dc5-dea5bf2b6f4f"
+  },
+  "or-data-00236": {
+   "email": "privacy@usmarketinggrp.com",
+   "name": "BH MARKETING GROUP LLC",
+   "rights_url": "www.usmarketinggrp.com/privacy",
+   "same_as": "ca-1158",
+   "source": "oregon registry",
+   "website": "www.usmarketinggrp.com/privacy"
+  },
+  "or-data-00237": {
+   "email": "accounting@datonics.com",
+   "name": "DATONICS LLC",
+   "rights_url": "datonics.com",
+   "same_as": "ca-1078",
+   "source": "oregon registry",
+   "website": "datonics.com"
+  },
+  "or-data-00238": {
+   "email": "support@retention.com",
+   "name": "GETEMAILS LLC",
+   "rights_url": "https://app.retention.com/optout/",
+   "same_as": "ca-1120",
+   "source": "oregon registry",
+   "website": "https://app.retention.com/optout/"
+  },
+  "or-data-00240": {
+   "email": "privacy@remodeling.com",
+   "name": "REMODELING.COM LLC",
+   "rights_url": "",
+   "same_as": "ca-1493",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00241": {
+   "email": "privacy@33mileradius.com",
+   "name": "33 MILE RADIUS LLC",
+   "rights_url": "",
+   "same_as": "ca-1461",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00242": {
+   "email": "privacy@keywordconnects.com",
+   "name": "KEYWORD CONNECTS LLC",
+   "rights_url": "",
+   "same_as": "ca-1492",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00243": {
+   "email": "privacy@jmr-media.com",
+   "name": "JMR MEDIA CONSULTING INC",
+   "rights_url": "www.jmr-media.com",
+   "same_as": "ca-1462",
+   "source": "oregon registry",
+   "website": "www.jmr-media.com"
+  },
+  "or-data-00244": {
+   "email": "",
+   "name": "FOO MONK LLC",
+   "rights_url": "https://app.instantly.ai/privacy/info?comet_token_override=2126706309352622211515084961203019266425501116448",
+   "same_as": "ca-1133",
+   "source": "oregon registry",
+   "website": "https://app.instantly.ai/privacy/info?comet_token_override=2126706309352622211515084961203019266425501116448"
+  },
+  "or-data-00245": {
+   "email": "privacy@redidata.com",
+   "name": "REDI-DATA INC",
+   "rights_url": "www.redidata.com",
+   "same_as": "ca-1314",
+   "source": "oregon registry",
+   "website": "www.redidata.com"
+  },
+  "or-data-00246": {
+   "email": "ccpa@4legalleads.com",
+   "name": "ADVERTISE4SALES INC",
+   "rights_url": "https://4legalleads.com/removal/",
+   "source": "oregon registry",
+   "website": "https://4legalleads.com/removal/"
+  },
+  "or-data-00247": {
+   "email": "privacy@realeflow.com",
+   "name": "REALEFLOW LLC",
+   "rights_url": "www.realeflow.com",
+   "same_as": "ca-1252",
+   "source": "oregon registry",
+   "website": "www.realeflow.com"
+  },
+  "or-data-00248": {
+   "email": "compliance@allgoodmediagroup.com",
+   "name": "ALL GOOD MEDIA",
+   "rights_url": "attribits.com",
+   "source": "oregon registry",
+   "website": "attribits.com"
+  },
+  "or-data-00249": {
+   "email": "privacy@thefourleaf.com",
+   "name": "FOURLEAF LLC",
+   "rights_url": "www.fourleafdata.com",
+   "same_as": "ca-1202",
+   "source": "oregon registry",
+   "website": "www.fourleafdata.com"
+  },
+  "or-data-00250": {
+   "email": "privacy@unearthcampaigns.com",
+   "name": "UNEARTH CAMPAIGNS LLC",
+   "rights_url": "https://www.unearthcampaigns.com/",
+   "same_as": "ca-1033",
+   "source": "oregon registry",
+   "website": "https://www.unearthcampaigns.com/"
+  },
+  "or-data-00251": {
+   "email": "",
+   "name": "WEALTHFEED",
+   "rights_url": "Online",
+   "same_as": "ca-1426",
+   "source": "oregon registry",
+   "website": "Online"
+  },
+  "or-data-00252": {
+   "email": "",
+   "name": "COGNISM INC",
+   "rights_url": "Yes",
+   "same_as": "ca-1213",
+   "source": "oregon registry",
+   "website": "Yes"
+  },
+  "or-data-00254": {
+   "email": "privacy@ziffdavis.com",
+   "name": "J2 MARTECH CORP",
+   "rights_url": "https://dsar.ziffdavis.com/",
+   "same_as": "ca-1390",
+   "source": "oregon registry",
+   "website": "https://dsar.ziffdavis.com/"
+  },
+  "or-data-00255": {
+   "email": "privacy@ziffdavis.com",
+   "name": "J2 GLOBAL CANADA INC",
+   "rights_url": "https://dsar.ziffdavis.com/",
+   "same_as": "ca-1244",
+   "source": "oregon registry",
+   "website": "ziffdavis.com"
+  },
+  "or-data-00256": {
+   "email": "",
+   "name": "LEAD ME MEDIA LLC",
+   "rights_url": "https://policy.leadmemedia.com",
+   "same_as": "ca-1586",
+   "source": "oregon registry",
+   "website": "https://policy.leadmemedia.com"
+  },
+  "or-data-00257": {
+   "email": "privacy@explorium.ai",
+   "name": "EXPLORIUM INC",
+   "rights_url": "https://www.explorium.ai/platform-privacy-policy/",
+   "same_as": "ca-1043",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00258": {
+   "email": "dataprivacy@zs.com",
+   "name": "ZS ASSOCIATES INC",
+   "rights_url": "",
+   "same_as": "ca-1128",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00259": {
+   "email": "",
+   "name": "WEST PUBLISING CORPORATION",
+   "rights_url": "https://www.thomsonreuters.com/en/privacy-statement.html",
+   "source": "oregon registry",
+   "website": "https://www.thomsonreuters.com/en/privacy-statement.html"
+  },
+  "or-data-00260": {
+   "email": "",
+   "name": "ACTIVIMPACT LLC",
+   "rights_url": "https://activimpact.ai/dsar",
+   "same_as": "ca-1383",
+   "source": "oregon registry",
+   "website": "https://activimpact.ai/dsar"
+  },
+  "or-data-00261": {
+   "email": "privacy@33across.com",
+   "name": "33ACROSS INC",
+   "rights_url": "https://udp.33across.com/udp_opt_out",
+   "same_as": "ca-1162",
+   "source": "oregon registry",
+   "website": "https://udp.33across.com/udp_opt_out"
+  },
+  "or-data-00262": {
+   "email": "privacy@eab.com",
+   "name": "EAB GLOBAL INC",
+   "rights_url": "www.eab.com",
+   "same_as": "ca-1007",
+   "source": "oregon registry",
+   "website": "www.eab.com"
+  },
+  "or-data-00264": {
+   "email": "privacy@stirista.com",
+   "name": "STIRISTA",
+   "rights_url": "https://www.stirista.com/privacy-policy/",
+   "same_as": "ca-1105",
+   "source": "oregon registry",
+   "website": "https://www.stirista.com/privacy-policy/"
+  },
+  "or-data-00265": {
+   "email": "privacy@richmediallc.com",
+   "name": "RICH MEDIA LLC",
+   "rights_url": "www.richmediallc.com",
+   "same_as": "ca-1484",
+   "source": "oregon registry",
+   "website": "www.richmediallc.com"
+  },
+  "or-data-00266": {
+   "email": "info@peekyou.com",
+   "name": "PEEKYOU LLC",
+   "rights_url": "https://www.peekyou.com/about/contact/ccpa_optout/do_not_sell/",
+   "source": "oregon registry",
+   "website": "https://www.peekyou.com/"
+  },
+  "or-data-00267": {
+   "email": "",
+   "name": "UPLEAD LLC",
+   "rights_url": "",
+   "same_as": "ca-1210",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00268": {
+   "email": "info@relpro.com",
+   "name": "RELPRO INC",
+   "rights_url": "",
+   "same_as": "ca-1466",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00270": {
+   "email": "",
+   "name": "CARDLYTICS INC",
+   "rights_url": "https://datagrail.cardlytics.com/",
+   "source": "oregon registry",
+   "website": "https://datagrail.cardlytics.com/"
+  },
+  "or-data-00271": {
+   "email": "privacy@trueblueanalytics.org",
+   "name": "TRUE BLUE ANALYTICS LLC",
+   "rights_url": "trueblueanalytics.org",
+   "same_as": "ca-1014",
+   "source": "oregon registry",
+   "website": "trueblueanalytics.org"
+  },
+  "or-data-00272": {
+   "email": "",
+   "name": "FIRST MOVERS ADVANTAGE LLC",
+   "rights_url": "https://www.fmadata.com/",
+   "source": "oregon registry",
+   "website": "https://www.fmadata.com/"
+  },
+  "or-data-00273": {
+   "email": "privacy@aspire-north.com",
+   "name": "AMERICAN SPIRIT DATA SOULTIONS LLC",
+   "rights_url": "www.americanspiritcorp.com/do-not-sell-my-personal-information--out-out-request-form.html",
+   "source": "oregon registry",
+   "website": "www.americanspiritcorp.com/do-not-sell-my-personal-information--out-out-request-form.html"
+  },
+  "or-data-00274": {
+   "email": "privacy@revoptimal.com",
+   "name": "REVOPTIMAL LLC",
+   "rights_url": "https://revoptimal.com/",
+   "same_as": "ca-1323",
+   "source": "oregon registry",
+   "website": "https://revoptimal.com/"
+  },
+  "or-data-00275": {
+   "email": "",
+   "name": "MONEVO INC",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "source": "oregon registry",
+   "website": "https://www.transunion.com/consumer-privacy"
+  },
+  "or-data-00277": {
+   "email": "support@datasys.com",
+   "name": "DATASYS GROUP INC",
+   "rights_url": "datasys.com",
+   "same_as": "ca-1394",
+   "source": "oregon registry",
+   "website": "datasys.com"
+  },
+  "or-data-00278": {
+   "email": "privacy@intentiq.com",
+   "name": "INTENT IQ LLC",
+   "rights_url": "https://www.intentiq.com/opt-out/",
+   "same_as": "ca-1147",
+   "source": "oregon registry",
+   "website": "https://www.intentiq.com/opt-out/"
+  },
+  "or-data-00279": {
+   "email": "privacy@5x5coop.com",
+   "name": "5X5 US LLC",
+   "rights_url": "https://5x5coop.com/",
+   "same_as": "ca-1475",
+   "source": "oregon registry",
+   "website": "https://5x5coop.com/"
+  },
+  "or-data-00280": {
+   "email": "privacy@altairci.com",
+   "name": "ALTAIR DATA RESOURCES INC",
+   "rights_url": "https://www.altairdata.com/altair-consumer-info/",
+   "same_as": "ca-1096",
+   "source": "oregon registry",
+   "website": "https://www.altairdata.com/altair-consumer-info/"
+  },
+  "or-data-00282": {
+   "email": "privacy@healthlinkdimensions.com",
+   "name": "HEALTHLINK DIMENSIONS LLC",
+   "rights_url": "https://www.healthlinkdimensions.com/consumerprivacyrights",
+   "same_as": "ca-1098",
+   "source": "oregon registry",
+   "website": "healthlinkdimensions.com"
+  },
+  "or-data-00283": {
+   "email": "privacy@apollo.io",
+   "name": "ZENLEADS INC",
+   "rights_url": "https://www.apollo.io/privacy-policy/remove",
+   "same_as": "ca-1088",
+   "source": "oregon registry",
+   "website": "https://www.apollo.io/privacy-policy/remove"
+  },
+  "or-data-00284": {
+   "email": "",
+   "name": "GREAT LAKES LIST INC",
+   "rights_url": "www.greatlakeslists.com",
+   "same_as": "ca-1513",
+   "source": "oregon registry",
+   "website": "www.greatlakeslists.com"
+  },
+  "or-data-00285": {
+   "email": "",
+   "name": "PARAMOUNT LISTS INC",
+   "rights_url": "www.paramountlists.com",
+   "same_as": "ca-1510",
+   "source": "oregon registry",
+   "website": "www.paramountlists.com"
+  },
+  "or-data-00287": {
+   "email": "privacy@aidentified.com",
+   "name": "AIDENTIFIED INC",
+   "rights_url": "https://www.aidentified.com/delete-my-data",
+   "same_as": "ca-1017",
+   "source": "oregon registry",
+   "website": "https://www.aidentified.com/delete-my-data"
+  },
+  "or-data-00288": {
+   "email": "support@convexlabs.io",
+   "name": "CONVEX LABS LLC",
+   "rights_url": "https://www.convex.com/",
+   "same_as": "ca-1523",
+   "source": "oregon registry",
+   "website": "https://www.convex.com/"
+  },
+  "or-data-00289": {
+   "email": "privacy@stackadapt.com",
+   "name": "STACKADAPT INC",
+   "rights_url": "https://www.stackadapt.com/legal-document-centre/opt-out-of-sale-targeted-advertising",
+   "same_as": "ca-1117",
+   "source": "oregon registry",
+   "website": "https://www.stackadapt.com/legal-document-centre/opt-out-of-sale-targeted-advertising"
+  },
+  "or-data-00291": {
+   "email": "",
+   "name": "KOMODO HEALTH INC",
+   "rights_url": "https://www.komodohealth.com/privacy-notice/",
+   "same_as": "ca-1321",
+   "source": "oregon registry",
+   "website": "https://www.komodohealth.com/privacy-notice/"
+  },
+  "or-data-00292": {
+   "email": "privacy@videoamp.com",
+   "name": "VIDEOAMP INC",
+   "rights_url": "https://videoamp.com/us-privacy-notice/",
+   "same_as": "ca-1432",
+   "source": "oregon registry",
+   "website": "https://videoamp.com/us-privacy-notice/"
+  },
+  "or-data-00296": {
+   "email": "requests@apollointeractive.com",
+   "name": "APOLLO INTERACTIVE LLC",
+   "rights_url": "https://www.apollointeractive.com/data-rights.php",
+   "same_as": "ca-1161",
+   "source": "oregon registry",
+   "website": "https://www.apollointeractive.com/data-rights.php"
+  },
+  "or-data-00299": {
+   "email": "privacyteam@catalina.com",
+   "name": "CATALINA MARKETING CORPORATION",
+   "rights_url": "https://www.catalina.com/legal",
+   "same_as": "ca-1067",
+   "source": "oregon registry",
+   "website": "https://www.catalina.com/legal"
+  },
+  "or-data-00300": {
+   "email": "privacy@redmob.io",
+   "name": "REDMOB LLC",
+   "rights_url": "https://www.redmob.io/",
+   "same_as": "ca-1145",
+   "source": "oregon registry",
+   "website": "https://www.redmob.io/"
+  },
+  "or-data-00301": {
+   "email": "privacy@blis.com",
+   "name": "BLIS USA, INC.",
+   "rights_url": "https://blis.com/privacy-centre/",
+   "source": "oregon registry",
+   "website": "https://blis.com/privacy-centre/"
+  },
+  "or-data-00302": {
+   "email": "",
+   "name": "MESSAGE DIGITAL LLC",
+   "rights_url": "https://messagedigital.com/my-data",
+   "same_as": "ca-1023",
+   "source": "oregon registry",
+   "website": "https://messagedigital.com/my-data"
+  },
+  "or-data-00305": {
+   "email": "",
+   "name": "SHARE LOCAL MEDIA INC",
+   "rights_url": "https://privacy.sharelocalmedia.com/",
+   "same_as": "ca-1160",
+   "source": "oregon registry",
+   "website": "https://privacy.sharelocalmedia.com/"
+  },
+  "or-data-00306": {
+   "email": "privacy@datadecisionsgroup.com",
+   "name": "DATA DECISIONS GROUP LLC",
+   "rights_url": "https://datadecisionsgroup.com/privacy-policy/",
+   "same_as": "ca-1167",
+   "source": "oregon registry",
+   "website": "https://datadecisionsgroup.com/privacy-policy/"
+  },
+  "or-data-00308": {
+   "email": "compliance@infopay.com",
+   "name": "INFOPAY INC",
+   "rights_url": "https://www.infopay.com/",
+   "same_as": "ca-1020",
+   "source": "oregon registry",
+   "website": "https://www.infopay.com/"
+  },
+  "or-data-00309": {
+   "email": "privacy@firstdirectmarketing.com",
+   "name": "FIRST DIRECT INC",
+   "rights_url": "https://compliance.firstdirectmarketing.com/",
+   "same_as": "ca-1109",
+   "source": "oregon registry",
+   "website": "https://compliance.firstdirectmarketing.com/"
+  },
+  "or-data-00310": {
+   "email": "",
+   "name": "QUAD/GRAPHICS INC",
+   "rights_url": "www.quad.com",
+   "same_as": "ca-1073",
+   "source": "oregon registry",
+   "website": "www.quad.com"
+  },
+  "or-data-00311": {
+   "email": "",
+   "name": "El TORO.COM LLC",
+   "rights_url": "https://eltoro.com/do-not-sell-my-personal-information/",
+   "same_as": "ca-1315",
+   "source": "oregon registry",
+   "website": "https://eltoro.com/do-not-sell-my-personal-information/"
+  },
+  "or-data-00312": {
+   "email": "privacy@brandwatch.com",
+   "name": "CRIMSON HEXAGON INC",
+   "rights_url": "https://www.brandwatch.com/p/legal-data/",
+   "same_as": "ca-1049",
+   "source": "oregon registry",
+   "website": "www.brandwatch.com"
+  },
+  "or-data-00313": {
+   "email": "vistrataxreg.us@vistra.com",
+   "name": "PREQIN INC",
+   "rights_url": "",
+   "same_as": "ca-1417",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00314": {
+   "email": "privacy@sterling.ai",
+   "name": "STERLING DATA COMPANY LLC",
+   "rights_url": "sterling.ai/privacy-policy",
+   "same_as": "ca-1246",
+   "source": "oregon registry",
+   "website": "sterling.ai/privacy-policy"
+  },
+  "or-data-00315": {
+   "email": "",
+   "name": "EXELATE INC",
+   "rights_url": "Users can opt-out on our opt-out page at https://sites.nielsen.com/legal/privacy-statement/exelate-privacy-policy/opt-in-opt-out/ with an email address, MAID, or their browser.",
+   "same_as": "ca-1520",
+   "source": "oregon registry",
+   "website": "Users can opt-out on our opt-out page at https://sites.nielsen.com/legal/privacy-statement/exelate-privacy-policy/opt-in-opt-out/ with an email address, MAID, or their browser."
+  },
+  "or-data-00316": {
+   "email": "privacychoice@semcasting.com",
+   "name": "SEMCASTING INC",
+   "rights_url": "https://www.semcasting.com/privacy-choice",
+   "same_as": "ca-1281",
+   "source": "oregon registry",
+   "website": "https://www.semcasting.com/privacy-choice"
+  },
+  "or-data-00317": {
+   "email": "",
+   "name": "LIONSHARE MARKETING INC",
+   "rights_url": "www.lionsharemarketing.com",
+   "same_as": "ca-1378",
+   "source": "oregon registry",
+   "website": "www.lionsharemarketing.com"
+  },
+  "or-data-00318": {
+   "email": "",
+   "name": "DISCO TECHNOLOGY INC",
+   "rights_url": "",
+   "same_as": "ca-1419",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00319": {
+   "email": "",
+   "name": "COMPLETE MAILING LISTS LLC",
+   "rights_url": "https://completemailinglists.com/do-not-sell-my-information",
+   "same_as": "ca-1445",
+   "source": "oregon registry",
+   "website": "https://completemailinglists.com/do-not-sell-my-information"
+  },
+  "or-data-00320": {
+   "email": "",
+   "name": "MISSISSIPPI TORNADO ALLEY LLC",
+   "rights_url": "https://www.fastpeoplesearch.com/do-not-sell",
+   "same_as": "ca-1366",
+   "source": "oregon registry",
+   "website": "https://www.fastpeoplesearch.com/do-not-sell"
+  },
+  "or-data-00321": {
+   "email": "",
+   "name": "FORAGER.AI LLC",
+   "rights_url": "https://app.forager.ai/privacy",
+   "same_as": "ca-1136",
+   "source": "oregon registry",
+   "website": "https://app.forager.ai/privacy"
+  },
+  "or-data-00322": {
+   "email": "privacy@cdk.com",
+   "name": "CDK GLOBAL LLC",
+   "rights_url": "cdkglobal.com",
+   "same_as": "ca-1584",
+   "source": "oregon registry",
+   "website": "cdkglobal.com"
+  },
+  "or-data-00323": {
+   "email": "privacy@reklaimyours.com",
+   "name": "REKLAIM LTD",
+   "rights_url": "https://www.reklaimyours.com/optout/",
+   "same_as": "ca-1226",
+   "source": "oregon registry",
+   "website": "https://www.reklaimyours.com/optout/"
+  },
+  "or-data-00324": {
+   "email": "",
+   "name": "FREE DATA SERVICES LLC",
+   "rights_url": "truepeoplesearch.com/removal",
+   "same_as": "ca-1346",
+   "source": "oregon registry",
+   "website": "truepeoplesearch.com/removal"
+  },
+  "or-data-00325": {
+   "email": "",
+   "name": "FAMILY TREE NOW LLC",
+   "rights_url": "https://www.familytreenow.com/privacy?removal=true",
+   "same_as": "ca-1347",
+   "source": "oregon registry",
+   "website": "https://www.familytreenow.com/privacy?removal=true"
+  },
+  "or-data-00326": {
+   "email": "",
+   "name": "COMPLETE MEDICAL LISTS INC",
+   "rights_url": "https://www.completemedicallists.com/ccpa.php",
+   "same_as": "ca-1305",
+   "source": "oregon registry",
+   "website": "https://www.completemedicallists.com/ccpa.php"
+  },
+  "or-data-00327": {
+   "email": "support@decisionlinks.com",
+   "name": "DECISIONLINKS LLC",
+   "rights_url": "https://www.decisionlinks.com/legal-pages/your-privacy-choices",
+   "same_as": "ca-1070",
+   "source": "oregon registry",
+   "website": "https://www.decisionlinks.com/legal-pages/your-privacy-choices"
+  },
+  "or-data-00328": {
+   "email": "privacy@consumercanvas.net",
+   "name": "CONSUMER CANVAS LLC",
+   "rights_url": "www.consumercanvas.net/privacy",
+   "same_as": "ca-1142",
+   "source": "oregon registry",
+   "website": "www.consumercanvas.net/privacy"
+  },
+  "or-data-00329": {
+   "email": "",
+   "name": "POSSIBLENOW INC",
+   "rights_url": "https://site.possiblenow.com/do-not-sell-my-personal-information-new",
+   "same_as": "ca-1107",
+   "source": "oregon registry",
+   "website": "https://site.possiblenow.com/do-not-sell-my-personal-information-new"
+  },
+  "or-data-00330": {
+   "email": "piprivacy@altrata.com",
+   "name": "ALTRATA INC",
+   "rights_url": "www.altrata.com",
+   "same_as": "ca-1102",
+   "source": "oregon registry",
+   "website": "www.altrata.com"
+  },
+  "or-data-00331": {
+   "email": "chrissy@jdmlistservices.com",
+   "name": "JDM LIST SERVICES LLC",
+   "rights_url": "www.jdmlistservices.com",
+   "same_as": "ca-1284",
+   "source": "oregon registry",
+   "website": "www.jdmlistservices.com"
+  },
+  "or-data-00333": {
+   "email": "privacy@intentisfy.io",
+   "name": "INTENTSIFY LLC",
+   "rights_url": "https://app.intentsify.io/opt-out",
+   "same_as": "ca-1474",
+   "source": "oregon registry",
+   "website": "https://app.intentsify.io/opt-out"
+  },
+  "or-data-00334": {
+   "email": "",
+   "name": "EMERGES.COM INCORPORATED",
+   "rights_url": "https://www.emerges.com/Government-Record-Opt-Out_ep_51-1.html",
+   "source": "oregon registry",
+   "website": "https://www.emerges.com/Government-Record-Opt-Out_ep_51-1.html"
+  },
+  "or-data-00335": {
+   "email": "",
+   "name": "POSTPILOT INC",
+   "rights_url": "https://www.postpilot.com/rights-request-form",
+   "same_as": "ca-1414",
+   "source": "oregon registry",
+   "website": "https://www.postpilot.com/rights-request-form"
+  },
+  "or-data-00336": {
+   "email": "",
+   "name": "INSTITUTIONAL SHAREHOLDER SERVICES",
+   "rights_url": "N/A",
+   "same_as": "ca-1343",
+   "source": "oregon registry",
+   "website": "N/A"
+  },
+  "or-data-00337": {
+   "email": "privacy@date-detective.app",
+   "name": "DATE DETECTIVE INC",
+   "rights_url": "https://mobile.date-detective.app/investigate-opt-out",
+   "same_as": "ca-1558",
+   "source": "oregon registry",
+   "website": "https://mobile.date-detective.app/investigate-opt-out"
+  },
+  "or-data-00338": {
+   "email": "info@mrginc.com",
+   "name": "MEDIA RESOURCE GROUP LLC",
+   "rights_url": "mrginc.com",
+   "source": "oregon registry",
+   "website": "mrginc.com"
+  },
+  "or-data-00339": {
+   "email": "privacy@persistent.id",
+   "name": "COMMAND PRECISION INC",
+   "rights_url": "https://trustsuperset.com/dsrs?orgId=7b774bc1-608f-8c4c-bb90-453b1540f48b",
+   "same_as": "ca-1231",
+   "source": "oregon registry",
+   "website": "https://trustsuperset.com/dsrs?orgId=7b774bc1-608f-8c4c-bb90-453b1540f48b"
+  },
+  "or-data-00340": {
+   "email": "",
+   "name": "FARADAY INC",
+   "rights_url": "https://faraday.ai/privacy-options",
+   "same_as": "ca-1283",
+   "source": "oregon registry",
+   "website": "https://faraday.ai/privacy-options"
+  },
+  "or-data-00341": {
+   "email": "privacy@acronymix.com",
+   "name": "ACRONYMIX LLC",
+   "rights_url": "https://app.termly.io/notify/9f01e1ad-6846-46ec-8f9f-3f2155e8392c",
+   "same_as": "ca-1002",
+   "source": "oregon registry",
+   "website": "https://app.termly.io/notify/9f01e1ad-6846-46ec-8f9f-3f2155e8392c"
+  },
+  "or-data-00342": {
+   "email": "optout@multimedialists.com",
+   "name": "MULTIMEDIA LISTS INC",
+   "rights_url": "www.multimedialists.com",
+   "same_as": "ca-1081",
+   "source": "oregon registry",
+   "website": "www.multimedialists.com"
+  },
+  "or-data-00343": {
+   "email": "placeiq.privacy@precisely.com",
+   "name": "PLACEIQ INC",
+   "rights_url": "https://www.precisely.com/your-privacy-choices",
+   "same_as": "ca-1168",
+   "source": "oregon registry",
+   "website": "https://www.precisely.com/your-privacy-choices"
+  },
+  "or-data-00344": {
+   "email": "contact@rampedup.io",
+   "name": "RAMPEDUP",
+   "rights_url": "rampedup.io",
+   "same_as": "ca-1187",
+   "source": "oregon registry",
+   "website": "rampedup.io"
+  },
+  "or-data-00346": {
+   "email": "privacy@keymarketingadvantage.com",
+   "name": "KEY MARKETING ADVANTAGE LLC",
+   "rights_url": "www.keymarketingadvantage.com",
+   "same_as": "ca-1022",
+   "source": "oregon registry",
+   "website": "www.keymarketingadvantage.com"
+  },
+  "or-data-00347": {
+   "email": "privacy@loopme.com",
+   "name": "LOOPME LTD",
+   "rights_url": "https://legal.loopme.com/privacy-center/loopme-opt-out",
+   "same_as": "ca-1436",
+   "source": "oregon registry",
+   "website": "https://legal.loopme.com/privacy-center/loopme-opt-out"
+  },
+  "or-data-00348": {
+   "email": "privacy@visualvisitor.com",
+   "name": "VISUAL VISITOR LLC",
+   "rights_url": "https://www.visualvisitor.com/opt-out/",
+   "source": "oregon registry",
+   "website": "https://www.visualvisitor.com/opt-out/"
+  },
+  "or-data-00349": {
+   "email": "privacy@bdex.com",
+   "name": "BDEX LLC",
+   "rights_url": "www.bdex.com",
+   "same_as": "ca-1363",
+   "source": "oregon registry",
+   "website": "www.bdex.com"
+  },
+  "or-data-00350": {
+   "email": "privacy@adept-id.com",
+   "name": "ADEPT ID INC",
+   "rights_url": "https://www.adept-id.com/opt-out-preferences/",
+   "source": "oregon registry",
+   "website": "https://www.adept-id.com/opt-out-preferences/"
+  },
+  "or-data-00351": {
+   "email": "support@listkit.io",
+   "name": "LISTKIT LLC",
+   "rights_url": "listkit.io",
+   "same_as": "ca-1518",
+   "source": "oregon registry",
+   "website": "listkit.io"
+  },
+  "or-data-00352": {
+   "email": "",
+   "name": "THE SEGERDAHL LLC",
+   "rights_url": "https://sg360.com/do-not-sell-my-info/",
+   "same_as": "ca-1093",
+   "source": "oregon registry",
+   "website": "https://sg360.com/do-not-sell-my-info/"
+  },
+  "or-data-00354": {
+   "email": "privacy@medprosystems.com",
+   "name": "MEDPRO SYSTEMS",
+   "rights_url": "www.medprosystems.com",
+   "same_as": "ca-1011",
+   "source": "oregon registry",
+   "website": "www.medprosystems.com"
+  },
+  "or-data-00355": {
+   "email": "legal@demandscience.com",
+   "name": "DEMAND SCIENCE US LLC",
+   "rights_url": "https://demandscience.com/",
+   "same_as": "ca-1253",
+   "source": "oregon registry",
+   "website": "https://demandscience.com/"
+  },
+  "or-data-00356": {
+   "email": "",
+   "name": "GENERAL MOTORS LLC",
+   "rights_url": "www.gm.com/consumer-privacy",
+   "same_as": "ca-1330",
+   "source": "oregon registry",
+   "website": "www.gm.com/consumer-privacy"
+  },
+  "or-data-00358": {
+   "email": "",
+   "name": "WINR DATA B V",
+   "rights_url": "N/A",
+   "source": "oregon registry",
+   "website": "N/A"
+  },
+  "or-data-00359": {
+   "email": "privacyrights@nexxen.com",
+   "name": "NEXXEN INC",
+   "rights_url": "https://nexxen.com/privacy-data-subject-rights-request/",
+   "same_as": "ca-1295",
+   "source": "oregon registry",
+   "website": "https://nexxen.com/privacy-data-subject-rights-request/"
+  },
+  "or-data-00361": {
+   "email": "privacy.inbox@lob.com",
+   "name": "LOB.COM INC.",
+   "rights_url": "https://www.lob.com/privacy",
+   "same_as": "ca-1215",
+   "source": "oregon registry",
+   "website": "https://www.lob.com/privacy"
+  },
+  "or-data-00362": {
+   "email": "",
+   "name": "LIGHTBOX PARENT LP",
+   "rights_url": "https://www.lightboxre.com/lightbox-individual-data-rights-request/",
+   "source": "oregon registry",
+   "website": "https://www.lightboxre.com/lightbox-individual-data-rights-request/"
+  },
+  "or-data-00363": {
+   "email": "privacy@affinity.co",
+   "name": "PROJECT AFFINITY INC",
+   "rights_url": "https://www.affinity.co/legal/privacy-policy",
+   "same_as": "ca-1221",
+   "source": "oregon registry",
+   "website": "https://www.affinity.co/legal/privacy-policy"
+  },
+  "or-data-00364": {
+   "email": "notice@tunnldata.com",
+   "name": "TUNNL LLC",
+   "rights_url": "https://privacy.tunnldata.com/",
+   "same_as": "ca-1570",
+   "source": "oregon registry",
+   "website": "https://privacy.tunnldata.com/"
+  },
+  "or-data-00365": {
+   "email": "",
+   "name": "BUXTON COMPANY LLC",
+   "rights_url": "https://www.buxtonco.com/privacy",
+   "same_as": "ca-1267",
+   "source": "oregon registry",
+   "website": "https://www.buxtonco.com/privacy"
+  },
+  "or-data-00368": {
+   "email": "privacy@01advertising.com",
+   "name": "01ADVERTISING INC",
+   "rights_url": "",
+   "same_as": "ca-1000",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00369": {
+   "email": "dncrequest@awl.com",
+   "name": "AWL HOLDINGS LLC",
+   "rights_url": "https://dnc.allwebleads.com/Unsubscribe",
+   "same_as": "ca-1391",
+   "source": "oregon registry",
+   "website": "https://awl.com/privacy/"
+  },
+  "or-data-00370": {
+   "email": "",
+   "name": "BUXTON COMPANY LLC",
+   "rights_url": "https://www.audiense.com/legal/privacy-practices/",
+   "same_as": "ca-1267",
+   "source": "oregon registry",
+   "website": "https://www.audiense.com/legal/privacy-practices/"
+  },
+  "or-data-00371": {
+   "email": "privacy@fusable.com",
+   "name": "FUSABLE",
+   "rights_url": "www.fusable.com",
+   "source": "oregon registry",
+   "website": "www.fusable.com"
+  },
+  "or-data-00372": {
+   "email": "legal@graze.social",
+   "name": "GRAZE SOCIAL PBC",
+   "rights_url": "www.graze.social",
+   "same_as": "ca-1511",
+   "source": "oregon registry",
+   "website": "www.graze.social"
+  },
+  "or-data-00373": {
+   "email": "",
+   "name": "SUMMIT RESOURCES LLC",
+   "rights_url": "clientcommand.com",
+   "same_as": "ca-1223",
+   "source": "oregon registry",
+   "website": "clientcommand.com"
+  },
+  "or-data-00375": {
+   "email": "privacy@rocketreach.co",
+   "name": "ROCKETREACH LLC",
+   "rights_url": "https://rocketreach.co/remove-profile",
+   "same_as": "ca-1178",
+   "source": "oregon registry",
+   "website": "https://rocketreach.co/remove-profile"
+  },
+  "or-data-00376": {
+   "email": "privacy@complementics.com",
+   "name": "ECONTEXT.AI LIMITED",
+   "rights_url": "https://www.complementics.com/opt-out",
+   "same_as": "ca-1468",
+   "source": "oregon registry",
+   "website": "https://www.complementics.com/opt-out"
+  },
+  "or-data-00377": {
+   "email": "privacy@juicebox.work",
+   "name": "JUICEBOX APP",
+   "rights_url": "https://juicebox.ai/privacy-center",
+   "same_as": "ca-1045",
+   "source": "oregon registry",
+   "website": "https://juicebox.ai/privacy-center"
+  },
+  "or-data-00378": {
+   "email": "dataprotection@sharethrough.com",
+   "name": "SHARETHROUGH USA INC",
+   "rights_url": "www.sharethrough.com",
+   "source": "oregon registry",
+   "website": "www.sharethrough.com"
+  },
+  "or-data-00380": {
+   "email": "privacy@brooksim.com",
+   "name": "BROOKS INTEGRATED MARKETING LLC",
+   "rights_url": "dsr.trustsuperset.com/?orgId=2dc76d0a-78d2-4492-9fc1-39da892fc0d5",
+   "same_as": "ca-1003",
+   "source": "oregon registry",
+   "website": "dsr.trustsuperset.com/?orgId=2dc76d0a-78d2-4492-9fc1-39da892fc0d5"
+  },
+  "or-data-00382": {
+   "email": "opt-out@datafy.com",
+   "name": "DATAFY LLC",
+   "rights_url": "https://datafy.com/opt-out",
+   "same_as": "ca-1365",
+   "source": "oregon registry",
+   "website": "https://datafy.com/opt-out"
+  },
+  "or-data-00383": {
+   "email": "info@helixcampaigns.com",
+   "name": "HELIX CAMPAIGNS LLC",
+   "rights_url": "www.helixcampaigns.com/mydata",
+   "same_as": "ca-1264",
+   "source": "oregon registry",
+   "website": "www.helixcampaigns.com/mydata"
+  },
+  "or-data-00384": {
+   "email": "privacy@truedata.co",
+   "name": "TRUEDATA SOLUTIONS INC",
+   "rights_url": "https://info-prod.truedata.co/access-delete-request",
+   "same_as": "ca-1401",
+   "source": "oregon registry",
+   "website": "https://info-prod.truedata.co/access-delete-request"
+  },
+  "or-data-00385": {
+   "email": "privacy@theswarm.com",
+   "name": "SWARM HOLDINGS INC",
+   "rights_url": "https://dsr.trustsuperset.com/?orgId=0ed646d6-b843-4222-b209-cd97ff3f8b73",
+   "same_as": "ca-1001",
+   "source": "oregon registry",
+   "website": "https://dsr.trustsuperset.com/?orgId=0ed646d6-b843-4222-b209-cd97ff3f8b73"
+  },
+  "or-data-00387": {
+   "email": "optout@accurateappend.com",
+   "name": "ACCURATE APPEND INC",
+   "rights_url": "https://clients.accurateappend.com/public/optout/capture",
+   "same_as": "ca-1247",
+   "source": "oregon registry",
+   "website": "www.accurateappend.com"
+  },
+  "or-data-00388": {
+   "email": "privacy@vistarmedia.com",
+   "name": "VISTAR MEDIA INC",
+   "rights_url": "https://www.vistarmedia.com/privacy-choices",
+   "same_as": "ca-1013",
+   "source": "oregon registry",
+   "website": "https://www.vistarmedia.com/privacy-choices"
+  },
+  "or-data-00389": {
+   "email": "",
+   "name": "OPTABLE TECHNOLOGIES US INC",
+   "rights_url": "https://terms.optable.co/privacy/opt-out-and-suppression-of-brokered-data",
+   "same_as": "ca-1110",
+   "source": "oregon registry",
+   "website": "https://terms.optable.co/privacy/opt-out-and-suppression-of-brokered-data"
+  },
+  "or-data-00390": {
+   "email": "privacy@upcell.io",
+   "name": "UPCELL LLC",
+   "rights_url": "https://www.upcell.io/data-claim",
+   "same_as": "ca-1063",
+   "source": "oregon registry",
+   "website": "https://www.upcell.io/data-claim"
+  },
+  "or-data-00391": {
+   "email": "consumercare@autoweb.com",
+   "name": "AUTOWEB INC",
+   "rights_url": "https://www.autoweb.com/privacy",
+   "same_as": "ca-1030",
+   "source": "oregon registry",
+   "website": "https://www.autoweb.com/privacy"
+  },
+  "or-data-00392": {
+   "email": "feedback@buyerlink.com",
+   "name": "BUYERLINK INC",
+   "rights_url": "https://www.buyerlink.co/privacy",
+   "same_as": "ca-1027",
+   "source": "oregon registry",
+   "website": "https://www.buyerlink.co/privacy"
+  },
+  "or-data-00393": {
+   "email": "privacy@audiencemix.net",
+   "name": "AUDIENCE MIX LLC",
+   "rights_url": "https://www.audiencemix.net/general-clean",
+   "same_as": "ca-1448",
+   "source": "oregon registry",
+   "website": "https://www.audiencemix.net/do-no-sell-or-share-my-personal-informat"
+  },
+  "or-data-00394": {
+   "email": "privacy@socialgist.com",
+   "name": "EFFYIS INC",
+   "rights_url": "www.socialgist.ai",
+   "same_as": "ca-1262",
+   "source": "oregon registry",
+   "website": "www.socialgist.ai"
+  },
+  "or-data-00395": {
+   "email": "privacy@irys.us",
+   "name": "IRYS INC",
+   "rights_url": "dsr.trustsuperset.com/?orgId=0d0512a8-9337-4cb5-9369-acf2ef40a077",
+   "same_as": "ca-1291",
+   "source": "oregon registry",
+   "website": "dsr.trustsuperset.com/?orgId=0d0512a8-9337-4cb5-9369-acf2ef40a077"
+  },
+  "or-data-00396": {
+   "email": "contact@aviato.co",
+   "name": "BACHMANITY INC",
+   "rights_url": "",
+   "same_as": "ca-1004",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00397": {
+   "email": "mail@mailinglists.com",
+   "name": "INFINITE MEDIA CONCEPTS INCORPORATES",
+   "rights_url": "www.mailinglists.com",
+   "source": "oregon registry",
+   "website": "www.mailinglists.com"
+  },
+  "or-data-00398": {
+   "email": "",
+   "name": "BLUE HILL MARKETING SOLUTIONS",
+   "rights_url": "https://www.liftbasedata.com/request-to-know/",
+   "same_as": "ca-1130",
+   "source": "oregon registry",
+   "website": "https://www.liftbasedata.com/request-to-know/"
+  },
+  "or-data-00399": {
+   "email": "privacy@collectorsdatastore.com",
+   "name": "COLLECTORS DATASTORE LLC",
+   "rights_url": "https://fanalyticsiq.com/opt-out-request/",
+   "source": "oregon registry",
+   "website": "https://fanalyticsiq.com/opt-out-request/"
+  },
+  "or-data-00400": {
+   "email": "",
+   "name": "LIVE DATA TECHNOLOGIES INC",
+   "rights_url": "https://www.livedatatechnologies.com/opting",
+   "same_as": "ca-1169",
+   "source": "oregon registry",
+   "website": "https://www.livedatatechnologies.com/opting"
+  },
+  "or-data-00401": {
+   "email": "hello@wiza.co",
+   "name": "WIZA INC",
+   "rights_url": "https://wiza.co/optout-contact-info",
+   "same_as": "ca-1320",
+   "source": "oregon registry",
+   "website": "https://wiza.co/optout-contact-info"
+  },
+  "or-data-00402": {
+   "email": "blakehogan@plug-industries.com",
+   "name": "PLUG INDUSTRIES",
+   "rights_url": "www.plug-industries.com",
+   "source": "oregon registry",
+   "website": "www.plug-industries.com"
+  },
+  "or-data-00404": {
+   "email": "",
+   "name": "ROR PARTNERS LLC",
+   "rights_url": "https://www.rorpartners.com/dsar",
+   "same_as": "ca-1157",
+   "source": "oregon registry",
+   "website": "https://www.rorpartners.com/dsar"
+  },
+  "or-data-00405": {
+   "email": "support@sync.me",
+   "name": "SYNC.ME LTD.",
+   "rights_url": "https://sync.me/unsubscribe/",
+   "source": "oregon registry",
+   "website": "https://sync.me/unsubscribe/"
+  },
+  "or-data-00406": {
+   "email": "privacy@proxima.ai",
+   "name": "INNOVATION BRANDS CORP",
+   "rights_url": "www.proxima.ai",
+   "same_as": "ca-1487",
+   "source": "oregon registry",
+   "website": "www.proxima.ai"
+  },
+  "or-data-00407": {
+   "email": "",
+   "name": "CYBBA INC",
+   "rights_url": "https://cybba-requests.my.onetrust.com/webform/a4a1351e-d293-4305-bde4-b9cf8f5c0989/f89c576a-b5c6-498e-bad5-698f084ffd30",
+   "same_as": "ca-1422",
+   "source": "oregon registry",
+   "website": "https://cybba-requests.my.onetrust.com/webform/a4a1351e-d293-4305-bde4-b9cf8f5c0989/f89c576a-b5c6-498e-bad5-698f084ffd30"
+  },
+  "or-data-00408": {
+   "email": "platformprivacy@triplelift.com",
+   "name": "TRIPLE LIFT INC",
+   "rights_url": "https://triplelift.com/user-rights-policy-and-opt-out/",
+   "source": "oregon registry",
+   "website": "https://triplelift.com/user-rights-policy-and-opt-out/"
+  },
+  "or-data-00409": {
+   "email": "privacy@nationalopinioninstitute.com",
+   "name": "NATIONAL OPINION INSTITUTE",
+   "rights_url": "https://nationalopinioninstitute.com/",
+   "same_as": "ca-1182",
+   "source": "oregon registry",
+   "website": "https://nationalopinioninstitute.com/"
+  },
+  "or-data-00411": {
+   "email": "privacy@rushmorelabs.com",
+   "name": "RUSHMORE LABS LLC",
+   "rights_url": "https://rushmorelabs.com/",
+   "same_as": "ca-1183",
+   "source": "oregon registry",
+   "website": "https://rushmorelabs.com/"
+  },
+  "or-data-00412": {
+   "email": "optout@onspotdata.com",
+   "name": "MOBILE TECHNOLOGY CORPORATION",
+   "rights_url": "www.onspotdata.com",
+   "same_as": "ca-1103",
+   "source": "oregon registry",
+   "website": "www.onspotdata.com"
+  },
+  "or-data-00413": {
+   "email": "privacy@gsdsi.com",
+   "name": "GLOBAL SOURCE DATA SOLUTIONS INC",
+   "rights_url": "https://trustsuperset.com/dsrs?orgId=cf72da3d-e829-46e5-a71e-6d15b95c06ad",
+   "same_as": "ca-1006",
+   "source": "oregon registry",
+   "website": "https://trustsuperset.com/dsrs?orgId=cf72da3d-e829-46e5-a71e-6d15b95c06ad"
+  },
+  "or-data-00415": {
+   "email": "privacyofficer@iqvia.com",
+   "name": "IQVIA DIGITAL INC.",
+   "rights_url": "www.iqvia.com",
+   "same_as": "ca-1266",
+   "source": "oregon registry",
+   "website": "www.iqvia.com"
+  },
+  "or-data-00416": {
+   "email": "",
+   "name": "COMMERCE SIGNALS INC",
+   "rights_url": "https://service.transunion.com/dss/ccpa_optout.page",
+   "same_as": "ca-1410",
+   "source": "oregon registry",
+   "website": "https://service.transunion.com/dss/ccpa_optout.page"
+  },
+  "or-data-00419": {
+   "email": "",
+   "name": "SPY LABS ADCO LLC",
+   "rights_url": "https://spydialer.com/Consumers/",
+   "same_as": "ca-1393",
+   "source": "oregon registry",
+   "website": "https://spydialer.com/Consumers/"
+  },
+  "or-data-00420": {
+   "email": "privacy@boam.ai",
+   "name": "GIGABITE INC",
+   "rights_url": "https://boam.ai/privacy-policy",
+   "same_as": "ca-1196",
+   "source": "oregon registry",
+   "website": "https://boam.ai/privacy-policy"
+  },
+  "or-data-00421": {
+   "email": "privacy@partech.com",
+   "name": "DB SUB, LLC",
+   "rights_url": "https://partech.com/dbsubllc/",
+   "source": "oregon registry",
+   "website": "https://partech.com/dbsubllc/"
+  },
+  "or-data-00422": {
+   "email": "privacy@amplemarket.com",
+   "name": "TAGIS INC",
+   "rights_url": "https://www.amplemarket.com/legal/privacy",
+   "same_as": "ca-1090",
+   "source": "oregon registry",
+   "website": "https://www.amplemarket.com/legal/privacy"
+  },
+  "or-data-00423": {
+   "email": "",
+   "name": "OWNCO LLC",
+   "rights_url": "https://my.monitorbase.com/privacypolicy",
+   "same_as": "ca-1021",
+   "source": "oregon registry",
+   "website": "https://my.monitorbase.com/privacypolicy"
+  },
+  "or-data-00424": {
+   "email": "privacy@venntel.com",
+   "name": "VENNTEL INC",
+   "rights_url": "https://www.venntel.com/opt-out",
+   "same_as": "ca-1382",
+   "source": "oregon registry",
+   "website": "https://www.venntel.com/opt-out"
+  },
+  "or-data-00425": {
+   "email": "privacy@connatix.com",
+   "name": "CONNATIX NATIVE EXCHANGE INC",
+   "rights_url": "www.connatix.com/optout",
+   "same_as": "ca-1186",
+   "source": "oregon registry",
+   "website": "www.connatix.com/optout"
+  },
+  "or-data-00426": {
+   "email": "michael.belsky@idmap.ai",
+   "name": "IDMAP INC",
+   "rights_url": "https://idmap.ai/do-not-sell.html",
+   "same_as": "ca-1407",
+   "source": "oregon registry",
+   "website": "https://idmap.ai/do-not-sell.html"
+  },
+  "or-data-00427": {
+   "email": "privacy@babelstreet.com",
+   "name": "BABEL STREET INC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/43f52ed9-df36-44dc-94b6-ce2f8458ca29/2ddc0d62-7d6a-4de2-b5c4-9f9f68116970",
+   "same_as": "ca-1430",
+   "source": "oregon registry",
+   "website": "babelstreet.com"
+  },
+  "or-data-00428": {
+   "email": "support@acres.com",
+   "name": "ACREMAPS LLC",
+   "rights_url": "https://www.acres.com/",
+   "source": "oregon registry",
+   "website": "https://www.acres.com/"
+  },
+  "or-data-00429": {
+   "email": "privacy@inmar.com",
+   "name": "INMAR BRAND SOLUTIONS INC",
+   "rights_url": "inmar.com",
+   "same_as": "ca-1542",
+   "source": "oregon registry",
+   "website": "inmar.com"
+  },
+  "or-data-00430": {
+   "email": "ncoa@responseamerica.net",
+   "name": "RESPONSE AMERICA DATA INC",
+   "rights_url": "https://responseamerica.net/optout.html",
+   "source": "oregon registry",
+   "website": "https://responseamerica.net/optout.html"
+  },
+  "or-data-00431": {
+   "email": "",
+   "name": "CIRCANA LLC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/95580356-b46a-4234-8f47-d824de4dbbc6/2de05774-2e3d-45b0-a7c2-45bb6ba50ab1",
+   "same_as": "ca-1270",
+   "source": "oregon registry",
+   "website": "https://privacyportal.onetrust.com/webform/95580356-b46a-4234-8f47-d824de4dbbc6/2de05774-2e3d-45b0-a7c2-45bb6ba50ab1"
+  },
+  "or-data-00432": {
+   "email": "personalinforequests@agile-ed.com",
+   "name": "AGILE EDUCATION MARKETING",
+   "rights_url": "https://agile-ed.com/california-privacy-rights/",
+   "same_as": "ca-1501",
+   "source": "oregon registry",
+   "website": "https://agile-ed.com/california-privacy-rights/"
+  },
+  "or-data-00433": {
+   "email": "privacy@neptuneops.com",
+   "name": "NEPTUNE OPS LLC",
+   "rights_url": "https://neptuneops.com/privacy-policy",
+   "same_as": "ca-1115",
+   "source": "oregon registry",
+   "website": "https://neptuneops.com/privacy-policy"
+  },
+  "or-data-00434": {
+   "email": "privacy@getliminal.com",
+   "name": "NACHAL INC",
+   "rights_url": "https://getliminal.com/privacypolicy",
+   "same_as": "ca-1561",
+   "source": "oregon registry",
+   "website": "https://getliminal.com/privacypolicy"
+  },
+  "or-data-00435": {
+   "email": "privacy@fusion92.com",
+   "name": "VIRTUAL MARKETING LLC",
+   "rights_url": "https://www.fusion92.com/privacy-choices",
+   "same_as": "ca-1355",
+   "source": "oregon registry",
+   "website": "https://www.fusion92.com/privacy-choices"
+  },
+  "or-data-00436": {
+   "email": "privacy@unacast.com",
+   "name": "UNACAST INC",
+   "rights_url": "https://www.unacast.com/opt-out",
+   "same_as": "ca-1364",
+   "source": "oregon registry",
+   "website": "https://www.unacast.com/opt-out"
+  },
+  "or-data-00437": {
+   "email": "privacy@plungedigital.com",
+   "name": "PLUNGE, LLC",
+   "rights_url": "https://my.datasubject.com/Azq9ITU2sQjNPKhSo/38050",
+   "same_as": "ca-1389",
+   "source": "oregon registry",
+   "website": "https://www.plungedigital.com/"
+  },
+  "or-data-00438": {
+   "email": "",
+   "name": "MV DIGITAL GROUP LLC",
+   "rights_url": "https://www.cinqdi.com/privacy-policy/?fides_modal_display=immediate",
+   "same_as": "ca-1503",
+   "source": "oregon registry",
+   "website": "https://www.cinqdi.com/privacy-policy/?fides_modal_display=immediate"
+  },
+  "or-data-00439": {
+   "email": "privacy@penlink.com",
+   "name": "PEN-LINK LTD",
+   "rights_url": "https://www.penlink.com/your-privacy-choices/",
+   "same_as": "ca-1454",
+   "source": "oregon registry",
+   "website": "https://www.penlink.com/your-privacy-choices/"
+  },
+  "or-data-00440": {
+   "email": "hello@exa.ai",
+   "name": "EXA LABS INC",
+   "rights_url": "exa.ai",
+   "same_as": "ca-1285",
+   "source": "oregon registry",
+   "website": "exa.ai"
+  },
+  "or-data-00441": {
+   "email": "data.privacy@clarivate.com",
+   "name": "CLARIVATE ANALYTICS (US)",
+   "rights_url": "https://privacyportal.onetrust.com/webform/7636e208-dda4-4218-8026-e1bc155873fc/0927a3fa-add0-4dc4-8bb0-20d6e374b7cc",
+   "source": "oregon registry",
+   "website": "https://privacyportal.onetrust.com/webform/7636e208-dda4-4218-8026-e1bc155873fc/0927a3fa-add0-4dc4-8bb0-20d6e374b7cc"
+  },
+  "or-data-00442": {
+   "email": "data.privacy@clarivate.com",
+   "name": "DR/DECISION RESOURCES, LLC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/7636e208-dda4-4218-8026-e1bc155873fc/0927a3fa-add0-4dc4-8bb0-20d6e374b7cc",
+   "same_as": "ca-1564",
+   "source": "oregon registry",
+   "website": "https://privacyportal.onetrust.com/webform/7636e208-dda4-4218-8026-e1bc155873fc/0927a3fa-add0-4dc4-8bb0-20d6e374b7cc"
+  },
+  "or-data-00443": {
+   "email": "privacyinfo@claritas.com",
+   "name": "CLARITAS LLC",
+   "rights_url": "https://www.claritas.com/privacy-legal/",
+   "same_as": "ca-1598",
+   "source": "oregon registry",
+   "website": "https://www.claritas.com/privacy-legal/"
+  },
+  "or-data-00444": {
+   "email": "privacy@opensend.com",
+   "name": "OPENSEND INC",
+   "rights_url": "opensend.com",
+   "same_as": "ca-1618",
+   "source": "oregon registry",
+   "website": "opensend.com"
+  },
+  "or-data-00445": {
+   "email": "privacy@outwardmedia.com",
+   "name": "OUTWARD MEDIA INC",
+   "rights_url": "https://outwardmedia.com/",
+   "same_as": "ca-1332",
+   "source": "oregon registry",
+   "website": "https://outwardmedia.com/"
+  },
+  "or-data-00446": {
+   "email": "hello@numlookup.com",
+   "name": "NUMLOOKUP LLC",
+   "rights_url": "",
+   "same_as": "ca-1455",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00447": {
+   "email": "privacy@abovedata.io",
+   "name": "ABOVE DATA INC",
+   "rights_url": "abovedata.io",
+   "same_as": "ca-1566",
+   "source": "oregon registry",
+   "website": "abovedata.io"
+  },
+  "or-data-00448": {
+   "email": "privacy@thebridgecorp.com",
+   "name": "OWMN LLC",
+   "rights_url": "https://www.thebridgecorp.com/our-approach-to-data-privacy/",
+   "same_as": "ca-1015",
+   "source": "oregon registry",
+   "website": "https://www.thebridgecorp.com/our-approach-to-data-privacy/"
+  },
+  "or-data-00449": {
+   "email": "compliance@mobilefuse.com",
+   "name": "MOBILEFUSE LLC",
+   "rights_url": "https://mobilefuse.com/privacy-policy",
+   "same_as": "ca-1631",
+   "source": "oregon registry",
+   "website": "https://mobilefuse.com/privacy-policy"
+  },
+  "or-data-00450": {
+   "email": "privacy@gatheranalytics.co",
+   "name": "GATHER ANALYTICS LLC",
+   "rights_url": "https://dsr.trustsuperset.com/?orgId=ddc3f557-7e66-4af0-96f3-b581b4249285",
+   "source": "oregon registry",
+   "website": "https://dsr.trustsuperset.com/?orgId=ddc3f557-7e66-4af0-96f3-b581b4249285"
+  },
+  "or-data-00451": {
+   "email": "privacy+ispot@ispot.tv",
+   "name": "ISPOT.TV",
+   "rights_url": "www.ispot.tv",
+   "same_as": "ca-1549",
+   "source": "oregon registry",
+   "website": "www.ispot.tv"
+  },
+  "or-data-00452": {
+   "email": "privacy@ventiveiq.com",
+   "name": "VENTIVEIQ LLC",
+   "rights_url": "https://privacyportal.privacypillar.com/dsar/form?orgid=0c31c814-ea86-461f-8ccb-294f05bc74c3&propid=cc95835d-7719-4336-b0c4-18146e5d000a&formid=4348f332-6917-4566-8c56-6fc9eb57097f&status=publish",
+   "same_as": "ca-1051",
+   "source": "oregon registry",
+   "website": "https://ventiveiq.com"
+  },
+  "or-data-00453": {
+   "email": "privacyofficer@consumerdataprotect.com",
+   "name": "WALLA MEDIA LLC",
+   "rights_url": "consumerdataprotect.com",
+   "source": "oregon registry",
+   "website": "consumerdataprotect.com"
+  },
+  "or-data-00454": {
+   "email": "",
+   "name": "CIVIC ELEMENT LLC",
+   "rights_url": "www.civicelement.com/privacy-policy-request.",
+   "source": "oregon registry",
+   "website": "www.civicelement.com/privacy-policy-request."
+  },
+  "or-data-00455": {
+   "email": "privacy@mobilityglobal.com",
+   "name": "R L POLK CO",
+   "rights_url": "www.mobilityglobal.com",
+   "same_as": "ca-1660",
+   "source": "oregon registry",
+   "website": "www.mobilityglobal.com"
+  },
+  "or-data-00456": {
+   "email": "privacy@infillion.com",
+   "name": "INFILLION INC",
+   "rights_url": "www.infillion.com",
+   "source": "oregon registry",
+   "website": "www.infillion.com"
+  },
+  "or-data-00457": {
+   "email": "info@facteus.com",
+   "name": "FACTEUS, INC.",
+   "rights_url": "www.facteus.com",
+   "source": "oregon registry",
+   "website": "www.facteus.com"
+  },
+  "or-data-00458": {
+   "email": "privacy@unifygtm.com",
+   "name": "UNIFY AI BUSINESS CORPORATION",
+   "rights_url": "privacy.unifygtm.com",
+   "source": "oregon registry",
+   "website": "privacy.unifygtm.com"
+  },
+  "or-data-00459": {
+   "email": "support@zeetogroup.com",
+   "name": "ZEETOGROUP LLC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/06e3ef68-7a5d-49e9-8d24-7d52841ec504/6ba3bd2d-d4eb-41d5-b97e-554ff093fe0d",
+   "source": "oregon registry",
+   "website": "https://zeeto.io"
+  },
+  "or-data-00460": {
+   "email": "privacy@yobi.ai",
+   "name": "YOBI VENTURES INC",
+   "rights_url": "https://www.yobi.ai/opt-out",
+   "same_as": "ca-1091",
+   "source": "oregon registry",
+   "website": "https://www.yobi.ai/opt-out"
+  },
+  "or-data-00461": {
+   "email": "privacy@pebblepost.com",
+   "name": "PEBBLEPOST INC",
+   "rights_url": "https://www.pebbepost.com/",
+   "source": "oregon registry",
+   "website": "https://www.pebbepost.com/"
+  },
+  "or-data-00462": {
+   "email": "privacy@valpakintelligence.com",
+   "name": "V P DATA LLC",
+   "rights_url": "https://valpakintelligence.com/privacy-policy",
+   "source": "oregon registry",
+   "website": "https://valpakintelligence.com/privacy-policy"
+  },
+  "or-data-00463": {
+   "email": "usdatabroker@urbanscience.com",
+   "name": "URBAN SCIENCE APPLICATIONS INC",
+   "rights_url": "https://www.urbanscience.com/privacy/",
+   "same_as": "ca-1629",
+   "source": "oregon registry",
+   "website": "https://www.urbanscience.com/privacy/"
+  },
+  "or-data-00464": {
+   "email": "privacy@blueprintaudiences.com",
+   "name": "BLUEPRINT AUDIENCES LLC",
+   "rights_url": "https://blueprintaudiences.com/privacy-choices",
+   "same_as": "ca-1217",
+   "source": "oregon registry",
+   "website": "https://blueprintaudiences.com/privacy-choices"
+  },
+  "or-data-00465": {
+   "email": "privacy@alikeaudience.com",
+   "name": "ALIKEAUDIENCE INC",
+   "rights_url": "",
+   "same_as": "ca-1434",
+   "source": "oregon registry",
+   "website": ""
+  },
+  "or-data-00466": {
+   "email": "privacy@growthcode.io",
+   "name": "GROWTHCODE LLC",
+   "rights_url": "https://www.growthcode.io/do-not-sell",
+   "same_as": "ca-1633",
+   "source": "oregon registry",
+   "website": "https://www.growthcode.io/do-not-sell"
+  },
+  "or-data-00467": {
+   "email": "privacy@winrdata.com",
+   "name": "WINR ALCHEMIST PTY LTD",
+   "rights_url": "https://www.winrdata.com/privacy-policy-us/",
+   "source": "oregon registry",
+   "website": "https://www.winrdata.com/privacy-policy-us/"
+  },
+  "or-data-00468": {
+   "email": "privacy@winrdata.com",
+   "name": "WINR DATA PTY LTD",
+   "rights_url": "https://www.winrdata.com/privacy-policy-us/",
+   "same_as": "ca-1173",
+   "source": "oregon registry",
+   "website": "https://www.winrdata.com/privacy-policy-us/"
+  },
+  "or-data-00469": {
+   "email": "privacy@rbarrel.com",
+   "name": "RAINBARREL USA LLC",
+   "rights_url": "https://www.rbarrel.com/privacy-policy",
+   "same_as": "ca-1325",
+   "source": "oregon registry",
+   "website": "https://www.rbarrel.com/privacy-policy"
+  },
+  "or-data-00470": {
+   "email": "privacy@waypointmetrics.com",
+   "name": "WAYPOINT METRICS LLC",
+   "rights_url": "www.waypointmetrics.com",
+   "source": "oregon registry",
+   "website": "www.waypointmetrics.com"
+  },
+  "or-data-00471": {
+   "email": "",
+   "name": "COX AUTOMOTIVE INC",
+   "rights_url": "https://www.coxautoinc.com/consumerprivacyrights/",
+   "same_as": "ca-1753",
+   "source": "oregon registry",
+   "website": "https://www.coxautoinc.com/consumerprivacyrights/"
+  },
+  "or-data-00472": {
+   "email": "privacy@quorum.inc",
+   "name": "QUORUM DATA INC",
+   "rights_url": "https://app.quorum.live/privacy-request",
+   "same_as": "ca-1752",
+   "source": "oregon registry",
+   "website": "https://app.quorum.live/privacy-request"
+  },
+  "or-data-00473": {
+   "email": "",
+   "name": "LP BROKERING LLC",
+   "rights_url": "https://privacy.lpbrokering.com/",
+   "source": "oregon registry",
+   "website": "https://privacy.lpbrokering.com/"
+  },
+  "or-data-00474": {
+   "email": "privacy@fi-navigator.com",
+   "name": "FI NAVIGATOR CORPORATION",
+   "rights_url": "https://www.trustsuperset.com/dsrs?orgId=aff4e71a-b6d9-43a4-864e-7351e5ab2b2d",
+   "same_as": "ca-1572",
+   "source": "oregon registry",
+   "website": "https://www.trustsuperset.com/dsrs?orgId=aff4e71a-b6d9-43a4-864e-7351e5ab2b2d"
+  },
+  "or-data-00475": {
+   "email": "privacy@aggknowledge.ai",
+   "name": "AGGKNOWLEDGE INC",
+   "rights_url": "https://trustsuperset.com/dsrs?orgId=e0f23855-9ef2-46de-aff1-2c7938b8c8c9",
+   "same_as": "ca-1005",
+   "source": "oregon registry",
+   "website": "https://trustsuperset.com/dsrs?orgId=e0f23855-9ef2-46de-aff1-2c7938b8c8c9"
+  },
+  "or-data-00476": {
+   "email": "privacy@dice.com",
+   "name": "DICE CAREER SOLUTIONS INC",
+   "rights_url": "https://www.dice.com",
+   "same_as": "ca-1212",
+   "source": "oregon registry",
+   "website": "https://www.dice.com"
+  },
+  "or-data-00477": {
+   "email": "privacy@firmable.com",
+   "name": "FIRMABLE INC",
+   "rights_url": "https://www.trustsuperset.com/dsrs'orgId=4392fc55-6b3f-4b3d-82ca-b424aa96eb2a",
+   "source": "oregon registry",
+   "website": "https://www.trustsuperset.com/dsrs'orgId=4392fc55-6b3f-4b3d-82ca-b424aa96eb2a"
+  },
+  "or-data-00478": {
+   "email": "privacy@leveragedigital.ai",
+   "name": "LEVERAGE DIGITAL LLC",
+   "rights_url": "https://www.trustsuperset.com/dsrs'orgId=b46e7184-11fe-4a94-a0b4-1dce265848b0",
+   "source": "oregon registry",
+   "website": "https://www.trustsuperset.com/dsrs'orgId=b46e7184-11fe-4a94-a0b4-1dce265848b0"
+  },
+  "or-data-00479": {
+   "email": "data@salesintel.io",
+   "name": "SalesIntel Research, Inc",
+   "rights_url": "https://salesintel.io/opt-out/",
+   "same_as": "ca-1012",
+   "source": "oregon registry",
+   "website": "https://salesintel.io/opt-out/"
+  },
+  "or-data-00480": {
+   "email": "privacy@specialistsdata.com",
+   "name": "INNOVATIVE DATA SERVICES INC",
+   "rights_url": "www.specialistsdata.com",
+   "source": "oregon registry",
+   "website": "www.specialistsdata.com"
+  },
+  "or-data-00481": {
+   "email": "privacy@swipejobs.com",
+   "name": "SWIPEJOBS LLC",
+   "rights_url": "https://www.swipejobs.com/privacy-center",
+   "source": "oregon registry",
+   "website": "https://www.swipejobs.com/privacy-center"
+  },
+  "or-data-00482": {
+   "email": "",
+   "name": "FULLENRICH CORP",
+   "rights_url": "https://fullenrich.com/optout",
+   "source": "oregon registry",
+   "website": "https://fullenrich.com/optout"
+  },
+  "or-data-00483": {
+   "email": "privacy@vendelux.com",
+   "name": "VENDELUX INC",
+   "rights_url": "vendelux.com",
+   "same_as": "ca-1458",
+   "source": "oregon registry",
+   "website": "vendelux.com"
+  },
+  "or-data-00484": {
+   "email": "compliance@graph8.com",
+   "name": "GRAPH8 INC",
+   "rights_url": "https://www.trustsuperset.com/dsrs?orgId=408c45e6-e16c-4fdd-b6ac-876e2e3f9d8f",
+   "source": "oregon registry",
+   "website": "https://www.trustsuperset.com/dsrs?orgId=408c45e6-e16c-4fdd-b6ac-876e2e3f9d8f"
+  },
+  "or-data-00485": {
+   "email": "support@creatorwizard.com",
+   "name": "TRENDING FAMILY INC",
+   "rights_url": "https://mole.creatorwizard.com/opt-out",
+   "source": "oregon registry",
+   "website": "https://www.creatorwizard.com/"
+  },
+  "or-data-00486": {
+   "email": "privacy@datarate.ai",
+   "name": "DATARATE LLC",
+   "rights_url": "https://datarate.ai/my-privacy-choices",
+   "source": "oregon registry",
+   "website": "https://datarate.ai/my-privacy-choices"
+  },
+  "or-data-00487": {
+   "email": "",
+   "name": "DATA TO WIN LLC",
+   "rights_url": "https://www.datatowin.com/do-not-sell-or-share-my-personal-info",
+   "source": "oregon registry",
+   "website": "https://www.datatowin.com/do-not-sell-or-share-my-personal-info"
+  },
+  "or-data-00488": {
+   "email": "privacy@subgraph.tech",
+   "name": "SUBGRAPH INC",
+   "rights_url": "https://subgraph.tech/privacy-choices",
+   "same_as": "ca-1205",
+   "source": "oregon registry",
+   "website": "https://subgraph.tech/privacy-choices"
+  },
+  "or-data-00489": {
+   "email": "optout@businessregistry.com",
+   "name": "BUSINESSENTITYSEARCH.COM LLC",
+   "rights_url": "businessregistry.com/opt-out",
+   "source": "oregon registry",
+   "website": "businessregistry.com/opt-out"
+  },
+  "or-data-00491": {
+   "email": "dataprotection@applovin.com",
+   "name": "APPLOVIN CORPORATION",
+   "rights_url": "https://max.applovin.com/p/how-applovin-shows-you-ads",
+   "same_as": "ca-1703",
+   "source": "oregon registry",
+   "website": "https://max.applovin.com/p/how-applovin-shows-you-ads"
+  },
+  "or-data-00492": {
+   "email": "support@commonroom.io",
+   "name": "COMMON ROOM INC",
+   "rights_url": "https://app.commonroom.io/remove-my-info",
+   "same_as": "ca-1890",
+   "source": "oregon registry",
+   "website": "https://app.commonroom.io/remove-my-info"
+  },
+  "or-data-00493": {
+   "email": "privacy@zoom.us",
+   "name": "ZOOM COMMUNICATIONS INC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/65962359-ef0d-4399-9db4-572d06de08aa/f277f9f7-bfee-4233-815e-80e290139bc2",
+   "source": "oregon registry",
+   "website": "https://privacyportal.onetrust.com/webform/65962359-ef0d-4399-9db4-572d06de08aa/f277f9f7-bfee-4233-815e-80e290139bc2"
+  },
+  "or-data-00494": {
+   "email": "info@victorywaves.com",
+   "name": "VICTORY WAVES CO",
+   "rights_url": "https://www.victorywaves.com/legal/privacy-choices",
+   "source": "oregon registry",
+   "website": "https://www.victorywaves.com/legal/privacy-choices"
+  },
+  "or-data-00497": {
+   "email": "",
+   "name": "DEALMACHINE OPERATIONS INC",
+   "rights_url": "https://privacyrequest.dealmachine.com/remove",
+   "same_as": "ca-1746",
+   "source": "oregon registry",
+   "website": "https://privacyrequest.dealmachine.com/remove"
+  },
+  "or-data-00500": {
+   "email": "support@phantomdata.io",
+   "name": "PHANTOM DATA LLC",
+   "rights_url": "https://app.phantomdata.io/",
+   "source": "oregon registry",
+   "website": "https://app.phantomdata.io/"
+  },
+  "or-data-00501": {
+   "email": "info@vintory.com",
+   "name": "VINTORY LLC",
+   "rights_url": "www.vintory.com",
+   "source": "oregon registry",
+   "website": "www.vintory.com"
+  },
+  "or-data-00502": {
+   "email": "privacyrights@swoop.com",
+   "name": "SWOOP.COM INC",
+   "rights_url": "https://swoop.com/your-privacy-choices/",
+   "same_as": "ca-1258",
+   "source": "oregon registry",
+   "website": "https://swoop.com/your-privacy-choices/"
+  },
+  "or-data-00504": {
+   "email": "enquiries@livewire.group",
+   "name": "LIVEWIRE US INC.",
+   "rights_url": "https://livewire.group/privacy-policy/",
+   "source": "oregon registry",
+   "website": "https://livewire.group/privacy-policy/"
+  },
+  "or-data-00507": {
+   "email": "compliance@tracerfy.com",
+   "name": "TRACERFY LLC",
+   "rights_url": "https://www.tracerfy.com/privacy-choices",
+   "same_as": "ca-1940",
+   "source": "oregon registry",
+   "website": "https://www.tracerfy.com/privacy-choices"
   }
  },
- "credit": "Broker list: California Privacy Protection Agency data broker registry (cppa.ca.gov).",
- "source": "https://cppa.ca.gov/data_broker_registry/registry.csv"
+ "credit": "Broker list: California Privacy Protection Agency data broker registry; Oregon Division of Financial Regulation data broker registry.",
+ "sources": {
+  "ca": {
+   "brokers": 625,
+   "etag": "\"54f9e-65f143efcbf40\"",
+   "last_modified": "Fri, 30 Oct 2026 20:00:21 GMT",
+   "name": "California Privacy Protection Agency data broker registry",
+   "page": "https://cppa.ca.gov/data_broker_registry/",
+   "url": "https://cppa.ca.gov/data_broker_registry/registry.csv"
+  },
+  "or": {
+   "brokers": 397,
+   "etag": "\"516563976b7ddd1:0\"",
+   "last_modified": "Thu, 26 Nov 2026 06:01:34 GMT",
+   "name": "Oregon Division of Financial Regulation data broker registry",
+   "page": "https://dfr.oregon.gov/business/licensing/data-broker-registry",
+   "url": "https://www4.cbs.state.or.us/ex/shared/downtemp/dfcs_db_optout.csv"
+  }
+ }
 }

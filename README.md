@@ -138,11 +138,15 @@ In one file, `state.json`, in a folder called `.fuck_data_brokers` in your home 
 
 ## The broker list
 
-The list comes from the [California Privacy Protection Agency's data broker registry](https://cppa.ca.gov/data_broker_registry/), a public record. You do not have to live in California to write to these companies.
+The list comes from official public registries, where companies have to register as data brokers. So far that is the [California Privacy Protection Agency](https://cppa.ca.gov/data_broker_registry/) and the [Oregon Division of Financial Regulation](https://dfr.oregon.gov/business/licensing/data-broker-registry). You do not have to live in either state to write to these companies.
 
-The tool fetches the current registry each time you ask for the list. A copy, `brokers.json`, ships with the tool for when you are offline, and a scheduled job in this repository refreshes that copy every week.
+A job in this repository asks every registry once an hour. When a new broker registers, it is on the list within the hour, and the commit says who it was. A company registered in two places is written to once.
 
-You can add any broker yourself:
+The tool also fetches the live registries when you ask for the list. A copy, `brokers.json`, ships with the tool for when you are offline.
+
+**Know a broker that is on no registry?** Open an issue with its name, its privacy page or privacy email, and a link showing that it sells or shares personal information. Reviewed reports go into `more_brokers.json`. Nothing gets on the list because a program guessed.
+
+You can also add any broker for yourself:
 
 ```
 python fuck_data_brokers.py add "Some Broker" privacy@somebroker.example
