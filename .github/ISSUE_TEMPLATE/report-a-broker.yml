@@ -1,0 +1,50 @@
+name: Report a data broker
+description: A company that sells or shares personal information and is on no official registry.
+title: "Broker: "
+labels: ["broker report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The list is built from official registries. A broker that is on none of them can be added from a report, once it has been checked. Nothing is added because a program guessed, so the evidence matters most.
+
+        Please do not put your own personal details in this report. It is public.
+  - type: input
+    id: name
+    attributes:
+      label: Company name
+      description: The legal or trading name, as the company writes it.
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Website
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Privacy email address or privacy page
+      description: Where the company itself says to send privacy requests. Copy it from the company's own site.
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Evidence that it sells or shares personal information
+      description: A link. The company's own privacy policy saying so is best. A regulator's notice or a news report also works.
+    validations:
+      required: true
+  - type: input
+    id: country
+    attributes:
+      label: Country
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+    validations:
+      required: false

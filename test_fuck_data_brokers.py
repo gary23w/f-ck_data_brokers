@@ -4,7 +4,9 @@ Everything runs in a temporary folder with made-up people and brokers. Nothing i
 """
 import json
 import os
+import re
 import ssl
+import subprocess
 import tempfile
 import contextlib
 import io
@@ -713,6 +715,95 @@ class Case(unittest.TestCase):
         fdb.save(self.state)
         result = fdb.mcp_reply({'jsonrpc': '2.0', 'id': 1, 'method': 'tools/call', 'params': {'name': 'fdb_setup', 'arguments': {'name': 'Avery Exampleton', 'email': 'avery@example.com', 'place': 'california'}}})['result']
         self.assertIn('privacy.ca.gov/drop', result['content'][0]['text'])
+
+    def test_one_command_does_the_whole_routine_and_can_run_again_and_again(self):
+        self.person('california')
+        fdb.save(self.state)
+        offline = mock.patch.object(fdb.urllib.request, 'urlopen', side_effect=OSError('offline'))
+        with offline, mock.patch.object(fdb, 'BUNDLED_LIST', Path(self.folder.name, 'none.json')):
+            first = fdb.routine(self.state, 5)
+            self.assertEqual((first['letters_written'], first['waiting_to_send'], first['sent']), (5, 5, []))
+            self.assertIn('not refreshed', first['notes'][0], 'a list that cannot be refreshed does not stop the run')
+            self.assertTrue(Path(first['send_page']).exists() and Path(first['forms_page']).exists())
+            again = fdb.routine(self.state, 5)
+            self.assertEqual(again['letters_written'], 5, 'the next five brokers, never the same ones')
+            self.assertEqual(len({r['broker'] for r in self.state['requests'].values()}), 10)
+            # A late broker gets its reminder on the next run, once.
+            ref = next(iter(self.state['requests']))
+            fdb.mark_sent(self.state, [ref])
+            self.state['requests'][ref]['due_at'] = fdb.now() - 1
+            self.assertEqual(fdb.routine(self.state, 0)['reminders_written'], 1)
+            self.assertEqual(fdb.routine(self.state, 0)['reminders_written'], 0)
+            # Asked to send with no password set: nothing goes out, and it says why.
+            quiet = fdb.routine(self.state, 0, send=True)
+            self.assertEqual(quiet['sent'], [])
+            self.assertIn('Nothing was sent', quiet['notes'][-1])
+            # With the password set, it sends and records.
+            fdb.set_profile(self.state, 'Avery Exampleton', 'avery@gmail.com', 'Sampleville', 'CA', 'USA', 'california')
+            seen, server, no_wait = self.mail_server()
+            with server, no_wait, mock.patch.dict(os.environ, {'FDB_SMTP_PASS': 'app-password-for-test'}):
+                sent = fdb.routine(self.state, 0, send=True)
+            self.assertEqual(len(sent['sent']), len(seen['messages']))
+            self.assertGreater(len(seen['messages']), 0)
+            self.assertEqual(sent['waiting_to_send'], 0)
+            fdb.save(self.state)
+            with contextlib.redirect_stdout(io.StringIO()) as shown:
+                self.assertEqual(fdb.main(['auto', '--limit', '2']), 0)
+        self.assertIn('Letters written:         2', shown.getvalue())
+        with contextlib.redirect_stdout(io.StringIO()) as shown:
+            os.environ['FDB_HOME'] = tempfile.mkdtemp(dir=self.folder.name)
+            self.assertEqual(fdb.main(['auto']), 1, 'before setup it explains itself')
+        self.assertIn('setup', shown.getvalue())
+
+    def repository_files(self):
+        root = Path(fdb.__file__).resolve().parent
+        try:
+            listed = subprocess.run(['git', 'ls-files'], cwd=root, capture_output=True, text=True, timeout=30)
+            names = [name for name in listed.stdout.splitlines() if name] if listed.returncode == 0 else []
+        except (OSError, subprocess.SubprocessError):
+            names = []
+        if not names:  # not a git checkout: look at everything that is not obviously local
+            names = [str(p.relative_to(root)).replace(os.sep, '/') for p in root.rglob('*') if p.is_file() and '.git/' not in str(p).replace(os.sep, '/') + '/' and '__pycache__' not in p.parts]
+        return root, names
+
+    def test_nothing_personal_or_secret_is_in_the_repository(self):
+        """Runs on every push. It knows nobody's name: it looks for the shapes that leaks take."""
+        root, names = self.repository_files()
+        self.assertIn('fuck_data_brokers.py', names)
+        local_only = [name for name in names if name.split('/')[0] in ('outbox', '.fuck_data_brokers') or name.endswith(('state.json', '.eml', 'send.html', 'forms.html', 'update.txt', 'message.txt'))]
+        self.assertEqual(local_only, [], 'files that hold a real person\'s details are never committed')
+        shapes = {
+            'a path on someone\'s computer': r'[A-Za-z]:\\Users\\[^\\\s<]|/(?:home|Users)/(?!runner/)[a-z][a-z0-9_.-]+/|\bOneDrive\b|\bAppData\b',
+            'a private network address': r'\b(?:10\.\d{1,3}|192\.168|172\.(?:1[6-9]|2\d|3[01]))\.\d{1,3}\.\d{1,3}\b',
+            'a key or token': r'gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|sk-[A-Za-z0-9_-]{24,}|AKIA[0-9A-Z]{16}|xox[abpr]-[A-Za-z0-9-]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----',
+            'a saved password': r'(?i)\b(?:FDB_SMTP_PASS|password|passwd|secret|api[_-]?key)\b\s*[:=]\s*["\'][^"\'\s]{8,}["\']',
+        }
+        allowed_mail = re.compile(r'@(?:[a-z0-9-]+\.)*example(?:\.(?:com|org|net))?$|@users\.noreply\.github\.com$')
+        known_mail = {'cai.communications@cai.gouv.qc.ca', 'someone@gmail.com', 'avery@gmail.com'}
+        found = []
+        for name in names:
+            if name.endswith(('.png', '.jpg', '.ico', '.gif')):
+                continue
+            text = (root / name).read_text(encoding='utf-8', errors='replace')
+            if name == 'test_fuck_data_brokers.py':  # this test holds the shapes themselves, and an obvious fake password
+                text = text.split('    def test_nothing_personal_or_secret_is_in_the_repository')[0].replace('app-password-for-test', '')
+            for what, shape in shapes.items():
+                for hit in re.finditer(shape, text):
+                    found.append(name + ': ' + what + ': ' + hit.group(0)[:40])
+            if name in ('brokers.json', 'more_brokers.json'):
+                continue  # the brokers' own published privacy contacts
+            for address in set(re.findall(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', text)):
+                if not allowed_mail.search(address.lower()) and address.lower() not in known_mail:
+                    found.append(name + ': an email address that is not a made-up one: ' + address)
+            for phone in re.findall(r'\(\d{3}\)\s?\d{3}[-. ]\d{4}|\b\d{3}[-.]\d{3}[-.]\d{4}\b', text):
+                found.append(name + ': a phone number: ' + phone)
+        self.assertEqual(found, [])
+
+    def test_the_leak_check_would_catch_a_leak(self):
+        shapes = [r'[A-Za-z]:\\Users\\[^\\\s<]', r'/(?:home|Users)/(?!runner/)[a-z][a-z0-9_.-]+/', r'gh[pousr]_[A-Za-z0-9]{30,}', r'\(\d{3}\)\s?\d{3}[-. ]\d{4}']
+        leaks = ['C:' + '\\' + 'Users' + '\\' + 'someone' + '\\' + 'file.txt', '/' + 'home' + '/someone/file', 'gh' + 'p_' + 'a' * 36, '(555) ' + '123-4567']
+        for shape, leak in zip(shapes, leaks):
+            self.assertRegex(leak, shape)
 
 if __name__ == '__main__':
     unittest.main()

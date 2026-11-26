@@ -1,0 +1,51 @@
+name: Remind to refresh the hand-kept registries
+
+# Some registries do not allow programs to fetch their lists, so a person downloads them. Nobody remembers to.
+# Once a month this checks how old each of those lists is and opens an issue when one is more than 45 days old.
+# It contacts no registry. It only reads brokers.json in this repository.
+
+on:
+  schedule:
+    - cron: '11 8 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Find lists that have gone stale
+        run: |
+          python - > stale.md <<'EOF'
+          import datetime, json
+          sources = json.load(open('brokers.json', encoding='utf-8'))['sources']
+          today, lines = datetime.date.today(), []
+          for key, source in sorted(sources.items()):
+              if source.get('url') or not source.get('captured'):
+                  continue  # fetched automatically, or never captured
+              age = (today - datetime.date.fromisoformat(source['captured'])).days
+              if age > 45:
+                  lines.append('- **' + source['name'] + '**: taken ' + source['captured'] + ', ' + str(age) + ' days ago. Download it from ' + source['page'] + ' and run `python fuck_data_brokers.py update-list --from ' + key + '=FILE`.')
+          if lines:
+              print('These broker lists are refreshed by hand, because their websites do not allow programs to fetch them. They are getting old:\n')
+              print('\n'.join(lines))
+              print('\nBrokers that registered since then are missing from the list until this is done. Commit the changed `brokers.json` and close this issue.')
+          EOF
+          cat stale.md
+      - name: Open an issue unless one is already open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ ! -s stale.md ]; then echo "Every hand-kept list is fresh."; exit 0; fi
+          title="Refresh the hand-kept broker registries"
+          open=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number --jq 'length')
+          if [ "$open" != "0" ]; then echo "An issue is already open."; exit 0; fi
+          gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body-file stale.md

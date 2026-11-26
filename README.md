@@ -78,6 +78,24 @@ You do not need to pay for an email service. Pick whichever is easier.
 
 A separate free address just for this is a good idea. Their replies stay out of your real inbox.
 
+## Put it on a schedule
+
+One command does everything that needs no decision from you:
+
+```
+python fuck_data_brokers.py auto
+```
+
+It refreshes the broker list, writes the next 20 letters, writes reminders for brokers that are late, and rebuilds your send page. Run it as often as you like; it never writes to the same broker twice. Add `--send` and it also sends, using the app password in the `FDB_SMTP_PASS` environment variable.
+
+Run it once a week and the whole list is covered in a few months without you thinking about it. On Linux or macOS, add a line to your crontab. On Windows, create a weekly task in Task Scheduler that runs the same command.
+
+```
+0 9 * * 1  python3 /path/to/fuck_data_brokers.py auto
+```
+
+The one thing it cannot do for you is read your inbox. When a broker answers, paste the reply into `reply`.
+
 ## When a broker says "use our form"
 
 Some will not act on an email. They want you on their web form, behind a CAPTCHA, because a company that scrapes the internet with bots would like to be sure you are not a bot.
@@ -233,6 +251,13 @@ Two kinds of help are worth the most:
 - **A registry that is missing.** If your country or state publishes a list of data brokers, open an issue with the link. If its website allows programs to fetch the file, it can be checked every hour.
 
 Know a broker that is on no registry? See [The broker list](#the-broker-list).
+
+This repository looks after itself:
+
+- **Every hour** it checks for newly registered brokers and commits them.
+- **Every push and pull request** runs the tests on Linux, Windows and macOS. The tests include a leak check, so a change that adds a path from someone's computer, a real email address, a phone number or a key cannot be merged.
+- **Every month** it opens an issue if a hand-kept registry list has gone stale.
+- **Every week** it checks whether the parts its jobs are built from have newer versions.
 
 ## Tests
 

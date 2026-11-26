@@ -1,0 +1,8 @@
+# Keeps the building blocks of the automated jobs current. When a new version of one is published, a pull request
+# is opened, and the tests run on it before anyone merges.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

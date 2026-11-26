@@ -1,0 +1,49 @@
+name: Tests
+
+# Every push and every pull request runs the whole test suite on Linux, Windows and macOS, on the oldest Python
+# the tool supports and on a current one. The suite includes the leak check: a change that adds a path from
+# someone's computer, a real email address, a phone number or a key fails here before it can be merged.
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: ${{ matrix.os }}, Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            python: '3.8'
+          - os: ubuntu-latest
+            python: '3.13'
+          - os: windows-latest
+            python: '3.13'
+          - os: macos-latest
+            python: '3.13'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Tests, including the leak check
+        run: python -m unittest -v
+      - name: The tool starts
+        run: python fuck_data_brokers.py --help
+      - name: A first run works from nothing
+        shell: bash
+        run: |
+          export FDB_HOME="$RUNNER_TEMP/fdb-home"
+          python fuck_data_brokers.py status
+          python fuck_data_brokers.py auto || test $? -eq 1

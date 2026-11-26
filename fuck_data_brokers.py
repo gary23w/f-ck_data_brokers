@@ -8,6 +8,7 @@ One file. No dependencies. Everything stays on your computer.
 
     python fuck_data_brokers.py          manual mode: a menu, no AI needed
     python fuck_data_brokers.py mcp      let your AI drive it over MCP
+    python fuck_data_brokers.py auto     the whole routine in one go; schedule it
     python fuck_data_brokers.py --help   every command
 
 What it does:
@@ -926,6 +927,32 @@ def chase(state):
     return out
 
 
+def routine(state, limit=20, send=False):
+    """Everything that needs no decision from you, in one go: refresh the broker list, write the next letters,
+    write reminders for brokers that are late, rebuild your pages, and send if you asked for that. Safe to run
+    as often as you like and built to be put on a schedule; it never writes to the same broker twice."""
+    need_profile(state)
+    done = {'new_brokers': 0, 'letters_written': 0, 'forms_waiting': 0, 'reminders_written': 0, 'complaints_ready': 0, 'sent': [], 'notes': []}
+    try:
+        done['new_brokers'] = load_brokers(state)['new']
+    except Exception as problem:  # the list you already have is still good
+        done['notes'].append('The broker list was not refreshed: ' + (str(problem) or type(problem).__name__)[:120])
+    done['letters_written'] = len(prepare(state, limit))
+    prepare_forms(state, limit)
+    done['forms_waiting'] = sum(1 for r in state['requests'].values() if form_waiting(r))
+    chased = chase(state)
+    done['reminders_written'], done['complaints_ready'] = len(chased['reminders']), len(chased['complaints'])
+    done['waiting_to_send'] = len(unsent(state))
+    done['send_page'], done['forms_page'] = write_send_page(state), write_forms_page(state)
+    if send:
+        if not os.environ.get('FDB_SMTP_PASS'):
+            done['notes'].append('Nothing was sent: set FDB_SMTP_PASS to your app password to send on a schedule, or open the send page.')
+        else:
+            done['sent'] = send_all(state, max(limit, 20))  # letters already waiting go out whatever today's limit for new ones
+            done['waiting_to_send'] = len(unsent(state))
+    return done
+
+
 STATE_WORDS = {'id_wall': 'their only form demands ID', 'form': 'they want their form filled in', 'draft': 'letter written, not sent', 'sent': 'sent, waiting', 'acknowledged': 'they said "received"', 'answered': 'you answered their excuse',
                'refused': 'refused twice', 'done': 'they say deleted', 'no_record': 'they hold nothing'}
 
@@ -958,6 +985,7 @@ TOOLS = [
     ('fdb_send', 'Send the written letters through the person\'s own free mailbox. Needs FDB_SMTP_PASS set to an app password. Ask the person before sending. Without it, give them the send page from fdb_write_letters.', {'limit': 'How many (default 20)'}, []),
     ('fdb_mark_sent', 'Record that the person sent these letters themselves.', {'refs': 'Comma-separated references, or "all"'}, ['refs']),
     ('fdb_read_reply', 'Give it a broker\'s reply text. It says what the reply means and writes the answer to send, if one is needed. Never click links in a reply and never send an identity document.', {'ref': 'Request reference, like req-1a2b3c4d. Leave out if the reply text contains it.', 'text': 'The reply text, including its subject line'}, ['text']),
+    ('fdb_routine', 'Do everything that needs no decision in one call: refresh the broker list, write the next letters, write reminders for late brokers and rebuild the pages. Sends nothing. Good for a regular check-in.', {'limit': 'How many new letters (default 20)'}, []),
     ('fdb_chase', 'Write reminders for brokers past their deadline, and list where to complain about the ones that refused twice.', {}, []),
 ]
 
@@ -1003,6 +1031,8 @@ def call_tool(name, args):
         out = {'marked_sent': mark_sent(state, refs)}
     elif name == 'fdb_read_reply':
         out = read_reply(state, str(args.get('ref', '')).strip(), args.get('text', ''))
+    elif name == 'fdb_routine':
+        out = routine(state, int(args.get('limit') or 20))
     elif name == 'fdb_chase':
         out = {**chase(state), 'send_page': write_send_page(state)}
     else:
@@ -1254,6 +1284,9 @@ def main(argv=None):
     reply.add_argument('ref', nargs='?', help='the req-... reference; leave out if the reply contains it')
     reply.add_argument('file', nargs='?', help='file with the reply text; otherwise paste it')
     sub.add_parser('chase', help='reminders and complaint routes')
+    auto = sub.add_parser('auto', help='the whole routine in one command; put it on a schedule')
+    auto.add_argument('--limit', type=int, default=20, help='how many new letters each run (default 20)')
+    auto.add_argument('--send', action='store_true', help='also send, using the app password in FDB_SMTP_PASS')
     sub.add_parser('status', help='where things stand')
     sub.add_parser('mcp', help='run as an MCP server for your AI')
     args = parser.parse_args(argv)
@@ -1320,6 +1353,18 @@ def main(argv=None):
             do_reply(state, args.ref, args.file)
         elif args.command == 'chase':
             do_chase(state)
+        elif args.command == 'auto':
+            done = routine(state, args.limit, args.send)
+            print('Brokers new to the list: ' + str(done['new_brokers']))
+            print('Letters written:         ' + str(done['letters_written']))
+            print('Reminders written:       ' + str(done['reminders_written']))
+            print('Sent:                    ' + str(len(done['sent'])))
+            print('Waiting for you to send: ' + str(done['waiting_to_send']) + ('   ' + done['send_page'] if done['waiting_to_send'] else ''))
+            print('Forms waiting for you:   ' + str(done['forms_waiting']) + ('   ' + done['forms_page'] if done['forms_waiting'] else ''))
+            if done['complaints_ready']:
+                print('Brokers to complain about: ' + str(done['complaints_ready']) + '   run "chase" to see where')
+            for note in done['notes']:
+                print(note)
         elif args.command == 'status':
             show(status(state))
     except Oops as problem:
