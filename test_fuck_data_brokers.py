@@ -5,8 +5,11 @@ Everything runs in a temporary folder with made-up people and brokers. Nothing i
 import json
 import os
 import tempfile
+import contextlib
+import io
 import unittest
 from pathlib import Path
+from unittest import mock
 
 import fuck_data_brokers as fdb
 
@@ -103,6 +106,17 @@ class Case(unittest.TestCase):
             'Your request has been denied.': 'refused',
             'Thank you for contacting us. We have received your request. Ticket 48213.': 'received',
             'Greetings from the support team.': 'unclear',
+            # Replies that were once misread. A wrong "no record" would close a request that is still open.
+            'We do not have sufficient information to verify your identity. Please provide additional information.': 'wants_details',
+            'Your data will be deleted within 45 days.': 'received',
+            'Your request cannot be completed at this time.': 'refused',
+            'We have not deleted your data because we could not verify you.': 'refused',
+            'Unfortunately your information cannot be removed.': 'refused',
+            'We have no record of you in our systems.': 'no_record',
+            'We do not hold any personal information about you.': 'no_record',
+            'To opt out, please visit https://example.com/optout': 'use_form',
+            'Please click the link below to verify your email address and confirm your request.': 'click_link',
+            'Your information has been deleted. If you need additional information, contact us.': 'done',
         }
         for text, kind in cases.items():
             self.assertEqual(fdb.classify(text), kind, text)
@@ -173,6 +187,7 @@ class Case(unittest.TestCase):
         self.assertIn('href="mailto:privacy%40broker.example.com?subject=', page)
         self.assertIn('https://mail.google.com/mail/?view=cm', page)
         self.assertIn('Copy letter', page)
+        self.assertIn('background:#fff;color:#000', page, 'readable in a dark-themed browser too')
 
     def test_free_mailboxes_are_recognised_and_sending_without_a_known_server_explains_itself(self):
         self.assertEqual(fdb.smtp_host({'email': 'someone@gmail.com'}), 'smtp.gmail.com')
@@ -182,6 +197,56 @@ class Case(unittest.TestCase):
         with self.assertRaises(fdb.Oops) as caught:
             fdb.send_drafts(self.state)
         self.assertIn('app password', str(caught.exception))
+
+    def test_a_link_to_click_is_explained_and_never_followed_or_answered(self):
+        request = self.sent_request()
+        result = fdb.read_reply(self.state, request['ref'], 'Please click the link below to verify your email address.')
+        self.assertEqual(result['kind'], 'click_link')
+        self.assertIsNone(result['answer'])
+        self.assertIn('never clicks links', result['meaning'])
+        self.assertEqual(self.state['requests'][request['ref']]['state'], 'sent', 'the request stays open')
+
+    def test_setup_asks_again_when_someone_says_they_live_everywhere(self):
+        answers = iter(['Avery Exampleton', 'avery@example.com', '', '', '', 'everywhere', 'the moon', '4'])
+        shown = io.StringIO()
+        with mock.patch('builtins.input', lambda prompt='': next(answers)), contextlib.redirect_stdout(shown):
+            fdb.do_setup(self.state)
+        self.assertEqual(self.state['profile']['place'], 'canada_other')
+        self.assertEqual(self.state['profile']['name'], 'Avery Exampleton', 'nothing they typed was thrown away')
+        self.assertIn('Pick one number from the list', shown.getvalue())
+        # A bad name keeps the other answers and asks again.
+        answers = iter(['Avery', 'avery@example.com', '', '', '', '7', 'Avery Exampleton', '', '', '', '', ''])
+        with mock.patch('builtins.input', lambda prompt='': next(answers)), contextlib.redirect_stdout(io.StringIO()):
+            fdb.do_setup(self.state)
+        self.assertEqual((self.state['profile']['name'], self.state['profile']['place']), ('Avery Exampleton', 'other'))
+
+    def test_nothing_ends_in_a_stack_trace(self):
+        def run(argv, typed=()):
+            answers, shown = iter(typed), io.StringIO()
+
+            def typing(prompt=''):
+                try:
+                    return next(answers)
+                except StopIteration:
+                    raise EOFError
+            with mock.patch('builtins.input', typing), contextlib.redirect_stdout(shown):
+                code = fdb.main(argv)
+            return code, shown.getvalue()
+
+        self.assertEqual(run([], ['9', 'x'])[0], None, 'the menu ends quietly when input ends')
+        code, shown = run(['setup'], ['Avery Exampleton'])
+        self.assertEqual(code, 130)
+        self.assertIn('Stopped. Nothing was lost.', shown)
+        self.assertEqual(run(['letters'])[0], 1, 'a command before setup explains itself')
+        self.assertIn('app password, not your normal one', fdb.explain(fdb.smtplib.SMTPAuthenticationError(535, b'no')))
+
+    def test_a_console_that_cannot_print_a_broker_name_does_not_crash(self):
+        fdb.set_profile(self.state, 'Avery Exampleton', 'avery@example.com', '', '', '', 'other')
+        fdb.add_broker(self.state, 'Caf\u00e9 Data \u2019Broker\u2019', 'privacy@broker.example.com')
+        fdb.save(self.state)
+        plain = io.TextIOWrapper(io.BytesIO(), encoding='ascii')
+        with mock.patch.object(fdb.sys, 'stdout', plain):
+            self.assertEqual(fdb.main(['letters']), 0)
 
     def test_state_survives_a_restart_and_is_one_plain_file(self):
         self.sent_request()

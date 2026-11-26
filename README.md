@@ -118,6 +118,7 @@ They used AI to build a file on you. Use AI to make them delete it.
 | "We received your request" | A robot said hello | Keeps the clock running |
 | "Please send your ID" | A seller of personal data wants more personal data | Writes a refusal |
 | "Use our form" | They prefer a CAPTCHA to a letter | Puts it on your forms page |
+| "Click this link to confirm" | Maybe real, maybe not | Tells you to check where the link goes; never clicks it |
 | "We need more details" | Same trick, different wording | Writes a refusal |
 | "We cannot process this" | They refused and hoped you would go away | Writes one answer, then a final notice |
 

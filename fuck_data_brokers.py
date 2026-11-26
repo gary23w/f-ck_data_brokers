@@ -349,6 +349,16 @@ def smtp_ready(profile):
     return bool(smtp_host(profile))
 
 
+# The copy buttons. Browsers differ: the modern clipboard can be missing or refused, so there is an older method
+# behind it, and if both fail the button says so and the letter is right there to select by hand.
+COPY_SCRIPT = ('<script>document.addEventListener("click",function(e){var b=e.target,v=b.getAttribute&&b.getAttribute("data-copy");if(v===null||v===undefined)return;'
+               'function done(){b.textContent="Copied"}'
+               'function old(){var t=document.createElement("textarea");t.value=v;t.setAttribute("readonly","");t.style.position="fixed";t.style.top="0";t.style.opacity="0";'
+               'document.body.appendChild(t);t.select();var ok=false;try{ok=document.execCommand("copy")}catch(x){}document.body.removeChild(t);'
+               'if(ok)done();else b.textContent="Could not copy. Select the text below."}'
+               'if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(v).then(done,old);else old();});</script>')
+
+
 def gmail_link(to, subject, body):
     return 'https://mail.google.com/mail/?view=cm&fs=1&to=' + urllib.parse.quote(to) + '&su=' + urllib.parse.quote(subject) + '&body=' + urllib.parse.quote(body)
 
@@ -369,13 +379,12 @@ def write_send_page(state):
                      '<p>Or copy and paste: <button data-copy="' + e(to) + '">Copy address</button> <button data-copy="' + e(subject) + '">Copy subject</button> '
                      '<button data-copy="' + e(body) + '">Copy letter</button></p><pre>' + e(body) + '</pre></section>')
     page = ('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Letters to send</title>'
-            '<style>body{font:16px/1.5 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}section{border-top:2px solid #000;padding:1rem 0}'
+            '<style>html{background:#fff;color-scheme:light}body{background:#fff;color:#000;font:16px/1.5 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}section{border-top:2px solid #000;padding:1rem 0}'
             'pre{white-space:pre-wrap;background:#f4f4f4;padding:1rem}small{font-weight:400;color:#555}.go,button{display:inline-block;margin:.2rem .3rem .2rem 0;padding:.5rem .8rem;'
             'border:2px solid #000;background:#fff;color:#000;text-decoration:none;font:inherit;cursor:pointer}.go{background:#000;color:#fff}</style>'
             '<h1>' + str(len(cards)) + ' letters to send</h1><p>Each button opens a ready letter in your own email. Press send, then come back for the next one. '
             'When you are done, run <code>sent all</code> so the clock starts.</p>' + ''.join(cards) +
-            '<script>document.addEventListener("click",function(e){var v=e.target.getAttribute&&e.target.getAttribute("data-copy");if(v===null)return;'
-            'navigator.clipboard.writeText(v).then(function(){e.target.textContent="Copied"});});</script>')
+            COPY_SCRIPT)
     box = home() / 'outbox'
     box.mkdir(exist_ok=True)
     file = box / 'send.html'
@@ -492,14 +501,13 @@ def write_forms_page(state):
                      + ('<button data-copy="' + e(where) + '">Copy city</button> ' if where else '') + '<button data-copy="' + e(request['body']) + '">Copy request text</button></p>'
                      '<pre>' + e(request['body']) + '</pre></section>')
     page = ('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Forms to fill in</title>'
-            '<style>body{font:16px/1.5 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}section{border-top:2px solid #000;padding:1rem 0}'
+            '<style>html{background:#fff;color-scheme:light}body{background:#fff;color:#000;font:16px/1.5 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}section{border-top:2px solid #000;padding:1rem 0}'
             'pre{white-space:pre-wrap;background:#f4f4f4;padding:1rem}small{font-weight:400;color:#555}.go,button{display:inline-block;margin:.2rem .3rem .2rem 0;padding:.5rem .8rem;'
             'border:2px solid #000;background:#fff;color:#000;text-decoration:none;font:inherit;cursor:pointer}.go{background:#000;color:#fff}</style>'
             '<h1>' + str(len(cards)) + ' brokers that hide behind a form</h1><p>These ones will not act on an email, so you fill in their form. Open it, pick "delete" and "do not sell or share", '
             'paste your details, do their CAPTCHA, submit. Give them only what is on this page. If a form demands a photo of your ID, close the tab. '
             'When you are done, run <code>sent</code> with the references you submitted.</p>' + ''.join(cards) +
-            '<script>document.addEventListener("click",function(e){var v=e.target.getAttribute&&e.target.getAttribute("data-copy");if(v===null)return;'
-            'navigator.clipboard.writeText(v).then(function(){e.target.textContent="Copied"});});</script>')
+            COPY_SCRIPT)
     box = home() / 'outbox'
     box.mkdir(exist_ok=True)
     file = box / 'forms.html'
@@ -529,17 +537,19 @@ def send_drafts(state, limit=20, password=None):
 # What a broker's reply usually means. Checked in this order; the first match wins.
 REPLY_RULES = [
     ('done', r'\b(?:has|have) been (?:deleted|removed|erased|suppressed|opted out|processed|completed)\b|\b(?:we have|we\'ve) (?:deleted|removed|erased|suppressed|completed|processed|opted you out)\b|\bsuccessfully (?:deleted|removed|opted|processed)\b|\brequest (?:is|has been) complete'),
-    ('no_record', r'\b(?:found no|did not (?:locate|find)|(?:were|are) unable to (?:locate|find)|could not (?:find|locate)|do not (?:have|hold)|no records? (?:matching|found|were found))\b[^.!?]{0,120}\b(?:records?|information|data|match)'),
+    ('click_link', r'\b(?:click|follow|open|use) (?:on )?(?:the|this) (?:link|button)\b|\bverification (?:link|code)\b|\b(?:verify|confirm) your e-?mail\b'),
     ('wants_id', r'\b(?:government[- ]issued|photo id|driver\'?s licen[cs]e|passport|identity document|proof of identity|copy of (?:your )?id|notari[sz]ed|power of attorney)\b'),
-    ('use_form', r'\b(?:web ?form|online form|our form|privacy (?:portal|center|request page)|opt[- ]?out (?:form|page|portal)|submit (?:your|the|a) request (?:through|via|using|at|on)|complete (?:the|our) (?:form|portal)|does not (?:accept|process)[^.!?]{0,60}(?:by|via) e-?mail|not monitored)\b'),
-    ('wants_details', r'\b(?:additional|more|further) (?:information|details|identifiers)\b|\binsufficient information\b|\bplease (?:provide|reply with|send)\b[^.!?]{0,80}\b(?:date of birth|address|phone|full name)\b'),
-    ('refused', r'\b(?:unable to (?:process|verify|honou?r|complete|fulfil)|cannot (?:process|verify|honou?r|complete|fulfil)|can\'?t (?:process|verify)|(?:is|has been|are) (?:denied|declined|rejected)|we (?:deny|decline)|not (?:subject to|covered by|applicable)|does not apply|exempt)\b'),
-    ('received', r'\b(?:received|receipt of|acknowledge|thank you for (?:contacting|your)|ticket|case (?:number|id)|will (?:respond|review|process|get back))\b'),
+    ('wants_details', r'\b(?:additional|more|further) (?:information|details|identifiers)\b|\b(?:insufficient|not (?:have )?(?:sufficient|enough)|(?:do|does) not have (?:sufficient|enough)) information\b|\bplease (?:provide|reply with|send)\b[^.!?]{0,80}\b(?:date of birth|address|phone|full name)\b'),
+    ('no_record', r'\b(?:found no|did not (?:locate|find)|(?:were|are) unable to (?:locate|find)|could not (?:find|locate)|no records? (?:matching|found|were found))\b[^.!?]{0,120}\b(?:records?|information|data|match)|\b(?:have|has|hold|holds) no (?:records?|data|information)\b|\b(?:do|does) not (?:have|hold) (?:any )?(?:records?|data|personal information)\b[^.!?]{0,60}\b(?:about|on|for|matching|associated)\b'),
+    ('use_form', r'\b(?:web ?form|online form|our form|privacy (?:portal|center|request page)|opt[- ]?out (?:form|page|portal)|submit (?:your|the|a) request (?:through|via|using|at|on)|complete (?:the|our) (?:form|portal)|does not (?:accept|process)[^.!?]{0,60}(?:by|via) e-?mail|not monitored)\b|\bto (?:opt[- ]?out|submit (?:a|your) request|exercise your (?:privacy )?rights)\b[^.!?]{0,80}\b(?:visit|go to|use)\b|\bplease visit\b[^.!?]{0,80}\b(?:opt[- ]?out|privacy|request)'),
+    ('refused', r'\b(?:unable to (?:process|verify|honou?r|complete|fulfil)|cannot (?:process|verify|honou?r|complete|fulfil)|can\'?t (?:process|verify)|(?:is|has been|are) (?:denied|declined|rejected)|we (?:deny|decline)|not (?:subject to|covered by|applicable)|does not apply|exempt)\b|\b(?:have|has) not (?:been )?(?:deleted|removed|erased|processed)\b|\bcannot be (?:deleted|removed|erased|processed|completed|honou?red)\b'),
+    ('received', r'\b(?:received|receipt of|acknowledge|thank you for (?:contacting|your)|ticket|case (?:number|id)|will (?:respond|review|process|get back)|will be (?:deleted|removed|erased|processed|completed))\b'),
 ]
 
 MEANING = {
     'done': 'They say it is done. A broker saying so is a claim, not proof, but it is the answer you wanted.',
     'no_record': 'They say they hold nothing on you. Fine. One down.',
+    'click_link': 'They want you to click a link to confirm. This tool never clicks links for you. Look at where the link goes: if it is on the broker\'s own website, click it yourself. If it goes anywhere else, ignore it.',
     'wants_id': 'They want your ID. A company that sells personal data wants more personal data. No.',
     'use_form': 'They want you to use their web form. You already asked in writing; they just prefer a form with a CAPTCHA.',
     'wants_details': 'They want more details about you before they will delete the details they have about you.',
@@ -748,16 +758,34 @@ def show(value):
     print(json.dumps(value, indent=1, ensure_ascii=False))
 
 
+def pick_place(default):
+    keys = list(PLACES)
+    print('Where do you live? It decides which law your letters quote. One letter can only quote one law.')
+    for number, key in enumerate(keys, 1):
+        print('   ' + str(number) + '. ' + PLACES[key][0])
+    while True:
+        answer = ask('Pick a number', str(keys.index(default) + 1 if default in keys else len(keys))).lower()
+        if answer.isdigit() and 1 <= int(answer) <= len(keys):
+            return keys[int(answer) - 1]
+        for key in keys:
+            if answer in (key, PLACES[key][0].lower()):
+                return key
+        print('Pick one number from the list. If you move around, pick where you live most of the year. Not sure? Pick ' + str(len(keys)) + '.')
+
+
 def do_setup(state):
-    old = state.get('profile') or {}
+    old = dict(state.get('profile') or {})
     print('\nWho are we deleting? This stays on your computer.')
-    name = ask('Your full legal name', old.get('name', ''))
-    email = ask('Your email address (brokers reply here)', old.get('email', ''))
-    city, region, country = ask('City', old.get('city', '')), ask('State or province', old.get('region', '')), ask('Country', old.get('country', ''))
-    print('Where do you live? It decides which law your letters quote.')
-    for key, (label, _) in PLACES.items():
-        print('   ' + key.ljust(13) + label)
-    set_profile(state, name, email, city, region, country, ask('Pick one', old.get('place', 'other')))
+    while True:
+        old['name'] = ask('Your full legal name', old.get('name', ''))
+        old['email'] = ask('Your email address (brokers reply here)', old.get('email', ''))
+        old['city'], old['region'], old['country'] = ask('City', old.get('city', '')), ask('State or province', old.get('region', '')), ask('Country', old.get('country', ''))
+        old['place'] = pick_place(old.get('place', ''))
+        try:
+            set_profile(state, old['name'], old['email'], old['city'], old['region'], old['country'], old['place'])
+            break
+        except Oops as problem:
+            print('\n' + str(problem) + ' Try again; press Enter to keep an answer.\n')
     print('Saved. No street address, no birthday, no ID. They get the minimum.')
 
 
@@ -838,6 +866,12 @@ MENU = [('setup', 'Tell it who you are', do_setup), ('brokers', 'Get the list of
         ('status', 'Where things stand', lambda state: show(status(state)))]
 
 
+def explain(problem):
+    if isinstance(problem, smtplib.SMTPAuthenticationError):
+        return 'Your email provider refused that password. It wants an app password, not your normal one. ' + SMTP_HELP
+    return 'That did not work: ' + str(problem)
+
+
 def menu():
     print(BANNER)
     while True:
@@ -845,7 +879,11 @@ def menu():
         for number, (_, label, _) in enumerate(MENU, 1):
             print('  ' + str(number) + '. ' + label)
         print('  0. Quit')
-        choice = input('\nPick a number: ').strip()
+        try:
+            choice = input('\nPick a number: ').strip()
+        except (EOFError, KeyboardInterrupt):
+            choice = '0'
+            print()
         if choice in ('0', 'q', ''):
             print('Go outside. They cannot track that as well.')
             return
@@ -856,8 +894,10 @@ def menu():
             MENU[int(choice) - 1][2](state)
         except Oops as problem:
             print('\n' + str(problem))
+        except (EOFError, KeyboardInterrupt):
+            print('\nStopped. Nothing was lost.')
         except (OSError, smtplib.SMTPException) as problem:
-            print('\nThat did not work: ' + str(problem))
+            print('\n' + explain(problem))
         save(state)
 
 
@@ -884,6 +924,11 @@ def main(argv=None):
     sub.add_parser('status', help='where things stand')
     sub.add_parser('mcp', help='run as an MCP server for your AI')
     args = parser.parse_args(argv)
+    for stream in (sys.stdout, sys.stderr):  # a console that cannot print a broker's fancy apostrophe must not crash the tool
+        try:
+            stream.reconfigure(errors='replace')
+        except (AttributeError, ValueError):
+            pass
     if args.command == 'mcp':
         return mcp_serve()
     if not args.command:
@@ -916,6 +961,14 @@ def main(argv=None):
             show(status(state))
     except Oops as problem:
         print(str(problem))
+        save(state)
+        return 1
+    except (EOFError, KeyboardInterrupt):
+        print('\nStopped. Nothing was lost.')
+        save(state)
+        return 130
+    except (OSError, smtplib.SMTPException) as problem:
+        print(explain(problem))
         save(state)
         return 1
     save(state)
