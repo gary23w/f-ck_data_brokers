@@ -42,7 +42,6 @@ from pathlib import Path
 VERSION = '1.0.0'
 DAY = 86400
 REGISTRY_URL = 'https://cppa.ca.gov/data_broker_registry/registry.csv'
-OREGON_URL = 'https://www4.cbs.state.or.us/ex/shared/downtemp/dfcs_db_optout.csv'
 
 # ---------------------------------------------------------------- the law
 
@@ -221,12 +220,33 @@ def read_oregon(text):
     return brokers
 
 
+def read_texas(text):
+    """Texas's registry, from the spreadsheet its website exports."""
+    rows, column = rows_of(text)
+    col_id, col_name = column(lambda h: h == 'registration number'), column(lambda h: h == 'full legal name')
+    col_mail, col_site, col_rights = column(lambda h: h == 'data broker email address'), column(lambda h: h == 'website'), column(lambda h: h == 'consumer rights link')
+    brokers = {}
+    for row in rows:
+        number, name = cell(row, col_id), ' '.join(cell(row, col_name).split())
+        if not number.isdigit() or not name:
+            continue
+        site, rights = cell(row, col_site)[:300], cell(row, col_rights)[:300]
+        brokers['tx-' + number] = {'name': name[:200], 'email': clean_email(cell(row, col_mail)), 'website': site,
+                                   'rights_url': rights if web_address(rights) else site, 'source': 'texas registry'}
+    return brokers
+
+
 # Every place the list comes from. Each is an official public registry: a company is on this list because a
 # government record says it is a data broker, never because a program guessed. Earlier sources win when the same
 # company is registered in more than one place. To add a registry, add a reader above and one line here.
+#
+# "url" is set only where the registry's website allows programs to fetch the file. Oregon's website asks
+# programs not to fetch from it, and Texas offers its list only as a download from a web page, so a person
+# downloads those two from the official page and runs:  update-list --from or=file.csv --from tx=file.csv
 SOURCES = [
     {'key': 'ca', 'name': 'California Privacy Protection Agency data broker registry', 'page': 'https://cppa.ca.gov/data_broker_registry/', 'url': REGISTRY_URL, 'read': read_registry, 'least': 100},
-    {'key': 'or', 'name': 'Oregon Division of Financial Regulation data broker registry', 'page': 'https://dfr.oregon.gov/business/licensing/data-broker-registry', 'url': OREGON_URL, 'read': read_oregon, 'least': 50},
+    {'key': 'or', 'name': 'Oregon Division of Financial Regulation data broker registry', 'page': 'https://dfr.oregon.gov/business/licensing/data-broker-registry', 'url': '', 'read': read_oregon, 'least': 50},
+    {'key': 'tx', 'name': 'Texas Secretary of State data broker registry', 'page': 'https://www.sos.state.tx.us/statdoc/data-brokers.shtml', 'url': '', 'read': read_texas, 'least': 50},
 ]
 REGISTRY_CREDIT = 'Broker list: ' + '; '.join(source['name'] for source in SOURCES) + '.'
 BUNDLED_LIST = Path(__file__).resolve().parent / 'brokers.json'
@@ -272,27 +292,34 @@ def read_more():
     return brokers
 
 
-def gather(old=None, fetcher=None, conditional=True):
+def gather(old=None, fetcher=None, conditional=True, files=None):
     """Build the list from every source. A source that fails, or comes back nearly empty, keeps what it had
-    last time, so one broken registry never empties the list. Returns the list and what went wrong."""
-    old, fetcher = old or {}, fetcher or fetch
+    last time, so one broken registry never empties the list. `files` gives a downloaded file for a source
+    that is refreshed by hand. Returns the list and what went wrong."""
+    old, fetcher, files = old or {}, fetcher or fetch, files or {}
     old_brokers, old_sources = old.get('brokers') or {}, old.get('sources') or {}
     brokers, sources, problems = {}, {}, []
     for source in SOURCES:
         key = source['key']
         kept = {k: dict(v) for k, v in old_brokers.items() if k.startswith(key + '-')}
         known = old_sources.get(key) or {}
+        seen, captured = known, known.get('captured', '')
         try:
-            text, seen = fetcher(source['url'], known if conditional and kept else None)
-            found = kept if text is None else source['read'](text)
-            if text is not None and len(found) < source['least']:
+            if key in files:
+                found, captured = source['read'](Path(files[key]).read_text(encoding='utf-8-sig', errors='replace')), day(now())
+            elif source['url']:
+                text, seen = fetcher(source['url'], known if conditional and kept else None)
+                found = kept if text is None else source['read'](text)
+            else:
+                found = kept  # refreshed by hand; nothing is fetched
+            if found is not kept and len(found) < source['least']:
                 raise Oops('it returned only ' + str(len(found)) + ' brokers')
         except Exception as problem:
             problems.append(source['name'] + ': ' + (str(problem) or type(problem).__name__)[:160])
-            found, seen = kept, known
+            found, seen, captured = kept, known, known.get('captured', '')
         brokers.update(found)
         sources[key] = {'name': source['name'], 'page': source['page'], 'url': source['url'], 'brokers': len(found),
-                        'etag': (seen or {}).get('etag', ''), 'last_modified': (seen or {}).get('last_modified', '')}
+                        'etag': (seen or {}).get('etag', ''), 'last_modified': (seen or {}).get('last_modified', ''), 'captured': captured}
     brokers.update(read_more())
     # The same company registered in two places is written to once. The first source to list it keeps it.
     order, first = [source['key'] for source in SOURCES] + ['more'], {}
@@ -309,11 +336,11 @@ def usable(brokers):
     return {key: {k: v for k, v in broker.items() if k != 'same_as'} for key, broker in brokers.items() if not broker.get('same_as')}
 
 
-def write_list(file):
+def write_list(file, files=None):
     """Used by the scheduled GitHub Action: rebuild brokers.json from every source and say what changed."""
     target = Path(file)
     old = json.loads(target.read_text(encoding='utf-8')) if target.exists() else {}
-    new, problems = gather(old)
+    new, problems = gather(old, files=files)
     if not new['brokers']:
         raise Oops('No source could be reached and there is no earlier list. Nothing was written.')
     before, after = usable(old.get('brokers') or {}), usable(new['brokers'])
@@ -353,7 +380,8 @@ def load_brokers(state):
     found = usable(data['brokers'])
     if not found:
         raise Oops('Could not reach any registry and there is no bundled list. Check your connection and try again.')
-    where = 'the live registries' if not problems else 'the list shipped with this tool' if len(problems) == len(SOURCES) else 'the live registries, and the shipped list for the ones that did not answer'
+    live = [source for source in SOURCES if source['url']]
+    where = 'the live registry and the list shipped with this tool' if len(problems) < len(live) else 'the list shipped with this tool'
     return {**take(state, found), 'from': where}
 
 
@@ -1120,6 +1148,7 @@ def main(argv=None):
     forms.add_argument('--limit', type=int, default=10)
     update = sub.add_parser('update-list', help='(maintainers) write the bundled brokers.json')
     update.add_argument('file', nargs='?', default=str(BUNDLED_LIST))
+    update.add_argument('--from', dest='files', action='append', default=[], metavar='KEY=FILE', help='a registry file downloaded by hand, for example or=oregon.csv')
     sent = sub.add_parser('sent', help='record that you sent drafts yourself')
     sent.add_argument('refs', nargs='+', help='references, or "all"')
     reply = sub.add_parser('reply', help='read a broker reply and get your answer')
@@ -1140,8 +1169,12 @@ def main(argv=None):
         return menu()
     if args.command == 'update-list':
         try:
-            report = write_list(args.file)
-        except Oops as problem:
+            files = dict(item.split('=', 1) for item in args.files)
+            unknown = [key for key in files if key not in [source['key'] for source in SOURCES]]
+            if unknown or any('=' not in item for item in args.files):
+                raise Oops('Use --from KEY=FILE with one of: ' + ', '.join(source['key'] for source in SOURCES))
+            report = write_list(args.file, files)
+        except (Oops, ValueError) as problem:
             print(str(problem))
             return 1
         for name in report['new']:

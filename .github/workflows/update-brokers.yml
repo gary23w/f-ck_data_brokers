@@ -1,7 +1,8 @@
 name: Find new data brokers
 
-# Every hour: ask each official registry for its list, add the brokers that are new, drop the ones that are gone,
-# and commit only when something changed. The commit message names every broker added or removed.
+# Every hour: ask each registry that allows automated fetching for its list, add the brokers that are new, drop the
+# ones that are gone, and commit only when something changed. The commit message names every broker added or removed.
+# Registries that do not allow programs to fetch them are never contacted from here; a person refreshes those.
 #
 # Safe by design:
 # - A registry that is down, or comes back nearly empty, keeps the brokers it had last time.
@@ -31,7 +32,7 @@ jobs:
           python-version: '3.12'
       - name: Tests pass before anything changes
         run: python -m unittest
-      - name: Ask every registry
+      - name: Ask the registries
         run: python fuck_data_brokers.py update-list brokers.json | tee update.txt
       - name: Tests pass with the new list
         run: python -m unittest

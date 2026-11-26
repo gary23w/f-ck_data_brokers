@@ -138,11 +138,17 @@ In one file, `state.json`, in a folder called `.fuck_data_brokers` in your home 
 
 ## The broker list
 
-The list comes from official public registries, where companies have to register as data brokers. So far that is the [California Privacy Protection Agency](https://cppa.ca.gov/data_broker_registry/) and the [Oregon Division of Financial Regulation](https://dfr.oregon.gov/business/licensing/data-broker-registry). You do not have to live in either state to write to these companies.
+The list comes from official public registries, where companies have to register as data brokers:
 
-A job in this repository asks every registry once an hour. When a new broker registers, it is on the list within the hour, and the commit says who it was. A company registered in two places is written to once.
+- the [California Privacy Protection Agency](https://cppa.ca.gov/data_broker_registry/)
+- the [Oregon Division of Financial Regulation](https://dfr.oregon.gov/business/licensing/data-broker-registry)
+- the [Texas Secretary of State](https://www.sos.state.tx.us/statdoc/data-brokers.shtml)
 
-The tool also fetches the live registries when you ask for the list. A copy, `brokers.json`, ships with the tool for when you are offline.
+Together that is more than 750 companies. You do not have to live in any of those states to write to them. A company registered in more than one place is written to once.
+
+A job in this repository checks California's registry every hour. When a new broker registers there, it is on the list within the hour, and the commit says who it was. Oregon and Texas do not allow programs to fetch their lists, so those are downloaded by hand from the official pages and added with `update-list --from`.
+
+The tool also fetches California's live registry when you ask for the list. A copy of everything, `brokers.json`, ships with the tool.
 
 **Know a broker that is on no registry?** Open an issue with its name, its privacy page or privacy email, and a link showing that it sells or shares personal information. Reviewed reports go into `more_brokers.json`. Nothing gets on the list because a program guessed.
 

@@ -31,6 +31,13 @@ OREGON = (
     '"DATA-00011","Form Only Broker Inc","","12/16/2025","","","","formonly.example.com","","",""\n'
     '"","No Licence Row","","","","","","","","",""\n'
 )
+TEXAS = (
+    'Registration Number,Full Legal Name,Data Broker Email Address,Website,Consumer Rights Link\n'
+    '20240001,"Brand New Broker, LLC",tx@brandnew.example.com,brandnew.example.com,https://brandnew.example.com/rights\n'
+    '20240002,Texas Only Broker LLC,Privacy@TexasOnly.example.com,www.texasonly.example.com,https://texasonly.example.com/optout\n'
+    'n/a,No Number Row,,,\n'
+)
+
 
 
 class Case(unittest.TestCase):
@@ -473,83 +480,113 @@ class Case(unittest.TestCase):
         for source in fdb.SOURCES:
             self.assertIn(source['name'], bundled['credit'])
             self.assertEqual(bundled['sources'][source['key']]['url'], source['url'])
+            if not source['url']:
+                self.assertRegex(bundled['sources'][source['key']]['captured'], r'^\d{4}-\d\d-\d\d$', 'a hand-refreshed registry says when it was taken')
         self.assertGreater(len(fdb.usable(bundled['brokers'])), 100)
         for key, broker in bundled['brokers'].items():
-            self.assertRegex(key, r'^(ca-\d+|or-[a-z]+-\d+|more-[a-z0-9-]+)$')
+            self.assertRegex(key, r'^(ca-\d+|or-[a-z]+-\d+|tx-\d+|more-[a-z0-9-]+)$')
             self.assertEqual(sorted(k for k in broker if k != 'same_as'), ['email', 'name', 'rights_url', 'source', 'website'])
             if 'same_as' in broker:
                 self.assertIn(broker['same_as'], bundled['brokers'])
                 self.assertNotIn('same_as', bundled['brokers'][broker['same_as']], 'a duplicate points at a real entry, never at another duplicate')
 
-    def test_oregon_registry_is_read_and_a_company_listed_twice_is_written_to_once(self):
+    def test_only_a_registry_whose_website_allows_it_is_fetched_by_the_program(self):
+        allowed = [source['key'] for source in fdb.SOURCES if source['url']]
+        self.assertEqual(allowed, ['ca'], 'Oregon forbids automated fetching and Texas has no file to fetch; a person downloads those')
+        calls = []
+
+        def fetcher(url, known=None):
+            calls.append(url)
+            return REGISTRY, {}
+
+        with mock.patch.object(fdb, 'MORE_LIST', Path(self.folder.name, 'more.json')):
+            fdb.gather(None, fetcher)
+        self.assertEqual(calls, [fdb.REGISTRY_URL])
+
+    def gathered(self, texts, old=None, least=1):
+        """Build the list from test text: California through the downloader, the others from files as a person would supply them."""
+        calls, files = [], {}
+        for key, text in texts.items():
+            if key != 'ca' and isinstance(text, str):
+                file = Path(self.folder.name, key + '.csv')
+                file.write_text(text, encoding='utf-8')
+                files[key] = str(file)
+
+        def fetcher(url, known=None):
+            calls.append((url, known))
+            text = texts.get('ca')
+            if isinstance(text, Exception):
+                raise text
+            if text is None:
+                return None, known
+            return text, {'etag': '"v-ca"', 'last_modified': ''}
+
+        with mock.patch.object(fdb, 'SOURCES', [dict(source, least=least) for source in fdb.SOURCES]), mock.patch.object(fdb, 'MORE_LIST', Path(self.folder.name, 'more.json')):
+            data, problems = fdb.gather(old, fetcher, files=files)
+        self.calls = calls
+        return data, problems
+
+    def test_oregon_and_texas_are_read_and_a_company_listed_twice_is_written_to_once(self):
         found = fdb.read_oregon(OREGON)
         self.assertEqual(sorted(found), ['or-data-00009', 'or-data-00010', 'or-data-00011'])
         self.assertEqual(found['or-data-00009'], {'name': 'Example Broker 7 LLC', 'email': 'optout@broker7.example.com', 'website': 'broker7.example.com',
                                                   'rights_url': 'https://broker7.example.com/dont_sell', 'source': 'oregon registry'})
         self.assertEqual(found['or-data-00011']['email'], '', 'a broker with no email is kept; its form page is its route')
-        with self.assertRaises(fdb.Oops):
-            fdb.read_oregon('Wrong,Columns\n1,2\n')
+        texas = fdb.read_texas(TEXAS)
+        self.assertEqual(sorted(texas), ['tx-20240001', 'tx-20240002'])
+        self.assertEqual(texas['tx-20240002'], {'name': 'Texas Only Broker LLC', 'email': 'privacy@texasonly.example.com', 'website': 'www.texasonly.example.com',
+                                                'rights_url': 'https://texasonly.example.com/optout', 'source': 'texas registry'})
+        for reader in (fdb.read_oregon, fdb.read_texas):
+            with self.assertRaises(fdb.Oops):
+                reader('Wrong,Columns\n1,2\n')
         self.assertEqual(fdb.name_key('Example Broker 7, Inc. d/b/a Seven'), fdb.name_key('EXAMPLE BROKER 7 LLC'))
         self.assertNotEqual(fdb.name_key('Example Broker 7'), fdb.name_key('Example Broker 70'))
-        data, problems = self.gathered({'ca': REGISTRY, 'or': OREGON})
+        data, problems = self.gathered({'ca': REGISTRY, 'or': OREGON, 'tx': TEXAS})
         self.assertEqual(problems, [])
         self.assertEqual(data['brokers']['or-data-00009']['same_as'], 'ca-7', 'California listed it first')
+        self.assertEqual(data['brokers']['tx-20240001']['same_as'], 'or-data-00010', 'Oregon listed it before Texas')
         self.assertNotIn('same_as', data['brokers']['ca-7'])
-        self.assertNotIn('same_as', data['brokers']['or-data-00010'])
-        self.assertEqual(len(fdb.usable(data['brokers'])), 32, '30 from California and 2 only Oregon has')
-
-    def gathered(self, texts, old=None, least=1):
-        calls = []
-
-        def fetcher(url, known=None):
-            calls.append((url, known))
-            key = next(source['key'] for source in fdb.SOURCES if source['url'] == url)
-            text = texts.get(key)
-            if isinstance(text, Exception):
-                raise text
-            if text is None:
-                return None, known
-            return text, {'etag': '"v-' + key + '"', 'last_modified': ''}
-
-        with mock.patch.object(fdb, 'SOURCES', [dict(source, least=least) for source in fdb.SOURCES]), mock.patch.object(fdb, 'MORE_LIST', Path(self.folder.name, 'more.json')):
-            data, problems = fdb.gather(old, fetcher)
-        self.calls = calls
-        return data, problems
+        self.assertEqual(len(fdb.usable(data['brokers'])), 33, '30 from California, 2 only Oregon has, 1 only Texas has')
+        self.assertRegex(data['sources']['or']['captured'], r'^\d{4}-\d\d-\d\d$')
 
     def test_a_registry_that_is_down_or_nearly_empty_keeps_the_brokers_it_had(self):
-        good, _ = self.gathered({'ca': REGISTRY, 'or': OREGON})
-        down, problems = self.gathered({'ca': REGISTRY, 'or': OSError('connection refused')}, good)
+        good, _ = self.gathered({'ca': REGISTRY, 'or': OREGON, 'tx': TEXAS})
+        down, problems = self.gathered({'ca': OSError('connection refused')}, good)
         self.assertEqual(len(problems), 1)
-        self.assertIn('Oregon', problems[0])
+        self.assertIn('California', problems[0])
         self.assertEqual(down['brokers'], good['brokers'], 'nothing was lost')
         one = '\n'.join(REGISTRY.split('\n')[:2]) + '\n1,Only One,,https://one.example.com,p@one.example.com,US,https://one.example.com/p\n'  # the header spans two lines
-        shrunk, problems = self.gathered({'ca': one, 'or': OREGON}, good, least=3)
+        shrunk, problems = self.gathered({'ca': one}, good, least=3)
         self.assertIn('only 1 brokers', problems[0])
         self.assertEqual(shrunk['brokers'], good['brokers'], 'a registry that suddenly lists one broker is not believed')
-        # An unchanged registry is not downloaded again, and its brokers stay.
-        same, problems = self.gathered({'ca': None, 'or': None}, good)
+        # A hand-supplied file that is nearly empty is not believed either.
+        thin, problems = self.gathered({'ca': REGISTRY, 'or': OREGON.split('\n')[0] + '\n'}, good, least=2)
+        self.assertIn('Oregon', problems[0])
+        self.assertEqual(thin['brokers'], good['brokers'])
+        # An unchanged registry is not downloaded again, and its brokers stay. The others are left as they were.
+        same, problems = self.gathered({'ca': None}, good)
         self.assertEqual((problems, same['brokers']), ([], good['brokers']))
-        self.assertEqual([known['etag'] for _, known in self.calls], ['"v-ca"', '"v-or"'], 'each request says what we already have')
+        self.assertEqual([known['etag'] for _, known in self.calls], ['"v-ca"'], 'the request says what we already have')
+        self.assertEqual(same['sources']['or']['captured'], good['sources']['or']['captured'])
 
     def test_the_list_file_reports_exactly_which_brokers_are_new_or_gone(self):
-        target = Path(self.folder.name, 'list.json')
-        texts = {'ca': REGISTRY, 'or': OREGON}
-
-        def fetcher(url, known=None):
-            key = next(source['key'] for source in fdb.SOURCES if source['url'] == url)
-            return texts[key], {'etag': '', 'last_modified': ''}
-
-        with mock.patch.object(fdb, 'fetch', fetcher), mock.patch.object(fdb, 'SOURCES', [dict(source, least=1) for source in fdb.SOURCES]), mock.patch.object(fdb, 'MORE_LIST', Path(self.folder.name, 'more.json')):
-            first = fdb.write_list(target)
+        target, oregon = Path(self.folder.name, 'list.json'), Path(self.folder.name, 'oregon.csv')
+        oregon.write_text(OREGON, encoding='utf-8')
+        with mock.patch.object(fdb, 'fetch', lambda url, known=None: (REGISTRY, {'etag': '', 'last_modified': ''})), \
+                mock.patch.object(fdb, 'SOURCES', [dict(source, least=1) for source in fdb.SOURCES]), mock.patch.object(fdb, 'MORE_LIST', Path(self.folder.name, 'more.json')):
+            first = fdb.write_list(target, {'or': str(oregon)})
             self.assertEqual((first['brokers'], len(first['new']), first['gone'], first['listed_twice']), (32, 32, [], 1))
             before = target.read_bytes()
             second = fdb.write_list(target)
             self.assertEqual((second['new'], second['gone'], second['line']), ([], [], 'Broker list: 32 brokers'))
             self.assertEqual(target.read_bytes(), before, 'an unchanged registry leaves the file byte for byte the same')
-            texts['or'] = OREGON.replace('"DATA-00010","Brand New Broker LLC"', '"DATA-00012","Newest Broker Inc"')
-            third = fdb.write_list(target)
+            oregon.write_text(OREGON.replace('"DATA-00010","Brand New Broker LLC"', '"DATA-00012","Newest Broker Inc"'), encoding='utf-8')
+            third = fdb.write_list(target, {'or': str(oregon)})
             self.assertEqual((third['new'], third['gone'], third['line']), (['Newest Broker Inc'], ['Brand New Broker LLC'], 'Broker list: 32 brokers, 1 new, 1 gone'))
         self.assertNotIn(b'\r\n', target.read_bytes())
+        with contextlib.redirect_stdout(io.StringIO()) as shown:
+            self.assertEqual(fdb.main(['update-list', str(target), '--from', 'zz=nope.csv']), 1)
+        self.assertIn('one of: ca, or, tx', shown.getvalue())
 
     def test_a_reported_broker_needs_a_name_a_way_to_reach_it_and_evidence(self):
         more = Path(self.folder.name, 'more.json')
@@ -562,7 +599,7 @@ class Case(unittest.TestCase):
         with mock.patch.object(fdb, 'MORE_LIST', more):
             self.assertEqual(sorted(fdb.read_more()), ['more-example-broker-7', 'more-reported-broker'])
             with mock.patch.object(fdb, 'SOURCES', [dict(source, least=1) for source in fdb.SOURCES]):
-                data, _ = fdb.gather(None, lambda url, known=None: (REGISTRY if 'cppa' in url else OREGON, {}))
+                data, _ = fdb.gather(None, lambda url, known=None: (REGISTRY, {}))
         self.assertEqual(data['brokers']['more-reported-broker']['source'], 'reported, with evidence')
         self.assertEqual(data['brokers']['more-example-broker-7']['same_as'], 'ca-7', 'a report never overrides an official registry')
 

@@ -7480,12 +7480,3580 @@
    "same_as": "ca-1940",
    "source": "oregon registry",
    "website": "https://www.tracerfy.com/privacy-choices"
+  },
+  "tx-20240001": {
+   "email": "tgibson@healthwisedata.com",
+   "name": "HealthWise Data LLC",
+   "rights_url": "https://healthwisedata.com/compliance-optout/",
+   "same_as": "ca-1008",
+   "source": "texas registry",
+   "website": "www.healthwisedata.com"
+  },
+  "tx-20240002": {
+   "email": "usprivacyquestions@deloitte.com",
+   "name": "Deloitte Financial Advisory Services LLP",
+   "rights_url": "datasubject.deloitte.com",
+   "same_as": "ca-1144",
+   "source": "texas registry",
+   "website": "deloitte.com"
+  },
+  "tx-20240003": {
+   "email": "consumercare@liveramp.com",
+   "name": "LiveRamp Holdings Inc.",
+   "rights_url": "https://liveramp.com/privacy/my-privacy-choices",
+   "same_as": "ca-1089",
+   "source": "texas registry",
+   "website": "www.liveramp.com"
+  },
+  "tx-20240007": {
+   "email": "usprivacyquestions@deloitte.com",
+   "name": "Deloitte Consulting LLP",
+   "rights_url": "datasubject.deloitte.com",
+   "same_as": "ca-1143",
+   "source": "texas registry",
+   "website": "deloitte.com"
+  },
+  "tx-20240010": {
+   "email": "privacy.inquiries@lexisnexis.com",
+   "name": "LexisNexis, a division of RELX Inc.",
+   "rights_url": "https://www.lexisnexis.com/en-us/terms/us-privacy-notice.page",
+   "source": "texas registry",
+   "website": "https://www.lexisnexis.com/global/privacy/en/privacy-center-us.page"
+  },
+  "tx-20240011": {
+   "email": "privacy@experian.com",
+   "name": "Experian Marketing Solutions, LLC",
+   "rights_url": "https://www.experian.com/privacy/us-consumer-data-privacy-policy",
+   "same_as": "ca-1335",
+   "source": "texas registry",
+   "website": "www.experian.com"
+  },
+  "tx-20240012": {
+   "email": "privacy@experian.com",
+   "name": "Experian Information Solutions, Inc.",
+   "rights_url": "https://www.experian.com/privacy/us-consumer-data-privacy-policy",
+   "same_as": "ca-1094",
+   "source": "texas registry",
+   "website": "https://www.experian.com"
+  },
+  "tx-20240013": {
+   "email": "privacy@i-360.com",
+   "name": "I360, LLC",
+   "rights_url": "https://www.i-360.com/disclosures/",
+   "same_as": "ca-1181",
+   "source": "texas registry",
+   "website": "https://www.i-360.com"
+  },
+  "tx-20240016": {
+   "email": "privacy@hireez.com",
+   "name": "HireTeamMate, Inc. dba hireEZ",
+   "rights_url": "https://app.hireez.com/policies/databrokerregistration",
+   "same_as": "ca-1131",
+   "source": "texas registry",
+   "website": "www.hireez.com"
+  },
+  "tx-20240018": {
+   "email": "ben@swordfishapp.com",
+   "name": "SWORDFISH AI INC",
+   "rights_url": "https://swordfish.ai/texas-privacy-rights",
+   "same_as": "ca-1293",
+   "source": "texas registry",
+   "website": "https://swordfish.ai/"
+  },
+  "tx-20240019": {
+   "email": "ben@swordfishapp.com",
+   "name": "Heartbeat.ai Inc",
+   "rights_url": "https://heartbeat.ai/texas-privacy-rights",
+   "same_as": "ca-1294",
+   "source": "texas registry",
+   "website": "https://www.heartbeat.ai/"
+  },
+  "tx-20240020": {
+   "email": "privacy@magnite.com",
+   "name": "Magnite Inc",
+   "rights_url": "https://www.magnite.com/legal/user-choice-portal/",
+   "same_as": "ca-1066",
+   "source": "texas registry",
+   "website": "www.magnite.com"
+  },
+  "tx-20240023": {
+   "email": "privacy@simiocloud.com",
+   "name": "Simio Cloud, LLC",
+   "rights_url": "https://simiocloud.com/simiocloud-products-services-privacy-policy/",
+   "same_as": "ca-1068",
+   "source": "texas registry",
+   "website": "simiocloud.com"
+  },
+  "tx-20240024": {
+   "email": "privacy@decide.co",
+   "name": "Decide Technologies Inc.",
+   "rights_url": "https://decide.co/privacy",
+   "same_as": "ca-1429",
+   "source": "texas registry",
+   "website": "decide.co"
+  },
+  "tx-20240025": {
+   "email": "info@amerilist.com",
+   "name": "Amerilist Inc",
+   "rights_url": "www.amerilist.com",
+   "source": "texas registry",
+   "website": "www.amerilist.com"
+  },
+  "tx-20240028": {
+   "email": "usprivacy@equifax.com",
+   "name": "Equifax Information Services LLC",
+   "rights_url": "https://www.equifax.com/personal/my-privacy/",
+   "same_as": "ca-1424",
+   "source": "texas registry",
+   "website": "www.equifax.com"
+  },
+  "tx-20240029": {
+   "email": "greg.damon@sheerid.com",
+   "name": "SheerID, Inc.",
+   "rights_url": "https://www.sheerid.com/global-privacy-policy/",
+   "same_as": "ca-1111",
+   "source": "texas registry",
+   "website": "https://www.sheerid.com/"
+  },
+  "tx-20240030": {
+   "email": "vmsprivacy@verisk.com",
+   "name": "Lead Intelligence, Inc. D/B/A InfutorData",
+   "rights_url": "https://marketing.verisk.com/privacy-center/",
+   "same_as": "ca-1154",
+   "source": "texas registry",
+   "website": "https://marketing.verisk.com/"
+  },
+  "tx-20240035": {
+   "email": "usprivacy@equifax.com",
+   "name": "Knowledge Works, Inc.",
+   "rights_url": "https://www.equifax.com/personal/my-privacy/",
+   "same_as": "ca-1380",
+   "source": "texas registry",
+   "website": "https://sbinsights.paynetonline.com/why-register/"
+  },
+  "tx-20240037": {
+   "email": "khuntoon@liftengine.com",
+   "name": "Blue Hill Marketing Solutions, Inc. d/b/a LiftEngine",
+   "rights_url": "www.liftengine.com",
+   "same_as": "ca-1130",
+   "source": "texas registry",
+   "website": "www.liftengine.com"
+  },
+  "tx-20240038": {
+   "email": "privacy@firstdirectmarketing.com",
+   "name": "First Direct, Inc",
+   "rights_url": "https://compliance.firstdirectmarketing.com/",
+   "same_as": "ca-1109",
+   "source": "texas registry",
+   "website": "https://firstdirectmarketing.com"
+  },
+  "tx-20240042": {
+   "email": "tracy.fairman@eprodirect.com",
+   "name": "EproDirect LLC",
+   "rights_url": "https://eprodirect.com",
+   "source": "texas registry",
+   "website": "https://eprodirect.com"
+  },
+  "tx-20240043": {
+   "email": "info@semasio.com",
+   "name": "Semasio, Inc.",
+   "rights_url": "www.semasio.com",
+   "same_as": "ca-1118",
+   "source": "texas registry",
+   "website": "www.semasio.com"
+  },
+  "tx-20240044": {
+   "email": "bschorer@digitalsegment.com",
+   "name": "Digital Segment, LLC",
+   "rights_url": "www.digitalsegment.com",
+   "source": "texas registry",
+   "website": "www.digitalsegment.com"
+  },
+  "tx-20240045": {
+   "email": "privacy@pubmatic.com",
+   "name": "PubMatic, Inc.",
+   "rights_url": "https://pubmatic.com/legal/privacy-policy/",
+   "same_as": "ca-1350",
+   "source": "texas registry",
+   "website": "pubmatic.com"
+  },
+  "tx-20240046": {
+   "email": "legal@blackpearl.com",
+   "name": "Black Pearl Group Limited",
+   "rights_url": "blackpearl.com",
+   "same_as": "ca-1208",
+   "source": "texas registry",
+   "website": "blackpearl.com"
+  },
+  "tx-20240047": {
+   "email": "privacy@6sense.com",
+   "name": "6Sense Insights, Inc.",
+   "rights_url": "https://6sense.com/privacy-center/",
+   "same_as": "ca-1065",
+   "source": "texas registry",
+   "website": "https://6sense.com"
+  },
+  "tx-20240050": {
+   "email": "legal@webbula.com",
+   "name": "Webbula, LLC",
+   "rights_url": "https://webbula.com/privacy-center/",
+   "same_as": "ca-1188",
+   "source": "texas registry",
+   "website": "https://webbula.com"
+  },
+  "tx-20240053": {
+   "email": "legalnotices@cardlytics.com",
+   "name": "Bridg, a division of Cardlytics, Inc.",
+   "rights_url": "https://www.bridg.com/privacy-policy",
+   "same_as": "ca-1119",
+   "source": "texas registry",
+   "website": "www.bridg.com"
+  },
+  "tx-20240055": {
+   "email": "legal@allwebleads.com",
+   "name": "All Web Leads, Inc.",
+   "rights_url": "https://awl.com/privacy/",
+   "source": "texas registry",
+   "website": "www.awl.com"
+  },
+  "tx-20240056": {
+   "email": "privacy@infillion.com",
+   "name": "PaeDae, Inc. dba Infillion",
+   "rights_url": "www.infillion.com",
+   "same_as": "ca-1431",
+   "source": "texas registry",
+   "website": "www.infillion.com"
+  },
+  "tx-20240059": {
+   "email": "admin@datalane.com",
+   "name": "Task Genie, Inc.",
+   "rights_url": "https://www.datalane.com/privacy",
+   "same_as": "ca-1265",
+   "source": "texas registry",
+   "website": "https://www.datalane.com/"
+  },
+  "tx-20240061": {
+   "email": "scott.semel@l2-data.com",
+   "name": "Labels & Lists, Inc",
+   "rights_url": "https://www.l2-data.com/",
+   "same_as": "ca-1211",
+   "source": "texas registry",
+   "website": "L2-data.com"
+  },
+  "tx-20240063": {
+   "email": "privacy@revoptimal.com",
+   "name": "RevOptimal, LLC",
+   "rights_url": "https://revoptimal.com/privacy/",
+   "same_as": "ca-1323",
+   "source": "texas registry",
+   "website": "revoptimal.com"
+  },
+  "tx-20240066": {
+   "email": "accounting@leadiq.com",
+   "name": "LeadIQ, Inc.",
+   "rights_url": "https://leadiq.com/privacy-center",
+   "same_as": "ca-1064",
+   "source": "texas registry",
+   "website": "www.leadiq.com"
+  },
+  "tx-20240067": {
+   "email": "privacyoffice@winrdata.com",
+   "name": "WINR Data B.V.",
+   "rights_url": "https://www.winrdata.com/privacy-policy-us/",
+   "same_as": "or-data-00358",
+   "source": "texas registry",
+   "website": "https://www.winrdata.com/"
+  },
+  "tx-20240069": {
+   "email": "statebasedprivacy@ididata.com",
+   "name": "INTERACTIVE DATA, LLC",
+   "rights_url": "https://www.ididata.com/idis-privacy-statement/",
+   "same_as": "ca-1370",
+   "source": "texas registry",
+   "website": "https://www.ididata.com/idis-privacy-statement/"
+  },
+  "tx-20240071": {
+   "email": "legal@nextroll.com",
+   "name": "NextRoll, Inc.",
+   "rights_url": "https://www.nextroll.com/privacy",
+   "same_as": "ca-1113",
+   "source": "texas registry",
+   "website": "https://www.nextroll.com/"
+  },
+  "tx-20240074": {
+   "email": "statebasedprivacy@forewarn.com",
+   "name": "FOREWARN, LLC",
+   "rights_url": "https://www.forewarn.com/",
+   "source": "texas registry",
+   "website": "https://www.forewarn.com/"
+  },
+  "tx-20240076": {
+   "email": "legal@fideo.ai",
+   "name": "Fideo Intelligence, Inc.",
+   "rights_url": "https://app.fideo.ai/your-privacy-choices",
+   "same_as": "ca-1199",
+   "source": "texas registry",
+   "website": "www.fideo.ai"
+  },
+  "tx-20240078": {
+   "email": "jordan.abbott@acxiom.com",
+   "name": "Acxiom LLC",
+   "rights_url": "https://www.acxiom.com/privacy/us/consumer-instructions/",
+   "same_as": "ca-1175",
+   "source": "texas registry",
+   "website": "https://www.acxiom.com/privacy/"
+  },
+  "tx-20240079": {
+   "email": "privacy@achcoop.com",
+   "name": "Address Clearing House, LLC",
+   "rights_url": "https://www.achcoop.com/privacy-policy",
+   "source": "texas registry",
+   "website": "https://www.achcoop.com/"
+  },
+  "tx-20240080": {
+   "email": "brian@leadzod.com",
+   "name": "MediaZod LLC dba LeadZod",
+   "rights_url": "HTTP://leadzod.com",
+   "source": "texas registry",
+   "website": "HTTP://leadzod.com"
+  },
+  "tx-20240081": {
+   "email": "privacy@digitalvikingmedia.com",
+   "name": "Digital Viking Media",
+   "rights_url": "https://www.digitalvikingmedia.com/privacy-policy",
+   "same_as": "ca-1179",
+   "source": "texas registry",
+   "website": "www.digitalvikingmedia.com"
+  },
+  "tx-20240084": {
+   "email": "privacy@spokeo.com",
+   "name": "Spokeo, Inc.",
+   "rights_url": "www.spokeo.com/privacy-policy",
+   "same_as": "ca-1361",
+   "source": "texas registry",
+   "website": "www.spokeo.com"
+  },
+  "tx-20240087": {
+   "email": "privacy@catalist.us",
+   "name": "Catalist LLC",
+   "rights_url": "https://catalist.us/privacy-policy/",
+   "same_as": "ca-1344",
+   "source": "texas registry",
+   "website": "www.catalist.us"
+  },
+  "tx-20240088": {
+   "email": "psobel@datalinedata.com",
+   "name": "Dataline, Inc.",
+   "rights_url": "https://datalinedata.com/privacy-policy/",
+   "same_as": "ca-1280",
+   "source": "texas registry",
+   "website": "www.datalilnedata.com"
+  },
+  "tx-20240089": {
+   "email": "usprivacy@equifax.com",
+   "name": "IXI Corporation",
+   "rights_url": "https://www.equifax.com/personal/my-privacy/",
+   "same_as": "ca-1379",
+   "source": "texas registry",
+   "website": "www.equifax.com"
+  },
+  "tx-20240090": {
+   "email": "usprivacy@equifax.com",
+   "name": "Austin Consolidated Holdings, Inc.",
+   "rights_url": "https://www.equifax.com/personal/my-privacy/",
+   "same_as": "ca-1201",
+   "source": "texas registry",
+   "website": "www.equifax.com"
+  },
+  "tx-20240092": {
+   "email": "privacy@stirista.com",
+   "name": "Stirista, LLC",
+   "rights_url": "https://unsubscribe.stirista.com/",
+   "same_as": "ca-1105",
+   "source": "texas registry",
+   "website": "stirista.com"
+  },
+  "tx-20240093": {
+   "email": "tgonzalez@maxmind.com",
+   "name": "MaxMind, Inc.",
+   "rights_url": "https://www.maxmind.com/en/privacy-policy",
+   "same_as": "ca-1080",
+   "source": "texas registry",
+   "website": "https://www.maxmind.com"
+  },
+  "tx-20240094": {
+   "email": "placeiq.privacy@precisely.com",
+   "name": "PlaceIQ, Inc.",
+   "rights_url": "https://www.precisely.com/your-privacy-choices/",
+   "same_as": "ca-1168",
+   "source": "texas registry",
+   "website": "www.precisely.com"
+  },
+  "tx-20240096": {
+   "email": "privacy@usdatacorporation.com",
+   "name": "US Data Corporation",
+   "rights_url": "https://www.usdatacorporation.com/do-not-sell-my-info/",
+   "same_as": "ca-1121",
+   "source": "texas registry",
+   "website": "www.usdatacorporation.com"
+  },
+  "tx-20240101": {
+   "email": "dpo_hybridtheory@azerion.com",
+   "name": "Azerion US Inc.",
+   "rights_url": "azerion.com",
+   "same_as": "ca-1338",
+   "source": "texas registry",
+   "website": "azerion.com"
+  },
+  "tx-20240102": {
+   "email": "legal@techtarget.com",
+   "name": "TechTarget, Inc.",
+   "rights_url": "https://www.informatechtarget.com/privacy-policy/#contact:~:text=Us%E2%80%9D%20section%20below.-,23.%20Contact%20Us,-If%20you%20wish",
+   "same_as": "ca-1085",
+   "source": "texas registry",
+   "website": "www.informatechtarget.com"
+  },
+  "tx-20240104": {
+   "email": "risk-and-compliance@careerbuilder.com",
+   "name": "CareerBuilder, LLC",
+   "rights_url": "www.careerbuilder.com",
+   "source": "texas registry",
+   "website": "www.careerbuilder.com"
+  },
+  "tx-20240106": {
+   "email": "bhayes@zetaglobal.com",
+   "name": "Disqus, Inc.",
+   "rights_url": "https://privacyportal-cdn.onetrust.com/dsarwebform/bc2d3301-11a5-4de5-b15e-ce796187a352/9a049fa1-37af-4598-a87a-d0df2e2d904b.html",
+   "same_as": "ca-1502",
+   "source": "texas registry",
+   "website": "www.disqus.com"
+  },
+  "tx-20240113": {
+   "email": "zell@ctam.com",
+   "name": "CTAM LeadShare Corp",
+   "rights_url": "www.smartmove.us",
+   "same_as": "ca-1176",
+   "source": "texas registry",
+   "website": "www.smartmove.us"
+  },
+  "tx-20240115": {
+   "email": "johnf@focus-usa.com",
+   "name": "Focus USA. Inc",
+   "rights_url": "https://www.focus-usa.com/consumer-rights-privacy-notice/",
+   "same_as": "ca-1062",
+   "source": "texas registry",
+   "website": "htttps://www.focus-usa.com"
+  },
+  "tx-20240116": {
+   "email": "karolyn@realsourcedata.com",
+   "name": "RealSource, Inc",
+   "rights_url": "https://www.realsourcedata.com/privacy-policy",
+   "same_as": "ca-1185",
+   "source": "texas registry",
+   "website": "www.realsourcedata.com"
+  },
+  "tx-20240127": {
+   "email": "privacy@wiland.com",
+   "name": "Wiland, Inc.",
+   "rights_url": "www.wiland.com",
+   "same_as": "ca-1222",
+   "source": "texas registry",
+   "website": "www.wiland.com"
+  },
+  "tx-20240133": {
+   "email": "privacy.compliance@accudata.com",
+   "name": "AccuData Integrated Marketing, Inc.",
+   "rights_url": "https://deepsync.com/privacy-policy/",
+   "same_as": "ca-1261",
+   "source": "texas registry",
+   "website": "www.accudata.com"
+  },
+  "tx-20240134": {
+   "email": "compliance@alliantdata.com",
+   "name": "Alliant Cooperative Data Solutions, LLC",
+   "rights_url": "https://alliantinsight.com/alliant-privacy-policy/",
+   "same_as": "ca-1057",
+   "source": "texas registry",
+   "website": "https://alliantinsight.com/"
+  },
+  "tx-20240136": {
+   "email": "privacy.compliance@deepsync.com",
+   "name": "ASL Marketing, a Deep Sync Property",
+   "rights_url": "https://deepsync.com/privacy-policy/",
+   "source": "texas registry",
+   "website": "https://deepsync.com/student-marketing-data/"
+  },
+  "tx-20240137": {
+   "email": "privacy.compliance@deepsync.com",
+   "name": "Compact Information Systems, LLC d/b/a Deep Sync",
+   "rights_url": "https://deepsync.com/privacy-policy/",
+   "same_as": "ca-1009",
+   "source": "texas registry",
+   "website": "https://deepsync.com/"
+  },
+  "tx-20240138": {
+   "email": "privacy.compliance@deepsync.com",
+   "name": "Compact Information Systems, LLC dba HomeData",
+   "rights_url": "https://deepsync.com/privacy-policy/",
+   "same_as": "ca-1009",
+   "source": "texas registry",
+   "website": "https://deepsync.com/homedata/"
+  },
+  "tx-20240142": {
+   "email": "privacy@blackbaud.com",
+   "name": "Blackbaud, Inc.",
+   "rights_url": "https://www.blackbaud.com/company/data-subject-rights-request",
+   "same_as": "ca-1149",
+   "source": "texas registry",
+   "website": "https://www.blackbaud.com/"
+  },
+  "tx-20240145": {
+   "email": "steve@alescodata.com",
+   "name": "The Alesco Group, L.L.C.",
+   "rights_url": "https://mydataprivacy.com/upload-csv",
+   "source": "texas registry",
+   "website": "https://alescodata.com"
+  },
+  "tx-20240147": {
+   "email": "jo.bergstrom@attomdata.com",
+   "name": "ATTOM Data Solutions LLC",
+   "rights_url": "https://www.attomdata.com/privacy/",
+   "same_as": "or-data-00109",
+   "source": "texas registry",
+   "website": "attomdata.com"
+  },
+  "tx-20240149": {
+   "email": "americas.dpo@dentsu.com",
+   "name": "Merkle Inc",
+   "rights_url": "https://www.merkle.com/en/privacy-policy/data-product-privacy-notice.html",
+   "same_as": "ca-1127",
+   "source": "texas registry",
+   "website": "www.merkle.com"
+  },
+  "tx-20240153": {
+   "email": "jagdip.sekhon@samba.tv",
+   "name": "Samba TV, Inc.",
+   "rights_url": "https://samba.tv/privacy-center/notice-of-right-to-opt-out",
+   "same_as": "ca-1044",
+   "source": "texas registry",
+   "website": "https://www.samba.tv/"
+  },
+  "tx-20240155": {
+   "email": "legal@path2response.com",
+   "name": "Path2Response, LLC",
+   "rights_url": "https://privacyportal-cdn.onetrust.com/dsarwebform/2de26f06-de6f-45a7-8e1d-7d1148a3f301/draft/7a5dc7d1-cc7e-43a8-9f24-702807deb65b.html",
+   "same_as": "ca-1339",
+   "source": "texas registry",
+   "website": "www.path2response.com"
+  },
+  "tx-20240156": {
+   "email": "legal@eab.com",
+   "name": "EAB Global, Inc",
+   "rights_url": "https://eab.com/privacy-policy/",
+   "same_as": "ca-1007",
+   "source": "texas registry",
+   "website": "www.eab.com"
+  },
+  "tx-20240157": {
+   "email": "contact@datadojo.ai",
+   "name": "DataDojo CDP Inc.",
+   "rights_url": "https://datadojo.ai",
+   "source": "texas registry",
+   "website": "https://datadojo.ai"
+  },
+  "tx-20240158": {
+   "email": "info@aristotle.com",
+   "name": "Aristotle International, Inc.",
+   "rights_url": "www.aristotle.com",
+   "same_as": "ca-1126",
+   "source": "texas registry",
+   "website": "www.aristotle.com"
+  },
+  "tx-20240160": {
+   "email": "privacy@cuebiq.com",
+   "name": "Cuebiq Group, LLC",
+   "rights_url": "https://cuebiq.com/privacy-request/",
+   "same_as": "ca-1574",
+   "source": "texas registry",
+   "website": "www.cuebiq.com"
+  },
+  "tx-20240161": {
+   "email": "privacy@epsilon.com",
+   "name": "Epsilon Data Management, LLC",
+   "rights_url": "https://legal.epsilon.com/dsr/",
+   "same_as": "ca-1026",
+   "source": "texas registry",
+   "website": "www.epsilon.com"
+  },
+  "tx-20240162": {
+   "email": "privacy@seamlessleads.com",
+   "name": "Seamless Contacts, Inc.",
+   "rights_url": "https://preferences.seamless.ai/",
+   "same_as": "ca-1072",
+   "source": "texas registry",
+   "website": "https://www.seamless.ai/"
+  },
+  "tx-20240165": {
+   "email": "lchiodo@porchgroupmedia.com",
+   "name": "Datamentors, LLC",
+   "rights_url": "https://datarightsrequest.porchgroupmedia.com/",
+   "same_as": "ca-1269",
+   "source": "texas registry",
+   "website": "www.porchgroupmedia.com"
+  },
+  "tx-20240166": {
+   "email": "privacy@analyticsiq.com",
+   "name": "AnalyticsIQ Inc",
+   "rights_url": "https://analytics-iq.com/privacy-policy/",
+   "same_as": "ca-1053",
+   "source": "texas registry",
+   "website": "analyticsiq.com"
+  },
+  "tx-20240167": {
+   "email": "privacy@propertyradar.com",
+   "name": "PropertyRadar Inc.",
+   "rights_url": "https://www.propertyradar.com/privacy-policy",
+   "same_as": "ca-1311",
+   "source": "texas registry",
+   "website": "www.propertyradar.com"
+  },
+  "tx-20240168": {
+   "email": "consumerchoice@nexxagroup.com",
+   "name": "Nexxa Group, Inc.",
+   "rights_url": "https://www.nexxagroup.com/corporate-overview/consumer-opt-out/",
+   "same_as": "or-data-00206",
+   "source": "texas registry",
+   "website": "www.nexxagroup.com"
+  },
+  "tx-20240169": {
+   "email": "valassisprivacy.request@rrd.com",
+   "name": "Valassis Communications, Inc., an RRD Company",
+   "rights_url": "https://www.rrd.com/privacy-policy/valassis",
+   "source": "texas registry",
+   "website": "rrd.com"
+  },
+  "tx-20240172": {
+   "email": "legal@ltvco.com",
+   "name": "BeenVerified, LLC",
+   "rights_url": "https://www.beenverified.com/svc/optout/search/comprehensive_optouts",
+   "source": "texas registry",
+   "website": "beenverified.com, peoplesmart.com, peoplelooker.com, numberguru.com, reversephone.com, neighborwho.com, ownerly.com, bumper.com, moneybot5000.com, famfinder.com"
+  },
+  "tx-20240174": {
+   "email": "legal@whitepages.com",
+   "name": "Whitepages, Inc",
+   "rights_url": "https://www.whitepages.com/privacy/consumer-rights",
+   "same_as": "ca-1170",
+   "source": "texas registry",
+   "website": "www.whitepages.com"
+  },
+  "tx-20240175": {
+   "email": "privacy@experian.com",
+   "name": "Experian Health, Inc.",
+   "rights_url": "https://www.experian.com/privacy/us-consumer-data-privacy-policy",
+   "same_as": "or-data-00018",
+   "source": "texas registry",
+   "website": "https://www.experian.com/healthcare/"
+  },
+  "tx-20240179": {
+   "email": "compliance@propertyreach.com",
+   "name": "Property Reach LP",
+   "rights_url": "https://www.propertyreach.com/privacy",
+   "source": "texas registry",
+   "website": "propertyreach.com"
+  },
+  "tx-20240180": {
+   "email": "databroker@enformion.com",
+   "name": "Enformion, LLC",
+   "rights_url": "https://www.enformion.com/privacy-policy/",
+   "same_as": "ca-1245",
+   "source": "texas registry",
+   "website": "enformion.com"
+  },
+  "tx-20240183": {
+   "email": "databroker@peoplefinders.com",
+   "name": "Peoplefinders, LLC",
+   "rights_url": "https://www.peoplefinders.com/about/privacy",
+   "same_as": "ca-1180",
+   "source": "texas registry",
+   "website": "peoplefinders.com"
+  },
+  "tx-20240185": {
+   "email": "privacycompliance@zoominfo.com",
+   "name": "Clickagy LLC",
+   "rights_url": "https://www.clickagy.com/privacy-statement",
+   "same_as": "ca-1195",
+   "source": "texas registry",
+   "website": "www.clickagy.com"
+  },
+  "tx-20240186": {
+   "email": "privacycompliance@zoominfo.com",
+   "name": "Datanyze, LLC",
+   "rights_url": "https://www.datanyze.com/privacy-center",
+   "same_as": "ca-1200",
+   "source": "texas registry",
+   "website": "www.datanyze.com"
+  },
+  "tx-20240187": {
+   "email": "privacycompliance@zoominfo.com",
+   "name": "ZoomInfo Technologies LLC",
+   "rights_url": "https://www.zoominfo.com/legal/privacy-statement-for-residents-of-specified-states",
+   "same_as": "ca-1137",
+   "source": "texas registry",
+   "website": "www.zoominfo.com"
+  },
+  "tx-20240192": {
+   "email": "privacyteam@data-axle.com",
+   "name": "Data Axle Inc.",
+   "rights_url": "https://www.data-axle.com/do-not-sell-my-data/",
+   "same_as": "ca-1024",
+   "source": "texas registry",
+   "website": "https://www.data-axle.com/"
+  },
+  "tx-20240207": {
+   "email": "tburnell@completemedicallists.com",
+   "name": "Complete Medical Lists Inc",
+   "rights_url": "https://www.completemedicallists.com/ccpa.php",
+   "same_as": "ca-1305",
+   "source": "texas registry",
+   "website": "www.completemedicallists.com"
+  },
+  "tx-20240209": {
+   "email": "ewoolf@completemailinglists.com",
+   "name": "Complete Mailing Lists LLC",
+   "rights_url": "https://completemailinglists.com/do-not-sell-my-information",
+   "same_as": "ca-1445",
+   "source": "texas registry",
+   "website": "www.completemailinglists.com"
+  },
+  "tx-20240213": {
+   "email": "unsubscribe@mailinglists.com",
+   "name": "Infinite Media Concepts Inc",
+   "rights_url": "https://mailinglists.com/about/privacy-policy",
+   "same_as": "ca-1218",
+   "source": "texas registry",
+   "website": "www.mailinglists.com"
+  },
+  "tx-20240218": {
+   "email": "privacy@choreograph.com",
+   "name": "Choreograph LLC",
+   "rights_url": "https://www.choreograph.com/global-privacy-policy/global-privacy-policy-english",
+   "same_as": "ca-1209",
+   "source": "texas registry",
+   "website": "https://www.choreograph.com/"
+  },
+  "tx-20240231": {
+   "email": "vendors@warmly.ai",
+   "name": "Warmly, Inc.",
+   "rights_url": "https://www.warmly.ai/p/do-not-sell-share-my-data",
+   "same_as": "ca-1289",
+   "source": "texas registry",
+   "website": "warmly.ai"
+  },
+  "tx-20240233": {
+   "email": "privacy@versium.com",
+   "name": "Versar Data Solutions Inc",
+   "rights_url": "www.versium.com",
+   "same_as": "ca-1367",
+   "source": "texas registry",
+   "website": "www.versium.com"
+  },
+  "tx-20240241": {
+   "email": "legal@cognism.com",
+   "name": "Cognism, Inc.",
+   "rights_url": "www.cognism.com",
+   "same_as": "ca-1213",
+   "source": "texas registry",
+   "website": "www.cognism.com"
+  },
+  "tx-20240247": {
+   "email": "seth.lubin@datasys.com",
+   "name": "Datasys Group, Inc.",
+   "rights_url": "https://datasys.com/privacy-policy",
+   "same_as": "ca-1394",
+   "source": "texas registry",
+   "website": "datasys.com"
+  },
+  "tx-20240248": {
+   "email": "privacy@rocketreach.co",
+   "name": "RocketReach LLC",
+   "rights_url": "https://rocketreach.co/privacy",
+   "same_as": "ca-1178",
+   "source": "texas registry",
+   "website": "rocketreach.co"
+  },
+  "tx-20240250": {
+   "email": "privacy@activimpact.ai",
+   "name": "ActivImpact, LLC",
+   "rights_url": "https://activimpact.ai/dsar",
+   "same_as": "ca-1383",
+   "source": "texas registry",
+   "website": "www.activimpact.ai"
+  },
+  "tx-20240251": {
+   "email": "techteam@uplead.com",
+   "name": "Uplead LLC",
+   "rights_url": "https://www.uplead.com/privacy",
+   "same_as": "ca-1210",
+   "source": "texas registry",
+   "website": "www.uplead.com"
+  },
+  "tx-20240252": {
+   "email": "legal@eltoro.com",
+   "name": "El Toro.com, LLC",
+   "rights_url": "https://eltoro.com/your-privacy-choices/",
+   "same_as": "ca-1315",
+   "source": "texas registry",
+   "website": "www.eltoro.com"
+  },
+  "tx-20240253": {
+   "email": "privacy@foursquare.com",
+   "name": "Foursquare Labs, Inc.",
+   "rights_url": "https://foursquare.com/legal/privacy-center/us-state-consumer-privacy-notice/",
+   "same_as": "ca-1129",
+   "source": "texas registry",
+   "website": "https://foursquare.com/"
+  },
+  "tx-20240255": {
+   "email": "privacy@blis.com",
+   "name": "Blis Global Ltd",
+   "rights_url": "https://blis.com/privacy-centre/",
+   "same_as": "ca-1375",
+   "source": "texas registry",
+   "website": "blis.com"
+  },
+  "tx-20240256": {
+   "email": "jean.vansoelen@saleseer.com",
+   "name": "saleSEER, Inc.",
+   "rights_url": "www.saleseer.com",
+   "source": "texas registry",
+   "website": "www.saleseer.com"
+  },
+  "tx-20240257": {
+   "email": "preqin.dp@blackrock.com",
+   "name": "Preqin Ltd",
+   "rights_url": "https://www.preqin.com/policies/privacy-policy",
+   "same_as": "ca-1417",
+   "source": "texas registry",
+   "website": "www.preqin.com"
+  },
+  "tx-20240262": {
+   "email": "ben@trueblueanalytics.org",
+   "name": "True Blue Analytics LLC",
+   "rights_url": "https://trueblueanalytics.org/privacy-policy",
+   "same_as": "ca-1014",
+   "source": "texas registry",
+   "website": "trueblueanalytics.org"
+  },
+  "tx-20240265": {
+   "email": "jlauda@redidirect.com",
+   "name": "Redi-Data Inc.",
+   "rights_url": "https://www.redidata.com/privacy-policy/",
+   "same_as": "ca-1314",
+   "source": "texas registry",
+   "website": "www.redidata.com"
+  },
+  "tx-20240269": {
+   "email": "privacy@affinitysolutions.com",
+   "name": "Affinity Solutions Inc.",
+   "rights_url": "https://www.affinity.solutions/",
+   "same_as": "ca-1453",
+   "source": "texas registry",
+   "website": "https://www.affinity.solutions/"
+  },
+  "tx-20240270": {
+   "email": "privacy@fourleafdata.com",
+   "name": "FourLeaf LLC",
+   "rights_url": "https://www.fourleafdata.com/privacy-policy/",
+   "same_as": "ca-1202",
+   "source": "texas registry",
+   "website": "www.fourleafdata.com"
+  },
+  "tx-20240271": {
+   "email": "dpo@apollo.io",
+   "name": "Zenleads, Inc.",
+   "rights_url": "https://www.apollo.io/company/privacy-center",
+   "same_as": "ca-1088",
+   "source": "texas registry",
+   "website": "https://www.apollo.io/"
+  },
+  "tx-20250003": {
+   "email": "privacyteam@anchorcomputer.com",
+   "name": "Anchor Computer Inc.",
+   "rights_url": "https://www.anchorcomputer.com/privacy-policy/",
+   "same_as": "ca-1104",
+   "source": "texas registry",
+   "website": "https://anchorcomputer.com/"
+  },
+  "tx-20250004": {
+   "email": "privacyofficer@dnb.com",
+   "name": "Dun & Bradstreet, Inc.",
+   "rights_url": "https://submit-irm.trustarc.eu/services/validation/ba81b98f-997d-4216-b4cc-d64cf261b082",
+   "same_as": "or-data-00042",
+   "source": "texas registry",
+   "website": "www.dnb.com"
+  },
+  "tx-20250005": {
+   "email": "privacy.officer@belardiwong.com",
+   "name": "Belardi Wong, ALC, LLC",
+   "rights_url": "https://belardiwong.com/privacy-policy/",
+   "source": "texas registry",
+   "website": "https://belardiwong.com/"
+  },
+  "tx-20250008": {
+   "email": "legal@loopme.com",
+   "name": "LoopMe Ltd",
+   "rights_url": "https://legal.loopme.com/privacy-center",
+   "same_as": "ca-1436",
+   "source": "texas registry",
+   "website": "https://loopme.com/"
+  },
+  "tx-20250011": {
+   "email": "legal-requests@clearview.ai",
+   "name": "Clearview AI, Inc.",
+   "rights_url": "https://www.clearview.ai/privacy-policy",
+   "same_as": "ca-1071",
+   "source": "texas registry",
+   "website": "https://www.clearview.ai/"
+  },
+  "tx-20250015": {
+   "email": "legal@narvar.com",
+   "name": "Narvar, Inc.",
+   "rights_url": "https://corp.narvar.com/",
+   "same_as": "ca-1331",
+   "source": "texas registry",
+   "website": "https://corp.narvar.com/"
+  },
+  "tx-20250016": {
+   "email": "privacy@messagedigital.com",
+   "name": "Message Digital LLC",
+   "rights_url": "https://messagedigital.com/my-data",
+   "same_as": "ca-1023",
+   "source": "texas registry",
+   "website": "messagedigital.com"
+  },
+  "tx-20250017": {
+   "email": "legal@adsquare.com",
+   "name": "adsquare gmbH",
+   "rights_url": "https://adsquare.com/privacy/us-privacy-supplement",
+   "same_as": "ca-1037",
+   "source": "texas registry",
+   "website": "www.adsquare.com"
+  },
+  "tx-20250018": {
+   "email": "amanda@leadpost.com",
+   "name": "LeadPost LLC",
+   "rights_url": "https://leadpost.com/privacy-policy/",
+   "same_as": "ca-1153",
+   "source": "texas registry",
+   "website": "www.leadpost.com"
+  },
+  "tx-20250021": {
+   "email": "legal@forager.ai",
+   "name": "Forager.ai, LLC",
+   "rights_url": "https://app.forager.ai/privacy",
+   "same_as": "ca-1136",
+   "source": "texas registry",
+   "website": "forager.ai"
+  },
+  "tx-20250023": {
+   "email": "privacy@sterling.ai",
+   "name": "Sterling Data Company LLC",
+   "rights_url": "https://sterling.ai/privacy-policy/",
+   "same_as": "ca-1246",
+   "source": "texas registry",
+   "website": "sterling.ai"
+  },
+  "tx-20250024": {
+   "email": "privacy@01advertising.com",
+   "name": "01Advertising Inc.",
+   "rights_url": "https://www.01advertising.com/legal/",
+   "same_as": "ca-1000",
+   "source": "texas registry",
+   "website": "https://www.01advertising.com"
+  },
+  "tx-20250026": {
+   "email": "finance@reklaimyours.com",
+   "name": "Reklaim Ltd.",
+   "rights_url": "https://www.reklaimyours.com/privacy-policy",
+   "same_as": "ca-1226",
+   "source": "texas registry",
+   "website": "https://www.reklaimyours.com/"
+  },
+  "tx-20250028": {
+   "email": "tsg@finthrive.com",
+   "name": "TSG Holdco, LLC",
+   "rights_url": "https://finthrive.com/texas-data-broker-disclosure-tsg-holdco?hs_preview=hmAXRXQn-205484825751",
+   "same_as": "ca-1234",
+   "source": "texas registry",
+   "website": "www.finthrive.com"
+  },
+  "tx-20250029": {
+   "email": "privacy@datadecisionsgroup.com",
+   "name": "Data Decisions Group, LLC",
+   "rights_url": "https://datadecisionsgroup.com/preferences",
+   "same_as": "ca-1167",
+   "source": "texas registry",
+   "website": "www.datadecisionsgroup.com"
+  },
+  "tx-20250030": {
+   "email": "databroker@quad.com",
+   "name": "Quad/Graphics, Inc",
+   "rights_url": "https://www.quad.com/legal/privacy-policy",
+   "same_as": "ca-1073",
+   "source": "texas registry",
+   "website": "www.quad.com"
+  },
+  "tx-20250031": {
+   "email": "jgreer@semcasting.com",
+   "name": "Semcasting, Inc.",
+   "rights_url": "https://privacychoice.com/",
+   "same_as": "ca-1281",
+   "source": "texas registry",
+   "website": "https://www.semcasting.com/"
+  },
+  "tx-20250034": {
+   "email": "legal@videoamp.com",
+   "name": "VideoAmp, Inc.",
+   "rights_url": "https://videoamp.com/your-privacy-choices/",
+   "same_as": "ca-1432",
+   "source": "texas registry",
+   "website": "www.videoamp.com"
+  },
+  "tx-20250037": {
+   "email": "legal@similarweb.com",
+   "name": "Similarweb Ltd.",
+   "rights_url": "https://www.similarweb.com/corp/legal/privacy-policy/",
+   "same_as": "ca-1192",
+   "source": "texas registry",
+   "website": "https://www.similarweb.com/"
+  },
+  "tx-20250038": {
+   "email": "privacy@plungedigital.com",
+   "name": "Plunge, LLC",
+   "rights_url": "https://www.plungedigital.com/privacy-policy/",
+   "same_as": "ca-1389",
+   "source": "texas registry",
+   "website": "www.plungedigital.com"
+  },
+  "tx-20250039": {
+   "email": "privacy.department@nielsen.com",
+   "name": "eXelate, Inc.",
+   "rights_url": "https://privacyportal-de.onetrust.com/webform/70b0083d-d519-4ad2-84ca-96b7c5f8e1a9/85c00ce0-85a5-4c1c-bb29-2967224c1b83",
+   "same_as": "ca-1520",
+   "source": "texas registry",
+   "website": "https://www.nielsen.com/"
+  },
+  "tx-20250040": {
+   "email": "privacy.department@nielsen.com",
+   "name": "The Nielsen Company, LLC",
+   "rights_url": "https://privacyportal-de.onetrust.com/webform/70b0083d-d519-4ad2-84ca-96b7c5f8e1a9/17f0d6c3-8c86-4594-b68b-c8879ec128eb",
+   "same_as": "ca-1552",
+   "source": "texas registry",
+   "website": "https://www.nielsen.com/"
+  },
+  "tx-20250041": {
+   "email": "privacy@mtalley.zendesk.com",
+   "name": "Mississippi Tornado Alley LLC",
+   "rights_url": "https://www.fastpeoplesearch.com/privacy",
+   "same_as": "ca-1366",
+   "source": "texas registry",
+   "website": "Usa-people-search.com; Advancedbackgroundchecks.com; Peoplesearchnow.com; USphonebook.com; Fastpeoplesearch.com; Searchpeoplefree.com; Smartbackgroundchecks.com; Cyberbackgroundchecks.com; Fastbackgroundcheck.com; Phonebooks.com"
+  },
+  "tx-20250042": {
+   "email": "privacy@amplemarket.com",
+   "name": "Tagis, Inc.",
+   "rights_url": "https://www.amplemarket.com/legal/privacy",
+   "same_as": "ca-1090",
+   "source": "texas registry",
+   "website": "https://www.amplemarket.com"
+  },
+  "tx-20250046": {
+   "email": "privacy@familytreenow.zendesk.com",
+   "name": "Family Tree Now, LLC",
+   "rights_url": "https://www.familytreenow.com/privacy",
+   "same_as": "ca-1347",
+   "source": "texas registry",
+   "website": "familytreenow.com"
+  },
+  "tx-20250048": {
+   "email": "privacy@consumercanvas.net",
+   "name": "Consumer Canvas, LLC",
+   "rights_url": "https://www.consumercanvas.net/privacy/",
+   "same_as": "ca-1142",
+   "source": "texas registry",
+   "website": "www.consumercanvas.net"
+  },
+  "tx-20250050": {
+   "email": "admin@snov.io",
+   "name": "Snovio Inc",
+   "rights_url": "https://snov.io/tdpsa",
+   "same_as": "ca-1415",
+   "source": "texas registry",
+   "website": "https://snov.io/"
+  },
+  "tx-20250051": {
+   "email": "privacy@redmob.io",
+   "name": "Redmob Limited Liability Company",
+   "rights_url": "www.redmob.io/privacy-policy",
+   "source": "texas registry",
+   "website": "www.redmob.io"
+  },
+  "tx-20250052": {
+   "email": "privacy@datadelivers.com",
+   "name": "DataDelivers LLC",
+   "rights_url": "https://datadelivers.com/privacy-policy/",
+   "same_as": "ca-1228",
+   "source": "texas registry",
+   "website": "https://datadelivers.com/"
+  },
+  "tx-20250053": {
+   "email": "pkim@crexi.com",
+   "name": "Commercial Real Estate Exchange, Inc.",
+   "rights_url": "https://www.crexi.com/privacy",
+   "same_as": "ca-1879",
+   "source": "texas registry",
+   "website": "crexi.com"
+  },
+  "tx-20250056": {
+   "email": "privacy@truepeoplesearch.com",
+   "name": "Free Data Services, LLC",
+   "rights_url": "https://www.truepeoplesearch.com/privacy",
+   "same_as": "ca-1346",
+   "source": "texas registry",
+   "website": "truepeoplesearch.com"
+  },
+  "tx-20250058": {
+   "email": "privacy@monitorbase.com",
+   "name": "Ownco, LLC",
+   "rights_url": "https://my.monitorbase.com/privacypolicy",
+   "same_as": "ca-1021",
+   "source": "texas registry",
+   "website": "https://www.monitorbase.com/"
+  },
+  "tx-20250059": {
+   "email": "ops@unearthcampaigns.com",
+   "name": "Unearth Campaigns LLC",
+   "rights_url": "https://www.unearthcampaigns.com/privacy-policy/",
+   "same_as": "ca-1033",
+   "source": "texas registry",
+   "website": "https://www.unearthcampaigns.com/company/"
+  },
+  "tx-20250060": {
+   "email": "privacy@bdex.com",
+   "name": "BDEX LLC",
+   "rights_url": "https://www.bdex.com/privacy-policy/",
+   "same_as": "ca-1363",
+   "source": "texas registry",
+   "website": "www.bdex.com"
+  },
+  "tx-20250062": {
+   "email": "accounting@possiblenow.com",
+   "name": "PossibleNOW, Inc.",
+   "rights_url": "https://www.possiblenow.com/privacy-statement",
+   "same_as": "ca-1107",
+   "source": "texas registry",
+   "website": "www.possiblenow.com"
+  },
+  "tx-20250063": {
+   "email": "privacy@peopledatalabs.com",
+   "name": "People Data Labs, Inc.",
+   "rights_url": "https://privacy.peopledatalabs.com/policies?modal=select-subject",
+   "same_as": "ca-1028",
+   "source": "texas registry",
+   "website": "https://www.peopledatalabs.com/"
+  },
+  "tx-20250065": {
+   "email": "richard@evs7.com",
+   "name": "Electronic Voice Services, Inc.",
+   "rights_url": "https://www.evs7.com/privacy-policy",
+   "same_as": "ca-1456",
+   "source": "texas registry",
+   "website": "www.evs7.com"
+  },
+  "tx-20250066": {
+   "email": "privacy@precisely.com",
+   "name": "Precisely Software Incorporated",
+   "rights_url": "https://www.precisely.com/your-privacy-choices/",
+   "same_as": "ca-1041",
+   "source": "texas registry",
+   "website": "https://www.precisely.com/"
+  },
+  "tx-20250074": {
+   "email": "privacy@acronymix.com",
+   "name": "Acronymix LLC",
+   "rights_url": "https://acronymix.com/privacy-policy/",
+   "same_as": "ca-1002",
+   "source": "texas registry",
+   "website": "http://acronymix.com/"
+  },
+  "tx-20250075": {
+   "email": "basil@privco.com",
+   "name": "PrivCo Media, LLC",
+   "rights_url": "https://www.privco.com/",
+   "source": "texas registry",
+   "website": "https://www.privco.com/"
+  },
+  "tx-20250077": {
+   "email": "legal@altrata.com",
+   "name": "Altrata, Inc.",
+   "rights_url": "https://altrata.com/",
+   "same_as": "ca-1102",
+   "source": "texas registry",
+   "website": "www.altrata.com"
+  },
+  "tx-20250078": {
+   "email": "support@listkit.io",
+   "name": "ListKit LLC",
+   "rights_url": "https://www.listkit.io/privacy-statement",
+   "same_as": "ca-1518",
+   "source": "texas registry",
+   "website": "listkit.io"
+  },
+  "tx-20250079": {
+   "email": "privacy@altairci.com",
+   "name": "Altair Data Resources, Inc.",
+   "rights_url": "https://altairdata.com/privacy-policy/",
+   "same_as": "ca-1096",
+   "source": "texas registry",
+   "website": "www.altairdata.com"
+  },
+  "tx-20250080": {
+   "email": "privacy@transunion.com",
+   "name": "TransUnion Risk and Alternative Data Solutions, Inc.",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1353",
+   "source": "texas registry",
+   "website": "https://www.transunion.com"
+  },
+  "tx-20250081": {
+   "email": "privacy@transunion.com",
+   "name": "Trans Union LLC",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1316",
+   "source": "texas registry",
+   "website": "https://www.transunion.com"
+  },
+  "tx-20250083": {
+   "email": "compliance@nexxen.com",
+   "name": "Nexxen, Inc.",
+   "rights_url": "https://nexxen.com/privacy-data-subject-rights-request/",
+   "same_as": "ca-1295",
+   "source": "texas registry",
+   "website": "nexxen.com"
+  },
+  "tx-20250084": {
+   "email": "legal@azira.com",
+   "name": "Azira LLC",
+   "rights_url": "https://submit-irm.trustarc.com/services/validation/0a80503b-1d56-4d50-a898-4377a0227dab",
+   "same_as": "ca-1046",
+   "source": "texas registry",
+   "website": "https://azira.com/"
+  },
+  "tx-20250085": {
+   "email": "ian@growinglibraries.com",
+   "name": "Growing Libraries, LLC",
+   "rights_url": "https://growinglibraries.com/privacy-policy",
+   "same_as": "ca-1342",
+   "source": "texas registry",
+   "website": "www.growinglibraries.com"
+  },
+  "tx-20250086": {
+   "email": "privacy@spglobal.com",
+   "name": "R.L. Polk & Co.",
+   "rights_url": "https://privacyportal.onetrust.com/webform/5cb57702-8ef7-437e-a62b-408fe78cd310/93391c3d-d6c8-45b1-a169-39a0b7f9fb74",
+   "same_as": "ca-1660",
+   "source": "texas registry",
+   "website": "www.polk.com"
+  },
+  "tx-20250087": {
+   "email": "info@helixcampaigns.com",
+   "name": "Helix Campaigns LLC",
+   "rights_url": "helixcampaigns.com/privacy",
+   "same_as": "ca-1264",
+   "source": "texas registry",
+   "website": "helixcampaigns.com"
+  },
+  "tx-20250091": {
+   "email": "platformprivacy@triplelift.com",
+   "name": "TripleLift, Inc.",
+   "rights_url": "https://triplelift.com/user-rights-policy-and-opt-out/",
+   "same_as": "ca-1054",
+   "source": "texas registry",
+   "website": "triplelift.com"
+  },
+  "tx-20250092": {
+   "email": "angela@juicebox.ai",
+   "name": "Juicebox App, Inc.",
+   "rights_url": "https://juicebox.ai/privacy-center",
+   "same_as": "ca-1045",
+   "source": "texas registry",
+   "website": "https://juicebox.ai/"
+  },
+  "tx-20250096": {
+   "email": "privacyinfo@claritas.com",
+   "name": "Claritas LLC",
+   "rights_url": "https://claritas.com/privacy-legal/",
+   "same_as": "ca-1598",
+   "source": "texas registry",
+   "website": "www.Claritas.com"
+  },
+  "tx-20250098": {
+   "email": "legal@ispot.tv",
+   "name": "iSpot.TV, Inc.",
+   "rights_url": "https://www.ispot.tv/hub/agreements/privacy/",
+   "same_as": "ca-1549",
+   "source": "texas registry",
+   "website": "ispot.tv"
+  },
+  "tx-20250099": {
+   "email": "privacy@faraday.ai",
+   "name": "Faraday, Inc.",
+   "rights_url": "https://faraday.ai/privacy-options",
+   "same_as": "ca-1283",
+   "source": "texas registry",
+   "website": "https://faraday.ai/"
+  },
+  "tx-20250100": {
+   "email": "bschorer@digitalsegment.com",
+   "name": "Digital Segment, LLC",
+   "rights_url": "https://www.digitalsegment.com/about/opt-out/",
+   "same_as": "tx-20240044",
+   "source": "texas registry",
+   "website": "www.digitalsegment.com"
+  },
+  "tx-20250105": {
+   "email": "privacy@quotefinders.com",
+   "name": "BRIGHT POLICY, LLC",
+   "rights_url": "https://www.quotefinders.com/privacy",
+   "source": "texas registry",
+   "website": "www.quotefinders.com"
+  },
+  "tx-20250107": {
+   "email": "privacy@usmarketinggrp.com",
+   "name": "BH MARKETING GROUP, LLC",
+   "rights_url": "https://usmarketinggrp.com/privacy-policy/",
+   "same_as": "ca-1158",
+   "source": "texas registry",
+   "website": "https://usmarketinggrp.com/"
+  },
+  "tx-20250108": {
+   "email": "info@salutarydata.com",
+   "name": "Salutary Data LLC.",
+   "rights_url": "https://salutarydata.com/privacy-opt-out-and-disclosure-form/",
+   "same_as": "ca-1189",
+   "source": "texas registry",
+   "website": "https://salutarydata.com/"
+  },
+  "tx-20250109": {
+   "email": "compliance_privacy@leadspace.com",
+   "name": "Leadpsace Inc",
+   "rights_url": "https://www.leadspace.com/do-not-sell-form",
+   "source": "texas registry",
+   "website": "www.leadspace.com"
+  },
+  "tx-20250111": {
+   "email": "privacy@adept-id.com",
+   "name": "Adept ID, Inc.",
+   "rights_url": "https://www.adept-id.com/opt-out-preferences/",
+   "same_as": "or-data-00350",
+   "source": "texas registry",
+   "website": "www.adept-id.com"
+  },
+  "tx-20250113": {
+   "email": "info@mrginc.com",
+   "name": "Media Resource Group LLC",
+   "rights_url": "https://mrgstaging.com/policy/mrgprivacy.html",
+   "same_as": "or-data-00338",
+   "source": "texas registry",
+   "website": "www.mrginc.com"
+  },
+  "tx-20250114": {
+   "email": "privacy@getelevar.com",
+   "name": "Elevar, LLC",
+   "rights_url": "https://getelevar.com/consumer-personal-information-requests/",
+   "same_as": "ca-1333",
+   "source": "texas registry",
+   "website": "getelevar.com"
+  },
+  "tx-20250117": {
+   "email": "privacy@stackadapt.com",
+   "name": "StackAdapt Inc.",
+   "rights_url": "https://www.stackadapt.com/legal-document-centre/platform-and-services-privacy-policy",
+   "same_as": "ca-1117",
+   "source": "texas registry",
+   "website": "stackadapt.com"
+  },
+  "tx-20250118": {
+   "email": "privacy@steppingblocks.com",
+   "name": "Steppingblocks, Inc.",
+   "rights_url": "https://www.steppingblocks.com/privacy-ccpa",
+   "same_as": "ca-1580",
+   "source": "texas registry",
+   "website": "www.steppingblocks.com"
+  },
+  "tx-20250120": {
+   "email": "equation@finthrive.com",
+   "name": "Equation Consulting, LLC",
+   "rights_url": "https://finthrive.com/texas-data-broker-disclosure-equation-consulting?hs_preview=jhDXCUDm-205479481866",
+   "source": "texas registry",
+   "website": "www.finthrive.com"
+  },
+  "tx-20250121": {
+   "email": "privacy@rbarrel.com",
+   "name": "Rainbarrel USA LLC",
+   "rights_url": "https://www.rbarrel.com/privacy-policy",
+   "same_as": "ca-1325",
+   "source": "texas registry",
+   "website": "https://knowertech.com/"
+  },
+  "tx-20250122": {
+   "email": "fdcomply@forddirect.com",
+   "name": "DealerDirect LLC",
+   "rights_url": "https://forddirect.privacy.saymine.io/forddirect",
+   "same_as": "ca-1010",
+   "source": "texas registry",
+   "website": "www.forddirect.com"
+  },
+  "tx-20250128": {
+   "email": "akatavic@complementics.com",
+   "name": "eContext.ai Limited",
+   "rights_url": "https://www.complementics.com/opt-out",
+   "same_as": "ca-1468",
+   "source": "texas registry",
+   "website": "complementics.com"
+  },
+  "tx-20250129": {
+   "email": "privacy@360mediadirect.com",
+   "name": "360 Media Direct",
+   "rights_url": "https://360mediadirect.com/privacy-policy/",
+   "source": "texas registry",
+   "website": "360mediadirect.com"
+  },
+  "tx-20250130": {
+   "email": "privacy@truedata.co",
+   "name": "TrueData Solutions, Inc.",
+   "rights_url": "https://info-prod.truedata.co/access-delete-request",
+   "same_as": "ca-1401",
+   "source": "texas registry",
+   "website": "www.truedata.co"
+  },
+  "tx-20250131": {
+   "email": "legal@cognism.com",
+   "name": "Cognism Inc.",
+   "rights_url": "https://cognism.privacy.saymine.io/cognism",
+   "same_as": "ca-1213",
+   "source": "texas registry",
+   "website": "cognism.com"
+  },
+  "tx-20250132": {
+   "email": "privacy.enquiries@thomsonreuters.com",
+   "name": "West Publishing Corporation",
+   "rights_url": "https://www.thomsonreuters.com/en/trust-center/data-privacy-information",
+   "same_as": "ca-1112",
+   "source": "texas registry",
+   "website": "https://www.thomsonreuters.com"
+  },
+  "tx-20250133": {
+   "email": "privacyteam@catalina.com",
+   "name": "Catalina Marketing Corporation",
+   "rights_url": "https://privacyportal.onetrust.com/webform/7665c53e-aae8-4a03-9dd3-66fb6bce8f55/1bb0c042-b42f-49cc-8779-0bdf8f2ac522",
+   "same_as": "ca-1067",
+   "source": "texas registry",
+   "website": "www.catalina.com"
+  },
+  "tx-20250134": {
+   "email": "privacy@clay.com",
+   "name": "Clay Labs, LLC",
+   "rights_url": "https://privacy.clay.com/policies?name=privacy-policy",
+   "same_as": "ca-1249",
+   "source": "texas registry",
+   "website": "clay.com"
+  },
+  "tx-20250135": {
+   "email": "privacy@bdo-gci.com",
+   "name": "BDO GCI, LLC",
+   "rights_url": "https://www.bdo.com/do-not-sell-my-personal-information",
+   "same_as": "ca-1101",
+   "source": "texas registry",
+   "website": "https://www.bdo.com/do-not-sell-my-personal-information"
+  },
+  "tx-20250137": {
+   "email": "bhayes@zetaglobal.com",
+   "name": "LiveIntent",
+   "rights_url": "https://privacy.liveintent.com/",
+   "same_as": "ca-1277",
+   "source": "texas registry",
+   "website": "www.liveintent.com"
+  },
+  "tx-20250138": {
+   "email": "privacy@transunion.com",
+   "name": "Monevo Inc",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "or-data-00275",
+   "source": "texas registry",
+   "website": "www.transunion.com"
+  },
+  "tx-20250139": {
+   "email": "nikki@giantpartners.com",
+   "name": "Giant Partners, Inc.",
+   "rights_url": "https://giantpartners.com/do-not-sell-my-personal-info-all-other-states/",
+   "same_as": "ca-1444",
+   "source": "texas registry",
+   "website": "www.giantpartners.com"
+  },
+  "tx-20250140": {
+   "email": "legal@hightouch.com",
+   "name": "Carry Technologies, Inc",
+   "rights_url": "hightouch.com/privacy-policy",
+   "same_as": "ca-1076",
+   "source": "texas registry",
+   "website": "hightouch.com"
+  },
+  "tx-20250141": {
+   "email": "privacy@yobi.ai",
+   "name": "Yobi Ventures, Inc.",
+   "rights_url": "https://www.yobi.ai/opt-out",
+   "same_as": "ca-1091",
+   "source": "texas registry",
+   "website": "www.yobi.ai"
+  },
+  "tx-20250142": {
+   "email": "accounting@speedeondata.com",
+   "name": "Speedeon Data LLC",
+   "rights_url": "https://speedeondata.com/privacy-policy/",
+   "same_as": "ca-1151",
+   "source": "texas registry",
+   "website": "https://speedeondata.com/"
+  },
+  "tx-20250143": {
+   "email": "privacy@marketops.com",
+   "name": "MarketOps LLC",
+   "rights_url": "https://marketops.com/data-inquiries/",
+   "same_as": "ca-1273",
+   "source": "texas registry",
+   "website": "https://www.marketops.com"
+  },
+  "tx-20250144": {
+   "email": "policy@upcell.io",
+   "name": "upcell, LLC.",
+   "rights_url": "https://www.upcell.io/data-claim",
+   "same_as": "ca-1063",
+   "source": "texas registry",
+   "website": "https://www.upcell.io/"
+  },
+  "tx-20250146": {
+   "email": "compliance@infopay.com",
+   "name": "InfoPay, Inc",
+   "rights_url": "https://www.infopay.com/privacy",
+   "same_as": "ca-1020",
+   "source": "texas registry",
+   "website": "https://www.infopay.com/"
+  },
+  "tx-20250147": {
+   "email": "privacy@persistent.id",
+   "name": "Command Precision, Inc.",
+   "rights_url": "https://www.trustsuperset.com/dsrs?orgId=7b774bc1-608f-8c4c-bb90-453b1540f48b",
+   "same_as": "ca-1231",
+   "source": "texas registry",
+   "website": "https://persistent.id"
+  },
+  "tx-20250148": {
+   "email": "privacy@aviato.co",
+   "name": "Bachmanity Inc.",
+   "rights_url": "https://www.aviato.co/legal/privacy",
+   "same_as": "ca-1004",
+   "source": "texas registry",
+   "website": "https://aviato.co/"
+  },
+  "tx-20250149": {
+   "email": "privacy@brooksim.com",
+   "name": "Brooks Integrated Marketing, LLC",
+   "rights_url": "https://www.brooksim.com/privacy-form",
+   "same_as": "ca-1003",
+   "source": "texas registry",
+   "website": "https://www.brooksim.com/"
+  },
+  "tx-20250150": {
+   "email": "privacy@theswarm.com",
+   "name": "Swarm Holdings, Inc.",
+   "rights_url": "https://www.theswarm.com/privacy",
+   "same_as": "ca-1001",
+   "source": "texas registry",
+   "website": "https://www.theswarm.com/"
+  },
+  "tx-20250153": {
+   "email": "cholbert@buxtonco.com",
+   "name": "Buxton Company, LLC",
+   "rights_url": "https://www.buxtonco.com/privacy",
+   "same_as": "ca-1267",
+   "source": "texas registry",
+   "website": "buxtonco.com"
+  },
+  "tx-20250154": {
+   "email": "people@disconetwork.com",
+   "name": "Disco Technology Inc",
+   "rights_url": "https://disconetwork.com/privacy-policy",
+   "same_as": "ca-1419",
+   "source": "texas registry",
+   "website": "https://www.disconetwork.com/"
+  },
+  "tx-20250155": {
+   "email": "tom@lead411.io",
+   "name": "Lead411 Corporation",
+   "rights_url": "https://www.lead411.com/your-privacy-choices/",
+   "same_as": "ca-1476",
+   "source": "texas registry",
+   "website": "lead411.com"
+  },
+  "tx-20250156": {
+   "email": "chris.alewine@audienceacuity.com",
+   "name": "Audience Acuity LLC",
+   "rights_url": "https://audienceacuity.com/privacy/",
+   "same_as": "ca-1313",
+   "source": "texas registry",
+   "website": "https://audienceacuity.com/"
+  },
+  "tx-20250158": {
+   "email": "apinhasi@datonics.com",
+   "name": "Datonics LLC",
+   "rights_url": "https://www.datonics.com/privacy/privacy-choices",
+   "same_as": "ca-1078",
+   "source": "texas registry",
+   "website": "https://www.datonics.com/"
+  },
+  "tx-20250160": {
+   "email": "privacy@resonate.com",
+   "name": "RESONATE NETWORKS, INC.",
+   "rights_url": "https://www.resonate.com/privacy-policy/",
+   "source": "texas registry",
+   "website": "www.resonate.com"
+  },
+  "tx-20250161": {
+   "email": "privacy@audiencemix.net",
+   "name": "Audience Mix LLC",
+   "rights_url": "https://www.audiencemix.net/general-clean",
+   "same_as": "ca-1448",
+   "source": "texas registry",
+   "website": "audiencemix.net"
+  },
+  "tx-20250162": {
+   "email": "privacy@infillion.com",
+   "name": "Infillion Inc.",
+   "rights_url": "https://privacyportal.onetrust.com/webform/7665c53e-aae8-4a03-9dd3-66fb6bce8f55/22033015-0970-44c0-b5a5-8b180f7e4ef1",
+   "same_as": "or-data-00456",
+   "source": "texas registry",
+   "website": "www.infillion.com"
+  },
+  "tx-20250163": {
+   "email": "operations@postpilot.com",
+   "name": "PostPilot, Inc.",
+   "rights_url": "https://www.postpilot.com/privacy-policy",
+   "same_as": "ca-1414",
+   "source": "texas registry",
+   "website": "www.postpilot.com"
+  },
+  "tx-20250164": {
+   "email": "compliance@retention.com",
+   "name": "GETEMAILS LLC",
+   "rights_url": "https://www.retention.com/article-update-privacy-policy",
+   "same_as": "ca-1120",
+   "source": "texas registry",
+   "website": "www.retention.com"
+  },
+  "tx-20250165": {
+   "email": "soren@klarifi.io",
+   "name": "Klarifi ApS",
+   "rights_url": "https://klarifi.io/privacy-center",
+   "source": "texas registry",
+   "website": "www.klarifi.io"
+  },
+  "tx-20250166": {
+   "email": "privacy@carneydirect.com",
+   "name": "Guidestar Direct, Corp",
+   "rights_url": "https://www.carneydirect.com/privacy-policy/",
+   "same_as": "ca-1134",
+   "source": "texas registry",
+   "website": "www.carneydirect.com"
+  },
+  "tx-20250167": {
+   "email": "oshrat@explorium.ai",
+   "name": "Explorium Inc.",
+   "rights_url": "https://www.explorium.ai/do-not-sell-my-personal-info/",
+   "same_as": "ca-1043",
+   "source": "texas registry",
+   "website": "www.explorium.ai"
+  },
+  "tx-20250168": {
+   "email": "legal@buyerlink.com",
+   "name": "Buyerlink Inc.",
+   "rights_url": "https://www.buyerlink.co/privacy",
+   "same_as": "ca-1027",
+   "source": "texas registry",
+   "website": "www.buyerlink.co"
+  },
+  "tx-20250169": {
+   "email": "privacy@33across.com",
+   "name": "33Across, Inc.",
+   "rights_url": "https://udp.33across.com/udp_opt_out",
+   "same_as": "ca-1162",
+   "source": "texas registry",
+   "website": "www.33across.com"
+  },
+  "tx-20250170": {
+   "email": "privacy@grayhairsoftware.com",
+   "name": "GrayHair Software LLC",
+   "rights_url": "https://grayhairsoftware.com/privacy-policy/",
+   "same_as": "ca-1300",
+   "source": "texas registry",
+   "website": "https://grayhairsoftware.com/"
+  },
+  "tx-20250171": {
+   "email": "privacy@outlogic.io",
+   "name": "Outlogic, LLC",
+   "rights_url": "https://outlogic.io/opt-out-form/",
+   "same_as": "ca-1095",
+   "source": "texas registry",
+   "website": "https://outlogic.io/"
+  },
+  "tx-20250172": {
+   "email": "privacy@matchbookdata.com",
+   "name": "Matchbook Data, LLC",
+   "rights_url": "https://www.matchbookdata.com/your-privacy-choices/",
+   "same_as": "ca-1097",
+   "source": "texas registry",
+   "website": "https://www.matchbookdata.com/"
+  },
+  "tx-20250173": {
+   "email": "compliance@thedatagroup.com",
+   "name": "The Data Group",
+   "rights_url": "https://thedatagroup.com/privacy/",
+   "same_as": "ca-1193",
+   "source": "texas registry",
+   "website": "thedatagroup.com"
+  },
+  "tx-20250174": {
+   "email": "compliance@idatabasesolutions.com",
+   "name": "Insight Data Solutions LLC",
+   "rights_url": "https://idatabasesolutions.com/do-not-sell-my-personal-info/",
+   "source": "texas registry",
+   "website": "www.idatabasesolutions.com"
+  },
+  "tx-20250175": {
+   "email": "accounting@livedatatechnologies.com",
+   "name": "Live Data Technologies Inc.",
+   "rights_url": "https://www.livedatatechnologies.com/opting",
+   "same_as": "ca-1169",
+   "source": "texas registry",
+   "website": "https://www.livedatatechnologies.com/"
+  },
+  "tx-20250177": {
+   "email": "privacy@cybba.com",
+   "name": "Cybba Inc",
+   "rights_url": "https://cybba-requests.my.onetrust.com/webform/a4a1351e-d293-4305-bde4-b9cf8f5c0989/f89c576a-b5c6-498e-bad5-698f084ffd30",
+   "same_as": "ca-1422",
+   "source": "texas registry",
+   "website": "https://cybba.com"
+  },
+  "tx-20250178": {
+   "email": "privacy@madhive.com",
+   "name": "MadHive, Inc",
+   "rights_url": "https://www.madhive.com/user-rights",
+   "same_as": "ca-1122",
+   "source": "texas registry",
+   "website": "https://www.madhive.com/"
+  },
+  "tx-20250179": {
+   "email": "legal@clientcommand.com",
+   "name": "Summit Resources, LLC d/b/a Client Command",
+   "rights_url": "https://privacyportal-cdn.onetrust.com/dsarwebform/555c3377-7eb2-4e7a-bf30-c408de4ab483/70df6685-8289-4d72-a9d7-9a736b3b837f.html",
+   "same_as": "ca-1223",
+   "source": "texas registry",
+   "website": "www.clientcommand.com"
+  },
+  "tx-20250180": {
+   "email": "privacy@fullcontact.com",
+   "name": "J2 Martech Corp",
+   "rights_url": "https://platform.fullcontact.com/your-privacy-choices",
+   "same_as": "ca-1390",
+   "source": "texas registry",
+   "website": "https://www.fullcontact.com/"
+  },
+  "tx-20250181": {
+   "email": "privacy@ziffdavis.com",
+   "name": "J2 Global Canada, Inc.",
+   "rights_url": "https://www.campaigner.com/legal/privacy-policy/",
+   "same_as": "ca-1244",
+   "source": "texas registry",
+   "website": "https://www.ziffdavis.com/brands/martech/campaigner"
+  },
+  "tx-20250182": {
+   "email": "support@lookify.io",
+   "name": "Lookify, LLC",
+   "rights_url": "https://lookify.io/privacy-policy",
+   "same_as": "or-data-00193",
+   "source": "texas registry",
+   "website": "lookify.io"
+  },
+  "tx-20250183": {
+   "email": "autolegal@autoweb.com",
+   "name": "AutoWeb, Inc.",
+   "rights_url": "https://www.autoweb.com/privacy",
+   "same_as": "ca-1030",
+   "source": "texas registry",
+   "website": "www.autoweb.com"
+  },
+  "tx-20250184": {
+   "email": "dee@vanguardai.net",
+   "name": "VANGUARD AI LLC",
+   "rights_url": "https://electhq.net/privacy.html",
+   "source": "texas registry",
+   "website": "https://electhq.net/"
+  },
+  "tx-20250185": {
+   "email": "privay@ventiveiq.com",
+   "name": "VentiveIQ LLC",
+   "rights_url": "https://ventiveiq.com/privacy-policy/",
+   "same_as": "ca-1051",
+   "source": "texas registry",
+   "website": "https://vetiveiq.com"
+  },
+  "tx-20250186": {
+   "email": "contact@rampedup.io",
+   "name": "RampedUp, LLC.",
+   "rights_url": "https://rampedup.io/privacy-policy-1",
+   "same_as": "ca-1187",
+   "source": "texas registry",
+   "website": "rampedup.io"
+  },
+  "tx-20250187": {
+   "email": "ops@civicelement.com",
+   "name": "Civic Element LLC",
+   "rights_url": "https://www.civicelement.com/privacy-policy",
+   "same_as": "or-data-00454",
+   "source": "texas registry",
+   "website": "https://www.civicelement.com"
+  },
+  "tx-20250188": {
+   "email": "privacy@demandbase.com",
+   "name": "Demandbase, Inc.",
+   "rights_url": "https://www.demandbase.com/privacy/",
+   "same_as": "ca-1034",
+   "source": "texas registry",
+   "website": "www.demandbase.com"
+  },
+  "tx-20250190": {
+   "email": "legalnotices@freewheel.tv",
+   "name": "Freewheel Media, Inc.",
+   "rights_url": "https://www.freewheel.com/privacy-policy#tab1_section1_4",
+   "same_as": "ca-1297",
+   "source": "texas registry",
+   "website": "www.freewheel.com"
+  },
+  "tx-20250192": {
+   "email": "legal@blackpearl.com",
+   "name": "Black Pearl Group Limited",
+   "rights_url": "https://www.blackpearl.com/your-privacy-choices",
+   "same_as": "ca-1208",
+   "source": "texas registry",
+   "website": "https://blackpearl.com"
+  },
+  "tx-20250193": {
+   "email": "smarcantonio@revealmobile.com",
+   "name": "Reveal Mobile, Inc.",
+   "rights_url": "https://revealmobile.com/privacy",
+   "same_as": "ca-1308",
+   "source": "texas registry",
+   "website": "www.revealmobile.com"
+  },
+  "tx-20250194": {
+   "email": "privacy@veeva.com",
+   "name": "Veeva Systems Inc.",
+   "rights_url": "https://www.veeva.com/privacy/",
+   "same_as": "ca-1032",
+   "source": "texas registry",
+   "website": "veeva.com"
+  },
+  "tx-20250196": {
+   "email": "dataprotection@civisanalytics.com",
+   "name": "Civis Analytics, Inc.",
+   "rights_url": "www.civisanalytics.com/legal-pages/supplemental-privacy-notice",
+   "same_as": "ca-1197",
+   "source": "texas registry",
+   "website": "www.civisanalytics.com"
+  },
+  "tx-20250197": {
+   "email": "brad@bigdbm.com",
+   "name": "PublicNSA LLC",
+   "rights_url": "https://bigdbm.com/privacy-policy/",
+   "same_as": "or-data-00148",
+   "source": "texas registry",
+   "website": "WWW.BIGDBM.COM"
+  },
+  "tx-20250198": {
+   "email": "privacysupport@atdata.com",
+   "name": "AtData, LLC",
+   "rights_url": "https://atdata.com/privacy-policy/#section-11",
+   "same_as": "ca-1351",
+   "source": "texas registry",
+   "website": "https://www.atdata.com"
+  },
+  "tx-20250200": {
+   "email": "privacy@proxima.ai",
+   "name": "Innovation Brands Corp",
+   "rights_url": "www.proxima.ai/privacy",
+   "same_as": "ca-1487",
+   "source": "texas registry",
+   "website": "www.proxima.ai"
+  },
+  "tx-20250203": {
+   "email": "kgraves@dcsinfosys.com",
+   "name": "Dallas Computer Services, Inc",
+   "rights_url": "www.dcsinfosys.com",
+   "source": "texas registry",
+   "website": "www.dcsinfosys.com"
+  },
+  "tx-20250204": {
+   "email": "h.jones@stirista.com",
+   "name": "Stirista, LLC",
+   "rights_url": "https://www.stirista.com/privacy-policy/",
+   "same_as": "ca-1105",
+   "source": "texas registry",
+   "website": "https://www.stirista.com/"
+  },
+  "tx-20250205": {
+   "email": "sam@wealthfeed.com",
+   "name": "WealthFeed, Inc.",
+   "rights_url": "https://www.wealthfeed.com/privacy-choices/",
+   "same_as": "ca-1426",
+   "source": "texas registry",
+   "website": "www.wealthfeed.com"
+  },
+  "tx-20250206": {
+   "email": "privacy@allantgroup.com",
+   "name": "Allant Group, LLC",
+   "rights_url": "https://allantgroup.com/privacy-policy",
+   "same_as": "ca-1140",
+   "source": "texas registry",
+   "website": "https://allantgroup.com"
+  },
+  "tx-20250207": {
+   "email": "legal@rorpartners.com",
+   "name": "ROR Partners, LLC",
+   "rights_url": "https://rorpartners.com/privacy-policy",
+   "same_as": "ca-1157",
+   "source": "texas registry",
+   "website": "rorpartners.com"
+  },
+  "tx-20250208": {
+   "email": "legal@collective.io",
+   "name": "Collective Data Solutions, LLC",
+   "rights_url": "https://www.collectivedata.io/website-visitor-privacy-policy/",
+   "same_as": "ca-1069",
+   "source": "texas registry",
+   "website": "https://www.collective data.io/"
+  },
+  "tx-20250209": {
+   "email": "support@decisionlinks.com",
+   "name": "DecisionLinks LLC",
+   "rights_url": "https://www.decisionlinks.com/legal-pages/privacy-policy",
+   "same_as": "ca-1070",
+   "source": "texas registry",
+   "website": "https://www.decisionlinks.com/"
+  },
+  "tx-20250210": {
+   "email": "legal@optable.co",
+   "name": "Optable Technologies US Inc.",
+   "rights_url": "https://terms.optable.co/privacy/opt-out-and-suppression-of-brokered-data",
+   "same_as": "ca-1110",
+   "source": "texas registry",
+   "website": "optable.co"
+  },
+  "tx-20250211": {
+   "email": "privacy@xcelerated.com",
+   "name": "Xcelerated Data LLC",
+   "rights_url": "https://www.xcelerated.com/privacy",
+   "same_as": "ca-1573",
+   "source": "texas registry",
+   "website": "xcelerated.com"
+  },
+  "tx-20250212": {
+   "email": "jhiggleton@anteriad.com",
+   "name": "Anteriad, LLC",
+   "rights_url": "https://forms.anteriad.com/privacy-portal?utm_source=website&utm_medium=lp&utm_campaign=2025",
+   "same_as": "ca-1086",
+   "source": "texas registry",
+   "website": "www.anteriad.com"
+  },
+  "tx-20250213": {
+   "email": "accounting@onspotdata.com",
+   "name": "Mobile Technology Corporation",
+   "rights_url": "https://www.onspotdata.com/privacy-policy/",
+   "same_as": "ca-1103",
+   "source": "texas registry",
+   "website": "www.onspotdata.com"
+  },
+  "tx-20250214": {
+   "email": "hdenniston@ludex.ai",
+   "name": "Collectors Datastore LLC",
+   "rights_url": "www.fanalyticsiq.com/privacy-policy",
+   "same_as": "or-data-00399",
+   "source": "texas registry",
+   "website": "thecollectorsdatastore.com"
+  },
+  "tx-20250217": {
+   "email": "privacy@irys.us",
+   "name": "Irys Inc",
+   "rights_url": "https://irys.us/privacy-policy",
+   "same_as": "ca-1291",
+   "source": "texas registry",
+   "website": "https://irys.us"
+  },
+  "tx-20250218": {
+   "email": "ben@trueblueanalytics.org",
+   "name": "True Blue Analytics LLC",
+   "rights_url": "https://trueblueanalytics.org/privacy-policy",
+   "same_as": "ca-1014",
+   "source": "texas registry",
+   "website": "trueblueanalytics.org"
+  },
+  "tx-20250219": {
+   "email": "databroker@fusion92.com",
+   "name": "Virtual Marketing LLC",
+   "rights_url": "https://www.fusion92.com/privacy-choices",
+   "same_as": "ca-1355",
+   "source": "texas registry",
+   "website": "https://www.fusion92.com/"
+  },
+  "tx-20250220": {
+   "email": "privacy@rushmorelabs.com",
+   "name": "Rushmore Labs, LLC",
+   "rights_url": "https://rushmorelabs.com/disclosures/",
+   "same_as": "ca-1183",
+   "source": "texas registry",
+   "website": "https://rushmorelabs.com/"
+  },
+  "tx-20260001": {
+   "email": "gashe@m1-data.com",
+   "name": "M1 Data & Analytics, LLC",
+   "rights_url": "https://m1-data.com/unsubscribe/",
+   "same_as": "ca-1056",
+   "source": "texas registry",
+   "website": "m1-data.com"
+  },
+  "tx-20260002": {
+   "email": "privacy@thebridgecorp.com",
+   "name": "OWMN, LTD.",
+   "rights_url": "https://www.thebridgecorp.com/privacy-policy/",
+   "same_as": "ca-1015",
+   "source": "texas registry",
+   "website": "thebridgecorp.com"
+  },
+  "tx-20260003": {
+   "email": "tb@nuwber.com",
+   "name": "Nuwber Inc.",
+   "rights_url": "https://nuwber.com/policy",
+   "same_as": "ca-1042",
+   "source": "texas registry",
+   "website": "nuwber.com"
+  },
+  "tx-20260004": {
+   "email": "ed@analyzecorp.com",
+   "name": "Analyze Corporation",
+   "rights_url": "https://www.analyzecorp.com/privacy-policy/",
+   "source": "texas registry",
+   "website": "analyzecorp.com"
+  },
+  "tx-20260005": {
+   "email": "gerald.allen@statara.com",
+   "name": "Statara Solutions LLC",
+   "rights_url": "https://statara.com/privacy/",
+   "same_as": "ca-1060",
+   "source": "texas registry",
+   "website": "https://statara.com/"
+  },
+  "tx-20260006": {
+   "email": "compliance@ctam.com",
+   "name": "CTAM LeadShare Corp",
+   "rights_url": "www.smartmove.us",
+   "same_as": "ca-1176",
+   "source": "texas registry",
+   "website": "www.smartmove.us"
+  },
+  "tx-20260007": {
+   "email": "gerald.allen@targetsmart.com",
+   "name": "TargetSmart Communications LLC",
+   "rights_url": "https://targetsmart.com/about-targetsmart/support-center/privacy-policy/",
+   "same_as": "ca-1061",
+   "source": "texas registry",
+   "website": "www.targetsmart.com"
+  },
+  "tx-20260008": {
+   "email": "benlarocca626@gmail.com",
+   "name": "Titan Locators",
+   "rights_url": "https://secondchanceapartments.com/privacy-policy/",
+   "source": "texas registry",
+   "website": "https://secondchanceapartments.com/"
+  },
+  "tx-20260009": {
+   "email": "privacy@digitalvikingmedia.com",
+   "name": "Digital Viking Media, Inc",
+   "rights_url": "https://www.digitalvikingmedia.com/privacy-policy",
+   "same_as": "ca-1179",
+   "source": "texas registry",
+   "website": "www.digitalvikingmedia.com"
+  },
+  "tx-20260010": {
+   "email": "larafinancial@gmail.com",
+   "name": "Lara Agency Inc",
+   "rights_url": "https://agents.farmers.com/tx/houston/jose-lara/?SourceID=AMPALFGMAG&utm_medium=Local&utm_source=GMB",
+   "source": "texas registry",
+   "website": "https://agents.farmers.com/tx/houston/jose-lara/?SourceID=AMPALFGMAG&utm_medium=Local&utm_source=GMB"
+  },
+  "tx-20260011": {
+   "email": "lbridson@keymarketingadvantage.com",
+   "name": "Key Marketing Advantage, LLC",
+   "rights_url": "www.keymarketingadvantage.com",
+   "same_as": "ca-1022",
+   "source": "texas registry",
+   "website": "www.keymarketingadvantage.com"
+  },
+  "tx-20260012": {
+   "email": "ncoa@responseamerica.net",
+   "name": "Response America Data, Inc.",
+   "rights_url": "https://responseamerica.net/privacy_dec.html",
+   "same_as": "or-data-00430",
+   "source": "texas registry",
+   "website": "responseamerica.net"
+  },
+  "tx-20260013": {
+   "email": "privacy@aggknowledge.ai",
+   "name": "AggKnowledge Inc.",
+   "rights_url": "https://www.aggknowledge.ai/privacypolicy",
+   "same_as": "ca-1005",
+   "source": "texas registry",
+   "website": "aggknowledge.ai"
+  },
+  "tx-20260014": {
+   "email": "david.mason@aristotle.com",
+   "name": "Aristotle International, Inc.",
+   "rights_url": "https://www.aristotle.com/privacy/",
+   "same_as": "ca-1126",
+   "source": "texas registry",
+   "website": "www.aristotle.com"
+  },
+  "tx-20260015": {
+   "email": "george.linville@outkeep.com",
+   "name": "Outkeep LLC",
+   "rights_url": "https://outkeep.com/legal/",
+   "source": "texas registry",
+   "website": "www.outkeep.com"
+  },
+  "tx-20260016": {
+   "email": "privacy@boam.com",
+   "name": "Gigabite Inc",
+   "rights_url": "https://boam.ai/privacy-policy",
+   "same_as": "ca-1196",
+   "source": "texas registry",
+   "website": "https://boam.ai/"
+  },
+  "tx-20260017": {
+   "email": "privacyofficer@iqvia.com",
+   "name": "IQVIA Digital, Inc.",
+   "rights_url": "https://privacyportal.onetrust.com/webform/07e8dc4d-6686-403e-9b11-39fe7347d2f4/2f999bd2-c826-498c-a504-894eaf543b6f",
+   "same_as": "ca-1266",
+   "source": "texas registry",
+   "website": "https://www.iqviadigital.com/"
+  },
+  "tx-20260018": {
+   "email": "privacy@gsdsi.com",
+   "name": "Global Source Data Solutions Inc",
+   "rights_url": "https://gsdsi.com/privacy",
+   "same_as": "ca-1006",
+   "source": "texas registry",
+   "website": "gsdsi.com"
+  },
+  "tx-20260019": {
+   "email": "privacy@visualvisitor.com",
+   "name": "Visual Visitor LLC",
+   "rights_url": "https://www.visualvisitor.com/legal-agreements/",
+   "same_as": "or-data-00348",
+   "source": "texas registry",
+   "website": "visualvisitor.com"
+  },
+  "tx-20260020": {
+   "email": "michael.belsky@idmap.ai",
+   "name": "IDMAP INC",
+   "rights_url": "https://idmap.ai/privacy-policy.html",
+   "same_as": "ca-1407",
+   "source": "texas registry",
+   "website": "idmap.ai"
+  },
+  "tx-20260021": {
+   "email": "josh.torres@partech.com",
+   "name": "DB SUB, LLC",
+   "rights_url": "https://partech.com/dbsubllc",
+   "same_as": "or-data-00421",
+   "source": "texas registry",
+   "website": "https://partech.com/dbsubllc"
+  },
+  "tx-20260022": {
+   "email": "dpo@circana.com",
+   "name": "Circana, LLC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/95580356-b46a-4234-8f47-d824de4dbbc6/3aabe289-acb0-490c-98ff-401c081d5000",
+   "same_as": "ca-1270",
+   "source": "texas registry",
+   "website": "www.circana.com"
+  },
+  "tx-20260023": {
+   "email": "eitan.krasner@intentiq.com",
+   "name": "Intent IQ LLC",
+   "rights_url": "https://www.intentiq.com/opt-out/",
+   "same_as": "ca-1147",
+   "source": "texas registry",
+   "website": "www.intentiq.com"
+  },
+  "tx-20260024": {
+   "email": "privacy@vistarmedia.com",
+   "name": "Vistar Media, Inc.",
+   "rights_url": "https://www.vistarmedia.com/privacy-choices",
+   "same_as": "ca-1013",
+   "source": "texas registry",
+   "website": "https://www.vistarmedia.com"
+  },
+  "tx-20260025": {
+   "email": "sales@datamasters.org",
+   "name": "Rickenbacher Data LLC",
+   "rights_url": "https://www.datamasters.org/opt-out/",
+   "source": "texas registry",
+   "website": "www.datamasters.org"
+  },
+  "tx-20260026": {
+   "email": "blakehogan@plug-industries.com",
+   "name": "Plug Chargers LLC",
+   "rights_url": "https://plug-industries.com/opt-out",
+   "same_as": "ca-1597",
+   "source": "texas registry",
+   "website": "www.plug-industries.com"
+  },
+  "tx-20260027": {
+   "email": "privacy@babelstreet.com",
+   "name": "Babel Street, Inc.",
+   "rights_url": "https://www.babelstreet.com/privacy",
+   "same_as": "ca-1430",
+   "source": "texas registry",
+   "website": "babelstreet.com"
+  },
+  "tx-20260028": {
+   "email": "privacy@nationalopinioninstitute.com",
+   "name": "National Opinion Institute, LLC",
+   "rights_url": "https://nationalopinioninstitute.com/disclosures/",
+   "same_as": "ca-1182",
+   "source": "texas registry",
+   "website": "https://nationalopinioninstitute.com/"
+  },
+  "tx-20260029": {
+   "email": "legal@postie.com",
+   "name": "Postie, Inc",
+   "rights_url": "https://postie.com/your-privacy-choices/",
+   "same_as": "ca-1386",
+   "source": "texas registry",
+   "website": "https://postie.com"
+  },
+  "tx-20260030": {
+   "email": "etprivacydb@evertrue.com",
+   "name": "EverView Holdco, Inc",
+   "rights_url": "https://www.evertrue.com/privacy-policy/",
+   "same_as": "ca-1486",
+   "source": "texas registry",
+   "website": "www.evertrue.com"
+  },
+  "tx-20260031": {
+   "email": "privacy@indexexchange.com",
+   "name": "Index Exchange Inc.",
+   "rights_url": "https://www.indexexchange.com/privacy/rights-exercising-rights/",
+   "same_as": "ca-1310",
+   "source": "texas registry",
+   "website": "https://www.indexexchange.com/"
+  },
+  "tx-20260032": {
+   "email": "databroker@inmar.com",
+   "name": "Inmar Brand Solutions, Inc.",
+   "rights_url": "https://privacyportal-cdn.onetrust.com/dsarwebform/fa9f2f77-33ff-473b-ae55-579e2e693a91/ea2fadbb-3208-459b-8ed6-c975b6a9901c.html",
+   "same_as": "ca-1542",
+   "source": "texas registry",
+   "website": "inmar.com"
+  },
+  "tx-20260033": {
+   "email": "ops@semantiqhealth.com",
+   "name": "SemantIQ Inc",
+   "rights_url": "https://semantiqhealth.com/privacy-policy",
+   "same_as": "ca-1271",
+   "source": "texas registry",
+   "website": "https://semantiqhealth.com"
+  },
+  "tx-20260034": {
+   "email": "info@spydialer.com",
+   "name": "Spy Labs AdCo, LLC",
+   "rights_url": "https://spydialer.com/privacy.aspx",
+   "same_as": "ca-1393",
+   "source": "texas registry",
+   "website": "spydialer.com"
+  },
+  "tx-20260035": {
+   "email": "hello@policeconduct.org",
+   "name": "Institute for Police Conduct",
+   "rights_url": "https://policeconduct.org/legal-notice/privacy",
+   "source": "texas registry",
+   "website": "www.policeconduct.org"
+  },
+  "tx-20260036": {
+   "email": "privacy@unacast.com",
+   "name": "Unacast, Inc.",
+   "rights_url": "https://www.unacast.com/privacy-policy",
+   "same_as": "ca-1364",
+   "source": "texas registry",
+   "website": "https://www.unacast.com/"
+  },
+  "tx-20260037": {
+   "email": "privacy@venntel.com",
+   "name": "Venntel, Inc.",
+   "rights_url": "https://www.venntel.com/privacy-policy",
+   "same_as": "ca-1382",
+   "source": "texas registry",
+   "website": "https://www.venntel.com/"
+  },
+  "tx-20260038": {
+   "email": "privacy@connatix.com",
+   "name": "Connatix Native Exchange Inc.",
+   "rights_url": "https://connatix.com/optout",
+   "same_as": "ca-1186",
+   "source": "texas registry",
+   "website": "www.jwx.com"
+  },
+  "tx-20260039": {
+   "email": "privacy@vi.co",
+   "name": "Vi Technologies, Inc.",
+   "rights_url": "https://vi.co/privacy-policy/",
+   "same_as": "ca-1514",
+   "source": "texas registry",
+   "website": "vi.co"
+  },
+  "tx-20260040": {
+   "email": "privacy@pipl.com",
+   "name": "Pipl, Inc.",
+   "rights_url": "https://pipl.com/privacy-center",
+   "same_as": "ca-1156",
+   "source": "texas registry",
+   "website": "https://pipl.com"
+  },
+  "tx-20260041": {
+   "email": "statebasedprivacy@ididata.com",
+   "name": "INTERACTIVE DATA, LLC",
+   "rights_url": "https://www.ididata.com/idis-privacy-statement/",
+   "same_as": "ca-1370",
+   "source": "texas registry",
+   "website": "https://www.ididata.com/"
+  },
+  "tx-20260042": {
+   "email": "support@convexlabs.io",
+   "name": "Convex Labs LLC",
+   "rights_url": "https://www.convex.com/privacy-policy",
+   "same_as": "ca-1523",
+   "source": "texas registry",
+   "website": "www.convex.com"
+  },
+  "tx-20260043": {
+   "email": "privacy@getliminal.com",
+   "name": "NACHAL INC.",
+   "rights_url": "https://getliminal.com/privacypolicy",
+   "same_as": "ca-1561",
+   "source": "texas registry",
+   "website": "www.getliminal.com"
+  },
+  "tx-20260044": {
+   "email": "onlineops@awl.com",
+   "name": "AWL Holdings, LLC",
+   "rights_url": "https://www.insurancequotes.com/privacy-policy",
+   "same_as": "ca-1391",
+   "source": "texas registry",
+   "website": "https://awl.com"
+  },
+  "tx-20260045": {
+   "email": "privacy@placeexchange.com",
+   "name": "Place Exchange, Inc.",
+   "rights_url": "https://www.placeexchange.com/do-not-sell-my-information",
+   "same_as": "ca-1402",
+   "source": "texas registry",
+   "website": "https://www.placeexchange.com/"
+  },
+  "tx-20260046": {
+   "email": "jdpowerprivacy@jdpa.com",
+   "name": "J.D. Power",
+   "rights_url": "https://www.jdpower.com/privacy/dsar",
+   "source": "texas registry",
+   "website": "https://www.jdpower.com/"
+  },
+  "tx-20260047": {
+   "email": "shawn@accurateappend.com",
+   "name": "Accurate Append, Inc.",
+   "rights_url": "https://accurateappend.com/privacy-policy/",
+   "same_as": "ca-1247",
+   "source": "texas registry",
+   "website": "www.accurateappend.com"
+  },
+  "tx-20260048": {
+   "email": "abigham@mvdigitalgroup.com",
+   "name": "MV Digital Group, LLC (DBA CinqDI)",
+   "rights_url": "https://www.cinqdi.com/privacy-policy/#section-rights",
+   "same_as": "ca-1503",
+   "source": "texas registry",
+   "website": "www.cinqdi.com"
+  },
+  "tx-20260049": {
+   "email": "hannah@reveliolabs.com",
+   "name": "Revelio Labs, Inc.",
+   "rights_url": "www.reveliolabs.com/privacy",
+   "same_as": "ca-1423",
+   "source": "texas registry",
+   "website": "www.reveliolabs.com"
+  },
+  "tx-20260050": {
+   "email": "jon@jmr-media.com",
+   "name": "JMR Media Consulting, Inc.",
+   "rights_url": "https://jmr-media.com/privacy-notice",
+   "same_as": "ca-1462",
+   "source": "texas registry",
+   "website": "www.jmr-media.com"
+  },
+  "tx-20260051": {
+   "email": "privacy@transunion.com",
+   "name": "TransUnion Digital LLC",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1408",
+   "source": "texas registry",
+   "website": "https://www.transunion.com"
+  },
+  "tx-20260052": {
+   "email": "privacy@transunion.com",
+   "name": "Neustar Information Services, Inc.",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1494",
+   "source": "texas registry",
+   "website": "https://www.transunion.com"
+  },
+  "tx-20260053": {
+   "email": "trudie@neptuneops.com",
+   "name": "Neptune Ops LLC",
+   "rights_url": "https://neptuneaii.com/legal/privacy-policy",
+   "same_as": "ca-1115",
+   "source": "texas registry",
+   "website": "https://www.neptuneops.com/"
+  },
+  "tx-20260054": {
+   "email": "privacy@wiland.com",
+   "name": "Wiland, INc.",
+   "rights_url": "www.wiland.com/privacy-choices",
+   "same_as": "ca-1222",
+   "source": "texas registry",
+   "website": "www.wiland.com"
+  },
+  "tx-20260055": {
+   "email": "privacy.officer@adstradata.com",
+   "name": "Adstra LLC",
+   "rights_url": "https://www.adstradata.com/privacy-policy/",
+   "same_as": "ca-1260",
+   "source": "texas registry",
+   "website": "https://www.adstradata.com/"
+  },
+  "tx-20260056": {
+   "email": "ilan.ganem@becausal.com",
+   "name": "Becausal, Inc",
+   "rights_url": "https://www.becausal.com/personal-information",
+   "same_as": "ca-1016",
+   "source": "texas registry",
+   "website": "https://www.becausal.com/"
+  },
+  "tx-20260057": {
+   "email": "privacy@recruitbot.com",
+   "name": "RecruitBot, Inc.",
+   "rights_url": "www.recruitbot.com/privacy",
+   "same_as": "ca-1337",
+   "source": "texas registry",
+   "website": "www.recruitbot.com"
+  },
+  "tx-20260058": {
+   "email": "vamshi@vistaview.ai",
+   "name": "VISTAVIEW REALTY SERVICES LLC",
+   "rights_url": "www.vistaview.ai/privacy/consumer-rights",
+   "source": "texas registry",
+   "website": "www.vistaview.ai"
+  },
+  "tx-20260059": {
+   "email": "consumer.documents@lexisnexisrisk.com",
+   "name": "LexisNexis Risk Solutions FL Inc.",
+   "rights_url": "https://consumer.risk.lexisnexis.com/privacy",
+   "same_as": "ca-1427",
+   "source": "texas registry",
+   "website": "https://risk.lexisnexis.com/"
+  },
+  "tx-20260060": {
+   "email": "dpo@cision.com",
+   "name": "Cision US Inc",
+   "rights_url": "https://portals.dporganizer.com/fa778b0e-817f-4c96-b13d-e2b614470033",
+   "same_as": "or-data-00190",
+   "source": "texas registry",
+   "website": "www.cision.com"
+  },
+  "tx-20260061": {
+   "email": "robert.beaugie@cision.com",
+   "name": "Crimson Hexagon, Inc",
+   "rights_url": "https://portals.dporganizer.com/fa778b0e-817f-4c96-b13d-e2b614470033",
+   "same_as": "ca-1049",
+   "source": "texas registry",
+   "website": "www.brandwatch.com"
+  },
+  "tx-20260062": {
+   "email": "privacy@transunion.com",
+   "name": "MarketShare Partners, LLC",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1496",
+   "source": "texas registry",
+   "website": "http://www.transunion.com/"
+  },
+  "tx-20260063": {
+   "email": "privacy@commercesignals.com",
+   "name": "Commerce Signals, Inc.",
+   "rights_url": "https://www.commercesignals.com/privacy-notice/",
+   "same_as": "ca-1410",
+   "source": "texas registry",
+   "website": "https://www.commercesignals.com/"
+  },
+  "tx-20260064": {
+   "email": "privacy@transunion.com",
+   "name": "TransUnion Interactive, Inc.",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1409",
+   "source": "texas registry",
+   "website": "http://www.transunion.com/"
+  },
+  "tx-20260065": {
+   "email": "privacy@transunion.com",
+   "name": "iovation Inc.",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1411",
+   "source": "texas registry",
+   "website": "https://www.transunion.com/privacy/iovation"
+  },
+  "tx-20260066": {
+   "email": "privacy@transunion.com",
+   "name": "Drivers History Information Sales, LLC",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1412",
+   "source": "texas registry",
+   "website": "www.drivershistory.com"
+  },
+  "tx-20260067": {
+   "email": "privacy@transunion.com",
+   "name": "TRUSTID, Inc.",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1495",
+   "source": "texas registry",
+   "website": "http://www.transunion.com/"
+  },
+  "tx-20260068": {
+   "email": "privacy@transunion.com",
+   "name": "Datalink Services, Inc.",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1413",
+   "source": "texas registry",
+   "website": "www.imvrs.transunion.com"
+  },
+  "tx-20260069": {
+   "email": "lisa@therooftop.io",
+   "name": "Walla Media, LLC",
+   "rights_url": "consumerdataprotect.com",
+   "same_as": "or-data-00453",
+   "source": "texas registry",
+   "website": "wallamedia.com"
+  },
+  "tx-20260070": {
+   "email": "americantresurytaxsolutions@gmail.com",
+   "name": "American Treasury Tax Solutions Inc",
+   "rights_url": "https://www.americantreasurytaxsolutions.com/",
+   "source": "texas registry",
+   "website": "https://www.americantreasurytaxsolutions.com/"
+  },
+  "tx-20260071": {
+   "email": "dludwick@communityimpact.com",
+   "name": "JJGarrett Holdings LLC dba Community Impact Printing",
+   "rights_url": "https://ciprinting.com/privacy/",
+   "source": "texas registry",
+   "website": "ciprinting.com"
+  },
+  "tx-20260072": {
+   "email": "mkeilson@wtlaw.com",
+   "name": "Exact Opco LLC",
+   "rights_url": "https://exactcustomer.com/privacy-policy/",
+   "same_as": "ca-1238",
+   "source": "texas registry",
+   "website": "www.exactcustomer.com"
+  },
+  "tx-20260073": {
+   "email": "dan.smith@penlink.com",
+   "name": "Pen-Link, Ltd.",
+   "rights_url": "https://www.penlink.com/your-privacy-choices/",
+   "same_as": "ca-1454",
+   "source": "texas registry",
+   "website": "penlink.com"
+  },
+  "tx-20260074": {
+   "email": "jamal@wednes.day",
+   "name": "Wednesday LLC",
+   "rights_url": "https://wednes.day/privacy/texas",
+   "source": "texas registry",
+   "website": "https://wednes.day/"
+  },
+  "tx-20260075": {
+   "email": "privacy@opensend.com",
+   "name": "Opensend Inc",
+   "rights_url": "https://www.opensend.com/privacy-policy",
+   "same_as": "ca-1618",
+   "source": "texas registry",
+   "website": "opensend.com"
+  },
+  "tx-20260076": {
+   "email": "support@trelize.com",
+   "name": "Trelize, LLC",
+   "rights_url": "https://trelize.com/data-rights",
+   "source": "texas registry",
+   "website": "Trelize.com"
+  },
+  "tx-20260077": {
+   "email": "jfranks@lightboxre.com",
+   "name": "LightBox Parent, L.P.",
+   "rights_url": "https://www.lightboxre.com/lightbox-individual-data-rights-request/",
+   "same_as": "ca-1077",
+   "source": "texas registry",
+   "website": "lightboxre.com"
+  },
+  "tx-20260078": {
+   "email": "srusso@worldwideinformation.com",
+   "name": "Worldwide Information, LLC",
+   "rights_url": "https://worldwideinformation.com/privacy-rights/",
+   "source": "texas registry",
+   "website": "www.worldwideinformation.com"
+  },
+  "tx-20260079": {
+   "email": "privacy@transunion.com",
+   "name": "Neustar IP Intelligence, Inc.",
+   "rights_url": "https://www.transunion.com/consumer-privacy",
+   "same_as": "ca-1497",
+   "source": "texas registry",
+   "website": "http://www.transunion.com/"
+  },
+  "tx-20260080": {
+   "email": "dev@communityimpact.com",
+   "name": "JG Media, Inc.",
+   "rights_url": "https://communityimpact.com/consumer-rights",
+   "source": "texas registry",
+   "website": "https://communityimpact.com/"
+  },
+  "tx-20260081": {
+   "email": "support@propbotusa.com",
+   "name": "Propbot LLC",
+   "rights_url": "https://propbotusa.com/consumer-rights",
+   "source": "texas registry",
+   "website": "https://propbotusa.com/"
+  },
+  "tx-20260082": {
+   "email": "consumer@n-focus.com",
+   "name": "NFocus Consulting Inc",
+   "rights_url": "https://www.n-focus.com/do-not-sell-or-share-my-personal-information/",
+   "same_as": "ca-1274",
+   "source": "texas registry",
+   "website": "https://www.n-focus.com/"
+  },
+  "tx-20260083": {
+   "email": "privacy@factori.ai",
+   "name": "Factori Technologies Pte Ltd.",
+   "rights_url": "https://factori.ai/privacy-policy/",
+   "source": "texas registry",
+   "website": "https://factori.ai/"
+  },
+  "tx-20260084": {
+   "email": "privacy@usadata.com",
+   "name": "USADATA, Inc.",
+   "rights_url": "https://www.usadata.com/privacy-policy",
+   "same_as": "ca-1230",
+   "source": "texas registry",
+   "website": "www.usadata.com"
+  },
+  "tx-20260085": {
+   "email": "srusso@365datasolutions.com",
+   "name": "365DataSolutions, LLC",
+   "rights_url": "https://365datasolutions.com/privacy",
+   "source": "texas registry",
+   "website": "www.365datasolutions.com"
+  },
+  "tx-20260086": {
+   "email": "systems@gatewaydata.io",
+   "name": "Aluum LLC d/b/a Gateway Data",
+   "rights_url": "https://www.gatewaydata.io/privacy/privacy-policy",
+   "source": "texas registry",
+   "website": "gatewaydata.io"
+  },
+  "tx-20260087": {
+   "email": "dale@datamangroup.com",
+   "name": "Dataman Group, Inc",
+   "rights_url": "https://www.datamangroup.com/privacy/",
+   "same_as": "ca-1643",
+   "source": "texas registry",
+   "website": "www.datamangroup.com"
+  },
+  "tx-20260088": {
+   "email": "brooke@vintory.com",
+   "name": "Vintory, LLC",
+   "rights_url": "https://www.vintory.com/privacy-policy/",
+   "same_as": "or-data-00501",
+   "source": "texas registry",
+   "website": "www.vintory.com"
+  },
+  "tx-20260089": {
+   "email": "danb@mobilefuse.com",
+   "name": "MobileFuse LLC",
+   "rights_url": "https://mobilefuse.com/privacy-policy",
+   "same_as": "ca-1631",
+   "source": "texas registry",
+   "website": "https://mobilefuse.com"
+  },
+  "tx-20260090": {
+   "email": "privacy@warmly.ai",
+   "name": "Warmly, Inc.",
+   "rights_url": "https://www.warmly.ai/p/privacy-policy",
+   "same_as": "ca-1289",
+   "source": "texas registry",
+   "website": "warmly.ai"
+  },
+  "tx-20260091": {
+   "email": "privacy@gatheranalytics.co",
+   "name": "Gather Analytics, LLC",
+   "rights_url": "https://www.gatheranalytics.co/privacy",
+   "same_as": "or-data-00450",
+   "source": "texas registry",
+   "website": "https://www.gatheranalytics.co/"
+  },
+  "tx-20260092": {
+   "email": "privacy@marriott.com",
+   "name": "Marriott International, Inc.",
+   "rights_url": "https://www.marriott.com/about/privacy.mi",
+   "same_as": "ca-1198",
+   "source": "texas registry",
+   "website": "https://www.marriott.com/default.mi"
+  },
+  "tx-20260093": {
+   "email": "shane@tripwiredata.com",
+   "name": "HGOnline, LLC",
+   "rights_url": "https://www.tripwiredata.com/texas-data-broker-notice",
+   "source": "texas registry",
+   "website": "tripwiredata.com"
+  },
+  "tx-20260094": {
+   "email": "privacy-team@leadfeeder.com",
+   "name": "Dealfront Group GmbH",
+   "rights_url": "https://www.leadfeeder.com/privacy/us-privacy-disclosure/",
+   "same_as": "ca-1528",
+   "source": "texas registry",
+   "website": "https://www.leadfeeder.com/"
+  },
+  "tx-20260095": {
+   "email": "privacy-team@leadfeeder.com",
+   "name": "Dealfront Finland Oy",
+   "rights_url": "https://www.leadfeeder.com/privacy/us-privacy-disclosure/",
+   "same_as": "ca-1529",
+   "source": "texas registry",
+   "website": "https://www.leadfeeder.com/"
+  },
+  "tx-20260096": {
+   "email": "bhayes@zetaglobal.com",
+   "name": "Zeta Global Corp.",
+   "rights_url": "www.zetaglobal.com/privacy-choices/",
+   "same_as": "ca-1442",
+   "source": "texas registry",
+   "website": "www.zetaglobal.com"
+  },
+  "tx-20260097": {
+   "email": "compliance@scoutdata.com",
+   "name": "Scout Data Inc.",
+   "rights_url": "https://store.scoutdata.com/privacy-rights",
+   "source": "texas registry",
+   "website": "scoutdata.com"
+  },
+  "tx-20260098": {
+   "email": "privacy@alikeaudience.com",
+   "name": "AlikeAudience, INC.",
+   "rights_url": "https://www.alikeaudience.com/privacy-policy/",
+   "same_as": "ca-1434",
+   "source": "texas registry",
+   "website": "https://www.alikeaudience.com/"
+  },
+  "tx-20260099": {
+   "email": "monica@datashark.net",
+   "name": "Netunim, LLC dba DataShark",
+   "rights_url": "http://www.countshark.net/grid_privacy/",
+   "source": "texas registry",
+   "website": "www.countshark.net"
+  },
+  "tx-20260100": {
+   "email": "tax@veraset.com",
+   "name": "Veraset LLC",
+   "rights_url": "https://www.veraset.com/legal/do-not-sell-request",
+   "same_as": "ca-1557",
+   "source": "texas registry",
+   "website": "https://www.veraset.com/"
+  },
+  "tx-20260101": {
+   "email": "dpo@teads.com",
+   "name": "Teads Inc.",
+   "rights_url": "https://privacy-policy.teads.com/",
+   "same_as": "ca-1318",
+   "source": "texas registry",
+   "website": "https://privacy-policy.teads.com/"
+  },
+  "tx-20260102": {
+   "email": "ob-privacy@teads.com",
+   "name": "Teads Holding Co.",
+   "rights_url": "https://dsr.outbrain.com/recommendations-settings/home/en",
+   "same_as": "ca-1319",
+   "source": "texas registry",
+   "website": "https://www.outbrain.com/privacy/"
+  },
+  "tx-20260103": {
+   "email": "ben@vendelux.com",
+   "name": "Vendelux, Inc.",
+   "rights_url": "https://vendelux.com/privacy",
+   "same_as": "ca-1458",
+   "source": "texas registry",
+   "website": "vendelux.com"
+  },
+  "tx-20260104": {
+   "email": "michael@nyne.ai",
+   "name": "Nyne.ai Corp",
+   "rights_url": "https://nyne.ai/privacy-choices/",
+   "source": "texas registry",
+   "website": "nyne.ai"
+  },
+  "tx-20260105": {
+   "email": "pachandra@urbanscience.com",
+   "name": "Urban Science Applications, Inc.",
+   "rights_url": "https://www.urbanscience.com/privacy/",
+   "same_as": "ca-1629",
+   "source": "texas registry",
+   "website": "www.urbanscience.com"
+  },
+  "tx-20260106": {
+   "email": "david@beaconterritory.com",
+   "name": "Beacon Territory Group LLC",
+   "rights_url": "https://www.beaconterritory.com/texas-privacy-rights/",
+   "source": "texas registry",
+   "website": "https://www.beaconterritory.com/"
+  },
+  "tx-20260107": {
+   "email": "brandon@display-logix.com",
+   "name": "DisplayLogix LLC",
+   "rights_url": "https://app.termly.io/policy-viewer/policy.html?policyUUID=e1b589c9-c7f6-47c3-a7b4-e57e3c79f883",
+   "source": "texas registry",
+   "website": "www.display-logix.com"
+  },
+  "tx-20260108": {
+   "email": "daniel@multimedialists.com",
+   "name": "Multimedia Lists Inc",
+   "rights_url": "multimedialists.com",
+   "same_as": "ca-1081",
+   "source": "texas registry",
+   "website": "multimedialists.com"
+  },
+  "tx-20260109": {
+   "email": "info@deeprootanalytics.com",
+   "name": "Deep Root Analytics, LLC",
+   "rights_url": "https://privacy.deeprootanalytics.com/",
+   "same_as": "ca-1571",
+   "source": "texas registry",
+   "website": "deeprootanalytics.com"
+  },
+  "tx-20260110": {
+   "email": "info@tunnldata.com",
+   "name": "Tunnl, LLC",
+   "rights_url": "https://privacy.tunnldata.com/",
+   "same_as": "ca-1570",
+   "source": "texas registry",
+   "website": "https://www.tunnldata.com/"
+  },
+  "tx-20260111": {
+   "email": "john.dettra@facteus.com",
+   "name": "Facteus, Inc.",
+   "rights_url": "www.facteus.com",
+   "same_as": "or-data-00457",
+   "source": "texas registry",
+   "website": "www.facteus.com"
+  },
+  "tx-20260112": {
+   "email": "privacy@mobilityglobal.com",
+   "name": "R.L Polk & Company",
+   "rights_url": "https://www.mobilityglobal.com/en-us/your-privacy-choices",
+   "same_as": "ca-1660",
+   "source": "texas registry",
+   "website": "www.mobiityglobal.com"
+  },
+  "tx-20260113": {
+   "email": "stephen@agrmarketingsolutions.com",
+   "name": "AGR Marketing Solutions LLC",
+   "rights_url": "https://agrmarketingsolutions.com/privacy-policy",
+   "same_as": "ca-1515",
+   "source": "texas registry",
+   "website": "www.agrmarketingsolutions.com"
+  },
+  "tx-20260114": {
+   "email": "josh.frost@minerva.io",
+   "name": "Minerva BI Inc",
+   "rights_url": "preferences.minerva.io",
+   "same_as": "ca-1219",
+   "source": "texas registry",
+   "website": "www.mineva.io"
+  },
+  "tx-20260115": {
+   "email": "privacy@unifygtm.com",
+   "name": "Unify AI Business Corporation",
+   "rights_url": "privacy.unifygtm.com",
+   "same_as": "or-data-00458",
+   "source": "texas registry",
+   "website": "unifygtm.com"
+  },
+  "tx-20260116": {
+   "email": "support@zeetogroup.com",
+   "name": "ZeetoGroup, LLC",
+   "rights_url": "https://www.zeeto.io/consumer-privacy-policy",
+   "same_as": "or-data-00459",
+   "source": "texas registry",
+   "website": "zeeto.io"
+  },
+  "tx-20260117": {
+   "email": "privacy@winrdata.com",
+   "name": "WINR Data Pty Ltd",
+   "rights_url": "https://www.winrdata.com/privacy-policy-us/",
+   "same_as": "ca-1173",
+   "source": "texas registry",
+   "website": "https://www.winrdata.com/"
+  },
+  "tx-20260118": {
+   "email": "privacy@winrdata.com",
+   "name": "WINR Alchemist Pty Ltd",
+   "rights_url": "https://www.winrdata.com/privacy-policy-us/",
+   "same_as": "or-data-00467",
+   "source": "texas registry",
+   "website": "https://www.winrdata.com/"
+  },
+  "tx-20260119": {
+   "email": "bizdev@astoriacompany.com",
+   "name": "Astoria Company Marketing LLC",
+   "rights_url": "https://astoriacompany.com/privacy-policy/",
+   "source": "texas registry",
+   "website": "https://AstoriaCompany.com"
+  },
+  "tx-20260120": {
+   "email": "privacy@dealerx.com",
+   "name": "DealerX Partners LLC",
+   "rights_url": "https://dealerx.com/privacy-options/",
+   "same_as": "ca-1272",
+   "source": "texas registry",
+   "website": "https://www.dealerx.com"
+  },
+  "tx-20260121": {
+   "email": "legal@pebblepost.com",
+   "name": "PebblePost, Inc.",
+   "rights_url": "https://privacyportal-cdn.onetrust.com/dsarwebform/f3224586-fa40-4b58-822e-e86fec4761ed/39d1f47c-b268-42dc-8009-25d1fd37d305.html",
+   "same_as": "or-data-00461",
+   "source": "texas registry",
+   "website": "pebblepost.com"
+  },
+  "tx-20260122": {
+   "email": "team@subgraph.tech",
+   "name": "Subgraph, Inc.",
+   "rights_url": "https://subgraph.tech/privacy-choices",
+   "same_as": "ca-1205",
+   "source": "texas registry",
+   "website": "https://subgraph.tech"
+  },
+  "tx-20260123": {
+   "email": "jeremy@blueprintaudiences.com",
+   "name": "Blueprint Audiences LLC",
+   "rights_url": "https://blueprintaudiences.com/privacy-choices",
+   "same_as": "ca-1217",
+   "source": "texas registry",
+   "website": "https://blueprintaudiences.com/"
+  },
+  "tx-20260124": {
+   "email": "jonathon@growthcode.io",
+   "name": "GROWTHCODE LLC",
+   "rights_url": "https://www.growthcode.io/do-not-sell",
+   "same_as": "ca-1633",
+   "source": "texas registry",
+   "website": "https://growthcode.io"
+  },
+  "tx-20260125": {
+   "email": "jadams@specialistsdata.com",
+   "name": "Innovative Data Services, Inc.",
+   "rights_url": "https://specialistsmarketingsolutions.com/privacy-notice/",
+   "same_as": "or-data-00480",
+   "source": "texas registry",
+   "website": "www.specialistsmarketingsolutions.com"
+  },
+  "tx-20260126": {
+   "email": "legal@deimos-signals.com",
+   "name": "Deimos Signals Pte. Ltd.",
+   "rights_url": "https://www.deimos-signals.com/privacy-center",
+   "source": "texas registry",
+   "website": "https://www.deimos-signals.com/"
+  },
+  "tx-20260127": {
+   "email": "privacy@theorg.com",
+   "name": "Orgio, Inc.",
+   "rights_url": "https://theorg.com/privacy",
+   "same_as": "ca-1579",
+   "source": "texas registry",
+   "website": "https://theorg.com/"
+  },
+  "tx-20260128": {
+   "email": "data@salesintel.io",
+   "name": "SalesIntel Research, Inc",
+   "rights_url": "https://salesintel.io/opt-out/",
+   "same_as": "ca-1012",
+   "source": "texas registry",
+   "website": "salesintel.io"
+  },
+  "tx-20260129": {
+   "email": "privacy@windfall.com",
+   "name": "Windfall Data, Inc.",
+   "rights_url": "https://my.datasubject.com/AkrxLuYOww/60579",
+   "same_as": "ca-1227",
+   "source": "texas registry",
+   "website": "windfall.com"
+  },
+  "tx-20260130": {
+   "email": "jesse@eleris.com",
+   "name": "New Mexico Data Insights Inc",
+   "rights_url": "https://www.newmexicodatainsights.com/privacy-policy",
+   "same_as": "ca-1625",
+   "source": "texas registry",
+   "website": "newmexicodatainsights.com"
+  },
+  "tx-20260131": {
+   "email": "rahul@occulytics.com",
+   "name": "Occulytics Inc.",
+   "rights_url": "https://www.occulytics.com/dnspd",
+   "source": "texas registry",
+   "website": "www.occulytics.com"
+  },
+  "tx-20260132": {
+   "email": "ezra@quorum.inc",
+   "name": "Quorum Data, Inc.",
+   "rights_url": "https://app.quorum.live/privacy",
+   "same_as": "ca-1752",
+   "source": "texas registry",
+   "website": "www.quorum.inc"
+  },
+  "tx-20260133": {
+   "email": "consumer-privacy-ops@coxautoinc.com",
+   "name": "Cox Automotive, Inc.",
+   "rights_url": "https://www.coxautoinc.com/consumerprivacyrights/",
+   "same_as": "ca-1753",
+   "source": "texas registry",
+   "website": "www.coxautoinc.com/; www.kbb.com/; www.autotrader.com/; www.fordblueadvantage.com/"
+  },
+  "tx-20260134": {
+   "email": "david@dealmachine.com",
+   "name": "DealMachine Operations Inc.",
+   "rights_url": "https://privacyrequest.dealmachine.com/remove",
+   "same_as": "ca-1746",
+   "source": "texas registry",
+   "website": "dealmachine.com"
+  },
+  "tx-20260135": {
+   "email": "privacy@fi-navigator.com",
+   "name": "FI Navigator Corporation",
+   "rights_url": "https://www.fi-navigator.com/privacy-policy/",
+   "same_as": "ca-1572",
+   "source": "texas registry",
+   "website": "fi-navigator.com"
+  },
+  "tx-20260136": {
+   "email": "dpo@dice.com",
+   "name": "Dice Career Solutions, Inc.",
+   "rights_url": "https://www.dice.com/about/ccpa",
+   "same_as": "ca-1212",
+   "source": "texas registry",
+   "website": "www.dice.com"
+  },
+  "tx-20260137": {
+   "email": "txcompliance@checkpeople.com",
+   "name": "Checkpeople LLC",
+   "rights_url": "https://checkpeople.com/company/privacy-policy",
+   "same_as": "ca-1532",
+   "source": "texas registry",
+   "website": "checkpeople.com"
+  },
+  "tx-20260138": {
+   "email": "txcompliance@information.com",
+   "name": "Information.com LLC",
+   "rights_url": "https://checkpeople.slack.com/archives/D091EEUN10U/p1784133154145349",
+   "same_as": "ca-1533",
+   "source": "texas registry",
+   "website": "Information.com"
+  },
+  "tx-20260139": {
+   "email": "txcompliance@unmask.com",
+   "name": "Unmask LLC",
+   "rights_url": "https://unmask.com/privacy-policy/",
+   "same_as": "ca-1534",
+   "source": "texas registry",
+   "website": "https://unmask.com/"
+  },
+  "tx-20260140": {
+   "email": "privacy@firmable.com",
+   "name": "Firmable Inc.",
+   "rights_url": "https://firmable.ai/privacy-policy",
+   "same_as": "or-data-00477",
+   "source": "texas registry",
+   "website": "https://firmable.com"
+  },
+  "tx-20260141": {
+   "email": "cmarcos@cadent.tv",
+   "name": "Cadent, LLC",
+   "rights_url": "https://www.cadent.com/your-privacy-choices",
+   "same_as": "ca-1457",
+   "source": "texas registry",
+   "website": "www.cadent.com"
+  },
+  "tx-20260142": {
+   "email": "sara@lpbrokering.com",
+   "name": "LP Brokering LLC",
+   "rights_url": "https://privacy.lpbrokering.com/",
+   "same_as": "or-data-00473",
+   "source": "texas registry",
+   "website": "www.LPBrokering.com"
+  },
+  "tx-20260143": {
+   "email": "licensing.erm@corelogic.com",
+   "name": "CoreLogic Solutions, LLC",
+   "rights_url": "https://www.cotality.com/legal/privacy-policy",
+   "source": "texas registry",
+   "website": "https://www.cotality.com"
+  },
+  "tx-20260144": {
+   "email": "consumerrequest@melissa.com",
+   "name": "Melissa Data Corporation",
+   "rights_url": "https://www.melissa.com/state-law-privacy-notice",
+   "same_as": "ca-1035",
+   "source": "texas registry",
+   "website": "https://www.melissa.com/"
+  },
+  "tx-20260145": {
+   "email": "privacy@leveragedigital.ai",
+   "name": "Leverage Digital LLC",
+   "rights_url": "https://leveragedigital.ai/privacy-policy/",
+   "same_as": "or-data-00478",
+   "source": "texas registry",
+   "website": "https://leveragedigital.ai"
+  },
+  "tx-20260146": {
+   "email": "legal@swipejobs.com",
+   "name": "Swipejobs LLC",
+   "rights_url": "https://www.swipejobs.com/privacy-center",
+   "same_as": "or-data-00481",
+   "source": "texas registry",
+   "website": "swipejobs.com"
+  },
+  "tx-20260147": {
+   "email": "legal@fullenrich.com",
+   "name": "FullEnrich Corp",
+   "rights_url": "https://fullenrich.com/optout",
+   "same_as": "or-data-00482",
+   "source": "texas registry",
+   "website": "https://fullenrich.com/"
+  },
+  "tx-20260148": {
+   "email": "privacy@inboundinsight.com",
+   "name": "Inbound Insight, LLC",
+   "rights_url": "https://inboundinsight.com/texas-privacy-policy",
+   "same_as": "ca-1471",
+   "source": "texas registry",
+   "website": "https://inboundinsight.com/"
+  },
+  "tx-20260149": {
+   "email": "rafal@adprime.com",
+   "name": "Adprime Media LLC",
+   "rights_url": "https://www.adprime.com/privacy-policy",
+   "same_as": "ca-1509",
+   "source": "texas registry",
+   "website": "https://adprime.com"
+  },
+  "tx-20260150": {
+   "email": "privacy@datarate.ai",
+   "name": "DATARATE LLC",
+   "rights_url": "https://datarate.ai/my-privacy-choicesDE",
+   "same_as": "or-data-00486",
+   "source": "texas registry",
+   "website": "https://datarate.ai"
+  },
+  "tx-20260151": {
+   "email": "compliance@graph8.com",
+   "name": "Graph8 Inc.",
+   "rights_url": "https://graph8.com/terms/#privacy-policy",
+   "same_as": "or-data-00484",
+   "source": "texas registry",
+   "website": "www.graph8.com"
+  },
+  "tx-20260152": {
+   "email": "sojernlegal@sojern.com",
+   "name": "Sojern Inc.",
+   "rights_url": "https://www.sojern.com/privacy/u-s-state-privacy-notice#security",
+   "same_as": "ca-1738",
+   "source": "texas registry",
+   "website": "https://www.sojern.com/"
+  },
+  "tx-20260153": {
+   "email": "info@relpro.com",
+   "name": "RelPro, Inc.",
+   "rights_url": "https://relpro.com/privacy-policy",
+   "same_as": "ca-1466",
+   "source": "texas registry",
+   "website": "https://relpro.com"
+  },
+  "tx-20260154": {
+   "email": "zeiladmin@zeil.com",
+   "name": "ZEIL Limited",
+   "rights_url": "https://zeil.com/privacy",
+   "source": "texas registry",
+   "website": "www.zeil.com"
+  },
+  "tx-20260155": {
+   "email": "beshear@apollointeractive.com",
+   "name": "Solar Connect LLC",
+   "rights_url": "www.bluefireleads.com",
+   "same_as": "ca-1763",
+   "source": "texas registry",
+   "website": "www.bluefireleads.com"
+  },
+  "tx-20260156": {
+   "email": "texascompliance@learnmore.com",
+   "name": "Learnmore, LLC DBA Learnmore.com",
+   "rights_url": "https://learnmore.com/privacy-policy/",
+   "same_as": "ca-1537",
+   "source": "texas registry",
+   "website": "learnmore.com"
+  },
+  "tx-20260157": {
+   "email": "julie@datatowin.com",
+   "name": "Data to Win LLC",
+   "rights_url": "https://www.datatowin.com/privacy-requests",
+   "same_as": "or-data-00487",
+   "source": "texas registry",
+   "website": "datatowin.com"
+  },
+  "tx-20260158": {
+   "email": "lisha@affinityanswers.com",
+   "name": "Affinity Answers Corporation",
+   "rights_url": "https://www.affinityanswers.com/privacy-policy/",
+   "same_as": "ca-1290",
+   "source": "texas registry",
+   "website": "www.affinityanswers.com"
+  },
+  "tx-20260159": {
+   "email": "compliance@grassrootsanalytics.com",
+   "name": "Grassroots Analytics, Inc.",
+   "rights_url": "https://www.grassrootsanalytics.com/website-privacypolicy",
+   "same_as": "ca-1517",
+   "source": "texas registry",
+   "website": "https://www.grassrootsanalytics.com/"
+  },
+  "tx-20260160": {
+   "email": "tom@victorywaves.com",
+   "name": "Victory Waves Co.",
+   "rights_url": "https://www.victorywaves.com/legal/privacy-choices",
+   "same_as": "or-data-00494",
+   "source": "texas registry",
+   "website": "https://www.victorywaves.com"
+  },
+  "tx-20260161": {
+   "email": "marc@logictree.com",
+   "name": "LogicTree, Inc.",
+   "rights_url": "https://www.data247.com/privacy",
+   "same_as": "ca-1874",
+   "source": "texas registry",
+   "website": "https://www.data247.com"
+  },
+  "tx-20260162": {
+   "email": "privacy@roq.ad",
+   "name": "Roq.ad Inc.",
+   "rights_url": "https://roq.ad/opt-out",
+   "same_as": "ca-1362",
+   "source": "texas registry",
+   "website": "https://roq.ad/"
+  },
+  "tx-20260163": {
+   "email": "privacy@ziffdavis.com",
+   "name": "Ziff Davis LLC",
+   "rights_url": "https://www.ziffdavis.com/privacy-rights-request",
+   "same_as": "ca-1754",
+   "source": "texas registry",
+   "website": "https://www.ziffdavis.com/"
+  },
+  "tx-20260164": {
+   "email": "legal@you.com",
+   "name": "SuSea, Inc",
+   "rights_url": "https://you.com/privacy-requests",
+   "source": "texas registry",
+   "website": "you.com"
+  },
+  "tx-20260165": {
+   "email": "dataprotection@applovin.com",
+   "name": "AppLovin Corporation",
+   "rights_url": "https://legal.applovin.com/multistate-privacy-notice/",
+   "same_as": "ca-1703",
+   "source": "texas registry",
+   "website": "www.applovin.com"
+  },
+  "tx-20260166": {
+   "email": "support@businessregistry.com",
+   "name": "BUSINESSENTITYSEARCH.COM, LLC",
+   "rights_url": "https://businessregistry.com/privacy-policy/",
+   "same_as": "or-data-00489",
+   "source": "texas registry",
+   "website": "https://businessregistry.com"
+  },
+  "tx-20260167": {
+   "email": "andyb@postalytics.com",
+   "name": "Postalytics, Inc.",
+   "rights_url": "https://www.postalytics.com/legal/privacy-policy/",
+   "source": "texas registry",
+   "website": "www.postalytics.com"
+  },
+  "tx-20260168": {
+   "email": "alex@atxteaparty.com",
+   "name": "Greenstein Property Tax LLC",
+   "rights_url": "www.atxteaparty.com/privacy",
+   "source": "texas registry",
+   "website": "atxteaparty.com"
+  },
+  "tx-20260169": {
+   "email": "privacy@skydeo.com",
+   "name": "Skydeo Inc",
+   "rights_url": "https://skydeo.com/privacy-policy/",
+   "same_as": "ca-1619",
+   "source": "texas registry",
+   "website": "www.skydeo.com"
+  },
+  "tx-20260170": {
+   "email": "privacy@lemlist.com",
+   "name": "LEMPIRE (TALKUS)",
+   "rights_url": "lemlist.com",
+   "source": "texas registry",
+   "website": "lemlist.com"
+  },
+  "tx-20260171": {
+   "email": "dpo@sproutsocial.com",
+   "name": "Sprout Social, Inc.",
+   "rights_url": "https://sproutsocial.com/legal/privacy-policy/",
+   "same_as": "ca-1733",
+   "source": "texas registry",
+   "website": "sproutsocial.com"
+  },
+  "tx-20260172": {
+   "email": "minh@sovra.ai",
+   "name": "Sovra AI, Inc.",
+   "rights_url": "https://app.sovra.ai/privacy-policy",
+   "source": "texas registry",
+   "website": "https://sovrainsight.com/"
+  },
+  "tx-20260173": {
+   "email": "legal@kloudend.com",
+   "name": "Kloudend, Inc.",
+   "rights_url": "https://ipapi.co/privacy",
+   "same_as": "ca-1369",
+   "source": "texas registry",
+   "website": "ipapi.co"
+  },
+  "tx-20260174": {
+   "email": "compliance@commonroom.io",
+   "name": "Common Room, Inc.",
+   "rights_url": "https://app.commonroom.io/remove-my-info",
+   "same_as": "ca-1890",
+   "source": "texas registry",
+   "website": "https://www.commonroom.io/"
+  },
+  "tx-20260175": {
+   "email": "privacy@zoom.us",
+   "name": "Zoom Communications, Inc.",
+   "rights_url": "https://privacyportal.onetrust.com/webform/65962359-ef0d-4399-9db4-572d06de08aa/f277f9f7-bfee-4233-815e-80e290139bc2",
+   "same_as": "or-data-00493",
+   "source": "texas registry",
+   "website": "https://www.zoom.com"
+  },
+  "tx-20260176": {
+   "email": "legal@dmsgroup.com",
+   "name": "DMS Purchaser, LLC",
+   "rights_url": "dmsunsub.io",
+   "source": "texas registry",
+   "website": "digitalmediasolutions.com"
+  },
+  "tx-20260177": {
+   "email": "dan.pagliarello@forian.com",
+   "name": "Forian Holdings, LLC",
+   "rights_url": "https://forian.com/privacy-notice/",
+   "source": "texas registry",
+   "website": "forian.com"
+  },
+  "tx-20260178": {
+   "email": "hello@catchlight.ai",
+   "name": "Catchlight Insights LLC",
+   "rights_url": "https://catchlight.ai/privacy",
+   "source": "texas registry",
+   "website": "https://catchlight.ai"
+  },
+  "tx-20260179": {
+   "email": "robyn.tas@intentsify.io",
+   "name": "Intentsify, LLC",
+   "rights_url": "https://intentsify.io/privacy-policy/consumer-data-privacy-policy/",
+   "same_as": "ca-1474",
+   "source": "texas registry",
+   "website": "www.intentsify.io"
+  },
+  "tx-20260180": {
+   "email": "support@meadleybrothers.com",
+   "name": "My Lead Hawk, LLC",
+   "rights_url": "https://meadleybrothers.com/privacy#texas",
+   "source": "texas registry",
+   "website": "meadleybrothers.com"
+  },
+  "tx-20260181": {
+   "email": "privacy@atmospherik.ai",
+   "name": "ATMOSPHERIK INC.",
+   "rights_url": "atmospherik.ai/privacy-choices",
+   "source": "texas registry",
+   "website": "atmospherik.ai"
+  },
+  "tx-20260182": {
+   "email": "info@thedatatrust.com",
+   "name": "DT Client Services LLC",
+   "rights_url": "https://thedatatrust.com/privacy-policy/",
+   "same_as": "ca-1317",
+   "source": "texas registry",
+   "website": "thedatatrust.com"
+  },
+  "tx-20260183": {
+   "email": "jagdip.sekhon@samba.tv",
+   "name": "Semasio, Inc.",
+   "rights_url": "https://www.semasio.com/legal/privacy-choices",
+   "same_as": "ca-1118",
+   "source": "texas registry",
+   "website": "https://www.semasio.com/"
+  },
+  "tx-20260184": {
+   "email": "abcms21@aol.com",
+   "name": "BLUE DATA, LLC",
+   "rights_url": "https://bluedatalead.com/privacy-policy",
+   "source": "texas registry",
+   "website": "www.bluedatalead.com"
+  },
+  "tx-20260185": {
+   "email": "robyn.tas@intentsify.io",
+   "name": "5x5 US, LLC",
+   "rights_url": "https://5x5data.com/privacy-policy/",
+   "same_as": "ca-1475",
+   "source": "texas registry",
+   "website": "https://5x5data.com/"
+  },
+  "tx-20260186": {
+   "email": "compliance@tracerfy.com",
+   "name": "Tracerfy LLC",
+   "rights_url": "https://www.tracerfy.com/privacy-choices",
+   "same_as": "ca-1940",
+   "source": "texas registry",
+   "website": "https://www.tracerfy.com"
+  },
+  "tx-20260187": {
+   "email": "privacyteam@criteo.com",
+   "name": "Criteo Corp.",
+   "rights_url": "https://www.criteo.com/privacy/",
+   "same_as": "ca-1416",
+   "source": "texas registry",
+   "website": "https://www.criteo.com/"
+  },
+  "tx-20260188": {
+   "email": "charlesg@sg360.com",
+   "name": "The Segerdahl LLC d/b/a sg360°",
+   "rights_url": "https://submit-irm.trustarc.com/services/validation/7fd92316-e710-4faa-9a3f-12a2f33b0e13",
+   "same_as": "ca-1093",
+   "source": "texas registry",
+   "website": "www.sg360.com"
+  },
+  "tx-20260189": {
+   "email": "info@torusvotersystems.com",
+   "name": "Torus Voter Systems, Inc.",
+   "rights_url": "https://optout.torusvotersystems.com/",
+   "source": "texas registry",
+   "website": "torusvotersystems.com"
+  },
+  "tx-20260190": {
+   "email": "support@phantomdata.io",
+   "name": "PHANTOM DATA LLC",
+   "rights_url": "https://app.phantomdata.io/privacy",
+   "same_as": "or-data-00500",
+   "source": "texas registry",
+   "website": "https://app.phantomdata.io/"
+  },
+  "tx-20260191": {
+   "email": "beshear@apollointeractive.com",
+   "name": "Apollo Interactive, LLC",
+   "rights_url": "www.apollointeractive.com",
+   "same_as": "ca-1161",
+   "source": "texas registry",
+   "website": "www.apollointeractive.com"
+  },
+  "tx-20260192": {
+   "email": "privacy@alwaysondata.com",
+   "name": "Always On Data LLC",
+   "rights_url": "https://alwaysondata.com/privacypolicy",
+   "source": "texas registry",
+   "website": "www.alwaysondata.com"
+  },
+  "tx-20260193": {
+   "email": "dataanalytics@teamdms.com",
+   "name": "Direct Marketing Solutions, Inc.",
+   "rights_url": "https://teamdms.com/state-privacy-notice#texas",
+   "source": "texas registry",
+   "website": "www.teamdms.com"
+  },
+  "tx-20260194": {
+   "email": "lyt@dogfooddev.com",
+   "name": "Evolve Commercial Development Group, Inc",
+   "rights_url": "https://www.reqev.com/privacy-choices",
+   "source": "texas registry",
+   "website": "https://www.reqev.com/"
+  },
+  "tx-20260195": {
+   "email": "stefan.maris@rmtlabs.ai",
+   "name": "RMT Labs",
+   "rights_url": "https://rmtlabs.ai/privacy",
+   "source": "texas registry",
+   "website": "www.rmtlabs.ai"
   }
  },
- "credit": "Broker list: California Privacy Protection Agency data broker registry; Oregon Division of Financial Regulation data broker registry.",
+ "credit": "Broker list: California Privacy Protection Agency data broker registry; Oregon Division of Financial Regulation data broker registry; Texas Secretary of State data broker registry.",
  "sources": {
   "ca": {
    "brokers": 625,
+   "captured": "",
    "etag": "\"54f9e-65f143efcbf40\"",
    "last_modified": "Fri, 30 Oct 2026 20:00:21 GMT",
    "name": "California Privacy Protection Agency data broker registry",
@@ -7494,11 +11062,21 @@
   },
   "or": {
    "brokers": 397,
-   "etag": "\"516563976b7ddd1:0\"",
-   "last_modified": "Thu, 26 Nov 2026 06:01:34 GMT",
+   "captured": "2026-11-26",
+   "etag": "",
+   "last_modified": "",
    "name": "Oregon Division of Financial Regulation data broker registry",
    "page": "https://dfr.oregon.gov/business/licensing/data-broker-registry",
-   "url": "https://www4.cbs.state.or.us/ex/shared/downtemp/dfcs_db_optout.csv"
+   "url": ""
+  },
+  "tx": {
+   "brokers": 455,
+   "captured": "2026-11-19",
+   "etag": "",
+   "last_modified": "",
+   "name": "Texas Secretary of State data broker registry",
+   "page": "https://www.sos.state.tx.us/statdoc/data-brokers.shtml",
+   "url": ""
   }
  }
 }
