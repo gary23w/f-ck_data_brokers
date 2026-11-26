@@ -1,0 +1,160 @@
+# f*ck_data_brokers.py
+
+I remove people's data from data brokers. It is one of my main part-time jobs, and it has been a wild ride.
+
+All I want to do is help people. In the world of AI that has become next to impossible. From where I sit, data brokers have ramped up production almost 1000x since GPT-4 came out. Every scraper got smarter, every profile got fatter, and every "people search" site got a hundred cousins.
+
+Then it hit me: I do not have a trillion dollars. By my rough estimate that is what it would cost in compute to clean up everyone's data for them, properly and automatically. I cannot do it for everyone.
+
+I am fed up with what everyone is put through. So here is my response:
+
+**`f*ck_data_brokers.py`**
+
+One Python file. No dependencies. Free. It runs on your computer, keeps your details on your computer, and makes data brokers delete you.
+
+## Star this repository
+
+Every star is one more person these companies have to answer. The more stars, the sooner they learn their lesson.
+
+It costs you one click. It costs them a compliance department.
+
+## The platinum option: let Agent Garrett do it
+
+This tool is free and always will be. It is also work: 600 companies, their excuses, their forms, their silence, and then next month they collect you again.
+
+[Agent Garrett](https://agent.garrettstimpson.ca) is the service I built to do all of it for you. Set it and forget it(you can do it for free with this tool if you cannot afford the subscription!).
+
+**Persistence is guaranteed.** Agent Garrett does not get bored, does not get tired and does not take "use our form" for an answer. A broker can stall a person. It cannot outlast a machine that never stops asking, and that is how removal happens: not with one letter, but with the one that never stops coming.
+
+## Who these people are
+
+Data brokers are companies you have never heard of. They collect your name, your address, your phone number, your relatives and your habits, without asking. They sell all of it to anyone with a credit card. Then they write "we value your privacy" at the bottom of the page and expect you to keep a straight face.
+
+More than 600 of them signed a government registry admitting, in writing, that selling people is their business. That makes them very easy to find.
+
+## What this does to them
+
+1. Gets the list of registered data brokers. All 600 and more.
+2. Writes each one a real legal deletion and opt-out letter in your name, quoting the law where you live.
+3. Sends the letters from your own free mailbox, or hands them to you ready to send.
+4. Reads what they write back and tells you which excuse it is and what to answer.
+5. Chases the ones that go quiet and tells you where to file a complaint about the ones that refuse.
+
+The tool is rude about data brokers. The letters are not. They are firm, correct and legal, because the goal is to leave a broker with nothing to hide behind.
+
+## What you need
+
+- Python 3.8 or newer. Check with `python --version`. If you do not have it, get it free from [python.org](https://www.python.org/downloads/).
+- An email address. A free one is fine.
+
+That is all. No account, no subscription, no AI required.
+
+## Use it without AI
+
+Download `fuck_data_brokers.py`, open a terminal in that folder, and run:
+
+```
+python fuck_data_brokers.py
+```
+
+You get a menu. Go down the list:
+
+1. **Tell it who you are.** Name, email, city, and where you live. No street address, no birthday, no ID. Brokers get the minimum.
+2. **Get the list of data brokers.**
+3. **Write the deletion letters.** It writes 20 at a time.
+4. **Send them.** See below.
+5. Come back when a broker answers, and pick **A broker answered. What now?** Paste the reply. It tells you what they are up to and writes your answer.
+6. Now and then, pick **Chase the quiet ones**. They will be quiet. They are counting on you giving up.
+
+Every menu item is also a command, if you prefer: `python fuck_data_brokers.py --help`.
+
+## Sending the letters, for free
+
+You do not need to pay for an email service. Pick whichever is easier.
+
+**The send page (no setup at all).** After writing letters, the tool gives you a page called `send.html`. Open it in your browser. Each letter has a button that opens it in your email, already addressed and written. Press send. Next. If the button does not open your email, the page also has copy buttons for the address, the subject and the letter. When you are done, run `python fuck_data_brokers.py sent all` so the clock starts.
+
+**Let the tool send them.** Run `python fuck_data_brokers.py send`. It sends through your own mailbox and knows the settings for Gmail, Outlook, Yahoo and iCloud. It asks for an *app password*, which you create in your email account's security settings after turning on two-step sign-in. The password is used once and never saved.
+
+A separate free address just for this is a good idea. Their replies stay out of your real inbox.
+
+## When a broker says "use our form"
+
+Some will not act on an email. They want you on their web form, behind a CAPTCHA, because a company that scrapes the internet with bots would like to be sure you are not a bot.
+
+Run `python fuck_data_brokers.py forms`. You get a page with a link to each broker's own form and copy buttons for exactly what to paste. You fill it in, you do the CAPTCHA, you press submit. Then tell the tool: `python fuck_data_brokers.py sent req-1a2b3c4d`.
+
+If a form demands a photo of your ID, close the tab. They sell personal data. They are not getting more of it from you.
+
+## Use it with your AI
+
+The tool is also an MCP server, so an AI assistant that supports MCP can do the boring part for you. Add this to your AI app's MCP settings, with the real path to the file:
+
+```json
+{
+  "mcpServers": {
+    "fuck_data_brokers": {
+      "command": "python",
+      "args": ["/path/to/fuck_data_brokers.py", "mcp"]
+    }
+  }
+}
+```
+
+Then say: *"Use fuck_data_brokers to get me deleted from data brokers."*
+
+Your AI will ask who you are, fetch the broker list, write the letters, read the replies you give it, and write the answers. It is told to ask you before sending anything, never to invent your details, never to send an ID, and never to click a link from a broker.
+
+If your AI has a browser, it can fill in a broker's form while you watch. You still do the CAPTCHA and press submit yourself.
+
+They used AI to build a file on you. Use AI to make them delete it.
+
+## What the excuses mean
+
+| They say | It means | The tool does |
+|---|---|---|
+| "Your data has been deleted" | They say it is done | Closes the request |
+| "We found no records" | They hold nothing on you | Closes the request |
+| "We received your request" | A robot said hello | Keeps the clock running |
+| "Please send your ID" | A seller of personal data wants more personal data | Writes a refusal |
+| "Use our form" | They prefer a CAPTCHA to a letter | Puts it on your forms page |
+| "We need more details" | Same trick, different wording | Writes a refusal |
+| "We cannot process this" | They refused and hoped you would go away | Writes one answer, then a final notice |
+
+A broker that refuses twice gets a final notice with seven days to act. After that, the tool tells you which privacy regulator takes complaints for your law and how to file. Regulators read those.
+
+## What it will never do
+
+- Send your street address, your birthday or your ID.
+- Click a link in a broker's email.
+- Get past a CAPTCHA for you.
+- Write to a broker twice with the same request.
+- Tell you that you are deleted when all it knows is that a letter was sent.
+
+## Where your data lives
+
+In one file, `state.json`, in a folder called `.fuck_data_brokers` in your home directory. Letters waiting to be sent are in `outbox` beside it. Nothing is uploaded anywhere. Delete the folder and it is gone.
+
+## The broker list
+
+The list comes from the [California Privacy Protection Agency's data broker registry](https://cppa.ca.gov/data_broker_registry/), a public record. You do not have to live in California to write to these companies.
+
+The tool fetches the current registry each time you ask for the list. A copy, `brokers.json`, ships with the tool for when you are offline, and a scheduled job in this repository refreshes that copy every week.
+
+You can add any broker yourself:
+
+```
+python fuck_data_brokers.py add "Some Broker" privacy@somebroker.example
+```
+
+## Tests
+
+```
+python -m unittest
+```
+
+They use made-up people and brokers. Nothing is sent and nothing is downloaded.
+
+## License
+
+MIT. Take it, change it, share it. The broker list is a public record published by the State of California and is not covered by this license.

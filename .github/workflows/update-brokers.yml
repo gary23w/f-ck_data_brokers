@@ -1,0 +1,38 @@
+name: Update the broker list
+
+# Refreshes brokers.json from the public registry once a week, and commits it only when it changed.
+# The tool refuses to write a list that came back nearly empty, so a broken download never replaces a good list.
+
+on:
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Tests pass before anything changes
+        run: python -m unittest
+      - name: Fetch the registry
+        run: python fuck_data_brokers.py update-list brokers.json
+      - name: Tests pass with the new list
+        run: python -m unittest
+      - name: Commit if the list changed
+        run: |
+          if git diff --quiet -- brokers.json; then
+            echo "The list has not changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add brokers.json
+          git commit -m "Update the broker list from the public registry"
+          git push

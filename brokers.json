@@ -1,0 +1,4381 @@
+{
+ "brokers": {
+  "ca-1000": {
+   "email": "privacy@01advertising.com",
+   "name": "01Advertising Inc.",
+   "rights_url": "https://www.01advertising.com/legal/dsar/",
+   "source": "california registry",
+   "website": "https://www.01advertising.com"
+  },
+  "ca-1001": {
+   "email": "privcy@theswarm.com",
+   "name": "Swarm Holdings, Inc.",
+   "rights_url": "https://www.theswarm.com/privacy",
+   "source": "california registry",
+   "website": "www.theswarm.com"
+  },
+  "ca-1002": {
+   "email": "privacy@acronymix.com",
+   "name": "Acronymix LLC",
+   "rights_url": "Acronymix.com",
+   "source": "california registry",
+   "website": "acronymix.com"
+  },
+  "ca-1003": {
+   "email": "privacy@brooksim.com",
+   "name": "Brooks Integrated Marketing, LLC",
+   "rights_url": "https://www.brooksim.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.brooksim.com"
+  },
+  "ca-1004": {
+   "email": "privacy@aviato.co",
+   "name": "Bachmanity, Inc.",
+   "rights_url": "https://www.aviato.co/legal/privacy",
+   "source": "california registry",
+   "website": "aviato.co"
+  },
+  "ca-1005": {
+   "email": "privacy@aggknowledge.ai",
+   "name": "AggKnowledge Inc.",
+   "rights_url": "https://www.aggknowledge.ai/privacypolicy",
+   "source": "california registry",
+   "website": "aggknowledge.ai"
+  },
+  "ca-1006": {
+   "email": "privacy@gsdsi.com",
+   "name": "Global Source Data Solutions Inc",
+   "rights_url": "https://gsdsi.com/privacy",
+   "source": "california registry",
+   "website": "gsdsi.com"
+  },
+  "ca-1007": {
+   "email": "legal@eab.com",
+   "name": "EAB Global, Inc.",
+   "rights_url": "https://eab.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.eab.com"
+  },
+  "ca-1008": {
+   "email": "privacy@healthwisedata.com",
+   "name": "HealthWise Data",
+   "rights_url": "https://www.healthwisedata.com",
+   "source": "california registry",
+   "website": "https://www.healthwisedata.com"
+  },
+  "ca-1009": {
+   "email": "privacy.compliance@deepsync.com",
+   "name": "Compact Information Systems, LLC",
+   "rights_url": "https://privacy.deepsync.com;",
+   "source": "california registry",
+   "website": "https://deepsync.com"
+  },
+  "ca-1010": {
+   "email": "dprivacy@forddirect.com",
+   "name": "DealerDirect LLC",
+   "rights_url": "www.forddirectprivacy.com",
+   "source": "california registry",
+   "website": "www.forddirect.com"
+  },
+  "ca-1011": {
+   "email": "privacy@medprosystems.com",
+   "name": "MedPro Systems, LLC",
+   "rights_url": "https://www.medprosystems.com/privacy-policy/;",
+   "source": "california registry",
+   "website": "https://www.medprosystems.com"
+  },
+  "ca-1012": {
+   "email": "support@salesintel.io",
+   "name": "SalesIntel Research, Inc.",
+   "rights_url": "www.salesintel.io",
+   "source": "california registry",
+   "website": "www.salesintel.io"
+  },
+  "ca-1013": {
+   "email": "privacy@vistarmedia.com",
+   "name": "Vistar Media Inc.",
+   "rights_url": "https://www.vistarmedia.com",
+   "source": "california registry",
+   "website": "https://www.vistarmedia.com"
+  },
+  "ca-1014": {
+   "email": "privacy@trueblueanalytics.org",
+   "name": "True Blue Analytics LLC",
+   "rights_url": "https://trueblueanalytics.org/",
+   "source": "california registry",
+   "website": "trueblueanalytics.org"
+  },
+  "ca-1015": {
+   "email": "privacy@thebridgecorp.com",
+   "name": "OWMN, LTD.",
+   "rights_url": "https://www.thebridgecorp.com/our-approach-to-data-privacy/;",
+   "source": "california registry",
+   "website": "www.thebridgecorp.com"
+  },
+  "ca-1016": {
+   "email": "privacy@becausal.com",
+   "name": "BECAUSAL, INC.",
+   "rights_url": "https://www.becausal.com/personal-information",
+   "source": "california registry",
+   "website": "https://www.becausal.com"
+  },
+  "ca-1017": {
+   "email": "privacy@aidentified.com",
+   "name": "Aidentified, Inc.",
+   "rights_url": "https://www.aidentified.com/privacy--policy",
+   "source": "california registry",
+   "website": "https://www.aidentified.com"
+  },
+  "ca-1018": {
+   "email": "support@lookify.io",
+   "name": "Lookify.io",
+   "rights_url": "https://lookify.io/ccpa-privacy-statement;",
+   "source": "california registry",
+   "website": "https://lookify.io"
+  },
+  "ca-1020": {
+   "email": "compliance@infopay.com",
+   "name": "InfoPay, Inc",
+   "rights_url": "https://www.infopay.com/privacy;",
+   "source": "california registry",
+   "website": "infopay.com; infotracer.com; propertychecker.com; goodcar.com; statecourts.org; courtcasefinder.com; thepublicindex.org; entitycheck.com; sentinex.org; idstrong.com; courtrecords.us; staterecords.org; recordsfinder.com"
+  },
+  "ca-1021": {
+   "email": "privacy@monitorbase.com",
+   "name": "Ownco, LLC",
+   "rights_url": "https://my.monitorbase.com/privacypolicy",
+   "source": "california registry",
+   "website": "https://www.monitorbase.com"
+  },
+  "ca-1022": {
+   "email": "lbridson@keymarketingadvantage.com",
+   "name": "Key Marketing Advantage",
+   "rights_url": "https://keymarketingadvantage.com/do_not_use_my_personal_information;",
+   "source": "california registry",
+   "website": "www.keymarketingadvantage.com"
+  },
+  "ca-1023": {
+   "email": "privacy@messagedigital.com",
+   "name": "Message Digital LLC",
+   "rights_url": "https://messagedigital.com/my-data",
+   "source": "california registry",
+   "website": "https://messagedigital.com"
+  },
+  "ca-1024": {
+   "email": "privacyteam@data-axle.com",
+   "name": "Data Axle Inc.",
+   "rights_url": "https://www.data-axle.com",
+   "source": "california registry",
+   "website": "https://www.data-axle.com"
+  },
+  "ca-1025": {
+   "email": "privacy@exactdata.com",
+   "name": "Consumerbase, LLC",
+   "rights_url": "https://www.exactdata.com",
+   "source": "california registry",
+   "website": "https://www.exactdata.com"
+  },
+  "ca-1026": {
+   "email": "privacy@epsilon.com",
+   "name": "Epsilon Data Management, LLC",
+   "rights_url": "https://legal.epsilon.com/dsr/",
+   "source": "california registry",
+   "website": "www.epsilon.com"
+  },
+  "ca-1027": {
+   "email": "legal@buyerlink.com",
+   "name": "Buyerlink Inc.",
+   "rights_url": "www.buyerlink.co",
+   "source": "california registry",
+   "website": "www.buyerlink.co"
+  },
+  "ca-1028": {
+   "email": "privacy@peopledatalabs.com",
+   "name": "People Data Labs",
+   "rights_url": "https://privacy.peopledatalabs.com/policies?name=privacy-policy",
+   "source": "california registry",
+   "website": "peopledatalabs.com"
+  },
+  "ca-1029": {
+   "email": "doba_privacy@donorbase.com",
+   "name": "DonorBase, Inc.",
+   "rights_url": "https://donorbase.com;",
+   "source": "california registry",
+   "website": "www.donorbase.com"
+  },
+  "ca-1030": {
+   "email": "autolegal@autoweb.com",
+   "name": "AutoWeb, Inc.",
+   "rights_url": "www.autoweb.com",
+   "source": "california registry",
+   "website": "www.autoweb.com"
+  },
+  "ca-1031": {
+   "email": "valassisprivacy.request@rrd.com",
+   "name": "Valassis Communications, Inc.",
+   "rights_url": "https://www.rrd.com/privacy-policy/valassis",
+   "source": "california registry",
+   "website": "rrd.com"
+  },
+  "ca-1032": {
+   "email": "privacy@veeva.com",
+   "name": "Veeva Systems Inc.",
+   "rights_url": "veeva.com/privacy",
+   "source": "california registry",
+   "website": "veeva.com"
+  },
+  "ca-1033": {
+   "email": "privacy@unearthcampaigns.com",
+   "name": "Unearth Campaigns LLC",
+   "rights_url": "https://www.unearthcampaigns.com/privacy-policy/#ca",
+   "source": "california registry",
+   "website": "www.unearthcampaigns.com; www.atlasinfluence.com"
+  },
+  "ca-1034": {
+   "email": "privacy@demandbase.com",
+   "name": "Demandbase, Inc.",
+   "rights_url": "https://www.demandbase.com/privacy-center.html?ketch_preferences_tab=rightsTab",
+   "source": "california registry",
+   "website": "www.demandbase.com"
+  },
+  "ca-1035": {
+   "email": "compliance+ccpa@melissa.com",
+   "name": "Melissa Data Corporation",
+   "rights_url": "https://www.melissa.com/privacy;",
+   "source": "california registry",
+   "website": "www.melissa.com"
+  },
+  "ca-1036": {
+   "email": "support@censia.com",
+   "name": "Censia, Inc.",
+   "rights_url": "www.censia.com",
+   "source": "california registry",
+   "website": "www.censia.com"
+  },
+  "ca-1037": {
+   "email": "privacy@adsquare.com",
+   "name": "adsquare GmbH",
+   "rights_url": "https://adsquare.com/",
+   "source": "california registry",
+   "website": "www.adsquare.com"
+  },
+  "ca-1038": {
+   "email": "privacy@sovrn.com",
+   "name": "Sovrn, Inc.",
+   "rights_url": "https://www.sovrn.com/privacy-policy/policy-center/;",
+   "source": "california registry",
+   "website": "https://www.sovrn.com"
+  },
+  "ca-1039": {
+   "email": "kleclaire@modigie.com",
+   "name": "Modigie Inc",
+   "rights_url": "https://modigie.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.modigie.com"
+  },
+  "ca-1040": {
+   "email": "privacy@realintent.co",
+   "name": "REAL INTENT INC",
+   "rights_url": "https://www.realintent.co/privacy-policy;",
+   "source": "california registry",
+   "website": "https://realintent.co"
+  },
+  "ca-1041": {
+   "email": "privacy@precisely.com",
+   "name": "Precisely Software Incorporated",
+   "rights_url": "https://www.precisely.com/legal/california-notice-at-collection-and-privacy-notice",
+   "source": "california registry",
+   "website": "www.precisely.com; www.cloud.precisely.com; www.cloudnative.precisely.com; www.data.precisely.com; www.developer.precisely.com; www.geotax.com; www.mapinfomarketplace.precisely.com; www.portal.spectrum.precisely.com"
+  },
+  "ca-1042": {
+   "email": "support@nuwber.com",
+   "name": "Nuwber Inc",
+   "rights_url": "https://nuwber.com/policy",
+   "source": "california registry",
+   "website": "nuwber.com"
+  },
+  "ca-1043": {
+   "email": "contact@explorium.ai",
+   "name": "Explorium Inc.",
+   "rights_url": "https://www.explorium.ai/do-not-sell-my-personal-info/;",
+   "source": "california registry",
+   "website": "www.explorium.ai"
+  },
+  "ca-1044": {
+   "email": "jagdip.sekhon@samba.tv",
+   "name": "Samba TV, Inc.",
+   "rights_url": "https://www.samba.tv/users/privacy-policy?lang=en;",
+   "source": "california registry",
+   "website": "https://www.samba.tv"
+  },
+  "ca-1045": {
+   "email": "privacy@juicebox.work",
+   "name": "Juicebox App, Inc.",
+   "rights_url": "https://juicebox.ai/",
+   "source": "california registry",
+   "website": "https://juicebox.ai"
+  },
+  "ca-1046": {
+   "email": "privacy@azira.com",
+   "name": "Azira, LLC",
+   "rights_url": "https://azira.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.azira.com"
+  },
+  "ca-1047": {
+   "email": "guy.hamawi@lsmapps.com",
+   "name": "L.S Mobile Apps Holdings LTD",
+   "rights_url": "https://www.lsmapps.com/ccpa",
+   "source": "california registry",
+   "website": "www.lsmapps.com"
+  },
+  "ca-1048": {
+   "email": "dpo@cision.com",
+   "name": "Cision",
+   "rights_url": "https://portals.dporganizer.com/fa778b0e-817f-4c96-b13d-e2b614470033",
+   "source": "california registry",
+   "website": "https://www.cision.com"
+  },
+  "ca-1049": {
+   "email": "dpo@cision.com",
+   "name": "Crimson Hexagon",
+   "rights_url": "https://portals.dporganizer.com/fa778b0e-817f-4c96-b13d-e2b614470033",
+   "source": "california registry",
+   "website": "www.brandwatch.com"
+  },
+  "ca-1050": {
+   "email": "data@bookyourdata.com",
+   "name": "A Direct Marketing Inc",
+   "rights_url": "https://www.bookyourdata.com",
+   "source": "california registry",
+   "website": "https://www.bookyourdata.com"
+  },
+  "ca-1051": {
+   "email": "privacy@ventiveiq.com",
+   "name": "VentiveIQ LLC",
+   "rights_url": "https://ventiveiq.com",
+   "source": "california registry",
+   "website": "ventiveiq.com"
+  },
+  "ca-1052": {
+   "email": "legal@lusha.com",
+   "name": "Lusha Systems, Inc",
+   "rights_url": "https://www.lusha.com/legal/privacy-notice/",
+   "source": "california registry",
+   "website": "www.lusha.com"
+  },
+  "ca-1053": {
+   "email": "privacy@analyticsiq.com",
+   "name": "AnalyticsIQ Inc",
+   "rights_url": "https://analytics-iq.com/privacy-policy/",
+   "source": "california registry",
+   "website": "analytics-iq.com"
+  },
+  "ca-1054": {
+   "email": "privacy@triplelift.com",
+   "name": "TripleLift, Inc.",
+   "rights_url": "https://triplelift.com/user-rights-policy-and-opt-out/",
+   "source": "california registry",
+   "website": "triplelift.com"
+  },
+  "ca-1055": {
+   "email": "privacy@achcoop.com",
+   "name": "ACH, Address Clearing House",
+   "rights_url": "https://www.achcoop.com/",
+   "source": "california registry",
+   "website": "achcoop.com"
+  },
+  "ca-1056": {
+   "email": "service@m1-data.com",
+   "name": "M1 Data & Analytics, LLC",
+   "rights_url": "https://m1-data.com/unsubscribe/",
+   "source": "california registry",
+   "website": "m1-data.com"
+  },
+  "ca-1057": {
+   "email": "compliance@alliantdata.com",
+   "name": "Alliant Cooperative Data Solutions LLC",
+   "rights_url": "https://alliantinsight.com/alliant-privacy-policy/",
+   "source": "california registry",
+   "website": "alliantinsight.com"
+  },
+  "ca-1058": {
+   "email": "privacy@definitivehc.com",
+   "name": "Definitive Healthcare LLC",
+   "rights_url": "https://www.definitivehc.com/privacy-center",
+   "source": "california registry",
+   "website": "https://www.definitivehc.com"
+  },
+  "ca-1059": {
+   "email": "info@datapartners.com",
+   "name": "Data Partners, Inc.",
+   "rights_url": "https://datapartners.com/donotsellmyinformation/",
+   "source": "california registry",
+   "website": "www.datapartners.com"
+  },
+  "ca-1060": {
+   "email": "privacy@statara.com",
+   "name": "Statara Solutions LLC",
+   "rights_url": "https://statara.com/privacy/",
+   "source": "california registry",
+   "website": "https://statara.com"
+  },
+  "ca-1061": {
+   "email": "privacy@targetsmart.com",
+   "name": "TargetSmart Communications LLC",
+   "rights_url": "https://privacy.targetsmart.com/",
+   "source": "california registry",
+   "website": "https://targetsmart.com"
+  },
+  "ca-1062": {
+   "email": "privacy@focus-usa.com",
+   "name": "Focus USA, Inc.",
+   "rights_url": "https://www.focus-usa.com/your-privacy-choices/",
+   "source": "california registry",
+   "website": "focus-usa.com"
+  },
+  "ca-1063": {
+   "email": "policy@upcell.io",
+   "name": "upcell, LLC",
+   "rights_url": "https://www.upcell.io/data-claim",
+   "source": "california registry",
+   "website": "www.upcell.io"
+  },
+  "ca-1064": {
+   "email": "privacy@leadiq.com",
+   "name": "LeadIQ, Inc",
+   "rights_url": "https://leadiq.com/privacy-center",
+   "source": "california registry",
+   "website": "leadiq.com"
+  },
+  "ca-1065": {
+   "email": "privacy@6sense.com",
+   "name": "6sense Insights, Inc.",
+   "rights_url": "https://6sense.com/privacy-policy/;",
+   "source": "california registry",
+   "website": "https://6sense.com"
+  },
+  "ca-1066": {
+   "email": "privacy@magnite.com",
+   "name": "Magnite Inc",
+   "rights_url": "https://www.magnite.com/legal/user-choice-portal/;",
+   "source": "california registry",
+   "website": "www.magnite.com"
+  },
+  "ca-1067": {
+   "email": "privacyteam@catalina.com",
+   "name": "Catalina Marketing Corporation",
+   "rights_url": "www.catalina.com",
+   "source": "california registry",
+   "website": "www.catalina.com"
+  },
+  "ca-1068": {
+   "email": "privacy@simiocloud.com",
+   "name": "Simio Cloud, LLC",
+   "rights_url": "https://simiocloud.com/simiocloud-products-services-privacy-policy/",
+   "source": "california registry",
+   "website": "www.simiocloud.com"
+  },
+  "ca-1069": {
+   "email": "legal@collectivedata.io",
+   "name": "Collective Data Solutions, LLC",
+   "rights_url": "collectivedata.io",
+   "source": "california registry",
+   "website": "collectivedata.io"
+  },
+  "ca-1070": {
+   "email": "support@decisionlinks.com",
+   "name": "DecisionLinks LLC",
+   "rights_url": "https://www.decisionlinks.com/legal-pages/your-privacy-choices;",
+   "source": "california registry",
+   "website": "www.decisionlinks.com"
+  },
+  "ca-1071": {
+   "email": "privacy-requests@clearview.ai",
+   "name": "Clearview AI, Inc.",
+   "rights_url": "https://www.clearview.ai/privacy-and-requests",
+   "source": "california registry",
+   "website": "https://www.clearview.ai"
+  },
+  "ca-1072": {
+   "email": "privacy@seamlessleads.com",
+   "name": "Seamless Contacts, Inc.",
+   "rights_url": "https://preferences.seamless.ai/",
+   "source": "california registry",
+   "website": "https://www.seamless.ai"
+  },
+  "ca-1073": {
+   "email": "databroker@quad.com",
+   "name": "Quad Graphics, Inc.",
+   "rights_url": "https://www.quad.com/legal/privacy-policy",
+   "source": "california registry",
+   "website": "www.quad.com"
+  },
+  "ca-1074": {
+   "email": "privacy@hubspot.com",
+   "name": "HubSpot, Inc.",
+   "rights_url": "https://legal.hubspot.com/privacy-policy;",
+   "source": "california registry",
+   "website": "https://www.hubspot.com; https://clearbit.com"
+  },
+  "ca-1075": {
+   "email": "privacy@pacificeast.com",
+   "name": "Pacific East Research Inc",
+   "rights_url": "www.pacificeast.com",
+   "source": "california registry",
+   "website": "www.pacificeast.com"
+  },
+  "ca-1076": {
+   "email": "legal@hightouch.com",
+   "name": "Carry Technologies Inc.",
+   "rights_url": "preferences.hightouch.com;",
+   "source": "california registry",
+   "website": "hightouch.com"
+  },
+  "ca-1077": {
+   "email": "privacyinfo@lightboxre.com",
+   "name": "LightBox Parent, L.P.",
+   "rights_url": "https://www.lightboxre.com/privacy-policy/;",
+   "source": "california registry",
+   "website": "lightboxre.com"
+  },
+  "ca-1078": {
+   "email": "data-broker-ca@datonics.com",
+   "name": "Datonics LLC",
+   "rights_url": "https://datonics.com/",
+   "source": "california registry",
+   "website": "https://www.datonics.com"
+  },
+  "ca-1079": {
+   "email": "legal@crunchbase.com",
+   "name": "Crunchbase, Inc.",
+   "rights_url": "https://about.crunchbase.com/terms-of-service/privacy-policy",
+   "source": "california registry",
+   "website": "crunchbase.com"
+  },
+  "ca-1080": {
+   "email": "tgonzalez@maxmind.com",
+   "name": "MaxMind, Inc.",
+   "rights_url": "https://www.maxmind.com/en/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.maxmind.com"
+  },
+  "ca-1081": {
+   "email": "daniel@multimedialists.com",
+   "name": "MULTIMEDIA LISTS, INC.",
+   "rights_url": "www.multimedialists.com",
+   "source": "california registry",
+   "website": "www.multimedialists.com"
+  },
+  "ca-1082": {
+   "email": "privacy@enrichlayer.com",
+   "name": "Vertical Int, Inc.",
+   "rights_url": "https://enrichlayer.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.enrichlayer.com"
+  },
+  "ca-1083": {
+   "email": "albert@contactout.io",
+   "name": "ContactOut Limited",
+   "rights_url": "https://contactout.com/privacy_data_subjects",
+   "source": "california registry",
+   "website": "https://contactout.com"
+  },
+  "ca-1084": {
+   "email": "privacy@prospectbase.com",
+   "name": "ProspectBase UK Limited",
+   "rights_url": "https://www.prospectbase.com;",
+   "source": "california registry",
+   "website": "www.prospectbase.com"
+  },
+  "ca-1085": {
+   "email": "privacy@techtarget.com",
+   "name": "TechTarget, Inc",
+   "rights_url": "https://techtarget.zendesk.com/hc/en-us/requests/new?ticket_form_id=360004852434",
+   "source": "california registry",
+   "website": "www.informatechtarget.com; https://www.techtarget.com"
+  },
+  "ca-1086": {
+   "email": "privacy@anteriad.com",
+   "name": "Anteriad, LLC",
+   "rights_url": "https://anteriad.com/;",
+   "source": "california registry",
+   "website": "www.anteriad.com"
+  },
+  "ca-1087": {
+   "email": "privacy+california@iwave.com",
+   "name": "iWave Information Systems",
+   "rights_url": "https://kindsight.io/privacy-policy/#iwave;",
+   "source": "california registry",
+   "website": "https://www.kindsight.io"
+  },
+  "ca-1088": {
+   "email": "dpo@apollo.io",
+   "name": "Zenleads, Inc.",
+   "rights_url": "https://www.apollo.io/;",
+   "source": "california registry",
+   "website": "https://www.apollo.io"
+  },
+  "ca-1089": {
+   "email": "consumercare@liveramp.com",
+   "name": "LiveRamp Holdings, Inc.",
+   "rights_url": "www.liveramp.com",
+   "source": "california registry",
+   "website": "www.liveramp.com"
+  },
+  "ca-1090": {
+   "email": "legal@amplemarket.com",
+   "name": "Tagis Inc",
+   "rights_url": "https://portal.usepylon.com/amplemarket/forms/privacy-request-form;",
+   "source": "california registry",
+   "website": "amplemarket.com"
+  },
+  "ca-1091": {
+   "email": "privacy@yobi.ai",
+   "name": "Yobi Ventures, Inc.",
+   "rights_url": "https://www.yobi.ai/opt-out",
+   "source": "california registry",
+   "website": "www.yobi.ai"
+  },
+  "ca-1092": {
+   "email": "info@meettie.com",
+   "name": "Revenue Roll Inc.",
+   "rights_url": "meettie.com",
+   "source": "california registry",
+   "website": "meettie.com"
+  },
+  "ca-1093": {
+   "email": "charlesg@sg360.com",
+   "name": "The Segerdahl LLC",
+   "rights_url": "https://sg360.com/do-not-sell-my-info/",
+   "source": "california registry",
+   "website": "www.sg360.com"
+  },
+  "ca-1094": {
+   "email": "ca_drop_fsd@experian.com",
+   "name": "Experian Information Solutions, Inc",
+   "rights_url": "https://www.experian.com/privacy/us-consumer-data-privacy-policy;",
+   "source": "california registry",
+   "website": "https://www.experian.com"
+  },
+  "ca-1095": {
+   "email": "privacy@outlogic.io",
+   "name": "Outlogic, LLC",
+   "rights_url": "https://outlogic.io/opt-out-form/;",
+   "source": "california registry",
+   "website": "outlogic.io"
+  },
+  "ca-1096": {
+   "email": "dpelland@altairci.com",
+   "name": "Altair Data Resources, Inc",
+   "rights_url": "https://www.altairdata.com/consumer-info",
+   "source": "california registry",
+   "website": "https://www.altairdata.com"
+  },
+  "ca-1097": {
+   "email": "privacy@matchbookdata.com",
+   "name": "Matchbook Data, LLC",
+   "rights_url": "https://www.matchbookdata.com/privacy-policy/;",
+   "source": "california registry",
+   "website": "https://www.matchbookdata.com"
+  },
+  "ca-1098": {
+   "email": "privacy@healthlinkdimensions.com",
+   "name": "HealthLink Dimensions",
+   "rights_url": "https://healthlinkdimensions.com/consumerprivacyrights",
+   "source": "california registry",
+   "website": "healthlinkdimensions.com"
+  },
+  "ca-1099": {
+   "email": "privacy@omginc.xyz",
+   "name": "Online Media Group Inc.",
+   "rights_url": "www.omginc.xyz",
+   "source": "california registry",
+   "website": "www.omginc.xyz; www.mixrank.com"
+  },
+  "ca-1100": {
+   "email": "privacy@predactiv.com",
+   "name": "Predactiv",
+   "rights_url": "www.predactiv.cm;",
+   "source": "california registry",
+   "website": "www.predactiv.com"
+  },
+  "ca-1101": {
+   "email": "privacy@bdo-gci.com",
+   "name": "BDO GCI, LLC",
+   "rights_url": "www.bdo.com",
+   "source": "california registry",
+   "website": "https://www.bdo.com"
+  },
+  "ca-1102": {
+   "email": "legal@altrata.com",
+   "name": "Altrata, Inc.",
+   "rights_url": "https://altrata.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.altrata.com"
+  },
+  "ca-1103": {
+   "email": "accounting@onspotdata.com",
+   "name": "Mobile Technology Corporation",
+   "rights_url": "https://www.onspotdata.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.onspotdata.com"
+  },
+  "ca-1104": {
+   "email": "privacyteam@anchorcomputer.com",
+   "name": "Anchor Computer Inc.",
+   "rights_url": "https://www.anchorcomputer.com/privacy-policy/",
+   "source": "california registry",
+   "website": "https://www.anchorcomputer.com"
+  },
+  "ca-1105": {
+   "email": "info@stirista.com",
+   "name": "Stirista, LLC",
+   "rights_url": "https://www.stirista.com/privacy-policy/;",
+   "source": "california registry",
+   "website": "www.stirista.com; www.lbdigitaldata.com; www.mediasourcesolutions.com; ameribase.com; www.lighthouselist.com; www.andrewswharton.com; www.listconnection.net; www.magnetik.com"
+  },
+  "ca-1106": {
+   "email": "itops@illumin.com",
+   "name": "illumin Inc.",
+   "rights_url": "https://illumin.com/legalcenter/;",
+   "source": "california registry",
+   "website": "http://www.illumin.com"
+  },
+  "ca-1107": {
+   "email": "californiadrop@possiblenowmarketing.com",
+   "name": "PossibleNOW, Inc.",
+   "rights_url": "https://www.possiblenow.com/privacy-statement-california;",
+   "source": "california registry",
+   "website": "possiblenow.com"
+  },
+  "ca-1108": {
+   "email": "californiadrop@fourthwall.tv",
+   "name": "FourthWall Media, Inc.",
+   "rights_url": "https://www.fourthwall.tv/privacy-fourthwall;",
+   "source": "california registry",
+   "website": "www.fourthwall.tv"
+  },
+  "ca-1109": {
+   "email": "privacy@firstdirectmarketing.com",
+   "name": "First Direct, Inc.",
+   "rights_url": "https://compliance.firstdirectmarketing.com/",
+   "source": "california registry",
+   "website": "firstdirectmarketing.com; nationallistcounts.com"
+  },
+  "ca-1110": {
+   "email": "legal@optable.co",
+   "name": "Optable Technologies US Inc.",
+   "rights_url": "https://terms.optable.co/privacy/privacy-policies/products-and-services",
+   "source": "california registry",
+   "website": "www.optable.co"
+  },
+  "ca-1111": {
+   "email": "privacy@sheerid.com",
+   "name": "SheerID, Inc.",
+   "rights_url": "https://www.sheerid.com/global-privacy-policy/;",
+   "source": "california registry",
+   "website": "https://www.sheerid.com"
+  },
+  "ca-1112": {
+   "email": "privacy.enquiries@thomsonreuters.com",
+   "name": "West Publishing Corp",
+   "rights_url": "https://www.thomsonreuters.com/en/privacy-statement",
+   "source": "california registry",
+   "website": "https://www.thomsonreuters.com"
+  },
+  "ca-1113": {
+   "email": "legal@nextroll.com",
+   "name": "NextRoll, Inc.",
+   "rights_url": "www.nextroll.com/privacy",
+   "source": "california registry",
+   "website": "www.nextroll.com"
+  },
+  "ca-1114": {
+   "email": "privacy@health-union.com",
+   "name": "Health Union, LLC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/c402d2db-7536-4212-a23d-ed4a33c1b3b2/e3aec736-7c0a-4313-a3e7-132ff601397a;",
+   "source": "california registry",
+   "website": "health-union.com"
+  },
+  "ca-1115": {
+   "email": "privacy@neptuneops.com",
+   "name": "Neptune Ops LLC",
+   "rights_url": "https://neptuneaii.com/legal/privacy-policy",
+   "source": "california registry",
+   "website": "https://neptuneops.com"
+  },
+  "ca-1117": {
+   "email": "privacy@stackadapt.com",
+   "name": "StackAdapt Inc.",
+   "rights_url": "stackadapt.com",
+   "source": "california registry",
+   "website": "stackadapt.com"
+  },
+  "ca-1118": {
+   "email": "info@semasio.com",
+   "name": "Semasio GmbH",
+   "rights_url": "https://www.semasio.com/legal/semasio-privacy-policy",
+   "source": "california registry",
+   "website": "www.semasio.com"
+  },
+  "ca-1119": {
+   "email": "legalnotices@cardlytics.com",
+   "name": "Bridg, a division of Cardlytics, Inc.",
+   "rights_url": "https://www.bridg.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.bridg.com"
+  },
+  "ca-1120": {
+   "email": "support@retention.com",
+   "name": "GETEMAILS LLC",
+   "rights_url": "www.retention.com;",
+   "source": "california registry",
+   "website": "www.retention.com; www.rb2b.com"
+  },
+  "ca-1121": {
+   "email": "privacy@usdatacorporation.com",
+   "name": "US Data Corporation",
+   "rights_url": "https://www.usdatacorporation.com/do-not-sell-my-info/?utm_source=google_ads&utm_medium=ppc&utm_term=us&gclid=undefined;",
+   "source": "california registry",
+   "website": "www.usdatacorporation.com"
+  },
+  "ca-1122": {
+   "email": "privacy@madhive.com",
+   "name": "Madhive, Inc.",
+   "rights_url": "https://www.madhive.com/legal/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.madhive.com"
+  },
+  "ca-1123": {
+   "email": "info@endgame.io",
+   "name": "Endgame Labs, Inc.",
+   "rights_url": "https://docs.endgame.io/trust/privacy",
+   "source": "california registry",
+   "website": "endgame.io"
+  },
+  "ca-1124": {
+   "email": "privacy@fraiser.org",
+   "name": "Fraiser LLC",
+   "rights_url": "fraiser.org",
+   "source": "california registry",
+   "website": "fraiser.org"
+  },
+  "ca-1125": {
+   "email": "privacy@vrtcal.com",
+   "name": "VRTCAL Markets Inc.",
+   "rights_url": "https://www.vrtcal.com/docs/PrivacyPolicy-Advertising.pdf;",
+   "source": "california registry",
+   "website": "www.vrtcal.com"
+  },
+  "ca-1126": {
+   "email": "dpo@aristotle.com",
+   "name": "Aristotle International, Inc.",
+   "rights_url": "https://www.aristotle.com/privacy/addendum-for-california-residents/",
+   "source": "california registry",
+   "website": "www.aristotle.com"
+  },
+  "ca-1127": {
+   "email": "americas.dpo@dentsu.com",
+   "name": "Merkle Inc.",
+   "rights_url": "https://www.merkle.com/en/privacy-policy.html",
+   "source": "california registry",
+   "website": "Merkle.com"
+  },
+  "ca-1128": {
+   "email": "dataprivacy@zs.com",
+   "name": "ZS Associates, Inc.",
+   "rights_url": "www.zs.com",
+   "source": "california registry",
+   "website": "www.zs.com"
+  },
+  "ca-1129": {
+   "email": "privacyteam@foursquare.com",
+   "name": "Foursquare Labs, Inc.",
+   "rights_url": "https://foursquare.com",
+   "source": "california registry",
+   "website": "https://foursquare.com"
+  },
+  "ca-1130": {
+   "email": "dataprivacy@liftbasedata.com",
+   "name": "Blue Hill Marketing Solutions, Inc",
+   "rights_url": "https://www.liftbasedata.com/request-to-know/",
+   "source": "california registry",
+   "website": "www.liftbasedata.com; www.liftengine.com; www.launchpadltv.com"
+  },
+  "ca-1131": {
+   "email": "privacy@hireez.com",
+   "name": "HireTeamMate, Inc.",
+   "rights_url": "https://app.hireez.com/ownyourdata",
+   "source": "california registry",
+   "website": "https://www.hireez.com"
+  },
+  "ca-1132": {
+   "email": "mandeep@modfxlabs.com",
+   "name": "ModFx Labs Pvt Ltd",
+   "rights_url": "https://modfxlabs.com/privacy",
+   "source": "california registry",
+   "website": "www.modfxlabs.com"
+  },
+  "ca-1133": {
+   "email": "privacy@instantly.ai",
+   "name": "Foo Monk, LLC",
+   "rights_url": "https://app.instantly.ai/privacy/info;",
+   "source": "california registry",
+   "website": "instantly.ai"
+  },
+  "ca-1134": {
+   "email": "privacy@carneydirect.com",
+   "name": "Guidestar Direct, Corp.",
+   "rights_url": "https://www.carneydirect.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.carneydirect.com"
+  },
+  "ca-1135": {
+   "email": "legal@alescodata.com",
+   "name": "The Alesco Group LLC",
+   "rights_url": "www.alescodata.com",
+   "source": "california registry",
+   "website": "www.alescodata.com"
+  },
+  "ca-1136": {
+   "email": "privacy@forager.ai",
+   "name": "Forager.ai, LLC",
+   "rights_url": "https://app.forager.ai/privacy;",
+   "source": "california registry",
+   "website": "forager.ai"
+  },
+  "ca-1137": {
+   "email": "privacy@zoominfo.com",
+   "name": "ZoomInfo Technologies, LLC",
+   "rights_url": "https://www.zoominfo.com/trust-center/your-privacy",
+   "source": "california registry",
+   "website": "www.zoominfo.com"
+  },
+  "ca-1138": {
+   "email": "legal@groundtruth.com",
+   "name": "xAd, Inc.",
+   "rights_url": "https://www.groundtruth.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.groundtruth.com"
+  },
+  "ca-1139": {
+   "email": "legal@pitchbook.com",
+   "name": "PitchBook Data Inc",
+   "rights_url": "https://pitchbook.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.pitchbook.com"
+  },
+  "ca-1140": {
+   "email": "privacy@allantgroup.com",
+   "name": "Allant Group, LLC",
+   "rights_url": "https://allantgroup.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://allantgroup.com"
+  },
+  "ca-1141": {
+   "email": "safety@cameo.com",
+   "name": "Baron App, Inc.",
+   "rights_url": "https://legal.cameo.com/privacypolicy",
+   "source": "california registry",
+   "website": "candl.app; cameo.com"
+  },
+  "ca-1142": {
+   "email": "privacy@consumercanvas.net",
+   "name": "Consumer Canvas, LLC",
+   "rights_url": "https://www.consumercanvas.net/privacy/",
+   "source": "california registry",
+   "website": "www.consumercanvas.net"
+  },
+  "ca-1143": {
+   "email": "usprivacyquestions@deloitte.com",
+   "name": "Deloitte Consulting LLP",
+   "rights_url": "https://datasubject.deloitte.com/",
+   "source": "california registry",
+   "website": "www.deloitte.com; https://healthprism.ai; https://peopleprism.ai; https://giveprism.ai"
+  },
+  "ca-1144": {
+   "email": "usprivacyquestions@deloitte.com",
+   "name": "Deloitte Financial Advisory Services LLP",
+   "rights_url": "https://datasubject.deloitte.com",
+   "source": "california registry",
+   "website": "www.deloitte.com"
+  },
+  "ca-1145": {
+   "email": "privacy@redmob.io",
+   "name": "Redmob LLC",
+   "rights_url": "https://redmob.io/",
+   "source": "california registry",
+   "website": "www.redmob.io"
+  },
+  "ca-1147": {
+   "email": "privacy@intentiq.com",
+   "name": "Intent IQ LLC",
+   "rights_url": "https://www.intentiq.com/opt-out/;",
+   "source": "california registry",
+   "website": "www.intentiq.com"
+  },
+  "ca-1148": {
+   "email": "privacy@raycdp.com",
+   "name": "Ray CDP, Inc.",
+   "rights_url": "www.rayinsights.com",
+   "source": "california registry",
+   "website": "www.rayinsights.com; www.raycdp.com"
+  },
+  "ca-1149": {
+   "email": "privacy@blackbaud.com",
+   "name": "Blackbaud, Inc",
+   "rights_url": "https://www.blackbaud.com/;",
+   "source": "california registry",
+   "website": "https://www.blackbaud.com"
+  },
+  "ca-1150": {
+   "email": "dataprivacy@siteimpact.com",
+   "name": "Site Impact LLC",
+   "rights_url": "https://www.siteimpact.com/privacypolicy.php",
+   "source": "california registry",
+   "website": "www.siteimpact.com"
+  },
+  "ca-1151": {
+   "email": "accounting@speedeondata.com",
+   "name": "Speedeon Data LLC",
+   "rights_url": "www.speedeondata.com",
+   "source": "california registry",
+   "website": "https://speedeondata.com"
+  },
+  "ca-1152": {
+   "email": "privacy@spycloud.com",
+   "name": "SpyCloud Inc.",
+   "rights_url": "https://spycloud.com/legal/privacy-policy/;",
+   "source": "california registry",
+   "website": "www.spycloud.com"
+  },
+  "ca-1153": {
+   "email": "amanda@leadpost.com",
+   "name": "LeadPost LLC",
+   "rights_url": "https://leadpost.com/privacy-policy/",
+   "source": "california registry",
+   "website": "https://leadpost.com"
+  },
+  "ca-1154": {
+   "email": "privacy@infutor.com",
+   "name": "Lead Intelligence Inc.",
+   "rights_url": "https://infutor.com/privacy-center/",
+   "source": "california registry",
+   "website": "https://infutor.com"
+  },
+  "ca-1155": {
+   "email": "privacy@meltwater.com",
+   "name": "Meltwater News US, Inc.",
+   "rights_url": "meltwater.com/privacy",
+   "source": "california registry",
+   "website": "www.meltwater.com"
+  },
+  "ca-1156": {
+   "email": "privacy@pipl.com",
+   "name": "Pipl, Inc.",
+   "rights_url": "https://pipl.com",
+   "source": "california registry",
+   "website": "https://pipl.com"
+  },
+  "ca-1157": {
+   "email": "privacy@rorpartners.com",
+   "name": "ROR Partners, LLC",
+   "rights_url": "https://rorpartners.com/privacy-policy",
+   "source": "california registry",
+   "website": "rorpartners.com"
+  },
+  "ca-1158": {
+   "email": "privacy@usmarketinggrp.com",
+   "name": "BH Marketing Group LLC",
+   "rights_url": "https://usmarketinggrp.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://usmarketinggrp.com"
+  },
+  "ca-1159": {
+   "email": "anita@truthed.com",
+   "name": "Truthed, Inc",
+   "rights_url": "https://www.truthed.com/optout",
+   "source": "california registry",
+   "website": "https://www.truthed.com"
+  },
+  "ca-1160": {
+   "email": "privacy-team@sharelocalmedia.com",
+   "name": "Share Local Media, Inc.",
+   "rights_url": "https://www.sharelocalmedia.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.sharelocalmedia.com"
+  },
+  "ca-1161": {
+   "email": "requests@apollointeractive.com",
+   "name": "Apollo Interactive, LLC",
+   "rights_url": "https://www.apollointeractive.com/privacy-policy.php",
+   "source": "california registry",
+   "website": "apollointeractive.com; http://mortgageratespro.com; http://online-mortgage-loans.com; http://final-expense-quotes.com; http://greatlifeinsurancegroup.com; http://lifeinsurancepro.org; http://nationalhomequotes.com; http://bestautoinsurance.com; http://blueskycoverage.com; http://nationalautoquotes.c"
+  },
+  "ca-1162": {
+   "email": "privacy@33across.com",
+   "name": "33Across, Inc.",
+   "rights_url": "www.33across.com",
+   "source": "california registry",
+   "website": "www.33across.com"
+  },
+  "ca-1163": {
+   "email": "infosec@propensity.com",
+   "name": "Addapptation, Inc.",
+   "rights_url": "https://www.propensity.com/",
+   "source": "california registry",
+   "website": "https://www.propensity.com"
+  },
+  "ca-1164": {
+   "email": "ca-drop@resonate.com",
+   "name": "Resonate",
+   "rights_url": "https://www.resonate.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.resonate.com"
+  },
+  "ca-1165": {
+   "email": "privacy.inquiries@lexisnexis.com",
+   "name": "RELX Inc.",
+   "rights_url": "https://www.lexisnexis.com/global/privacy/en/privacy-center-us.page",
+   "source": "california registry",
+   "website": "www.lexisnexis.com"
+  },
+  "ca-1166": {
+   "email": "ca_drop_audigent@experian.com",
+   "name": "Predictive Pop, Inc.",
+   "rights_url": "https://audigent.com/privacy-center",
+   "source": "california registry",
+   "website": "https://www.audigent.com"
+  },
+  "ca-1167": {
+   "email": "privacy@datadecisionsgroup.com",
+   "name": "Data Decisions Group",
+   "rights_url": "https://datadecisionsgroup.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.datadecisionsgroup.com"
+  },
+  "ca-1168": {
+   "email": "placeiq.privacy@precisely.com",
+   "name": "PlaceIQ, Inc.",
+   "rights_url": "https://www.precisely.com/legal/placeiq-california-notice-at-collection-and-privacy-notice",
+   "source": "california registry",
+   "website": "www.precisely.com"
+  },
+  "ca-1169": {
+   "email": "support@livedatatechnologies.com",
+   "name": "Live Data Technologies, Inc.",
+   "rights_url": "https://www.livedatatechnologies.com/opt-out",
+   "source": "california registry",
+   "website": "livedatatechnologies.com"
+  },
+  "ca-1170": {
+   "email": "legal@whitepages.com",
+   "name": "Whitepages, Inc",
+   "rights_url": "https://www.whitepages.com/privacy;",
+   "source": "california registry",
+   "website": "https://www.whitepages.com"
+  },
+  "ca-1171": {
+   "email": "groupdpo@informa.com",
+   "name": "Informa Group Limited",
+   "rights_url": "https://privacy.informa.com/policies/en/",
+   "source": "california registry",
+   "website": "https://www.informa.com"
+  },
+  "ca-1172": {
+   "email": "legal@bombora.com",
+   "name": "Bombora, Inc.",
+   "rights_url": "https://www.bombora.com",
+   "source": "california registry",
+   "website": "www.Bombora.com"
+  },
+  "ca-1173": {
+   "email": "privacyoffice@winrdata.com",
+   "name": "WINR Data Pty Ltd",
+   "rights_url": "https://www.winrdata.com/privacy-policy-us/",
+   "source": "california registry",
+   "website": "https://www.winrdata.com"
+  },
+  "ca-1174": {
+   "email": "privacy@hivestack.com",
+   "name": "Hivestack Technologies Inc.",
+   "rights_url": "www.perion.com",
+   "source": "california registry",
+   "website": "www.perion.com"
+  },
+  "ca-1175": {
+   "email": "askprivacy@acxiom.com",
+   "name": "Acxiom LLC",
+   "rights_url": "www.acxiom.com/privacy",
+   "source": "california registry",
+   "website": "www.acxiom.com"
+  },
+  "ca-1176": {
+   "email": "compliance@ctam.com",
+   "name": "CTAM LeadShare Corp.",
+   "rights_url": "https://www.smartmove.us/company/privacy;",
+   "source": "california registry",
+   "website": "www.smartmove.us"
+  },
+  "ca-1177": {
+   "email": "legal@dtn.com",
+   "name": "DTN, LLC",
+   "rights_url": "www.dtn.com",
+   "source": "california registry",
+   "website": "www.dtn.com"
+  },
+  "ca-1178": {
+   "email": "privacy@rocketreach.co",
+   "name": "RocketReach LLC",
+   "rights_url": "https://rocketreach.co/privacy",
+   "source": "california registry",
+   "website": "https://rocketreach.co"
+  },
+  "ca-1179": {
+   "email": "privacy@digitalvikingmedia.com",
+   "name": "Digital Viking Media Inc",
+   "rights_url": "https://www.digitalvikingmedia.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.digitalvikingmedia.com"
+  },
+  "ca-1180": {
+   "email": "customercare@peoplefinders.com",
+   "name": "Peoplefinders, LLC",
+   "rights_url": "https://www.peoplefinders.com/about/privacy;",
+   "source": "california registry",
+   "website": "peoplefinders.com; findaneighborhood.com; studordud.com"
+  },
+  "ca-1181": {
+   "email": "privacy@i-360.com",
+   "name": "i360, LLC",
+   "rights_url": "https://www.i-360.com/ccpa",
+   "source": "california registry",
+   "website": "https://www.i-360.com"
+  },
+  "ca-1182": {
+   "email": "privacy@nationalopinioninstitute.com",
+   "name": "National Opinion Institute, LLC",
+   "rights_url": "https://nationalopinioninstitute.com/ca-privacy",
+   "source": "california registry",
+   "website": "https://nationalopinioninstitute.com"
+  },
+  "ca-1183": {
+   "email": "privacy@rushmorelabs.com",
+   "name": "Rushmore Labs, LLC",
+   "rights_url": "https://rushmorelabs.com/california-privacy-notice;",
+   "source": "california registry",
+   "website": "https://rushmorelabs.com; https://www.censaianalytics.com"
+  },
+  "ca-1184": {
+   "email": "dylan@ripple-fx.com",
+   "name": "Ripple Effect Strategies",
+   "rights_url": "https://www.ripple-roi.com/privacy-policy",
+   "source": "california registry",
+   "website": "ripple-fx.com; ripple-roi.com"
+  },
+  "ca-1185": {
+   "email": "privacy@realsourcedata.com",
+   "name": "RealSource, Inc",
+   "rights_url": "https://www.realsourcedata.com/privacy-policy;",
+   "source": "california registry",
+   "website": "www.realsourcedata.com"
+  },
+  "ca-1186": {
+   "email": "privacy@connatix.com",
+   "name": "Connatix Native Exchange Inc.",
+   "rights_url": "www.jwx.com;",
+   "source": "california registry",
+   "website": "www.jwx.com"
+  },
+  "ca-1187": {
+   "email": "privacy@rampedup.io",
+   "name": "RampedUp",
+   "rights_url": "https://basic.rampedup.io/app/donotsell",
+   "source": "california registry",
+   "website": "rampedup.io"
+  },
+  "ca-1188": {
+   "email": "legal@webbula.com",
+   "name": "Webbula, LLC",
+   "rights_url": "https://webbula.com/privacy-center/",
+   "source": "california registry",
+   "website": "www.webbula.com"
+  },
+  "ca-1189": {
+   "email": "privacy@salutarydata.com",
+   "name": "Salutary Data LLC.",
+   "rights_url": "https://salutarydata.com",
+   "source": "california registry",
+   "website": "https://salutarydata.com"
+  },
+  "ca-1190": {
+   "email": "roger.abbott@slashdotmedia.com",
+   "name": "Slashdot Media, LLC",
+   "rights_url": "https://slashdotmedia.com/privacy-statement/",
+   "source": "california registry",
+   "website": "www.slashdotmedia.com; www.sourceforge.net; www.slashdot.org; www.voipreview.org; www.linuxjournal.com; www.myrateplan.com; Wirefly.com"
+  },
+  "ca-1191": {
+   "email": "global@ocean.io",
+   "name": "Ocean Global Inc",
+   "rights_url": "https://www.ocean.io/privacy",
+   "source": "california registry",
+   "website": "ocean.io"
+  },
+  "ca-1192": {
+   "email": "legal@similarweb.com",
+   "name": "Similarweb Ltd.",
+   "rights_url": "https://similarweb.com/",
+   "source": "california registry",
+   "website": "www.similarweb.com"
+  },
+  "ca-1193": {
+   "email": "jhenson@thedatagroup.com",
+   "name": "The Data Group, LLC",
+   "rights_url": "https://thedatagroup.com/california-consumer-privacy-act/",
+   "source": "california registry",
+   "website": "thedatagroup.com"
+  },
+  "ca-1194": {
+   "email": "matt@hunter.io",
+   "name": "Hunter Web Services, Inc",
+   "rights_url": "https://hunter.io/dashboard",
+   "source": "california registry",
+   "website": "hunter.io"
+  },
+  "ca-1195": {
+   "email": "privacy@clickagy.com",
+   "name": "Clickagy LLC",
+   "rights_url": "https://www.clickagy.com/privacy-center/",
+   "source": "california registry",
+   "website": "Clickagy.com"
+  },
+  "ca-1196": {
+   "email": "privacy@boam.com",
+   "name": "Gigabite Inc",
+   "rights_url": "https://boam.ai/",
+   "source": "california registry",
+   "website": "https://boam.ai"
+  },
+  "ca-1197": {
+   "email": "dataprotectionmail@civisanalytics.com",
+   "name": "Civis Analytics, Inc.",
+   "rights_url": "https://www.civisanalytics.com/legal-pages/supplemental-privacy-notice",
+   "source": "california registry",
+   "website": "www.civisanalytics.com"
+  },
+  "ca-1198": {
+   "email": "privacy@marriott.com",
+   "name": "Marriott International, Inc.",
+   "rights_url": "https://www.marriott.com/about/privacy.mi",
+   "source": "california registry",
+   "website": "marriott.com"
+  },
+  "ca-1199": {
+   "email": "dpo@fideo.ai",
+   "name": "Fideo Intelligence, Inc.",
+   "rights_url": "https://app.fideo.ai/your-privacy-choices",
+   "source": "california registry",
+   "website": "www.fideo.ai"
+  },
+  "ca-1200": {
+   "email": "privacy@datanyze.com",
+   "name": "Datanyze LLC",
+   "rights_url": "https://www.datanyze.com/privacy-center",
+   "source": "california registry",
+   "website": "www.datanyze.com"
+  },
+  "ca-1201": {
+   "email": "usprivacy@equifax.com",
+   "name": "Austin Consolidated Holdings, Inc.",
+   "rights_url": "https://www.equifax.com/personal/my-privacy/",
+   "source": "california registry",
+   "website": "https://www.equifax.com"
+  },
+  "ca-1202": {
+   "email": "privacy@fourleafdata.com",
+   "name": "Fourleaf LLC",
+   "rights_url": "https://www.fourleafdata.com/",
+   "source": "california registry",
+   "website": "www.fourleafdata.com"
+  },
+  "ca-1204": {
+   "email": "privacy@cbinsights.com",
+   "name": "CB Information Services, Inc.",
+   "rights_url": "www.cbinsights.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.cbinsights.com"
+  },
+  "ca-1205": {
+   "email": "privacy@subgraph.tech",
+   "name": "Subgraph, Inc",
+   "rights_url": "https://subgraph.tech/privacy-rights",
+   "source": "california registry",
+   "website": "https://subgraph.tech"
+  },
+  "ca-1206": {
+   "email": "compliance@propertyreach.com",
+   "name": "Property Reach, L.P.",
+   "rights_url": "https://www.propertyreach.com/privacy;",
+   "source": "california registry",
+   "website": "propertyreach.com; leadsherpa.com"
+  },
+  "ca-1207": {
+   "email": "privacy@evorra.com",
+   "name": "Evorra Ltd",
+   "rights_url": "https://evorra.com/privacy-data-policies/product-privacy-policy/",
+   "source": "california registry",
+   "website": "www.evorra.com"
+  },
+  "ca-1208": {
+   "email": "privacy@blackpearl.com",
+   "name": "Black Pearl Group Limited",
+   "rights_url": "https://www.blackpearl.com/your-privacy-choices",
+   "source": "california registry",
+   "website": "https://blackpearl.com"
+  },
+  "ca-1209": {
+   "email": "datagovernance@choreograph.com",
+   "name": "Choreograph LLC",
+   "rights_url": "https://www.choreograph.com",
+   "source": "california registry",
+   "website": "https://www.choreograph.com"
+  },
+  "ca-1210": {
+   "email": "techteam@uplead.com",
+   "name": "Uplead LLC",
+   "rights_url": "https://www.uplead.com/opt-out/",
+   "source": "california registry",
+   "website": "www.uplead.com"
+  },
+  "ca-1211": {
+   "email": "lauren.pembo@l2political.com",
+   "name": "Labels & Lists, Inc",
+   "rights_url": "https://www.l2-data.com/wp-content/uploads/2025/08/L2-Privacy-Notice-19Aug25v3.pdf",
+   "source": "california registry",
+   "website": "https://www.l2-data.com"
+  },
+  "ca-1212": {
+   "email": "support@dice.com",
+   "name": "Dice Career Solutions, Inc.",
+   "rights_url": "https://www.dice.com/about/ccpa;",
+   "source": "california registry",
+   "website": "https://www.dice.com"
+  },
+  "ca-1213": {
+   "email": "privacy@cognism.com",
+   "name": "Cognism",
+   "rights_url": "www.cognism.com",
+   "source": "california registry",
+   "website": "www.cognism.com"
+  },
+  "ca-1214": {
+   "email": "upscprivacyinfosec@ups.com",
+   "name": "UPS Capital Corporation",
+   "rights_url": "upscapital.com;",
+   "source": "california registry",
+   "website": "upscapital.com; insureshield.com"
+  },
+  "ca-1215": {
+   "email": "privacy.inbox@lob.com",
+   "name": "Lob.com, Inc.",
+   "rights_url": "https://www.lob.com/privacy",
+   "source": "california registry",
+   "website": "lob.com"
+  },
+  "ca-1217": {
+   "email": "privacy@blueprintaudiences.com",
+   "name": "Blueprint Audiences",
+   "rights_url": "https://blueprintaudiences.com",
+   "source": "california registry",
+   "website": "https://blueprintaudiences.com"
+  },
+  "ca-1218": {
+   "email": "unsubscribe@mailinglists.com",
+   "name": "Infinite Media Concepts, Inc.",
+   "rights_url": "https://mailinglists.com/about/privacy-policy",
+   "source": "california registry",
+   "website": "mailinglists.com"
+  },
+  "ca-1219": {
+   "email": "privacy@minerva.io",
+   "name": "Minerva BI Inc",
+   "rights_url": "https://preferences.minerva.io/",
+   "source": "california registry",
+   "website": "www.minerva.io"
+  },
+  "ca-1220": {
+   "email": "compliancedept@dmsgroup.com",
+   "name": "Digital Media Solutions, LLC",
+   "rights_url": "dmsunsub.io",
+   "source": "california registry",
+   "website": "digitalmediasolutions.com"
+  },
+  "ca-1221": {
+   "email": "privacy@affinity.co",
+   "name": "Project Affinity, Inc.",
+   "rights_url": "https://www.affinity.co/legal/privacy-policy",
+   "source": "california registry",
+   "website": "affinity.co"
+  },
+  "ca-1222": {
+   "email": "privacy@wiland.com",
+   "name": "Wiland, Inc.",
+   "rights_url": "https://wiland.com/privacy-choices/",
+   "source": "california registry",
+   "website": "www.wiland.com"
+  },
+  "ca-1223": {
+   "email": "legal@clientcommand.com",
+   "name": "Summit Resources, LLC",
+   "rights_url": "https://clientcommand.com/client-command-privacy-notice/",
+   "source": "california registry",
+   "website": "clientcommand.com"
+  },
+  "ca-1224": {
+   "email": "privacy@dspolitical.com",
+   "name": "DSPolitical, LLC",
+   "rights_url": "https://www.dspolitical.com/privacy-policy/",
+   "source": "california registry",
+   "website": "https://www.dspolitical.com"
+  },
+  "ca-1225": {
+   "email": "customerservice@edvisors.com",
+   "name": "Edvisors Network, Inc.",
+   "rights_url": "https://www.edvisors.com/your-privacy-choices/",
+   "source": "california registry",
+   "website": "www.edvisors.com"
+  },
+  "ca-1226": {
+   "email": "finance@reklaimyours.com",
+   "name": "Reklaim Ltd.",
+   "rights_url": "https://www.reklaimyours.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.reklaimyours.com"
+  },
+  "ca-1227": {
+   "email": "privacy@windfall.com",
+   "name": "Windfall Data, Inc.",
+   "rights_url": "https://www.windfall.com/your-privacy-choices",
+   "source": "california registry",
+   "website": "www.windfall.com"
+  },
+  "ca-1228": {
+   "email": "privacy@datadelivers.com",
+   "name": "DataDelivers, LLC",
+   "rights_url": "datadelivers.com",
+   "source": "california registry",
+   "website": "datadelivers.com"
+  },
+  "ca-1229": {
+   "email": "compliance_privacy@leadspace.com",
+   "name": "Leadspace Inc",
+   "rights_url": "https://www.leadspace.com/do-not-sell-form",
+   "source": "california registry",
+   "website": "https://www.leadspace.com"
+  },
+  "ca-1230": {
+   "email": "support@usadata.com",
+   "name": "USADATA, Inc",
+   "rights_url": "https://www.usadata.com/ccpa",
+   "source": "california registry",
+   "website": "https://www.usadata.com"
+  },
+  "ca-1231": {
+   "email": "privacy@persistent.id",
+   "name": "Command Precision Inc.",
+   "rights_url": "https://persistent.id/privacy-policy",
+   "source": "california registry",
+   "website": "Persistent.id"
+  },
+  "ca-1232": {
+   "email": "ccparequest@kargo.com",
+   "name": "Kargo Global LLC",
+   "rights_url": "https://kargo.com",
+   "source": "california registry",
+   "website": "https://www.kargo.com"
+  },
+  "ca-1233": {
+   "email": "privacy@mediawallah.com",
+   "name": "MediaWallah Inc",
+   "rights_url": "www.mediawallah.com",
+   "source": "california registry",
+   "website": "www.mediawallah.com"
+  },
+  "ca-1234": {
+   "email": "tsg@finthrive.com",
+   "name": "TSG Holdco, LLC",
+   "rights_url": "www.finthrive.com",
+   "source": "california registry",
+   "website": "www.finthrive.com"
+  },
+  "ca-1235": {
+   "email": "dataprivacyteam@sms-inc.com",
+   "name": "Specialists Marketing Services, Inc.",
+   "rights_url": "https://sms-inc.com/privacy-notice/;",
+   "source": "california registry",
+   "website": "www.sms-inc.com"
+  },
+  "ca-1236": {
+   "email": "tuhc@finthrive.com",
+   "name": "FinThrive Healthcare, Inc.",
+   "rights_url": "https://finthrive.com/privacy-policy-overview",
+   "source": "california registry",
+   "website": "www.finthrive.com"
+  },
+  "ca-1237": {
+   "email": "compliance@intermedia.team",
+   "name": "Intermedia Ventures, LLC",
+   "rights_url": "https://staterecords.org/optout;",
+   "source": "california registry",
+   "website": "staterecords.org; courtrecords.us; californiacourtrecords.us"
+  },
+  "ca-1238": {
+   "email": "info@exactcustomer.com",
+   "name": "Exact Opco, LLC",
+   "rights_url": "www.exactcustomer.com",
+   "source": "california registry",
+   "website": "www.exactcustomer.com"
+  },
+  "ca-1239": {
+   "email": "hello@adttrbution.com",
+   "name": "Adttribution Inc",
+   "rights_url": "https://adttribution.com/privacy-policy.php",
+   "source": "california registry",
+   "website": "www.adttribution.com"
+  },
+  "ca-1241": {
+   "email": "legal@peopleconnect.us",
+   "name": "TruthFinder, LLC",
+   "rights_url": "https://www.truthfinder.com/privacy-center/",
+   "source": "california registry",
+   "website": "www.truthfinder.com; www.courthousedirectory.us; www.getfullreport.com; www.unitedstatesbackgroundchecks.com; www.courtlocations.com; www.locaterecord.net; www.recordlocator.net; www.backgroundchecks.us"
+  },
+  "ca-1242": {
+   "email": "legal@intelius.com",
+   "name": "Intelius, LLC",
+   "rights_url": "www.intelius.com/privacy-center",
+   "source": "california registry",
+   "website": "www.intelius.com; www.ussearch.com; www.pro.ussearch.com; www.arrestrecordsearch.com; www.criminalrecords.com; www.peoplefinder.com; www.peoplefind.com; www.telephonenumberlookups.com; www.reversephonelookup.com; www.brbpub.com; www.callercomplaints.com; www.courtreference.com; www.easybackgroundche"
+  },
+  "ca-1243": {
+   "email": "tara.buck@peopleconnect.us",
+   "name": "Instant Checkmate LLC",
+   "rights_url": "www.instantcheckmate.com/privacy-center",
+   "source": "california registry",
+   "website": "www.instantcheckmate.com; www.cellphonedirectory.com; www.cheaterslie.com; www.freepeople-search.com"
+  },
+  "ca-1244": {
+   "email": "privacy@ziffdavis.com",
+   "name": "J2 Global Canada Inc.",
+   "rights_url": "https://www.campaigner.com/legal/privacy-policy;",
+   "source": "california registry",
+   "website": "https://www.campaigner.com; https://www.smtp.com"
+  },
+  "ca-1245": {
+   "email": "support@enformion.com",
+   "name": "Enformion, LLC",
+   "rights_url": "https://www.enformion.com/privacy-policy/;",
+   "source": "california registry",
+   "website": "enformion.com; tracers.com; go.enformion.com"
+  },
+  "ca-1246": {
+   "email": "privacy@sterling.ai",
+   "name": "Sterling Data Company LLC",
+   "rights_url": "sterling.ai",
+   "source": "california registry",
+   "website": "sterling.ai"
+  },
+  "ca-1247": {
+   "email": "shawn@accurateappend.com",
+   "name": "Accurate Append Inc.",
+   "rights_url": "https://accurateappend.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.accurateappend.com"
+  },
+  "ca-1248": {
+   "email": "jknapp@inmarket.com",
+   "name": "InMarket Media, LLC",
+   "rights_url": "preferences.inmarket.com;",
+   "source": "california registry",
+   "website": "www.inmarket.com"
+  },
+  "ca-1249": {
+   "email": "privacy@clay.com",
+   "name": "Clay Labs, Inc.",
+   "rights_url": "https://privacy.clay.com/policies",
+   "source": "california registry",
+   "website": "clay.com"
+  },
+  "ca-1250": {
+   "email": "aregsakanyan@gmail.com",
+   "name": "Globicom Inc",
+   "rights_url": "https://recordsfinder.com/optout/",
+   "source": "california registry",
+   "website": "https://recordsfinder.com; https://peoplepublicrecords.org"
+  },
+  "ca-1251": {
+   "email": "scott@huntclub.com",
+   "name": "Hunt Club Inc",
+   "rights_url": "https://www.huntclub.com/privacy",
+   "source": "california registry",
+   "website": "https://app.exploreatlas.io"
+  },
+  "ca-1252": {
+   "email": "privacy@realeflow.com",
+   "name": "Realeflow LLC",
+   "rights_url": "www.realeflow.com;",
+   "source": "california registry",
+   "website": "www.realeflow.com; www.leadflow.com"
+  },
+  "ca-1253": {
+   "email": "legal@demandscience.com",
+   "name": "Demand Science US, LLC",
+   "rights_url": "https://demandscience.com/",
+   "source": "california registry",
+   "website": "demandscience.com"
+  },
+  "ca-1254": {
+   "email": "security@healthcare.com",
+   "name": "Healthcare Inc",
+   "rights_url": "https://www.healthcare.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.healthcare.com; https://www.pivothealth.com"
+  },
+  "ca-1255": {
+   "email": "privacy@statsocial.com",
+   "name": "StatSocial",
+   "rights_url": "https://www.statsocial.com/privacy-policy",
+   "source": "california registry",
+   "website": "statsocial.com"
+  },
+  "ca-1257": {
+   "email": "compliance@allgoodmediagroup.com",
+   "name": "Attribits",
+   "rights_url": "https://www.attribits.com/privacy-policy",
+   "source": "california registry",
+   "website": "attribits.com"
+  },
+  "ca-1258": {
+   "email": "privacyrights@swoop.com",
+   "name": "Swoop.com Inc",
+   "rights_url": "https://swoop.com/your-privacy-choices/",
+   "source": "california registry",
+   "website": "https://swoop.com"
+  },
+  "ca-1259": {
+   "email": "privacy@lightcast.io",
+   "name": "Lightcast, LLC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/0f61f895-d08d-410f-b96d-ecfd34fd42e3/8d4dfe0d-998d-4c1d-ab6d-4357670fa8e9",
+   "source": "california registry",
+   "website": "lightcast.io; rhetorik.com"
+  },
+  "ca-1260": {
+   "email": "privacy.officer@adstradata.com",
+   "name": "Adstra LLC",
+   "rights_url": "https://www.adstradata.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.adstradata.com"
+  },
+  "ca-1261": {
+   "email": "legal@deepsync.com",
+   "name": "Accudata Integrated Marketing, LLC",
+   "rights_url": "https://deepsync.com/accudata/",
+   "source": "california registry",
+   "website": "https://www.acculeads.com; https://deepsync.com"
+  },
+  "ca-1262": {
+   "email": "cwolfe@socialgist.com",
+   "name": "Effyis, Inc.",
+   "rights_url": "https://www.socialgist.ai/privacy-and-terms",
+   "source": "california registry",
+   "website": "www.socialgist.ai"
+  },
+  "ca-1263": {
+   "email": "privacy@sportsilab.com",
+   "name": "Sports Innovation Lab, inc.",
+   "rights_url": "https://www.sportsilab.com/privacy-choices",
+   "source": "california registry",
+   "website": "https://www.sportsilab.com"
+  },
+  "ca-1264": {
+   "email": "info@helixcampaigns.com",
+   "name": "Helix Campaigns LLC",
+   "rights_url": "https://www.helixcampaigns.com/privacy",
+   "source": "california registry",
+   "website": "helixcampaigns.com"
+  },
+  "ca-1265": {
+   "email": "admin@datalane.com",
+   "name": "Task Genie, Inc.",
+   "rights_url": "www.datalane.com",
+   "source": "california registry",
+   "website": "datalane.com"
+  },
+  "ca-1266": {
+   "email": "privacyofficer@iqvia.com",
+   "name": "IQVIA Digital Inc.",
+   "rights_url": "https://privacyportal.onetrust.com/webform/07e8dc4d-6686-403e-9b11-39fe7347d2f4/2f999bd2-c826-498c-a504-894eaf543b6f",
+   "source": "california registry",
+   "website": "https://www.iqviadigital.com; https://www.iqvia.com"
+  },
+  "ca-1267": {
+   "email": "consumerprivacy@buxtonco.com",
+   "name": "Buxton Company, LLC",
+   "rights_url": "https://www.buxtonco.com/privacy",
+   "source": "california registry",
+   "website": "www.buxtonco.com"
+  },
+  "ca-1268": {
+   "email": "privacy@quadrant.io",
+   "name": "Quadrant Global Pte. Ltd.",
+   "rights_url": "https://www.quadrant.io/manage-my-data;",
+   "source": "california registry",
+   "website": "https://www.quadrant.io"
+  },
+  "ca-1269": {
+   "email": "lchiodo@porchgroupmedia.com",
+   "name": "Datamentors LLC",
+   "rights_url": "www.porchgroupmedia.com",
+   "source": "california registry",
+   "website": "www.porchgroupmedia.com"
+  },
+  "ca-1270": {
+   "email": "privacy@circana.com",
+   "name": "Circana, LLC",
+   "rights_url": "https://www.circana.com/the-circana-group-global-privacy-policy-and-notice",
+   "source": "california registry",
+   "website": "https://www.circana.com"
+  },
+  "ca-1271": {
+   "email": "privacy-inbox@semantiqhealth.com",
+   "name": "SEMANTIQ INC",
+   "rights_url": "https://semantiqhealth.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://semantiqhealth.com"
+  },
+  "ca-1272": {
+   "email": "privacy@dealerx.com",
+   "name": "DealerX Partners LLC",
+   "rights_url": "https://dealerx.com/privacy-options/",
+   "source": "california registry",
+   "website": "https://www.dealerx.com"
+  },
+  "ca-1273": {
+   "email": "privacy@marketops.com",
+   "name": "MarketOps LLC",
+   "rights_url": "https://marketops.com/privacy-options/",
+   "source": "california registry",
+   "website": "https://www.marketops.com"
+  },
+  "ca-1274": {
+   "email": "consumer@n-focus.com",
+   "name": "NFocus Consulting, Inc.",
+   "rights_url": "https://www.n-focus.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.n-focus.com"
+  },
+  "ca-1276": {
+   "email": "privacy@mrss.com",
+   "name": "M&R Strategic Services, Inc.",
+   "rights_url": "https://www.mrss.com;",
+   "source": "california registry",
+   "website": "www.mrss.com"
+  },
+  "ca-1277": {
+   "email": "privacy@zetaglobal.com",
+   "name": "LiveIntent",
+   "rights_url": "https://www.liveintent.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.liveintent.com"
+  },
+  "ca-1278": {
+   "email": "privacy@getrev.ai",
+   "name": "LeadCrunch",
+   "rights_url": "getrev.ai;",
+   "source": "california registry",
+   "website": "getrev.ai"
+  },
+  "ca-1279": {
+   "email": "privacy@markarch.com",
+   "name": "Marketing Architects, Inc.",
+   "rights_url": "https://www.marketingarchitects.com/privacy-policy-ProductAndService",
+   "source": "california registry",
+   "website": "https://www.marketingarchitects.com"
+  },
+  "ca-1280": {
+   "email": "privacy.officer@datalinedata.com",
+   "name": "Dataline, Inc.",
+   "rights_url": "https://datalinedata.com/privacy-portal/",
+   "source": "california registry",
+   "website": "www.datalinedata.com"
+  },
+  "ca-1281": {
+   "email": "jgreer@semcasting.com",
+   "name": "Semcasting, Inc.",
+   "rights_url": "https://privacychoice.com/",
+   "source": "california registry",
+   "website": "www.semcasting.com"
+  },
+  "ca-1283": {
+   "email": "ccpa@faraday.io",
+   "name": "Faraday, Inc.",
+   "rights_url": "https://faraday.ai/privacy-options",
+   "source": "california registry",
+   "website": "faraday.ai"
+  },
+  "ca-1284": {
+   "email": "chrissy@jdmlistservices.com",
+   "name": "JDM LIST SERVICES",
+   "rights_url": "https://jdmlistservices.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.jdmlistservices.com"
+  },
+  "ca-1285": {
+   "email": "compliance@exa.ai",
+   "name": "Exa Labs Inc.",
+   "rights_url": "exa.ai",
+   "source": "california registry",
+   "website": "exa.ai"
+  },
+  "ca-1286": {
+   "email": "privacy@findem.ai",
+   "name": "Findem, Inc.",
+   "rights_url": "https://www.findem.ai/privacy-policy-platform;",
+   "source": "california registry",
+   "website": "www.findem.ai"
+  },
+  "ca-1287": {
+   "email": "privacy@oan.pl",
+   "name": "Online Advertising Network sp. z o.o.",
+   "rights_url": "https://oan.pl/do-not-sell-my-personal-info/",
+   "source": "california registry",
+   "website": "https://www.oan.pl; https://ai.oan.pl"
+  },
+  "ca-1288": {
+   "email": "privacy@media.net",
+   "name": "Media.net Advertising FZ, LLC",
+   "rights_url": "https://www.media.net/privacy-policy/",
+   "source": "california registry",
+   "website": "https://www.media.net"
+  },
+  "ca-1289": {
+   "email": "privacy@warmly.ai",
+   "name": "Warmly, Inc.",
+   "rights_url": "https://www.warmly.ai/p/privacy-policy",
+   "source": "california registry",
+   "website": "warmly.ai"
+  },
+  "ca-1290": {
+   "email": "dataprivacy@affinityanswers.com",
+   "name": "Affinity Answers Corporation",
+   "rights_url": "https://www.affinityanswers.com/your-privacy-choices/",
+   "source": "california registry",
+   "website": "affinityanswers.com"
+  },
+  "ca-1291": {
+   "email": "privacy@irys.us",
+   "name": "Irys, Inc",
+   "rights_url": "https://irys.us/do-not-sell-ccpa",
+   "source": "california registry",
+   "website": "irys.us"
+  },
+  "ca-1292": {
+   "email": "ncoa@responseamerica.net",
+   "name": "Response America, Inc.",
+   "rights_url": "https://responseamerica.net/privacy_dec.html",
+   "source": "california registry",
+   "website": "ResponseAmerica.net"
+  },
+  "ca-1293": {
+   "email": "contact@swordfish.ai",
+   "name": "Swordfish AI Inc",
+   "rights_url": "https://swordfish.ai/policy;",
+   "source": "california registry",
+   "website": "www.swordfish.ai"
+  },
+  "ca-1294": {
+   "email": "contact@heartbeat.ai",
+   "name": "Heartbeat.AI Inc",
+   "rights_url": "https://heartbeat.ai/policy;",
+   "source": "california registry",
+   "website": "www.heartbeat.ai"
+  },
+  "ca-1295": {
+   "email": "compliance@nexxen.com",
+   "name": "Nexxen Inc",
+   "rights_url": "nexxen.com",
+   "source": "california registry",
+   "website": "nexxen.com"
+  },
+  "ca-1296": {
+   "email": "privacy@moodys.com",
+   "name": "Moody's Corporation",
+   "rights_url": "https://www.moodys.com/web/en/us/legal/privacy-policy.html",
+   "source": "california registry",
+   "website": "www.moodys.com"
+  },
+  "ca-1297": {
+   "email": "legalnotices@freewheel.com",
+   "name": "FreeWheel Media Inc",
+   "rights_url": "www.freewheel.com",
+   "source": "california registry",
+   "website": "https://www.freewheel.com"
+  },
+  "ca-1298": {
+   "email": "privacy@beeswax.com",
+   "name": "Beeswax",
+   "rights_url": "www.beeswax.com",
+   "source": "california registry",
+   "website": "https://www.beeswax.com"
+  },
+  "ca-1299": {
+   "email": "california-opt-out@telesign.com",
+   "name": "Telesign Corporation",
+   "rights_url": "www.telesign.com/privacy-requests",
+   "source": "california registry",
+   "website": "www.telesign.com"
+  },
+  "ca-1300": {
+   "email": "privacy@grayhairsoftware.com",
+   "name": "GrayHair Software LLC",
+   "rights_url": "https://grayhairsoftware.com/privacy-policy/",
+   "source": "california registry",
+   "website": "https://grayhairsoftware.com"
+  },
+  "ca-1301": {
+   "email": "privacy@tl1mkt.com",
+   "name": "THE LINEA 1 MKT SL",
+   "rights_url": "Www.tl1mkt.com",
+   "source": "california registry",
+   "website": "https://www.tl1mkt.com"
+  },
+  "ca-1302": {
+   "email": "lgold@fushiamedia.com",
+   "name": "Fushia Media, LLC",
+   "rights_url": "https://www.fushiamedia.com/request-delete",
+   "source": "california registry",
+   "website": "www.fushiamedia.com"
+  },
+  "ca-1304": {
+   "email": "privacy@biointelli.net",
+   "name": "Biointelli Corporation",
+   "rights_url": "www.biointelli.com",
+   "source": "california registry",
+   "website": "www.biointelli.com"
+  },
+  "ca-1305": {
+   "email": "tburnell@completemedicallists.com",
+   "name": "Complete Medical Lists, Inc.",
+   "rights_url": "https://www.completemedicallists.com/privacy.php;",
+   "source": "california registry",
+   "website": "completemedicallists.com"
+  },
+  "ca-1306": {
+   "email": "privacy@nordicdataresources.com",
+   "name": "Nordic Data Resources AS",
+   "rights_url": "https://www.nordicdataresources.com/netprivacypolicy;",
+   "source": "california registry",
+   "website": "www.nordicdataresources.com"
+  },
+  "ca-1307": {
+   "email": "drop@rgrmarketing.com",
+   "name": "ReallyGreatRate, Inc",
+   "rights_url": "https://www.rgrmarketing.com/",
+   "source": "california registry",
+   "website": "www.rgrmarketing.com"
+  },
+  "ca-1308": {
+   "email": "info@revealmobile.com",
+   "name": "Reveal Mobile, Inc.",
+   "rights_url": "https://revealmobile.com/privacy/",
+   "source": "california registry",
+   "website": "https://www.revealmobile.com"
+  },
+  "ca-1309": {
+   "email": "privacy@cashmereai.com",
+   "name": "Pludo Inc",
+   "rights_url": "cashmereai.com",
+   "source": "california registry",
+   "website": "cashmereai.com"
+  },
+  "ca-1310": {
+   "email": "privacy@indexexchange.com",
+   "name": "Index Exchange Inc.",
+   "rights_url": "https://www.indexexchange.com/privacy/exchange-platform-privacy-policy/;",
+   "source": "california registry",
+   "website": "https://www.indexexchange.com"
+  },
+  "ca-1311": {
+   "email": "privacy@propertyradar.com",
+   "name": "PropertyRadar, Inc.",
+   "rights_url": "https://www.propertyradar.com/privacy-policy;",
+   "source": "california registry",
+   "website": "www.propertyradar.com"
+  },
+  "ca-1312": {
+   "email": "privacy@famousbirthdays.com",
+   "name": "Famous Birthdays LLC",
+   "rights_url": "https://www.famousbirthdays.com/privacy/",
+   "source": "california registry",
+   "website": "famousbirthdays.com; https://pro.famousbirthdays.com"
+  },
+  "ca-1313": {
+   "email": "privacy@audienceacuity.com",
+   "name": "Audience Acuity LLC",
+   "rights_url": "https://audienceacuity.com/",
+   "source": "california registry",
+   "website": "audienceacuity.com"
+  },
+  "ca-1314": {
+   "email": "privacy@redidata.com",
+   "name": "Redi-Data Inc",
+   "rights_url": "https://www.redidata.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.redidata.com"
+  },
+  "ca-1315": {
+   "email": "privacy@eltoro.com",
+   "name": "El Toro.com, LLC",
+   "rights_url": "https://eltoro.com/your-privacy-choices/;",
+   "source": "california registry",
+   "website": "www.eltoro.com"
+  },
+  "ca-1316": {
+   "email": "privacy@transunion.com",
+   "name": "Trans Union LLC",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1317": {
+   "email": "info@thedatatrust.com",
+   "name": "DT Client Services, LLC",
+   "rights_url": "https://thedatatrust.com/do-not-sell-my-personal-information/",
+   "source": "california registry",
+   "website": "www.thedatatrust.com"
+  },
+  "ca-1318": {
+   "email": "dpo@teads.com",
+   "name": "Teads Inc",
+   "rights_url": "https://privacy-policy.teads.com",
+   "source": "california registry",
+   "website": "https://www.teads.com"
+  },
+  "ca-1319": {
+   "email": "privacy@teads.com",
+   "name": "Teads Holding Co",
+   "rights_url": "https://www.outbrain.com/privacy/user-policy",
+   "source": "california registry",
+   "website": "https://www.outbrain.com"
+  },
+  "ca-1320": {
+   "email": "harrison@wiza.com",
+   "name": "Wiza, Inc.",
+   "rights_url": "www.wiza.co",
+   "source": "california registry",
+   "website": "www.wiza.com"
+  },
+  "ca-1321": {
+   "email": "trust-and-safety@komodohealth.com",
+   "name": "Komodo Health, Inc.",
+   "rights_url": "https://www.komodohealth.com/",
+   "source": "california registry",
+   "website": "https://www.komodohealth.com"
+  },
+  "ca-1322": {
+   "email": "privacy@beenverified.com",
+   "name": "BeenVerified, LLC and its subsidiaries and affiliates",
+   "rights_url": "https://www.beenverified.com/svc/optout/search/comprehensive_optouts",
+   "source": "california registry",
+   "website": "https://www.beenverified.com; https://www.peoplelooker.com; https://www.numberguru.com; https://www.ownerly.com; https://www.neighborwho.com; https://www.peoplesmart.com; https://www.bumper.com; https://www.freephonetracer.com; https://www.emailfinder.com; https://www.moneybot5000.com; https://www.r"
+  },
+  "ca-1323": {
+   "email": "privacy@revoptimal.com",
+   "name": "RevOptimal, LLC",
+   "rights_url": "https://revoptimal.com/privacy/",
+   "source": "california registry",
+   "website": "revoptimal.com"
+  },
+  "ca-1324": {
+   "email": "snichols@firstorion.com",
+   "name": "First Orion Corp",
+   "rights_url": "www.firstorion.com",
+   "source": "california registry",
+   "website": "firstorion.com"
+  },
+  "ca-1325": {
+   "email": "privacy@rbarrel.com",
+   "name": "Rainbarrel USA LLC",
+   "rights_url": "https://www.rbarrel.com/opt-out",
+   "source": "california registry",
+   "website": "knowertech.com"
+  },
+  "ca-1326": {
+   "email": "legal@wunderkind.co",
+   "name": "Wunderkind Corporation",
+   "rights_url": "https://www.wunderkind.co/privacy/",
+   "source": "california registry",
+   "website": "www.wunderkind.co"
+  },
+  "ca-1327": {
+   "email": "info@sbfe.org",
+   "name": "SBFE, LLC",
+   "rights_url": "https://www.sbfe.org/connect/ccpa",
+   "source": "california registry",
+   "website": "sbfe.org"
+  },
+  "ca-1328": {
+   "email": "dataprivacy@connectedinvestors.com",
+   "name": "Connected Investors, LLC",
+   "rights_url": "https://connectedinvestors.com/privacy-policy;",
+   "source": "california registry",
+   "website": "www.connectedinvestors.com"
+  },
+  "ca-1329": {
+   "email": "legal@deepsync.com",
+   "name": "ASL Marketing",
+   "rights_url": "https://deepsync.com",
+   "source": "california registry",
+   "website": "https://deepsync.com"
+  },
+  "ca-1330": {
+   "email": "privacy@gm.com",
+   "name": "General Motors LLC",
+   "rights_url": "https://www.gm.com/consumer-privacy",
+   "source": "california registry",
+   "website": "www.gm.com"
+  },
+  "ca-1331": {
+   "email": "legal@narvar.com",
+   "name": "Narvar, Inc",
+   "rights_url": "https://corp.narvar.com/legal/privacy-policy",
+   "source": "california registry",
+   "website": "https://corp.narvar.com"
+  },
+  "ca-1332": {
+   "email": "privacy@outwardmedia.com",
+   "name": "Outward Media Inc.",
+   "rights_url": "https://outwardmedia.com/privacypolicy",
+   "source": "california registry",
+   "website": "https://outwardmedia.com"
+  },
+  "ca-1333": {
+   "email": "privacy@getelevar.com",
+   "name": "Elevar, LLC",
+   "rights_url": "getelevar.com",
+   "source": "california registry",
+   "website": "getelevar.com"
+  },
+  "ca-1334": {
+   "email": "privacy@experience.com",
+   "name": "BuyersRoad, Inc",
+   "rights_url": "https://www.experience.com/privacy-notice",
+   "source": "california registry",
+   "website": "experience.com"
+  },
+  "ca-1335": {
+   "email": "ca_drop_ems@experian.com",
+   "name": "Experian Marketing Solutions, LLC",
+   "rights_url": "https://consumerprivacy.experian.com;",
+   "source": "california registry",
+   "website": "https://www.experian.com"
+  },
+  "ca-1336": {
+   "email": "privacy@hugelegaltech.com",
+   "name": "Huge Legal Technology Company, Inc",
+   "rights_url": "https://trustandwill.com/security/privacy-policy",
+   "source": "california registry",
+   "website": "www.trustandwill.com"
+  },
+  "ca-1337": {
+   "email": "privacy@salesbot.io",
+   "name": "RecruitBot",
+   "rights_url": "https://recruitbot.com/ccpa/",
+   "source": "california registry",
+   "website": "www.recruitbot.com"
+  },
+  "ca-1338": {
+   "email": "dpo_hybridtheory@azerion.com",
+   "name": "Azerion US Inc.",
+   "rights_url": "https://www.hybridtheory.com/privacy-notice/",
+   "source": "california registry",
+   "website": "https://azerion.com"
+  },
+  "ca-1339": {
+   "email": "privacyinfo@path2response.com",
+   "name": "Path2Response, LLC",
+   "rights_url": "https://privacyportal-cdn.onetrust.com/dsarwebform/2de26f06-de6f-45a7-8e1d-7d1148a3f301/draft/7a5dc7d1-cc7e-43a8-9f24-702807deb65b.html",
+   "source": "california registry",
+   "website": "www.path2response.com"
+  },
+  "ca-1340": {
+   "email": "ca_drop_tapad@experian.com",
+   "name": "Tapad",
+   "rights_url": "https://tapad.com/global-privacy-notice",
+   "source": "california registry",
+   "website": "www.experian.com"
+  },
+  "ca-1341": {
+   "email": "privacy@datadesk.io",
+   "name": "Datadesk Inc.",
+   "rights_url": "https://datadesk.io/help/do-not-sell-my-personal-info",
+   "source": "california registry",
+   "website": "www.datadesk.io"
+  },
+  "ca-1342": {
+   "email": "ian@growinglibraries.com",
+   "name": "Growing Libraries, LLC",
+   "rights_url": "www.growinglibraries.com",
+   "source": "california registry",
+   "website": "www.growinglibraries.com"
+  },
+  "ca-1343": {
+   "email": "dataprotectionofficer@issgovernance.com",
+   "name": "Institutional Shareholder Services Inc.",
+   "rights_url": "https://www.issgovernance.com/privacy-legal/ccpa/",
+   "source": "california registry",
+   "website": "https://www.issgovernance.com"
+  },
+  "ca-1344": {
+   "email": "privacy@catalist.us",
+   "name": "Catalist LLC",
+   "rights_url": "catalist.us/privacy-policy",
+   "source": "california registry",
+   "website": "http://catalist.us"
+  },
+  "ca-1346": {
+   "email": "privacy@truepeoplesearch.com",
+   "name": "Free Data Services, LLC",
+   "rights_url": "https://www.truepeoplesearch.com/privacy;",
+   "source": "california registry",
+   "website": "truepeoplesearch.com"
+  },
+  "ca-1347": {
+   "email": "privacy@familytreenow.com",
+   "name": "Family Tree Now, LLC",
+   "rights_url": "https://www.familytreenow.com/privacy;",
+   "source": "california registry",
+   "website": "familytreenow.com"
+  },
+  "ca-1348": {
+   "email": "privacy.officer@belardiwong.com",
+   "name": "Belardi Ostroy, ALC, LLC",
+   "rights_url": "https://belardiwong.com/",
+   "source": "california registry",
+   "website": "belardiwong.com"
+  },
+  "ca-1349": {
+   "email": "dataprotectionofficer@iss-stoxx.com",
+   "name": "Asset International, Inc.",
+   "rights_url": "https://www.issgovernance.com/privacy-legal/ccpa/",
+   "source": "california registry",
+   "website": "https://www.issmarketintelligence.com"
+  },
+  "ca-1350": {
+   "email": "privacy@pubmatic.com",
+   "name": "PubMatic Inc.",
+   "rights_url": "https://pubmatic.com/",
+   "source": "california registry",
+   "website": "https://pubmatic.com"
+  },
+  "ca-1351": {
+   "email": "privacy_support@atdata.com",
+   "name": "AtData, LLC",
+   "rights_url": "https://www.atdata.com",
+   "source": "california registry",
+   "website": "https://atdata.com"
+  },
+  "ca-1352": {
+   "email": "privacy@onaudience.com",
+   "name": "ONAUDIENCE LTD",
+   "rights_url": "https://onaudience.com/do-not-sell-my-personal-info/",
+   "source": "california registry",
+   "website": "www.onaudience.com"
+  },
+  "ca-1353": {
+   "email": "privacy@transunion.com",
+   "name": "TransUnion Risk and Alternative Data Solutions, Inc.",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1354": {
+   "email": "privacy@taboola.com",
+   "name": "Taboola, Inc.",
+   "rights_url": "https://www.taboola.com/",
+   "source": "california registry",
+   "website": "www.taboola.com"
+  },
+  "ca-1355": {
+   "email": "databroker@fusion92.com",
+   "name": "Virtual Marketing LLC",
+   "rights_url": "https://www.fusion92.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.fusion92.com"
+  },
+  "ca-1356": {
+   "email": "legal@buildertrend.com",
+   "name": "Buildertrend Solutions, Inc.",
+   "rights_url": "https://buildertrend.com/privacy-notice/",
+   "source": "california registry",
+   "website": "https://buildertrend.com; https://toolbeltdata.com"
+  },
+  "ca-1357": {
+   "email": "legalteam@arccorp.com",
+   "name": "Airlines Reporting Corporation",
+   "rights_url": "https://www2.arccorp.com/site-privacy-policy/",
+   "source": "california registry",
+   "website": "arccorp.com"
+  },
+  "ca-1358": {
+   "email": "privacy@dstillery.com",
+   "name": "Dstillery, Inc.",
+   "rights_url": "dstillery.com",
+   "source": "california registry",
+   "website": "dstillery.com"
+  },
+  "ca-1359": {
+   "email": "privacy@adept-id.com",
+   "name": "AdeptID, Inc.",
+   "rights_url": "https://www.adept-id.com/opt-out-preferences/",
+   "source": "california registry",
+   "website": "www.adept-id.com"
+  },
+  "ca-1360": {
+   "email": "privacy@clearcompany.com",
+   "name": "ClearCompany, LLC",
+   "rights_url": "https://www.clearcompany.com/privacy-policy/",
+   "source": "california registry",
+   "website": "clearcompany.com"
+  },
+  "ca-1361": {
+   "email": "jmatthes@spokeo.com",
+   "name": "Spokeo, Inc.",
+   "rights_url": "https://www.spokeo.com/privacy-policy;",
+   "source": "california registry",
+   "website": "www.spokeo.com; www.freepeopledirectory.com; www.thatsthem.com; www.peoplewin.com; www.anywho.com; www.family.me"
+  },
+  "ca-1362": {
+   "email": "contact@roq.ad",
+   "name": "Roq.ad Inc.",
+   "rights_url": "https://www.roq.ad/white-papers/#optout",
+   "source": "california registry",
+   "website": "www.roq.ad"
+  },
+  "ca-1363": {
+   "email": "privacy@bdex.com",
+   "name": "BDEX, LLC",
+   "rights_url": "https://www.bdex.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.bdex.com"
+  },
+  "ca-1364": {
+   "email": "privacy@unacast.com",
+   "name": "Unacast, Inc.",
+   "rights_url": "https://www.unacast.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.unacast.com"
+  },
+  "ca-1365": {
+   "email": "opt-out@datafy.com",
+   "name": "Datafy, LLC",
+   "rights_url": "https://www.datafy.com/opt-out",
+   "source": "california registry",
+   "website": "https://datafy.com"
+  },
+  "ca-1366": {
+   "email": "privacy@mtalley.zendesk.com",
+   "name": "Mississippi Tornado Alley, LLC",
+   "rights_url": "https://www.advancedbackgroundchecks.com/privacy;",
+   "source": "california registry",
+   "website": "AdvancedBackgroundChecks.com; CyberBackgroundChecks.com; FastBackgroundCheck.com; FastPeopleSearch.com; PeopleSearchNow.com; Phonebooks.com; SearchPeopleFree.com; SmartBackgroundChecks.com; USA-People-Search.com; USPhoneBook.com"
+  },
+  "ca-1367": {
+   "email": "privacy@versium.com",
+   "name": "Versar Data Solutions Inc",
+   "rights_url": "https://versium.com/california-privacy-policy/",
+   "source": "california registry",
+   "website": "www.versium.com; www.datafinder.com"
+  },
+  "ca-1368": {
+   "email": "privacy_requests@nextwavemarketingstrategies.com",
+   "name": "NEXT WAVE MARKETING STRATEGIES, INC",
+   "rights_url": "agedleadstore.com;",
+   "source": "california registry",
+   "website": "agedleadstore.com; nextwavemarketingstrategies.com"
+  },
+  "ca-1369": {
+   "email": "privacy@kloudend.com",
+   "name": "Kloudend, Inc.",
+   "rights_url": "https://ipapi.co/donotsell/",
+   "source": "california registry",
+   "website": "ipapi.co"
+  },
+  "ca-1370": {
+   "email": "statebasedprivacy@ididata.com",
+   "name": "Interactive Data, LLC",
+   "rights_url": "https://www.ididata.com/idis-privacy-statement/",
+   "source": "california registry",
+   "website": "https://www.ididata.com"
+  },
+  "ca-1371": {
+   "email": "bryce@peoplefindersdaas.com",
+   "name": "PeoplefindersDaaS",
+   "rights_url": "www.peoplefindersdaas.com",
+   "source": "california registry",
+   "website": "www.peoplefindersdaas.com"
+  },
+  "ca-1373": {
+   "email": "privacy@fetch.com",
+   "name": "Fetch Rewards, LLC",
+   "rights_url": "https://fetch.com/privacy-policy.;",
+   "source": "california registry",
+   "website": "https://fetch.com"
+  },
+  "ca-1374": {
+   "email": "privacy@openx.com",
+   "name": "OpenX Technologies, Inc.",
+   "rights_url": "https://www.openx.com/privacy-center/",
+   "source": "california registry",
+   "website": "https://www.openx.com"
+  },
+  "ca-1375": {
+   "email": "privacy@blis.com",
+   "name": "Blis Global Ltd",
+   "rights_url": "https://www.blis.com",
+   "source": "california registry",
+   "website": "https://www.blis.com"
+  },
+  "ca-1376": {
+   "email": "privacy@comscore.com",
+   "name": "Comscore, Inc",
+   "rights_url": "https://www.comscore.com/About/Privacy-Policy",
+   "source": "california registry",
+   "website": "www.comscore.com"
+  },
+  "ca-1377": {
+   "email": "privacy@erepublic.com",
+   "name": "e.Republic, LLC",
+   "rights_url": "https://erepublic.my.salesforce-sites.com/PrivacyRequest/",
+   "source": "california registry",
+   "website": "erepublic.com; govtech.com; governing.com; marketing.governmentnavigator.com; insider.govtech.com"
+  },
+  "ca-1378": {
+   "email": "ap@lionsharemarketing.com",
+   "name": "LionShare Marketing, Inc",
+   "rights_url": "www.lionsharemarketing.com",
+   "source": "california registry",
+   "website": "www.lionsharemarketing.com"
+  },
+  "ca-1379": {
+   "email": "usprivacy@equifax.com",
+   "name": "IXI Corporation",
+   "rights_url": "https://www.equifax.com/personal/my-privacy/",
+   "source": "california registry",
+   "website": "equifax.com"
+  },
+  "ca-1380": {
+   "email": "usprivacy@equifax.com",
+   "name": "Knowledge Works, Inc.",
+   "rights_url": "https://www.equifax.com/personal/my-privacy/",
+   "source": "california registry",
+   "website": "sbinsights.paynetonline.com"
+  },
+  "ca-1381": {
+   "email": "usprivacy@equifax.com",
+   "name": "Equifax Workforce Solutions LLC",
+   "rights_url": "https://www.equifax.com/personal/my-privacy/",
+   "source": "california registry",
+   "website": "www.theworknumber.com"
+  },
+  "ca-1382": {
+   "email": "privacy@venntel.com",
+   "name": "Venntel, Inc.",
+   "rights_url": "https://www.venntel.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.venntel.com"
+  },
+  "ca-1383": {
+   "email": "privacy@activimpact.ai",
+   "name": "ActivImpact, LLC",
+   "rights_url": "https://activimpact.ai/privacy-policy",
+   "source": "california registry",
+   "website": "activimpact.ai"
+  },
+  "ca-1384": {
+   "email": "databroker@inmar.com",
+   "name": "Inmar-OIQ, LLC",
+   "rights_url": "https://www.inmar.com/about/privacy-policy/owneriq",
+   "source": "california registry",
+   "website": "www.inmar.com"
+  },
+  "ca-1385": {
+   "email": "cyrus@peoplewhiz.com",
+   "name": "Peoplewhiz, Inc",
+   "rights_url": "https://www.peoplewhiz.com",
+   "source": "california registry",
+   "website": "https://www.peoplewhiz.com"
+  },
+  "ca-1386": {
+   "email": "legal@postie.com",
+   "name": "Postie, Inc",
+   "rights_url": "https://postie.com/your-privacy-choices/",
+   "source": "california registry",
+   "website": "https://postie.com"
+  },
+  "ca-1387": {
+   "email": "membersupport@mylife.com",
+   "name": "Insightbridge LLC",
+   "rights_url": "https://www.mylife.com",
+   "source": "california registry",
+   "website": "https://www.mylife.com"
+  },
+  "ca-1388": {
+   "email": "remove@ileads.com",
+   "name": "iLeads.com, LLC",
+   "rights_url": "https://ileads.com/submitrequest/;",
+   "source": "california registry",
+   "website": "www.iLeads.com"
+  },
+  "ca-1389": {
+   "email": "privacy@plungedigital.com",
+   "name": "Plunge, LLC",
+   "rights_url": "www.plungedigital.com",
+   "source": "california registry",
+   "website": "www.plungedigital.com"
+  },
+  "ca-1390": {
+   "email": "privacy@fullcontact.com",
+   "name": "J2 Martech Corp",
+   "rights_url": "https://platform.fullcontact.com/your-privacy-choices;",
+   "source": "california registry",
+   "website": "https://www.fullcontact.com"
+  },
+  "ca-1391": {
+   "email": "onlineops@awl.com",
+   "name": "AWL Holdings, LLC",
+   "rights_url": "https://privacyportal-eu.onetrust.com/webform/031dc37f-2093-4055-9d04-22f83329fe9f/a4fb8ed6-8389-4a17-a3be-ca808c6b300e",
+   "source": "california registry",
+   "website": "allwebleads.com; insurancequotes.com; Usinsuranceonline.com; affordable-home-insurance.org; discount-car-insurance-rates.com; general-liability-insurance-rates.com; affordable-health-insurance-plans.org; affordable-life-insurance-rates.org"
+  },
+  "ca-1392": {
+   "email": "privacy@trestleiq.com",
+   "name": "Trestle Solutions, Inc.",
+   "rights_url": "https://trestleiq.com/privacy-policy/",
+   "source": "california registry",
+   "website": "trestleiq.com"
+  },
+  "ca-1393": {
+   "email": "info@spydialer.com",
+   "name": "Spy Labs AdCo, LLC",
+   "rights_url": "https://spydialer.com/privacy.aspx",
+   "source": "california registry",
+   "website": "spydialer.com"
+  },
+  "ca-1394": {
+   "email": "privacy@datasys.com",
+   "name": "Datasys Group, Inc.",
+   "rights_url": "https://datasys.com/privacy-policy",
+   "source": "california registry",
+   "website": "datasys.com"
+  },
+  "ca-1395": {
+   "email": "support@weinform.org",
+   "name": "We Inform LLC",
+   "rights_url": "www.weinform.org;",
+   "source": "california registry",
+   "website": "www.weinform.org; www.truthrecord.org"
+  },
+  "ca-1396": {
+   "email": "support@peoplesearcher.com",
+   "name": "The People Searchers LLC",
+   "rights_url": "http://peopesearcher.cm;",
+   "source": "california registry",
+   "website": "http://www.peoplesearcher.com; http://www.secretinfo.org"
+  },
+  "ca-1397": {
+   "email": "support@privatereports.com",
+   "name": "Infomatics LLC",
+   "rights_url": "privatereports.com;",
+   "source": "california registry",
+   "website": "privatereports.com; mugshotlook.com; publicsearcher.com"
+  },
+  "ca-1398": {
+   "email": "support@checksecrets.com",
+   "name": "Truth Now LLC",
+   "rights_url": "checksecrets.com;",
+   "source": "california registry",
+   "website": "checksecrets.com; peoplesearchUSA.org; inmatesearcher.com; sealedrecords.net"
+  },
+  "ca-1399": {
+   "email": "support@privaterecords.net",
+   "name": "Private Records LLC",
+   "rights_url": "https://www.privaterecords.net;",
+   "source": "california registry",
+   "website": "https://www.privaterecords.net; peoplesearch123.com; backgroundcheckers.net; personsearchers.com"
+  },
+  "ca-1400": {
+   "email": "privacy@exlservice.com",
+   "name": "ExlService.com, LLC",
+   "rights_url": "www.exlservice.com/privacy-policy",
+   "source": "california registry",
+   "website": "exlservice.com"
+  },
+  "ca-1401": {
+   "email": "privacy@truedata.co",
+   "name": "TrueData Solutions, Inc.",
+   "rights_url": "https://www.truedata.co/wp-content/uploads/2026/01/TD-Privacy-Policy-effective-16-Jan-2026.pdf",
+   "source": "california registry",
+   "website": "https://www.truedata.co"
+  },
+  "ca-1402": {
+   "email": "privacy@placeexchange.com",
+   "name": "Place Exchange, Inc.",
+   "rights_url": "https://www.placeexchange.com/privacy",
+   "source": "california registry",
+   "website": "https://www.placeexchange.com"
+  },
+  "ca-1403": {
+   "email": "phil@dresdendirect.com",
+   "name": "Dresden Direct inc.",
+   "rights_url": "http://dresdendirect.com",
+   "source": "california registry",
+   "website": "http://dresdendirect.com"
+  },
+  "ca-1405": {
+   "email": "privacy@bigdbm.com",
+   "name": "BIGDBM",
+   "rights_url": "https://optout.bigdbm.com/;",
+   "source": "california registry",
+   "website": "https://bigdbm.com; https://optout.bigdbm.com"
+  },
+  "ca-1406": {
+   "email": "privacy@visualvisitor.com",
+   "name": "Visual Visitor L.L.C.",
+   "rights_url": "https://www.visualvisitor.com/legal-agreements/",
+   "source": "california registry",
+   "website": "visualvisitor.com"
+  },
+  "ca-1407": {
+   "email": "michael.belsky@idmap.ai",
+   "name": "IDMAP Inc",
+   "rights_url": "https://idmap.ai/privacy-policy.html",
+   "source": "california registry",
+   "website": "idmap.ai"
+  },
+  "ca-1408": {
+   "email": "privacy@transunion.com",
+   "name": "TransUnion Digital LLC",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1409": {
+   "email": "privacy@transunion.com",
+   "name": "TransUnion Interactive, Inc.",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1410": {
+   "email": "info@commercesignals.com",
+   "name": "Commerce Signals, Inc.",
+   "rights_url": "www.commercesignals.com",
+   "source": "california registry",
+   "website": "www.commercesignals.com"
+  },
+  "ca-1411": {
+   "email": "privacy@transunion.com",
+   "name": "iovation Inc.",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1412": {
+   "email": "privacy@transunion.com",
+   "name": "Drivers History Information Sales, LLC",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1413": {
+   "email": "privacy@transunion.com",
+   "name": "Datalink Services, Inc",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1414": {
+   "email": "operations@postpilot.com",
+   "name": "PostPilot, Inc.",
+   "rights_url": "https://www.postpilot.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.postpilot.com"
+  },
+  "ca-1415": {
+   "email": "v.budkevych@snov.io",
+   "name": "Snovio Inc",
+   "rights_url": "https://snov.io/do-not-sell-my-personal-information;",
+   "source": "california registry",
+   "website": "snov.io"
+  },
+  "ca-1416": {
+   "email": "dpo@criteo.com",
+   "name": "Criteo Corp.",
+   "rights_url": "https://www.criteo.com/privacy/",
+   "source": "california registry",
+   "website": "https://www.criteo.com"
+  },
+  "ca-1417": {
+   "email": "preqin.dp@blackrock.com",
+   "name": "Preqin Ltd",
+   "rights_url": "www.preqin.com",
+   "source": "california registry",
+   "website": "www.preqin.com"
+  },
+  "ca-1418": {
+   "email": "mmp-privacy@t-mobile.com",
+   "name": "T-Mobile USA, Inc.",
+   "rights_url": "https://www.t-mobile.com/advertising-solutions",
+   "source": "california registry",
+   "website": "https://www.t-mobile.com"
+  },
+  "ca-1419": {
+   "email": "privacy@disconetwork.com",
+   "name": "Disco Technology Inc",
+   "rights_url": "disconetwork.com",
+   "source": "california registry",
+   "website": "www.disconetwork.com"
+  },
+  "ca-1420": {
+   "email": "legal@popacta.com",
+   "name": "Pop Acta Media, LLC",
+   "rights_url": "https://popacta.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.popacta.com"
+  },
+  "ca-1421": {
+   "email": "justin@idatabasesolutions.com",
+   "name": "Innovative Database Solutions, Inc.",
+   "rights_url": "https://idatabasesolutions.com/personal-information-request-all-other-states/;",
+   "source": "california registry",
+   "website": "www.idatabasesolutions.com"
+  },
+  "ca-1422": {
+   "email": "privacy@cybba.com",
+   "name": "Cybba Inc.",
+   "rights_url": "https://cybba.com",
+   "source": "california registry",
+   "website": "https://cybba.com"
+  },
+  "ca-1423": {
+   "email": "hannah@reveliolabs.com",
+   "name": "Revelio Labs, Inc.",
+   "rights_url": "https://www.reveliolabs.com/privacy/",
+   "source": "california registry",
+   "website": "www.reveliolabs.com"
+  },
+  "ca-1424": {
+   "email": "usprivacy@equifax.com",
+   "name": "Equifax Information Services LLC",
+   "rights_url": "https://www.equifax.com/personal/my-privacy/",
+   "source": "california registry",
+   "website": "https://www.equifax.com"
+  },
+  "ca-1425": {
+   "email": "privacy@rbarrel.com",
+   "name": "Cross Pixel Media, Inc.",
+   "rights_url": "https://privacy.crsspxl.com/;",
+   "source": "california registry",
+   "website": "crosspixel.net"
+  },
+  "ca-1426": {
+   "email": "privacy@wealthfeed.com",
+   "name": "WealthFeed, Inc.",
+   "rights_url": "www.wealthfeed.com",
+   "source": "california registry",
+   "website": "www.wealthfeed.com"
+  },
+  "ca-1427": {
+   "email": "consumer.documents@lexisnexisrisk.com",
+   "name": "LexisNexis Risk Solutions FL Inc.",
+   "rights_url": "https://risk.lexisnexis.com/state-privacy-act-notice;",
+   "source": "california registry",
+   "website": "https://risk.lexisnexis.com"
+  },
+  "ca-1428": {
+   "email": "jdpowerprivacy@jdpa.com",
+   "name": "Autodata Solutions, Inc.",
+   "rights_url": "https://www.jdpower.com/privacy/california",
+   "source": "california registry",
+   "website": "https://www.jdpower.com"
+  },
+  "ca-1429": {
+   "email": "privacy@decide.co",
+   "name": "Decide Technologies Inc.",
+   "rights_url": "https://decide.co/privacy",
+   "source": "california registry",
+   "website": "https://decide.co"
+  },
+  "ca-1430": {
+   "email": "privacy@babelstreet.com",
+   "name": "Babel Street, Inc.",
+   "rights_url": "https://www.babelstreet.com/privacy",
+   "source": "california registry",
+   "website": "https://www.babelstreet.com"
+  },
+  "ca-1431": {
+   "email": "privacy@infillion.com",
+   "name": "PaeDae, Inc.",
+   "rights_url": "https://infillion.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.infillion.com"
+  },
+  "ca-1432": {
+   "email": "privacy@videoamp.com",
+   "name": "VideoAmp, Inc.",
+   "rights_url": "www.videoamp.com",
+   "source": "california registry",
+   "website": "www.videoamp.com"
+  },
+  "ca-1433": {
+   "email": "melodyrongstad@bbdirect.com",
+   "name": "BB Direct Inc",
+   "rights_url": "https://www.bbdirect.com/about/privacy-compliance.html",
+   "source": "california registry",
+   "website": "https://www.bbdirect.com"
+  },
+  "ca-1434": {
+   "email": "privacy@alikeaudience.com",
+   "name": "AlikeAudience Inc",
+   "rights_url": "https://www.alikeaudience.com/",
+   "source": "california registry",
+   "website": "alikeaudience.com"
+  },
+  "ca-1436": {
+   "email": "optout@loopme.com",
+   "name": "LoopMe Ltd",
+   "rights_url": "loopme.com",
+   "source": "california registry",
+   "website": "loopme.com"
+  },
+  "ca-1438": {
+   "email": "dataprotection@sharethrough.com",
+   "name": "Sharethrough",
+   "rights_url": "https://www.sharethrough.com/",
+   "source": "california registry",
+   "website": "https://www.sharethrough.com"
+  },
+  "ca-1439": {
+   "email": "consumerprivacy@qualfon.com",
+   "name": "Qualfon",
+   "rights_url": "https://www.qualfon.com/privacy-policy/consumer-privacy-choices/",
+   "source": "california registry",
+   "website": "www.qualfon.com"
+  },
+  "ca-1440": {
+   "email": "security@vector.co",
+   "name": "GetVector, Inc.",
+   "rights_url": "https://www.vector.co/opt-out",
+   "source": "california registry",
+   "website": "vector.co"
+  },
+  "ca-1441": {
+   "email": "privacy@fusable.com",
+   "name": "Randall-Reilly, LLC",
+   "rights_url": "https://fusable.com/legal/website-terms-and-privacy-notice/",
+   "source": "california registry",
+   "website": "fusable.com"
+  },
+  "ca-1442": {
+   "email": "privacy@zetaglobal.com",
+   "name": "Zeta Global",
+   "rights_url": "www.zetaglobal.com",
+   "source": "california registry",
+   "website": "www.zetaglobal.com"
+  },
+  "ca-1443": {
+   "email": "james.dunay@visitiq.io",
+   "name": "VisitIQ LLC",
+   "rights_url": "https://visitiq.io/opt-out/",
+   "source": "california registry",
+   "website": "visitiq.io"
+  },
+  "ca-1444": {
+   "email": "nikki@giantpartners.com",
+   "name": "Giant Partners, Inc.",
+   "rights_url": "www.giantpartners.com;",
+   "source": "california registry",
+   "website": "www.giantpartners.com; www.listgiant.com"
+  },
+  "ca-1445": {
+   "email": "ewoolf@completemailinglists.com",
+   "name": "Complete Mailing Lists LLC",
+   "rights_url": "https://completemailinglists.com/do-not-sell-my-information",
+   "source": "california registry",
+   "website": "www.completemailinglists.com"
+  },
+  "ca-1448": {
+   "email": "privacy@audiencemix.net",
+   "name": "Audience Mix LLC",
+   "rights_url": "https://www.audiencemix.net/do-no-sell-or-share-my-personal-informat",
+   "source": "california registry",
+   "website": "audiencemix.net"
+  },
+  "ca-1450": {
+   "email": "accounting@milestonemarketingsolutions.com",
+   "name": "Milestone Marketing Solutions",
+   "rights_url": "https://www.milestonemarketingsolutions.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.milestonemarketingsolutions.com"
+  },
+  "ca-1452": {
+   "email": "dealersocketprivacy@solera.com",
+   "name": "DealerSocket, LLC (US)",
+   "rights_url": "https://dealersocket.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.dealersocket.com"
+  },
+  "ca-1453": {
+   "email": "privacy@affinitysolutions.com",
+   "name": "Affinity Solutions Inc.",
+   "rights_url": "https://affinitysolutions-privacy.my.onetrust.com/webform/a564cfa1-53bf-4c10-bf95-cd907432d7e8/7e4e6bf3-6562-454e-8c73-6a7bd1f4b336",
+   "source": "california registry",
+   "website": "https://www.affinity.solutions"
+  },
+  "ca-1454": {
+   "email": "privacy@penlink.com",
+   "name": "Pen-Link, Ltd.",
+   "rights_url": "https://www.penlink.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.penlink.com"
+  },
+  "ca-1455": {
+   "email": "hello@numlookup.com",
+   "name": "NumLookup LLC.",
+   "rights_url": "https://www.numlookup.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.numlookup.com"
+  },
+  "ca-1456": {
+   "email": "richard@evs7.com",
+   "name": "Electronic Voice Services, Inc.",
+   "rights_url": "https://www.telephonelists.biz/privacy-notice-for-residents-of-california;",
+   "source": "california registry",
+   "website": "https://www.telephonelists.biz"
+  },
+  "ca-1457": {
+   "email": "privacy@cadent.tv",
+   "name": "Cadent LLC",
+   "rights_url": "www.cadent.tv",
+   "source": "california registry",
+   "website": "www.cadent.tv"
+  },
+  "ca-1458": {
+   "email": "ben@vendelux.com",
+   "name": "Vendelux, Inc.",
+   "rights_url": "https://vendelux.com/privacy-center/",
+   "source": "california registry",
+   "website": "www.vendelux.com"
+  },
+  "ca-1459": {
+   "email": "legal@roundsky.com",
+   "name": "Round Sky, Inc.",
+   "rights_url": "https://www.roundsky.com/supplemental-privacy-notice/",
+   "source": "california registry",
+   "website": "www.roundsky.com"
+  },
+  "ca-1460": {
+   "email": "ops@equimine.com",
+   "name": "EquiMine Inc.",
+   "rights_url": "www.batchleads.io",
+   "source": "california registry",
+   "website": "www.batchleads.io"
+  },
+  "ca-1461": {
+   "email": "operations@ignitevisibility.com",
+   "name": "33 Mile Radius LLC",
+   "rights_url": "www.33mileradius.com",
+   "source": "california registry",
+   "website": "www.33mileradius.com"
+  },
+  "ca-1462": {
+   "email": "jon@jmr-media.com",
+   "name": "JMR Media Consulting, Inc.",
+   "rights_url": "https://jmr-media.com/privacy-notice",
+   "source": "california registry",
+   "website": "https://www.jmr-media.com"
+  },
+  "ca-1464": {
+   "email": "privacy@id5.io",
+   "name": "ID5 Technology Ltd",
+   "rights_url": "https://id5.io",
+   "source": "california registry",
+   "website": "https://id5.io"
+  },
+  "ca-1465": {
+   "email": "dj.merino@supplier.io",
+   "name": "Qurium Solutions, Inc.",
+   "rights_url": "https://supplier.io/privacy-policy",
+   "source": "california registry",
+   "website": "www.supplier.io"
+  },
+  "ca-1466": {
+   "email": "info@relpro.com",
+   "name": "RelPro, Inc.",
+   "rights_url": "https://relpro.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.relpro.com"
+  },
+  "ca-1467": {
+   "email": "privacy@sourcepathdigital.com",
+   "name": "Source Path Digital",
+   "rights_url": "sourcepathdigital.com",
+   "source": "california registry",
+   "website": "sourcepathdigital.com"
+  },
+  "ca-1468": {
+   "email": "privacy@complementics.com",
+   "name": "eContext.ai LLC",
+   "rights_url": "https://www.complementics.com/optout-donotsell",
+   "source": "california registry",
+   "website": "https://complementics.com"
+  },
+  "ca-1469": {
+   "email": "operations@growbots.com",
+   "name": "Bushwick Growbots LLC",
+   "rights_url": "growbots.com",
+   "source": "california registry",
+   "website": "growbots.com"
+  },
+  "ca-1470": {
+   "email": "sourcing@tauxbe.com",
+   "name": "Tauxbe Data Inc.",
+   "rights_url": "https://www.tauxbe.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.tauxbe.com; www.natcrim.com"
+  },
+  "ca-1471": {
+   "email": "privacy@inboundinsight.com",
+   "name": "Inbound Insight, LLC",
+   "rights_url": "https://inboundinsight.com/ccpa;",
+   "source": "california registry",
+   "website": "inboundinsight.com"
+  },
+  "ca-1472": {
+   "email": "privacy@internetbrands.com",
+   "name": "MH Sub I, LLC",
+   "rights_url": "www.internetbrands.com",
+   "source": "california registry",
+   "website": "www.internetbrands.com"
+  },
+  "ca-1473": {
+   "email": "dataprivacy@pulsepoint.com",
+   "name": "PulsePoint, Inc.",
+   "rights_url": "https://www.pulsepoint.com/legal/platform-privacy-policy",
+   "source": "california registry",
+   "website": "www.pulsepoint.com"
+  },
+  "ca-1474": {
+   "email": "legal@intentsify.io",
+   "name": "Intentsify, LLC",
+   "rights_url": "https://intentsify.io/privacy-policy/consumer-data-privacy-policy/;",
+   "source": "california registry",
+   "website": "https://www.intentsify.io"
+  },
+  "ca-1475": {
+   "email": "contact@join5x5.com",
+   "name": "5x5 US, LLC",
+   "rights_url": "https://privacy.5x5data.com/5x5/opt-out;",
+   "source": "california registry",
+   "website": "https://5x5data.com"
+  },
+  "ca-1476": {
+   "email": "tom@lead411.io",
+   "name": "Lead411 Corporation",
+   "rights_url": "https://www.lead411.com/your-privacy-choices/",
+   "source": "california registry",
+   "website": "lead411.com; growjo.com; quickenrich.io"
+  },
+  "ca-1477": {
+   "email": "datarequest@exactmatch.io",
+   "name": "Exact Match Marketing Inc",
+   "rights_url": "https://exactmatchmarketing.com/privacy-policy",
+   "source": "california registry",
+   "website": "exactmatchmarketing.com; app.exactmatchmarketing.com; exactmatch.io"
+  },
+  "ca-1478": {
+   "email": "info@blueaction.io",
+   "name": "Blue Action Inc.",
+   "rights_url": "https://blueaction.io/do-not-sell/",
+   "source": "california registry",
+   "website": "blueaction.io"
+  },
+  "ca-1480": {
+   "email": "dataprivacy@pmg.com",
+   "name": "PMG Worldwide, LLC",
+   "rights_url": "https://www.pmg.com",
+   "source": "california registry",
+   "website": "https://www.pmg.com"
+  },
+  "ca-1481": {
+   "email": "dataprivacy@koddi.com",
+   "name": "Koddi, Inc",
+   "rights_url": "https://koddi.com",
+   "source": "california registry",
+   "website": "http://www.koddi.com"
+  },
+  "ca-1482": {
+   "email": "m.curtis@sdintelligence.com",
+   "name": "Strategic Data Intelligence, LLC",
+   "rights_url": "www.strategicdataintelligence.com",
+   "source": "california registry",
+   "website": "strategicdataintelligence.com"
+  },
+  "ca-1483": {
+   "email": "privacy@leidos.com",
+   "name": "Leidos Digital Solutions, Inc.",
+   "rights_url": "www.leidosiq.com",
+   "source": "california registry",
+   "website": "www.leidosiq.com"
+  },
+  "ca-1484": {
+   "email": "jeff@richmediallc.com",
+   "name": "Rich Media LLC",
+   "rights_url": "https://richmediallc.com/privacy-policy/;",
+   "source": "california registry",
+   "website": "www.richmediallc.com"
+  },
+  "ca-1486": {
+   "email": "privacy@evertrue.com",
+   "name": "EverView HoldCo, Inc",
+   "rights_url": "https://www.evertrue.com/privacy-policy/;",
+   "source": "california registry",
+   "website": "www.evertrue.com"
+  },
+  "ca-1487": {
+   "email": "privacy@proxima.ai",
+   "name": "Innovation Brands Corp",
+   "rights_url": "www.proxima.ai",
+   "source": "california registry",
+   "website": "www.proxima.ai"
+  },
+  "ca-1488": {
+   "email": "drgdsr@clarivate.com",
+   "name": "Clarivate",
+   "rights_url": "https://privacyportal.onetrust.com/webform/7636e208-dda4-4218-8026-e1bc155873fc/draft/8651c266-68d4-43a8-b7ca-7bd8398843d6;",
+   "source": "california registry",
+   "website": "www.clarivate.com"
+  },
+  "ca-1489": {
+   "email": "info@malvernmedia.com",
+   "name": "Malvern Media Inc.",
+   "rights_url": "https://www.malvernmedia.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.malvernmedia.com"
+  },
+  "ca-1490": {
+   "email": "operations@ignitevisibility.com",
+   "name": "Best Pick Reports, LLC",
+   "rights_url": "www.bestpickreports.com",
+   "source": "california registry",
+   "website": "www.bestpickreports.com"
+  },
+  "ca-1491": {
+   "email": "operations@ignitevisibility.com",
+   "name": "Home Contractors Review, LLC",
+   "rights_url": "https://www.fivestarrated.com",
+   "source": "california registry",
+   "website": "www.fivestarrated.com"
+  },
+  "ca-1492": {
+   "email": "operations@ignitevisibility.com",
+   "name": "Keyword Connects LLC",
+   "rights_url": "https://keywordconnects.com/",
+   "source": "california registry",
+   "website": "keywordconnects.com"
+  },
+  "ca-1493": {
+   "email": "operations@ignitevisibility.com",
+   "name": "Remodeling.com, LLC",
+   "rights_url": "https://remodeling.com",
+   "source": "california registry",
+   "website": "www.remodeling.com"
+  },
+  "ca-1494": {
+   "email": "ns_privacy@transunion.com",
+   "name": "Neustar Information Services, Inc.",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1495": {
+   "email": "ns_privacy@transunion.com",
+   "name": "TRUSTID, Inc.",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1496": {
+   "email": "ns_privacy@transunion.com",
+   "name": "MarketShare Partners, LLC",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1497": {
+   "email": "ns_privacy@transunion.com",
+   "name": "NEUSTAR IP INTELLIGENCE, INC.",
+   "rights_url": "www.transunion.com",
+   "source": "california registry",
+   "website": "www.transunion.com"
+  },
+  "ca-1499": {
+   "email": "privacy@360mediadirect.com",
+   "name": "Subdirect LLC",
+   "rights_url": "https://360-media-direct.privacy.saymine.io/360_Media_Direct",
+   "source": "california registry",
+   "website": "www360mediadirect.com"
+  },
+  "ca-1500": {
+   "email": "ccpa@idm.us.com",
+   "name": "Integrated Direct Marketing, LLC",
+   "rights_url": "https://www.idm.us.com/do-not-sell-my-personal-information/",
+   "source": "california registry",
+   "website": "idm.us.com"
+  },
+  "ca-1501": {
+   "email": "personal_data_opt_out@agile-ed.com",
+   "name": "Agile Education Marketing, LLC",
+   "rights_url": "https://agile-ed.com/california-privacy-rights/;",
+   "source": "california registry",
+   "website": "agile-ed.com"
+  },
+  "ca-1502": {
+   "email": "privacy@disqus.com",
+   "name": "Disqus",
+   "rights_url": "www.Disqus.com",
+   "source": "california registry",
+   "website": "Disqus.com"
+  },
+  "ca-1503": {
+   "email": "support@cinqdi.com",
+   "name": "MV Digital Group, LLC",
+   "rights_url": "https://www.cinqdi.com/privacy-policy/#section-rights",
+   "source": "california registry",
+   "website": "www.cinqdi.com"
+  },
+  "ca-1504": {
+   "email": "privacy@kalibrate.com",
+   "name": "Intalytics, Inc.",
+   "rights_url": "https://kalibrate.com/data-subject-access-request-form/",
+   "source": "california registry",
+   "website": "Intalytics.com"
+  },
+  "ca-1505": {
+   "email": "privacy@loopme.com",
+   "name": "Chartboost, LLC",
+   "rights_url": "https://loopme.ai/chartboost/",
+   "source": "california registry",
+   "website": "www.loopme.com"
+  },
+  "ca-1506": {
+   "email": "privacy@revcontent.com",
+   "name": "RevContent, LLC",
+   "rights_url": "https://www.revcontent.com/policy/privacy-policy#your-privacy-rights-and-choices;",
+   "source": "california registry",
+   "website": "https://www.revcontent.com"
+  },
+  "ca-1507": {
+   "email": "privacyofficer@dnb.com",
+   "name": "Dun and Bradstreet Inc.",
+   "rights_url": "https://www.dnb.com/en-us/why-dnb/data-transparency.html;",
+   "source": "california registry",
+   "website": "dnb.com"
+  },
+  "ca-1508": {
+   "email": "privacy@convergemarketing.com",
+   "name": "Converge Marketing LLC",
+   "rights_url": "https://www.convergemarketing.com/privacy/",
+   "source": "california registry",
+   "website": "https://www.convergemarketing.com"
+  },
+  "ca-1509": {
+   "email": "privacy@adprime.com",
+   "name": "Adprime Media LLC",
+   "rights_url": "https://www.adprime.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.adprime.com"
+  },
+  "ca-1510": {
+   "email": "ccpa@paramountdirectmarketing.com",
+   "name": "Paramount Lists, Inc.",
+   "rights_url": "https://www.paramountdirectmarketing.com/privacy-policy.php",
+   "source": "california registry",
+   "website": "www.paramountdirectmarketing.com"
+  },
+  "ca-1511": {
+   "email": "devin@graze.social",
+   "name": "Graze Social PBC",
+   "rights_url": "https://www.graze.social/privacy-policy",
+   "source": "california registry",
+   "website": "www.graze.social"
+  },
+  "ca-1512": {
+   "email": "jclark@mobilewalla.com",
+   "name": "Mobilewalla, Inc.",
+   "rights_url": "https://www.mobilewalla.com/global-opt-out-request",
+   "source": "california registry",
+   "website": "www.mobilewalla.com"
+  },
+  "ca-1513": {
+   "email": "ccpa@greatlakeslists.com",
+   "name": "Great Lakes List, Inc.",
+   "rights_url": "https://greatlakeslists.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.greatlakeslists.com"
+  },
+  "ca-1514": {
+   "email": "privacy@vi.co",
+   "name": "Vi Technologies, Inc.",
+   "rights_url": "www.vi.co",
+   "source": "california registry",
+   "website": "vi.co"
+  },
+  "ca-1515": {
+   "email": "info@agrmarketingsolutions.com",
+   "name": "AGR Marketing Solutions LLC",
+   "rights_url": "www.agrmarketingsolutions.com",
+   "source": "california registry",
+   "website": "www.agrmarketingsolutions.com"
+  },
+  "ca-1516": {
+   "email": "info@kbsynergy.com",
+   "name": "KB Synergy Inc",
+   "rights_url": "https://kbsynergy.com/privacy-policy-ccpa-do-not-sell-my-information/#do-not-sell",
+   "source": "california registry",
+   "website": "kbsynergy.com"
+  },
+  "ca-1517": {
+   "email": "operations@grassrootsanalytics.com",
+   "name": "Grassroots Analytics",
+   "rights_url": "https://www.grassrootsanalytics.com/california-consumer-privacy-act-ccpa",
+   "source": "california registry",
+   "website": "https://www.grassrootsanalytics.com"
+  },
+  "ca-1518": {
+   "email": "andre@listkit.io",
+   "name": "ListKit LLC",
+   "rights_url": "https://www.listkit.io/privacy;",
+   "source": "california registry",
+   "website": "www.listkit.io"
+  },
+  "ca-1519": {
+   "email": "privacy@viantinc.com",
+   "name": "Viant US LLC",
+   "rights_url": "www.viantinc.com",
+   "source": "california registry",
+   "website": "www.viantinc.com"
+  },
+  "ca-1520": {
+   "email": "privacy.department@nielsen.com",
+   "name": "eXelate, Inc.",
+   "rights_url": "www.nielsen.com",
+   "source": "california registry",
+   "website": "www.nielsen.com"
+  },
+  "ca-1522": {
+   "email": "privacyinfo@kidslivesafe.com",
+   "name": "Scalable Commerce LLC",
+   "rights_url": "https://www.kidslivesafe.com/help-center/privacy;",
+   "source": "california registry",
+   "website": "kidslivesafe.com; quickpublicrecords.com"
+  },
+  "ca-1523": {
+   "email": "support@convexlabs.io",
+   "name": "Convex Labs LLC",
+   "rights_url": "https://www.convex.com",
+   "source": "california registry",
+   "website": "www.convex.com"
+  },
+  "ca-1524": {
+   "email": "privacyanddatacompliancereview@lizdev.com",
+   "name": "LizDev,Inc",
+   "rights_url": "https://lizdev.com/privacy-policy/",
+   "source": "california registry",
+   "website": "lizdev.com"
+  },
+  "ca-1525": {
+   "email": "privacy@everleads.com",
+   "name": "ListsOnline.com, Inc.",
+   "rights_url": "https://www.everleads.com/privacy",
+   "source": "california registry",
+   "website": "https://www.everleads.com"
+  },
+  "ca-1526": {
+   "email": "privacyofficer@dnb.com",
+   "name": "NetWise Data, LLC",
+   "rights_url": "https://www.netwisedata.com;",
+   "source": "california registry",
+   "website": "https://www.netwisedata.com"
+  },
+  "ca-1527": {
+   "email": "privacy@eyeota.com",
+   "name": "Eyeota Pte Ltd",
+   "rights_url": "https://www.eyeota.com/;",
+   "source": "california registry",
+   "website": "https://www.eyeota.com"
+  },
+  "ca-1528": {
+   "email": "legal@dealfront.com",
+   "name": "Dealfront Group GmbH",
+   "rights_url": "https://www.leadfeeder.com/privacy/privacy-notice/",
+   "source": "california registry",
+   "website": "https://www.leadfeeder.com"
+  },
+  "ca-1529": {
+   "email": "dpo@leadfeeder.com",
+   "name": "Dealfront Finland Oy",
+   "rights_url": "https://www.leadfeeder.com/privacy/privacy-notice/",
+   "source": "california registry",
+   "website": "https://www.leadfeeder.com"
+  },
+  "ca-1530": {
+   "email": "privacy@scileads.com",
+   "name": "SciLeads Ltd",
+   "rights_url": "https://scileads.com/privacy-policy/",
+   "source": "california registry",
+   "website": "https://scileads.com"
+  },
+  "ca-1531": {
+   "email": "info@missionwired.com",
+   "name": "Anne Lewis Strategies LLC",
+   "rights_url": "https://info.missionwired.com/coop-optout",
+   "source": "california registry",
+   "website": "www.missionwired.com"
+  },
+  "ca-1532": {
+   "email": "compliance@checkpeople.com",
+   "name": "CHECKPEOPLE, LLC",
+   "rights_url": "https://checkpeople.com/privacy-rights",
+   "source": "california registry",
+   "website": "checkpeople.com"
+  },
+  "ca-1533": {
+   "email": "compliance@information.com",
+   "name": "INFORMATION.COM, LLC",
+   "rights_url": "https://information.com/privacy-rights/",
+   "source": "california registry",
+   "website": "information.com"
+  },
+  "ca-1534": {
+   "email": "compliance@unmask.com",
+   "name": "UNMASK, LLC",
+   "rights_url": "https://unmask.com/privacy-rights/",
+   "source": "california registry",
+   "website": "unmask.com"
+  },
+  "ca-1535": {
+   "email": "compliance@freepeoplesearch.com",
+   "name": "FREEPEOPLESEARCH.COM, LLC",
+   "rights_url": "https://freepeoplesearch.com/privacy-rights/",
+   "source": "california registry",
+   "website": "freepeoplesearch.com"
+  },
+  "ca-1536": {
+   "email": "compliance@uspeoplesearch.com",
+   "name": "USPeopleSearch.com, LLC",
+   "rights_url": "https://uspeoplesearch.com/privacy-rights/",
+   "source": "california registry",
+   "website": "uspeoplesearch.com"
+  },
+  "ca-1537": {
+   "email": "compliance@learnmore.com",
+   "name": "LearnMore, LLC",
+   "rights_url": "https://learnmore.com/privacy-rights/",
+   "source": "california registry",
+   "website": "learnmore.com"
+  },
+  "ca-1539": {
+   "email": "ccpa@donorbureau.com",
+   "name": "DonorBureau LLC",
+   "rights_url": "https://donorbureau.com/california-privacy-rights-for-california-residents-only/",
+   "source": "california registry",
+   "website": "https://donorbureau.com"
+  },
+  "ca-1540": {
+   "email": "john@fourcornerhome.com",
+   "name": "Four Corner Media Corp",
+   "rights_url": "https://fourcornerhome.com/data-privacy-form/;",
+   "source": "california registry",
+   "website": "https://fourcornerhome.com; https://jacksgutters.com; https://bennetandsons.com"
+  },
+  "ca-1542": {
+   "email": "privacy_office@inmar.com",
+   "name": "Inmar Brand Solutions, Inc.",
+   "rights_url": "https://www.inmar.com/about/privacy-policy",
+   "source": "california registry",
+   "website": "inmar.com"
+  },
+  "ca-1543": {
+   "email": "privacyinfo@spyfly.com",
+   "name": "Digital Safety Products, LLC",
+   "rights_url": "https://www.spyfly.com/help-center/privacy;",
+   "source": "california registry",
+   "website": "spyfly.com; publicrecordreports.com"
+  },
+  "ca-1544": {
+   "email": "ccpa@jungroup.com",
+   "name": "Jun Group Productions, LLC",
+   "rights_url": "jungroup.com",
+   "source": "california registry",
+   "website": "jungroup.com"
+  },
+  "ca-1545": {
+   "email": "compliance@publicrecord.com",
+   "name": "PublicRecordCom, LLC",
+   "rights_url": "https://publicrecord.com/privacy-rights/",
+   "source": "california registry",
+   "website": "publicrecord.com"
+  },
+  "ca-1546": {
+   "email": "ccpa-drop@adswizz.com",
+   "name": "AdsWizz, Inc.",
+   "rights_url": "www.adswizz.com",
+   "source": "california registry",
+   "website": "www.adswizz.com"
+  },
+  "ca-1548": {
+   "email": "privacyinfo@publicdatacheck.com",
+   "name": "National Data Analytics, LLC",
+   "rights_url": "publicdatacheck.com",
+   "source": "california registry",
+   "website": "publicdatacheck.com"
+  },
+  "ca-1549": {
+   "email": "privacy@ispot.tv",
+   "name": "iSpot.tv, Inc.",
+   "rights_url": "https://www.ispot.tv/privacy",
+   "source": "california registry",
+   "website": "www.ispot.tv"
+  },
+  "ca-1551": {
+   "email": "privacyinfo@publicinfoservices.com",
+   "name": "Information Data Resources, LLC",
+   "rights_url": "https://www.publicinfoservices.com/help-center/privacy;",
+   "source": "california registry",
+   "website": "publicinfoservices.com"
+  },
+  "ca-1552": {
+   "email": "nielsenprivacy@nielsen.com",
+   "name": "The Nielsen Company, LLC",
+   "rights_url": "www.nielsen.com",
+   "source": "california registry",
+   "website": "www.nielsen.com"
+  },
+  "ca-1553": {
+   "email": "privacyinfo@searchpublicrecords.com",
+   "name": "Civil Data Research, LLC",
+   "rights_url": "https://www.searchpublicrecords.com/help-center/privacy;",
+   "source": "california registry",
+   "website": "searchpublicrecords.com"
+  },
+  "ca-1554": {
+   "email": "privacy@broadridge.com",
+   "name": "AdvisorTarget, LLC",
+   "rights_url": "https://www.finsum.com/what-we-do/your-privacy-choices",
+   "source": "california registry",
+   "website": "www.finsum.com"
+  },
+  "ca-1556": {
+   "email": "legal-captify@verve.com",
+   "name": "Captify Technologies",
+   "rights_url": "https://www.captifytechnologies.com/data-subject-rights-request/",
+   "source": "california registry",
+   "website": "captifytechnologies.com"
+  },
+  "ca-1557": {
+   "email": "tax@veraset.com",
+   "name": "Veraset, LLC",
+   "rights_url": "https://www.veraset.com/legal/do-not-sell-request#consumer-opt-out-do-not-sell-request",
+   "source": "california registry",
+   "website": "https://www.veraset.com"
+  },
+  "ca-1558": {
+   "email": "info@date-detective.app",
+   "name": "Date Detective Inc",
+   "rights_url": "https://www.date-detective.app/agreements/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.date-detective.app; https://www.date-detective.com"
+  },
+  "ca-1561": {
+   "email": "privacy@getliminal.com",
+   "name": "Nachal Inc.",
+   "rights_url": "https://getliminal.com/privacypolicy;",
+   "source": "california registry",
+   "website": "www.getliminal.com"
+  },
+  "ca-1562": {
+   "email": "amanda@connectionholdings.com",
+   "name": "Connection Holdings",
+   "rights_url": "Connectionholdings.com",
+   "source": "california registry",
+   "website": "connectionholdings.com"
+  },
+  "ca-1563": {
+   "email": "bizdev@astoriacompany.com",
+   "name": "Astoria Company",
+   "rights_url": "https://astoriacompany.com",
+   "source": "california registry",
+   "website": "https://astoriacompany.com"
+  },
+  "ca-1564": {
+   "email": "drgdsr@clarivate.com",
+   "name": "DR Decision Resources, LLC",
+   "rights_url": "https://privacyportal.onetrust.com/webform/7636e208-dda4-4218-8026-e1bc155873fc/draft/c3eedb35-4568-4772-87fb-4d8ae17ac233;",
+   "source": "california registry",
+   "website": "https://clarivate.com"
+  },
+  "ca-1565": {
+   "email": "info@dealershiptoolkit.com",
+   "name": "Coast Technology, LLC",
+   "rights_url": "https://coasttechnology.com/;",
+   "source": "california registry",
+   "website": "www.coasttechnology.com"
+  },
+  "ca-1566": {
+   "email": "privacy@abovedata.io",
+   "name": "Above Data, Inc.",
+   "rights_url": "https://www.abovedata.io/opt-out/;",
+   "source": "california registry",
+   "website": "abovedata.io"
+  },
+  "ca-1567": {
+   "email": "barry.gold@thinkdatagroup.com",
+   "name": "Think Data Group Inc",
+   "rights_url": "thinkdatagroup.com",
+   "source": "california registry",
+   "website": "www.thinkdatagroup.com"
+  },
+  "ca-1569": {
+   "email": "privacy@biscred.com",
+   "name": "Biscred",
+   "rights_url": "https://www.biscred.com/do-not-sell-my-information;",
+   "source": "california registry",
+   "website": "biscred.com"
+  },
+  "ca-1570": {
+   "email": "notice@tunnldata.com",
+   "name": "Tunnl, LLC",
+   "rights_url": "tunnldata.com",
+   "source": "california registry",
+   "website": "tunnldata.com"
+  },
+  "ca-1571": {
+   "email": "notice@deeprootanalytics.com",
+   "name": "Deep Root Analytics, LLC",
+   "rights_url": "deeprootanalytics.com",
+   "source": "california registry",
+   "website": "deeprootanalytics.com"
+  },
+  "ca-1572": {
+   "email": "privacy@fi-navigator.com",
+   "name": "FI Navigator Corporation",
+   "rights_url": "https://www.fi-navigator.com/remove/",
+   "source": "california registry",
+   "website": "https://www.fi-navigator.com"
+  },
+  "ca-1573": {
+   "email": "privacy@xcelerated.com",
+   "name": "Xcelerated Data LLC",
+   "rights_url": "xcelerated.com",
+   "source": "california registry",
+   "website": "xcelerated.com"
+  },
+  "ca-1574": {
+   "email": "legal@cuebiq.com",
+   "name": "Cuebiq Group, LLC",
+   "rights_url": "https://cuebiq.com/privacy-request/",
+   "source": "california registry",
+   "website": "www.cuebiq.com"
+  },
+  "ca-1575": {
+   "email": "jp.sardi@brightmountainmedia.com",
+   "name": "BV Insights LLC",
+   "rights_url": "https://big-village.com/privacy-policy/",
+   "source": "california registry",
+   "website": "www.big-village.com"
+  },
+  "ca-1576": {
+   "email": "privacy@smarteprivacy.com",
+   "name": "SMARTe Inc",
+   "rights_url": "www.smarte.pro",
+   "source": "california registry",
+   "website": "www.smarte.pro"
+  },
+  "ca-1577": {
+   "email": "privacy@fifty.io",
+   "name": "Fifty Technology Ltd",
+   "rights_url": "https://fifty.io/privacy-policy",
+   "source": "california registry",
+   "website": "https://fifty.io"
+  },
+  "ca-1578": {
+   "email": "privacy@enigma.com",
+   "name": "Enigma Technologies, Inc.",
+   "rights_url": "https://enigma.com/company/privacy-policy",
+   "source": "california registry",
+   "website": "enigma.com"
+  },
+  "ca-1579": {
+   "email": "privacy@theorg.com",
+   "name": "Orgio, Inc.",
+   "rights_url": "https://theorg.com/do-not-sell",
+   "source": "california registry",
+   "website": "theorg.com"
+  },
+  "ca-1580": {
+   "email": "privacy@steppingblocks.com",
+   "name": "Steppingblocks, Inc.",
+   "rights_url": "https://www.steppingblocks.com/privacy-ccpa",
+   "source": "california registry",
+   "website": "https://www.steppingblocks.com"
+  },
+  "ca-1581": {
+   "email": "privacy@sabio.inc",
+   "name": "Sabio Inc",
+   "rights_url": "https://www.sabioctv.com/",
+   "source": "california registry",
+   "website": "https://www.sabioctv.com"
+  },
+  "ca-1582": {
+   "email": "reid@mogean.com",
+   "name": "Mogean, Inc.",
+   "rights_url": "mogean.com",
+   "source": "california registry",
+   "website": "mogean.com"
+  },
+  "ca-1583": {
+   "email": "legal@traackr.com",
+   "name": "Traackr, Inc.",
+   "rights_url": "https://www.traackr.com/legal/privacy-policy;",
+   "source": "california registry",
+   "website": "https://www.traackr.com"
+  },
+  "ca-1584": {
+   "email": "james.kinzer@cdk.com",
+   "name": "CDK Global, LLC",
+   "rights_url": "cdkglobal.com",
+   "source": "california registry",
+   "website": "cdkglobal.com"
+  },
+  "ca-1585": {
+   "email": "teri.ettelson@locatesmarter.com",
+   "name": "LocateSmarter, LLC",
+   "rights_url": "https://locatesmarter.com/;",
+   "source": "california registry",
+   "website": "https://locatesmarter.com"
+  },
+  "ca-1586": {
+   "email": "californiaregistry@leadmemedia.com",
+   "name": "Lead Me Media LLC",
+   "rights_url": "leadmemedia.com",
+   "source": "california registry",
+   "website": "leadmemedia.com"
+  },
+  "ca-1587": {
+   "email": "privacy1@crisil.com",
+   "name": "Crisil Irvena US LLC",
+   "rights_url": "https://www.crisil.com/content/crisilcom/en/home/crisil-privacy-notice.html",
+   "source": "california registry",
+   "website": "www.greenwich.com"
+  },
+  "ca-1588": {
+   "email": "privacy@appscience.inc",
+   "name": "App Science, Inc",
+   "rights_url": "https://www.appscience.ai/",
+   "source": "california registry",
+   "website": "https://www.appscience.ai"
+  },
+  "ca-1589": {
+   "email": "business@citydata.ai",
+   "name": "CITYDATA Inc.",
+   "rights_url": "https://www.citydata.ai/privacy",
+   "source": "california registry",
+   "website": "https://citydata.ai"
+  },
+  "ca-1594": {
+   "email": "privacy@spglobal.com",
+   "name": "S&P Global Inc",
+   "rights_url": "https://www.spglobal.com/en",
+   "source": "california registry",
+   "website": "https://www.spglobal.com"
+  },
+  "ca-1595": {
+   "email": "inquiries@h1.co",
+   "name": "H1 Insights, Inc.",
+   "rights_url": "www.h1.co",
+   "source": "california registry",
+   "website": "www.h1.co"
+  },
+  "ca-1597": {
+   "email": "blakehogan@plug-industries.com",
+   "name": "Plug Chargers LLC",
+   "rights_url": "www.plug-industries.com",
+   "source": "california registry",
+   "website": "www.plug-industries.com"
+  },
+  "ca-1598": {
+   "email": "rhonda.rich@claritas.com",
+   "name": "Claritas LLC",
+   "rights_url": "www.claritas.com",
+   "source": "california registry",
+   "website": "www.claritas.com"
+  },
+  "ca-1599": {
+   "email": "legal@seekout.com",
+   "name": "ZipStorm, Inc.",
+   "rights_url": "https://www.seekout.com/privacy/choices",
+   "source": "california registry",
+   "website": "www.seekout.com"
+  },
+  "ca-1605": {
+   "email": "info@kontextdata.com",
+   "name": "Kontext Data",
+   "rights_url": "www.kontextdata.com",
+   "source": "california registry",
+   "website": "kontextdata.com"
+  },
+  "ca-1606": {
+   "email": "privacy@elocal.com",
+   "name": "eLocal USA, LLC",
+   "rights_url": "www.elocal.com",
+   "source": "california registry",
+   "website": "elocal.com"
+  },
+  "ca-1607": {
+   "email": "privacy@podscribe.com",
+   "name": "Podible Inc",
+   "rights_url": "https://podscribe.com/privacy",
+   "source": "california registry",
+   "website": "www.podscribe.com"
+  },
+  "ca-1616": {
+   "email": "jen@aniline.io",
+   "name": "Aniline, Inc.",
+   "rights_url": "https://salesassistiq.ai/about",
+   "source": "california registry",
+   "website": "www.aniline.ai; www.salesassistiq.ai"
+  },
+  "ca-1618": {
+   "email": "privacy@opensend.com",
+   "name": "Opensend Inc",
+   "rights_url": "opensend.com/privacy-polic",
+   "source": "california registry",
+   "website": "opensend.com"
+  },
+  "ca-1619": {
+   "email": "privacy@skydeo.com",
+   "name": "Skydeo Inc.",
+   "rights_url": "skydeo.com",
+   "source": "california registry",
+   "website": "skydeo.com"
+  },
+  "ca-1622": {
+   "email": "chirag@enlyft.com",
+   "name": "Enlyft Inc.",
+   "rights_url": "https://enlyft.com/tech/check-email;",
+   "source": "california registry",
+   "website": "https://enlyft.com"
+  },
+  "ca-1624": {
+   "email": "tom.cushing@lgads.tv",
+   "name": "Alphonso Inc.",
+   "rights_url": "https://alphonso.tv/privacy/consumer",
+   "source": "california registry",
+   "website": "https://alphonso.tv"
+  },
+  "ca-1625": {
+   "email": "privacy@eleris.com",
+   "name": "New Mexico Data Insights",
+   "rights_url": "newmexicodatainsights.com",
+   "source": "california registry",
+   "website": "newmexicodatainsights.com"
+  },
+  "ca-1627": {
+   "email": "legal@privco.com",
+   "name": "PrivCo Holding Inc",
+   "rights_url": "https://www.privco.com/privacy-policy",
+   "source": "california registry",
+   "website": "www.privco.com"
+  },
+  "ca-1629": {
+   "email": "usdatabroker@urbanscience.com",
+   "name": "Urban Science Applications, Inc.",
+   "rights_url": "https://www.urbanscience.com/privacy/",
+   "source": "california registry",
+   "website": "https://www.urbanscience.com"
+  },
+  "ca-1631": {
+   "email": "privacy@mobilefuse.com",
+   "name": "MobileFuse LLC",
+   "rights_url": "https://mobilefuse.com",
+   "source": "california registry",
+   "website": "https://mobilefuse.com"
+  },
+  "ca-1632": {
+   "email": "privacy@yieldmo.com",
+   "name": "Yieldmo, Inc.",
+   "rights_url": "https://yieldmo.com",
+   "source": "california registry",
+   "website": "https://yieldmo.com"
+  },
+  "ca-1633": {
+   "email": "jonathon@growthcode.io",
+   "name": "GrowthCode, LLC",
+   "rights_url": "https://growthcode.io/do-not-sell-or-share-my-personal-information",
+   "source": "california registry",
+   "website": "www.growthcode.io"
+  },
+  "ca-1643": {
+   "email": "dale@datamangroup.com",
+   "name": "Dataman Group Inc",
+   "rights_url": "https://www.datamangroup.com/privacy/;",
+   "source": "california registry",
+   "website": "www.datamangroup.com"
+  },
+  "ca-1652": {
+   "email": "legal@ogury.co",
+   "name": "Ogury Ltd",
+   "rights_url": "https://privacy.ogury.com/",
+   "source": "california registry",
+   "website": "https://ogury.com"
+  },
+  "ca-1653": {
+   "email": "privacy@draup.com",
+   "name": "Draup, Inc.",
+   "rights_url": "https://www.draup.com",
+   "source": "california registry",
+   "website": "https://www.draup.com"
+  },
+  "ca-1659": {
+   "email": "legal@zerotoone.ai",
+   "name": "ZeroToOne.AI Inc.",
+   "rights_url": "https://www.zerotoone.ai/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.zerotoone.ai"
+  },
+  "ca-1660": {
+   "email": "privacy@mobilityglobal.com",
+   "name": "R.L. Polk & Co.",
+   "rights_url": "www.mobiityglobal.com;",
+   "source": "california registry",
+   "website": "www.mobilityglobal.com; www.spglobal.com"
+  },
+  "ca-1664": {
+   "email": "privacy@revenuebase.ai",
+   "name": "RevenueBase, Inc",
+   "rights_url": "https://revenuebase.ai/privacy-policy",
+   "source": "california registry",
+   "website": "revenuebase.ai"
+  },
+  "ca-1666": {
+   "email": "ccpa@quorum.us",
+   "name": "Quorum Analytics, LLC",
+   "rights_url": "https://www.quorum.us/privacy-policy/",
+   "source": "california registry",
+   "website": "www.quorum.us"
+  },
+  "ca-1683": {
+   "email": "privacy@fogdatascience.com",
+   "name": "Fog Data Science LLC",
+   "rights_url": "https://www.fogdatascience.com/opt-out;",
+   "source": "california registry",
+   "website": "https://www.fogdatascience.com"
+  },
+  "ca-1703": {
+   "email": "datarequests@applovin.com",
+   "name": "AppLovin Corporation",
+   "rights_url": "https://legal.applovin.com/privacy/;",
+   "source": "california registry",
+   "website": "www.applovin.com"
+  },
+  "ca-1710": {
+   "email": "dpo@adagio.io",
+   "name": "Onfocus SAS",
+   "rights_url": "https://adagio.io",
+   "source": "california registry",
+   "website": "https://adagio.io"
+  },
+  "ca-1715": {
+   "email": "chad.brown@benutech.com",
+   "name": "Voxtur Data Services",
+   "rights_url": "www.benutech.com",
+   "source": "california registry",
+   "website": "www.benutech.com"
+  },
+  "ca-1721": {
+   "email": "privacy@networx.com",
+   "name": "Networx Systems Inc.",
+   "rights_url": "https://www.networx.com/privacy",
+   "source": "california registry",
+   "website": "www.networx.com"
+  },
+  "ca-1728": {
+   "email": "populidrop@definitivehc.com",
+   "name": "Populi LLC",
+   "rights_url": "https://www.definitivehc.com",
+   "source": "california registry",
+   "website": "https://www.definitivehc.com"
+  },
+  "ca-1730": {
+   "email": "monocldrop@definitivehc.com",
+   "name": "Monocl AB",
+   "rights_url": "account.monocl.com;",
+   "source": "california registry",
+   "website": "account.monocl.com; https://www.definitivehc.com"
+  },
+  "ca-1733": {
+   "email": "dpo@sproutsocial.com",
+   "name": "Sprout Social, Inc.",
+   "rights_url": "https://sproutsocial.com/legal/privacy-policy/",
+   "source": "california registry",
+   "website": "www.sproutsocial.com"
+  },
+  "ca-1738": {
+   "email": "sojernprivacy@sojern.com",
+   "name": "Sojern, Inc",
+   "rights_url": "https://www.sojern.com/privacy/privacy-policy;",
+   "source": "california registry",
+   "website": "https://www.sojern.com"
+  },
+  "ca-1744": {
+   "email": "dataprotection@wurl.com",
+   "name": "WURL, LLC",
+   "rights_url": "https://www.wurl.com/;",
+   "source": "california registry",
+   "website": "https://www.wurl.com"
+  },
+  "ca-1746": {
+   "email": "support@dealmachine.com",
+   "name": "DealMachine Operations Inc.",
+   "rights_url": "https://privacyrequest.dealmachine.com/remove;",
+   "source": "california registry",
+   "website": "dealmachine.com"
+  },
+  "ca-1751": {
+   "email": "compliance@kindskiptracing.com",
+   "name": "Kind Skiptracing, Inc",
+   "rights_url": "https://kindskiptracing.com",
+   "source": "california registry",
+   "website": "https://kindskiptracing.com"
+  },
+  "ca-1752": {
+   "email": "karl@quorum.inc",
+   "name": "Quorum Data, Inc",
+   "rights_url": "quorum.inc/privacy",
+   "source": "california registry",
+   "website": "www.quorum.inc; app.quorum.live"
+  },
+  "ca-1753": {
+   "email": "consumer-privacy-ops@coxautoinc.com",
+   "name": "Cox Automotive, Inc.",
+   "rights_url": "https://www.coxautoinc.com/privacy-statement/;",
+   "source": "california registry",
+   "website": "www.coxautoinc.com; www.autotrader.com; www.fordblueadvantage.com; www.kbb.com"
+  },
+  "ca-1754": {
+   "email": "legal@ziffdavis.com",
+   "name": "Ziff Davis LLC",
+   "rights_url": "https://www.ziffdavis.com",
+   "source": "california registry",
+   "website": "https://www.ziffdavis.com"
+  },
+  "ca-1757": {
+   "email": "info@lead-enhance.com",
+   "name": "LEAD ENHANCE LLC",
+   "rights_url": "https://bathroom-remodel-today.com/privacy/",
+   "source": "california registry",
+   "website": "www.lead-enhance.com"
+  },
+  "ca-1758": {
+   "email": "privacy@vizio.com",
+   "name": "VIZIO Services, LLC",
+   "rights_url": "https://privacyportal-cdn.onetrust.com/dsarwebform/41aebd10-58ee-4c98-9dd5-aa66c9be664a/0099df9c-c0aa-4bf7-bd5f-7f4ff46768f6.html;",
+   "source": "california registry",
+   "website": "vizio.com; https://www.inscape.tv"
+  },
+  "ca-1762": {
+   "email": "privacy@captiv8.io",
+   "name": "Captiv8 Inc.",
+   "rights_url": "https://captiv8.io/policy/;",
+   "source": "california registry",
+   "website": "captiv8.io"
+  },
+  "ca-1763": {
+   "email": "legal@homeupgradepros.us",
+   "name": "Solar Connect, LLC",
+   "rights_url": "https://www.bluefireleads.com/privacy-policy.php",
+   "source": "california registry",
+   "website": "bluefireleads.com; homeupgradepros.us; americanroofers.org; homeupgradepros.net; homeupgradeprofessionals.us; xpertroofers.com; homeupgradepros.org; homeupgradepros.io; homeupgradeprofessionals.net; kwikac.com; homeupgradeprofessionals.com; kwiksiding.com; kwik-kitchen.com; upgradepros.services; bet"
+  },
+  "ca-1766": {
+   "email": "privacyrequests@socialcatfish.com",
+   "name": "Social Catfish, LLC",
+   "rights_url": "https://socialcatfish.com",
+   "source": "california registry",
+   "website": "https://socialcatfish.com"
+  },
+  "ca-1775": {
+   "email": "omer@start.io",
+   "name": "Start.io Inc.",
+   "rights_url": "https://www.start.io/policy/privacy-policy-site/",
+   "source": "california registry",
+   "website": "www.start.io"
+  },
+  "ca-1776": {
+   "email": "hello@obrajobs.com",
+   "name": "Obra, Inc.",
+   "rights_url": "www.obra.co",
+   "source": "california registry",
+   "website": "www.obra.co"
+  },
+  "ca-1780": {
+   "email": "ops@adswapper.co",
+   "name": "AdSwapper Inc",
+   "rights_url": "https://www.toptopleads.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.toptopleads.com; https://www.toptopservices.com; https://www.roofremake.com; https://www.windowsrenew.com; https://www.betterbathquote.com; https://www.saveonautoplans.com"
+  },
+  "ca-1782": {
+   "email": "gk@delivr.ai",
+   "name": "Delivr.ai Inc.",
+   "rights_url": "www.delivr.ai",
+   "source": "california registry",
+   "website": "https://delivr.ai"
+  },
+  "ca-1827": {
+   "email": "valentin@findymail.com",
+   "name": "Peanuts SaaS Studio SAS",
+   "rights_url": "https://www.findymail.com/ccpa/",
+   "source": "california registry",
+   "website": "https://www.findymail.com"
+  },
+  "ca-1860": {
+   "email": "marketingtechnology@upwork.com",
+   "name": "Upwork, Inc.",
+   "rights_url": "https://www.upwork.com/legal#privacy",
+   "source": "california registry",
+   "website": "https://www.upwork.com"
+  },
+  "ca-1861": {
+   "email": "invoices@customers.ai",
+   "name": "MobileMonkey, Inc",
+   "rights_url": "https://customers.ai/privacy-policy;",
+   "source": "california registry",
+   "website": "customers.ai"
+  },
+  "ca-1864": {
+   "email": "dnguyen@brightquery.com",
+   "name": "Brightquery Inc",
+   "rights_url": "https://brightquery.com/pages/privacy",
+   "source": "california registry",
+   "website": "www.brightquery.com"
+  },
+  "ca-1869": {
+   "email": "privacy@lempire.co",
+   "name": "Lempire SAS",
+   "rights_url": "https://www.lemlist.com/legal/privacy-policy",
+   "source": "california registry",
+   "website": "www.lemlist.com"
+  },
+  "ca-1872": {
+   "email": "privacy@mmslists.com",
+   "name": "MMS Inc",
+   "rights_url": "https://www.mmslists.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.mmslists.com"
+  },
+  "ca-1874": {
+   "email": "marc@logictree.com",
+   "name": "LogicTree, Inc.",
+   "rights_url": "https://www.data247.com/privacy",
+   "source": "california registry",
+   "website": "https://www.logictree.com; https://www.data247.com; https://www.ezcnam.com"
+  },
+  "ca-1879": {
+   "email": "privacy@crexi.com",
+   "name": "Commercial Real Estate Exchange, Inc.",
+   "rights_url": "https://www.crexi.com;",
+   "source": "california registry",
+   "website": "www.crexi.com"
+  },
+  "ca-1880": {
+   "email": "jack.marks@senioroi.com",
+   "name": "SenioROI, LLC",
+   "rights_url": "https://senioroi.com/privacy-request/;",
+   "source": "california registry",
+   "website": "https://senioroi.com"
+  },
+  "ca-1890": {
+   "email": "compliance@commonroom.io",
+   "name": "Common Room, Inc.",
+   "rights_url": "https://www.commonroom.io/privacy-policy;",
+   "source": "california registry",
+   "website": "https://www.commonroom.io"
+  },
+  "ca-1894": {
+   "email": "privacy@feedzai.com",
+   "name": "Feedzai, Inc.",
+   "rights_url": "https://www.feedzai.com/legal/privacy-policy",
+   "source": "california registry",
+   "website": "https://www.feedzai.com"
+  },
+  "ca-1907": {
+   "email": "awilliams@haines.com",
+   "name": "Haines & Co.",
+   "rights_url": "www.haines.com",
+   "source": "california registry",
+   "website": "www.haines.com"
+  },
+  "ca-1923": {
+   "email": "compliance@alpinedigitalgroup.com",
+   "name": "Alpine Digital Group, Inc.",
+   "rights_url": "https://alpinedigitalgroup.com/privacy-rights",
+   "source": "california registry",
+   "website": "alpinedigitalgroup.com; selectmypolicy.com; selecymyquotes.com; remodel-guru.com; selectyourinsurance.com"
+  },
+  "ca-1930": {
+   "email": "privacy@biscience.com",
+   "name": "B.I Science (2009) Ltd",
+   "rights_url": "https://biscience.com/privacy-policy",
+   "source": "california registry",
+   "website": "https://biscience.com"
+  },
+  "ca-1931": {
+   "email": "privacy@urban-vpn.com",
+   "name": "Urban Cyber Security Inc.",
+   "rights_url": "https://www.urban-vpn.com/about-us/privacy",
+   "source": "california registry",
+   "website": "https://www.urban-vpn.com"
+  },
+  "ca-1935": {
+   "email": "srumsey@bulldogmedia.com",
+   "name": "BMG Services, LLC",
+   "rights_url": "www.bulldogmediagroup.com;",
+   "source": "california registry",
+   "website": "www.bulldogmediagroup.com"
+  },
+  "ca-1940": {
+   "email": "compliance@tracerfy.com",
+   "name": "Tracerfy LLC",
+   "rights_url": "https://www.tracerfy.com",
+   "source": "california registry",
+   "website": "https://www.tracerfy.com"
+  }
+ },
+ "credit": "Broker list: California Privacy Protection Agency data broker registry (cppa.ca.gov).",
+ "source": "https://cppa.ca.gov/data_broker_registry/registry.csv"
+}
