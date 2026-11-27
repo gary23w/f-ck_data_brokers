@@ -171,6 +171,27 @@ class Case(unittest.TestCase):
             'stays open with the Data Privacy team under reference #0000.')
         self.assertEqual(fdb.classify(status), 'received')
 
+    def test_a_reply_it_cannot_read_is_taught_once_and_read_from_then_on(self):
+        request = self.sent_request('california')
+        odd = 'Your file is now in the purge queue with our vendor.'
+        first = fdb.read_reply(self.state, request['ref'], odd)
+        self.assertEqual(first['kind'], 'unclear')
+        self.assertIn('teach', first['meaning'])
+        # What it is taught must be a meaning it knows and plain words that say nothing about the person.
+        for kind, phrase in [('nonsense', 'purge queue'), ('unclear', 'purge queue'), ('received', 'queue'),
+                             ('received', 'ticket 4471 purge queue'), ('received', 'write to sample@example.com please'), ('received', 'see example.com/optout page')]:
+            with self.assertRaises(fdb.Oops, msg=phrase):
+                fdb.teach(self.state, kind, phrase)
+        self.assertEqual(fdb.teach(self.state, 'received', '  In the PURGE queue ')['share'], ['received: in the purge queue'])
+        self.assertEqual(fdb.read_reply(self.state, request['ref'], odd)['kind'], 'received')
+        # Teaching the same words again changes the rule; it does not pile up.
+        fdb.teach(self.state, 'done', 'in the purge queue')
+        self.assertEqual(fdb.share(self.state), ['done: in the purge queue'])
+        # What a person teaches is checked before the built-in rules.
+        self.assertEqual(fdb.classify('We have received your request.', [['refused', 'received your request']]), 'refused')
+        self.assertEqual(fdb.classify(odd), 'unclear')
+        self.assertTrue(all(len(rule) == 2 and rule[0] in fdb.MEANING for rule in fdb.LEARNED))
+
     def test_an_id_demand_is_answered_once_then_gets_a_final_notice_then_the_regulator(self):
         request = self.sent_request('california')
         ref = request['ref']

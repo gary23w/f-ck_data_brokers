@@ -809,8 +809,30 @@ IF_WE_NEED = r'\bif (?:we|they|our team) (?:need|require)s?\b[^,.!?;]*'
 SET_ASIDE = {'done': NOT_YET, 'wants_details': IF_WE_NEED}
 
 
-def classify(text):
+# The tool rewrites its own rules. A reply it cannot read costs you one line: a few words from it and what they meant.
+# From then on it reads that reply by itself. learned.json holds the rules people sent in, so everyone's copy gets smarter.
+LEARNED = json.loads(Path(__file__).with_name('learned.json').read_text(encoding='utf-8')) if Path(__file__).with_name('learned.json').exists() else []
+
+
+def teach(state, kind, phrase):
+    phrase = ' '.join(str(phrase).lower().split())
+    if kind not in MEANING or kind == 'unclear':
+        raise Oops('What it meant must be one of: ' + ', '.join(k for k in MEANING if k != 'unclear') + '.')
+    if not 2 <= len(phrase.split()) <= 12 or re.search(r'[\d@/]', phrase):
+        raise Oops('Give 2 to 12 plain words from the reply. No names, numbers, addresses or links: a rule is meant to be shared.')
+    state['learned'] = [rule for rule in state.get('learned', []) if rule[1] != phrase] + [[kind, phrase]]
+    return {'rules_you_taught': len(state['learned']), 'share': share(state)}
+
+
+def share(state):  # what you taught it, with nothing about you in it; post it as an issue and every copy learns it
+    return [kind + ': ' + phrase for kind, phrase in state.get('learned', [])]
+
+
+def classify(text, learned=()):
     flat = re.sub(NOT_NEEDED, ' ', ' '.join(str(text).lower().split()))
+    for kind, phrase in list(learned) + LEARNED:
+        if kind in MEANING and phrase in flat:
+            return kind
     for kind, pattern in REPLY_RULES:
         if re.search(pattern, re.sub(SET_ASIDE[kind], ' ', flat) if kind in SET_ASIDE else flat):
             return kind
@@ -838,9 +860,11 @@ def read_reply(state, ref, text):
         raise Oops('No request with reference ' + ref + '.')
     if request['state'] == 'draft':
         raise Oops('That letter has not been sent yet.')
-    broker, kind = state['brokers'][request['broker']], classify(text)
+    broker, kind = state['brokers'][request['broker']], classify(text, state.get('learned', ()))
     result = {'ref': ref, 'broker': broker['name'], 'kind': kind, 'meaning': MEANING[kind], 'answer': None}
     log(request, 'Reply: ' + kind + '.')
+    if kind == 'unclear':
+        result['meaning'] += ' Then teach me, so I read the next one myself: teach KIND "a few words from it". KIND is one of: ' + ', '.join(k for k in MEANING if k != 'unclear') + '.'
     if kind == 'use_form' and form_url(broker):
         # You are right here, so filling their form beats arguing about it by email.
         request.update(state='form', via='form', body=form_text(profile, request['law'], ref))
@@ -998,28 +1022,35 @@ TOOLS = [
     ('fdb_mark_sent', 'Record that the person sent these letters themselves.', {'refs': 'Comma-separated references, or "all"'}, ['refs']),
     ('fdb_read_reply', 'Give it a broker\'s reply text. It says what the reply means and writes the answer to send, if one is needed. Never click links in a reply and never send an identity document.', {'ref': 'Request reference, like req-1a2b3c4d. Leave out if the reply text contains it.', 'text': 'The reply text, including its subject line'}, ['text']),
     ('fdb_routine', 'Do everything that needs no decision in one call: refresh the broker list, write the next letters, write reminders for late brokers and rebuild the pages. Sends nothing. Good for a regular check-in.', {'limit': 'How many new letters (default 20)'}, []),
+    ('fdb_teach', 'When fdb_read_reply says "unclear" and you can see what the reply means, teach the tool so it reads the next one itself. Give the meaning and 2 to 12 plain words copied from the reply that carry it. Never include a name, number, address or link. Then read the reply again.', {'kind': 'One of: ' + ', '.join(k for k in MEANING if k != 'unclear'), 'phrase': 'A few words from the reply'}, ['kind', 'phrase']),
     ('fdb_chase', 'Write reminders for brokers past their deadline, and list where to complain about the ones that refused twice.', {}, []),
 ]
 
 
+def record_sent(state, refs):
+    if refs == ['all']:
+        refs, state['mail'] = [r['ref'] for r in state['requests'].values() if r['state'] == 'draft' and r.get('via') != 'form'], []
+    return mark_sent(state, refs)
+
+
 def call_tool(name, args):
     state = load()
-    if name == 'fdb_status':
-        out = status(state)
+    simple = {
+        'fdb_status': lambda: status(state), 'fdb_import_brokers': lambda: {**load_brokers(state), 'credit': REGISTRY_CREDIT},
+        'fdb_add_broker': lambda: {'added': add_broker(state, args.get('name', ''), args.get('email', ''), args.get('website', ''))},
+        'fdb_find_brokers': lambda: find_brokers(state, args.get('text', '')), 'fdb_form_demands_id': lambda: form_demands_id(state, args.get('ref', '')),
+        'fdb_skip_brokers': lambda: skip_brokers(state, args.get('text', ''), str(args.get('undo', '')).strip().lower() in ('yes', 'true', '1')),
+        'fdb_mark_sent': lambda: {'marked_sent': record_sent(state, [r.strip() for r in str(args.get('refs', '')).split(',') if r.strip()])},
+        'fdb_read_reply': lambda: read_reply(state, str(args.get('ref', '')).strip(), args.get('text', '')),
+        'fdb_routine': lambda: routine(state, int(args.get('limit') or 20)), 'fdb_chase': lambda: {**chase(state), 'send_page': write_send_page(state)},
+        'fdb_teach': lambda: teach(state, str(args.get('kind', '')).strip(), args.get('phrase', '')),
+    }
+    if name in simple:
+        out = simple[name]()
     elif name == 'fdb_setup':
         out = dict(set_profile(state, args.get('name', ''), args.get('email', ''), args.get('city', ''), args.get('region', ''), args.get('country', ''), args.get('place', '')))
         if out['place'] == 'california':
             out['tell_the_person'] = DROP_TIP
-    elif name == 'fdb_import_brokers':
-        out = {**load_brokers(state), 'credit': REGISTRY_CREDIT}
-    elif name == 'fdb_add_broker':
-        out = {'added': add_broker(state, args.get('name', ''), args.get('email', ''), args.get('website', ''))}
-    elif name == 'fdb_find_brokers':
-        out = find_brokers(state, args.get('text', ''))
-    elif name == 'fdb_skip_brokers':
-        out = skip_brokers(state, args.get('text', ''), str(args.get('undo', '')).strip().lower() in ('yes', 'true', '1'))
-    elif name == 'fdb_form_demands_id':
-        out = form_demands_id(state, args.get('ref', ''))
     elif name == 'fdb_write_letters':
         made = prepare(state, int(args.get('limit') or 20), args.get('match', ''))
         out = {'written': len(made), 'letters': [{'ref': r['ref'], 'to': state['brokers'][r['broker']]['email'], 'broker': state['brokers'][r['broker']]['name'], 'subject': r['subject'], 'draft': r['draft']} for r in made],
@@ -1036,17 +1067,6 @@ def call_tool(name, args):
         if not os.environ.get('FDB_SMTP_PASS'):
             raise Oops('Sending from here needs FDB_SMTP_PASS set to an app password, which only the person can create. Without it, give them the send page: ' + write_send_page(state))
         out = {'sent': send_all(state, int(args.get('limit') or 20))}
-    elif name == 'fdb_mark_sent':
-        refs = [r['ref'] for r in state['requests'].values() if r['state'] == 'draft' and r.get('via') != 'form'] if str(args.get('refs', '')).strip() == 'all' else [r.strip() for r in str(args.get('refs', '')).split(',') if r.strip()]
-        if str(args.get('refs', '')).strip() == 'all':
-            state['mail'] = []
-        out = {'marked_sent': mark_sent(state, refs)}
-    elif name == 'fdb_read_reply':
-        out = read_reply(state, str(args.get('ref', '')).strip(), args.get('text', ''))
-    elif name == 'fdb_routine':
-        out = routine(state, int(args.get('limit') or 20))
-    elif name == 'fdb_chase':
-        out = {**chase(state), 'send_page': write_send_page(state)}
     else:
         raise Oops('Unknown tool: ' + name)
     save(state)
@@ -1196,13 +1216,7 @@ def do_reply(state, ref=None, file=None):
         text = Path(file).read_text(encoding='utf-8', errors='replace')
     else:
         print('Paste the reply. Finish with a line containing only a dot.')
-        lines = []
-        while True:
-            line = sys.stdin.readline()
-            if not line or line.strip() == '.':
-                break
-            lines.append(line)
-        text = ''.join(lines)
+        text = ''.join(iter(lambda: (lambda line: '' if line.strip() == '.' else line)(sys.stdin.readline()), ''))
     if not ref and not find_ref(state, text) and text.strip():
         ref = ask('Which request is this about (the req-... reference in the subject line)')
     result = read_reply(state, ref, text)
@@ -1266,133 +1280,106 @@ def menu():
         save(state)
 
 
+# Every command: its name, what it does, and what it takes.
+COMMANDS = [
+    ('setup', 'tell it who you are', []), ('brokers', 'download the public list of data brokers', []),
+    ('add', 'add one broker by hand', [('name', {}), ('email', {}), ('website', dict(nargs='?', default=''))]),
+    ('letters', 'write deletion letters as drafts', [('--limit', dict(type=int, default=20)), ('--match', dict(default='', help='only brokers whose name contains this text'))]),
+    ('find', 'look through the broker list by name', [('text', dict(nargs='?', default=''))]),
+    ('skip', 'never write to brokers whose name contains this text', [('text', {}), ('--undo', dict(action='store_true', help='stop skipping them'))]),
+    ('noid', 'a form demanded your ID: carry the request on without it', [('ref', {})]),
+    ('send', 'send the drafts from your own mailbox', [('--limit', dict(type=int, default=20))]),
+    ('forms', 'brokers with no email: their form and your details, ready to paste', [('--limit', dict(type=int, default=10))]),
+    ('update-list', '(maintainers) write the bundled brokers.json', [('file', dict(nargs='?', default=str(BUNDLED_LIST))), ('--from', dict(dest='files', action='append', default=[], metavar='KEY=FILE', help='a registry file downloaded by hand, for example or=oregon.csv'))]),
+    ('sent', 'record that you sent drafts yourself', [('refs', dict(nargs='+', help='references, or "all"'))]),
+    ('reply', 'read a broker reply and get your answer', [('ref', dict(nargs='?', help='the req-... reference; leave out if the reply contains it')), ('file', dict(nargs='?', help='file with the reply text; otherwise paste it'))]),
+    ('chase', 'reminders and complaint routes', []), ('share', 'print what you taught it, with nothing about you in it, to post as an issue', []),
+    ('teach', 'it misread a reply: tell it what a few words meant, and it reads the next one itself', [('kind', {}), ('phrase', {})]),
+    ('auto', 'the whole routine in one command; put it on a schedule', [('--limit', dict(type=int, default=20, help='how many new letters each run (default 20)')), ('--send', dict(action='store_true', help='also send, using the app password in FDB_SMTP_PASS'))]),
+    ('status', 'where things stand', []), ('mcp', 'run as an MCP server for your AI', []),
+]
+
+
+def do_update_list(args):
+    try:
+        files = dict(item.split('=', 1) for item in args.files)
+        if any(key not in [source['key'] for source in SOURCES] for key in files) or any('=' not in item for item in args.files):
+            raise Oops('Use --from KEY=FILE with one of: ' + ', '.join(source['key'] for source in SOURCES))
+        report = write_list(args.file, files)
+    except (Oops, ValueError) as problem:
+        print(str(problem))
+        return 1
+    print(''.join(label + name + '\n' for label, key in (('new:  ', 'new'), ('gone: ', 'gone'), ('problem: ', 'problems')) for name in report[key]) + report['line'])
+    return 0
+
+
+def do_find(state, text):
+    found = find_brokers(state, text)
+    for broker in found['brokers']:
+        print('  ' + broker['name'] + '  <' + (broker['email'] or 'no email, form only') + '>  ' + broker['status'])
+    print(str(found['matching']) + ' brokers match.' + (' Showing the first 50.' if found['matching'] > 50 else ''))
+
+
+def do_skip(state, text, undo):
+    names = skip_brokers(state, text, undo)['brokers']
+    print(('No longer skipping ' if undo else 'Skipping ') + str(len(names)) + ' brokers' + (': ' + ', '.join(names[:8]) + (' ...' if len(names) > 8 else '') if names else '.'))
+
+
+def do_noid(state, ref):
+    result = form_demands_id(state, ref)
+    print('\n' + result['broker'] + ': ' + result['meaning'])
+    if result.get('answer'):
+        print('\nYour answer is written and on your send page:\n  ' + write_send_page(state) + '\n\n' + result['answer']['body'])
+
+
+def do_auto(state, limit, send):
+    done = routine(state, limit, send)
+    for label, value, page in [('Brokers new to the list: ', done['new_brokers'], None), ('Letters written:         ', done['letters_written'], None), ('Reminders written:       ', done['reminders_written'], None),
+                               ('Sent:                    ', len(done['sent']), None), ('Waiting for you to send: ', done['waiting_to_send'], 'send_page'), ('Forms waiting for you:   ', done['forms_waiting'], 'forms_page')]:
+        print(label + str(value) + ('   ' + done[page] if page and value else ''))
+    if done['complaints_ready']:
+        print('Brokers to complain about: ' + str(done['complaints_ready']) + '   run "chase" to see where')
+    print('\n'.join(done['notes']), end='\n' if done['notes'] else '')
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(prog='fuck_data_brokers', description='Make data brokers delete you. Run with no command for the menu.')
     sub = parser.add_subparsers(dest='command')
-    sub.add_parser('setup', help='tell it who you are')
-    sub.add_parser('brokers', help='download the public list of data brokers')
-    add = sub.add_parser('add', help='add one broker by hand')
-    add.add_argument('name'), add.add_argument('email'), add.add_argument('website', nargs='?', default='')
-    letters = sub.add_parser('letters', help='write deletion letters as drafts')
-    letters.add_argument('--limit', type=int, default=20)
-    letters.add_argument('--match', default='', help='only brokers whose name contains this text')
-    find = sub.add_parser('find', help='look through the broker list by name')
-    find.add_argument('text', nargs='?', default='')
-    skip = sub.add_parser('skip', help='never write to brokers whose name contains this text')
-    skip.add_argument('text')
-    skip.add_argument('--undo', action='store_true', help='stop skipping them')
-    noid = sub.add_parser('noid', help='a form demanded your ID: carry the request on without it')
-    noid.add_argument('ref')
-    send = sub.add_parser('send', help='send the drafts from your own mailbox')
-    send.add_argument('--limit', type=int, default=20)
-    forms = sub.add_parser('forms', help='brokers with no email: their form and your details, ready to paste')
-    forms.add_argument('--limit', type=int, default=10)
-    update = sub.add_parser('update-list', help='(maintainers) write the bundled brokers.json')
-    update.add_argument('file', nargs='?', default=str(BUNDLED_LIST))
-    update.add_argument('--from', dest='files', action='append', default=[], metavar='KEY=FILE', help='a registry file downloaded by hand, for example or=oregon.csv')
-    sent = sub.add_parser('sent', help='record that you sent drafts yourself')
-    sent.add_argument('refs', nargs='+', help='references, or "all"')
-    reply = sub.add_parser('reply', help='read a broker reply and get your answer')
-    reply.add_argument('ref', nargs='?', help='the req-... reference; leave out if the reply contains it')
-    reply.add_argument('file', nargs='?', help='file with the reply text; otherwise paste it')
-    sub.add_parser('chase', help='reminders and complaint routes')
-    auto = sub.add_parser('auto', help='the whole routine in one command; put it on a schedule')
-    auto.add_argument('--limit', type=int, default=20, help='how many new letters each run (default 20)')
-    auto.add_argument('--send', action='store_true', help='also send, using the app password in FDB_SMTP_PASS')
-    sub.add_parser('status', help='where things stand')
-    sub.add_parser('mcp', help='run as an MCP server for your AI')
+    for name, text, takes in COMMANDS:
+        command = sub.add_parser(name, help=text)
+        for flag, options in takes:
+            command.add_argument(flag, **options)
     args = parser.parse_args(argv)
     for stream in (sys.stdout, sys.stderr):  # a console that cannot print a broker's fancy apostrophe must not crash the tool
         try:
             stream.reconfigure(errors='replace')
         except (AttributeError, ValueError):
             pass
-    if args.command == 'mcp':
-        return mcp_serve()
-    if not args.command:
-        return menu()
-    if args.command == 'update-list':
-        try:
-            files = dict(item.split('=', 1) for item in args.files)
-            unknown = [key for key in files if key not in [source['key'] for source in SOURCES]]
-            if unknown or any('=' not in item for item in args.files):
-                raise Oops('Use --from KEY=FILE with one of: ' + ', '.join(source['key'] for source in SOURCES))
-            report = write_list(args.file, files)
-        except (Oops, ValueError) as problem:
-            print(str(problem))
-            return 1
-        for name in report['new']:
-            print('new:  ' + name)
-        for name in report['gone']:
-            print('gone: ' + name)
-        for problem in report['problems']:
-            print('problem: ' + problem)
-        print(report['line'])
-        return 0
-    state = load()
+    if args.command in (None, 'mcp', 'update-list'):
+        return menu() if not args.command else mcp_serve() if args.command == 'mcp' else do_update_list(args)
+    state, code = load(), 0
+    run = {
+        'setup': lambda: do_setup(state), 'brokers': lambda: do_import(state), 'chase': lambda: do_chase(state), 'status': lambda: show(status(state)),
+        'add': lambda: print('Added ' + add_broker(state, args.name, args.email, args.website)),
+        'letters': lambda: do_letters(state, args.limit, args.match), 'find': lambda: do_find(state, args.text), 'skip': lambda: do_skip(state, args.text, args.undo),
+        'noid': lambda: do_noid(state, args.ref), 'send': lambda: do_send(state, args.limit), 'forms': lambda: do_forms(state, args.limit),
+        'sent': lambda: print('Marked as sent: ' + (', '.join(record_sent(state, args.refs)) or 'nothing')), 'reply': lambda: do_reply(state, args.ref, args.file), 'auto': lambda: do_auto(state, args.limit, args.send),
+        'teach': lambda: print('Learned. Rules you taught it: ' + str(teach(state, args.kind, args.phrase)['rules_you_taught']) + '. Run "share" to give them to everyone.'),
+        'share': lambda: print('\n'.join(share(state)) or 'Nothing taught yet.'),
+    }
     try:
-        if args.command == 'setup':
-            do_setup(state)
-        elif args.command == 'brokers':
-            do_import(state)
-        elif args.command == 'add':
-            print('Added ' + add_broker(state, args.name, args.email, args.website))
-        elif args.command == 'letters':
-            do_letters(state, args.limit, args.match)
-        elif args.command == 'find':
-            found = find_brokers(state, args.text)
-            for broker in found['brokers']:
-                print('  ' + broker['name'] + '  <' + (broker['email'] or 'no email, form only') + '>  ' + broker['status'])
-            print(str(found['matching']) + ' brokers match.' + (' Showing the first 50.' if found['matching'] > 50 else ''))
-        elif args.command == 'skip':
-            done = skip_brokers(state, args.text, args.undo)
-            print(('No longer skipping ' if args.undo else 'Skipping ') + str(len(done['brokers'])) + ' brokers' + (': ' + ', '.join(done['brokers'][:8]) + (' ...' if len(done['brokers']) > 8 else '') if done['brokers'] else '.'))
-        elif args.command == 'noid':
-            result = form_demands_id(state, args.ref)
-            print('\n' + result['broker'] + ': ' + result['meaning'])
-            if result.get('answer'):
-                print('\nYour answer is written and on your send page:\n  ' + write_send_page(state) + '\n\n' + result['answer']['body'])
-        elif args.command == 'send':
-            do_send(state, args.limit)
-        elif args.command == 'forms':
-            do_forms(state, args.limit)
-        elif args.command == 'sent':
-            refs = [r['ref'] for r in state['requests'].values() if r['state'] == 'draft' and r.get('via') != 'form'] if args.refs == ['all'] else args.refs
-            if args.refs == ['all']:
-                state['mail'] = []
-            print('Marked as sent: ' + (', '.join(mark_sent(state, refs)) or 'nothing'))
-        elif args.command == 'reply':
-            do_reply(state, args.ref, args.file)
-        elif args.command == 'chase':
-            do_chase(state)
-        elif args.command == 'auto':
-            done = routine(state, args.limit, args.send)
-            print('Brokers new to the list: ' + str(done['new_brokers']))
-            print('Letters written:         ' + str(done['letters_written']))
-            print('Reminders written:       ' + str(done['reminders_written']))
-            print('Sent:                    ' + str(len(done['sent'])))
-            print('Waiting for you to send: ' + str(done['waiting_to_send']) + ('   ' + done['send_page'] if done['waiting_to_send'] else ''))
-            print('Forms waiting for you:   ' + str(done['forms_waiting']) + ('   ' + done['forms_page'] if done['forms_waiting'] else ''))
-            if done['complaints_ready']:
-                print('Brokers to complain about: ' + str(done['complaints_ready']) + '   run "chase" to see where')
-            for note in done['notes']:
-                print(note)
-        elif args.command == 'status':
-            show(status(state))
+        run[args.command]()
     except Oops as problem:
         print(str(problem))
-        save(state)
-        return 1
+        code = 1
     except (EOFError, KeyboardInterrupt):
         print('\nStopped. Nothing was lost.')
-        save(state)
-        return 130
+        code = 130
     except (OSError, smtplib.SMTPException) as problem:
         print(explain(problem))
-        save(state)
-        return 1
+        code = 1
     save(state)
-    return 0
+    return code
 
 
 if __name__ == '__main__':
