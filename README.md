@@ -28,7 +28,7 @@ It costs you one click. It costs them a compliance department.
 
 This tool is free and always will be. It is also work: 600 companies, their excuses, their forms, their silence, and then next month they collect you again.
 
-[Agent Garrett](https://agent.garrettstimpson.ca) is the service I built to do all of it for you. Set it and forget it(you can do it for free with this tool if you cannot afford the subscription!).
+[Agent Garrett](https://agent.garrettstimpson.ca/remove) is the service I built to do all of it for you. Set it and forget it(you can do it for free with this tool if you cannot afford the subscription!).
 
 **Persistence is guaranteed.** Agent Garrett does not get bored, does not get tired and does not take "use our form" for an answer. A broker can stall a person. It cannot outlast a machine that never stops asking, and that is how removal happens: not with one letter, but with the one that never stops coming.
 
