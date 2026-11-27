@@ -143,17 +143,33 @@ class Oops(Exception):
 # ---------------------------------------------------------------- you
 
 
-def set_profile(state, name, email, city, region, country, place):
-    name, email = ' '.join(str(name).split()), str(email).strip()
+def clean_own_email(value, label='email address'):
+    email = str(value or '').strip()
+    if email and not re.fullmatch(r'[^@\s]+@[^@\s]+\.[^@\s]+', email):
+        raise Oops('That does not look like an ' + label + '.')
+    return email
+
+
+def set_profile(state, name, email, city, region, country, place, email2=''):
+    name, email = ' '.join(str(name).split()), clean_own_email(email)
+    email2 = clean_own_email(email2, 'email address')
     if len(name.split()) < 2:
         raise Oops('Use your full legal name, first and last. Brokers file you under it.')
-    if not re.fullmatch(r'[^@\s]+@[^@\s]+\.[^@\s]+', email):
+    if not email:
         raise Oops('That does not look like an email address.')
+    if email2 and email2.lower() == email.lower():
+        raise Oops('The other email has to be different from the first one.')
     if place not in PLACES:
         raise Oops('Where you live must be one of: ' + ', '.join(PLACES))
     state['profile'] = {'name': name, 'email': email, 'city': str(city).strip(), 'region': str(region).strip(),
                         'country': str(country).strip(), 'place': place}
+    if email2:
+        state['profile']['email2'] = email2
     return state['profile']
+
+
+def own_emails(profile):
+    return [address for address in (profile.get('email'), profile.get('email2')) if address]
 
 
 DROP_TIP = ('You live in California, so use the state\'s own free service as well: DROP, at https://privacy.ca.gov/drop/ . One request there reaches every data broker '
@@ -399,7 +415,10 @@ def add_broker(state, name, email, website=''):
 
 
 def details(profile):
-    return ['  Full legal name: ' + profile['name'], '  Email address: ' + profile['email']] + ['  City and region (no street address): ' + where(profile)] * bool(where(profile))
+    lines = ['  Full legal name: ' + profile['name'], '  Email address: ' + profile['email']]
+    if profile.get('email2'):
+        lines.append('  Other email address: ' + profile['email2'])
+    return lines + ['  City and region (no street address): ' + where(profile)] * bool(where(profile))
 
 
 def where(profile):
@@ -683,6 +702,7 @@ def write_forms_page(state):
         cards.append('<section><h2>' + e(broker['name']) + ' <small>' + e(request['ref']) + '</small></h2>'
                      '<p><a class="go" href="' + e(form_url(broker)) + '" target="_blank" rel="noopener noreferrer">Open their form</a></p>'
                      '<p>Paste as needed: <button data-copy="' + e(profile['name']) + '">Copy name</button> <button data-copy="' + e(profile['email']) + '">Copy email</button> '
+                     + ('<button data-copy="' + e(profile['email2']) + '">Copy other email</button> ' if profile.get('email2') else '')
                      + ('<button data-copy="' + e(where(profile)) + '">Copy city</button> ' if where(profile) else '') + '<button data-copy="' + e(request['body']) + '">Copy request text</button></p>'
                      '<pre>' + e(request['body']) + '</pre></section>')
     return write_page('forms.html', 'Forms to fill in', 'brokers that hide behind a form', 'These ones will not act on an email, so you fill in their form. Open it, pick "delete" and "do not sell or share", '
@@ -890,7 +910,7 @@ def inbox(state, password=None, connect=imaplib.IMAP4_SSL):
                 for number in (box.search(None, 'SUBJECT', '"' + ref + '"')[1][0] or b'').split() if request['sent_at'] and request['state'] != 'draft' else []:
                     message = email.message_from_bytes(box.fetch(number, '(BODY.PEEK[])')[1][0][1], policy=email.policy.default)
                     sender, ident, part, broker = clean_email(message['From']), str(message['Message-ID']), message.get_body(('plain', 'html')), state['brokers'][request['broker']]
-                    if ident in seen or sender == profile['email'].lower():
+                    if ident in seen or sender in {address.lower() for address in own_emails(profile)}:
                         continue
                     seen.add(ident)
                     body = part.get_content() if part else ''
@@ -1011,7 +1031,7 @@ def status(state):
 TOOLS = [
     ('fdb_status', 'Where things stand: who the person is, how many brokers are known, how many letters are out and what came back.', {}, []),
     ('fdb_setup', 'Save who the person is. Ask them for every value; never guess a name, email or place. place is one of: ' + ', '.join(PLACES) + '.',
-     {'name': 'Full legal name', 'email': 'Their own email address; brokers reply to it', 'city': 'City', 'region': 'State or province', 'country': 'Country', 'place': 'Which law applies'},
+     {'name': 'Full legal name', 'email': 'Their own email address; brokers reply here, and letters are sent from it', 'email2': 'Optional second email brokers may also hold; leave out if none', 'city': 'City', 'region': 'State or province', 'country': 'Country', 'place': 'Which law applies'},
      ['name', 'email', 'place']),
     ('fdb_import_brokers', 'Download California\'s public data broker registry (several hundred brokers with privacy contacts).', {}, []),
     ('fdb_add_broker', 'Add one broker by hand. Use only a privacy email address published on the broker\'s own site.', {'name': 'Broker name', 'email': 'Privacy email address', 'website': 'Website'}, ['name', 'email']),
@@ -1052,7 +1072,7 @@ def call_tool(name, args):
     if name in simple:
         out = simple[name]()
     elif name == 'fdb_setup':
-        out = dict(set_profile(state, args.get('name', ''), args.get('email', ''), args.get('city', ''), args.get('region', ''), args.get('country', ''), args.get('place', '')))
+        out = dict(set_profile(state, args.get('name', ''), args.get('email', ''), args.get('city', ''), args.get('region', ''), args.get('country', ''), args.get('place', ''), args.get('email2', '')))
         if out['place'] == 'california':
             out['tell_the_person'] = DROP_TIP
     elif name == 'fdb_write_letters':
@@ -1064,7 +1084,8 @@ def call_tool(name, args):
         prepare_forms(state, int(args.get('limit') or 10))
         profile = need_profile(state)
         out = {'forms': [{'ref': r['ref'], 'broker': state['brokers'][r['broker']]['name'], 'form_page': form_url(state['brokers'][r['broker']]),
-                          'enter': {'name': profile['name'], 'email': profile['email'], 'city': profile['city'], 'region': profile['region'], 'country': profile['country'], 'request_text': r['body']}}
+                          'enter': {**{'name': profile['name'], 'email': profile['email'], 'city': profile['city'], 'region': profile['region'], 'country': profile['country'], 'request_text': r['body']},
+                                    **({'email2': profile['email2']} if profile.get('email2') else {})}}
                          for r in state['requests'].values() if form_waiting(r)],
                'page_for_the_person': write_forms_page(state)}
     elif name == 'fdb_send':
@@ -1149,15 +1170,19 @@ def do_setup(state):
     print('\nWho are we deleting? This stays on your computer.')
     while True:
         old['name'] = ask('Your full legal name', old.get('name', ''))
-        old['email'] = ask('Your email address (brokers reply here)', old.get('email', ''))
+        old['email'] = ask('Your email address (brokers reply here; letters are sent from this one)', old.get('email', ''))
+        old['email2'] = ask('Another email brokers may have (optional; - to clear)', old.get('email2', ''))
         old['city'], old['region'], old['country'] = ask('City', old.get('city', '')), ask('State or province', old.get('region', '')), ask('Country', old.get('country', ''))
         old['place'] = pick_place(old.get('place', ''))
         try:
-            set_profile(state, old['name'], old['email'], old['city'], old['region'], old['country'], old['place'])
+            set_profile(state, old['name'], old['email'], old['city'], old['region'], old['country'], old['place'],
+                        '' if old['email2'].strip() == '-' else old['email2'])
             break
         except Oops as problem:
             print('\n' + str(problem) + ' Try again; press Enter to keep an answer.\n')
     print('Saved. No street address, no birthday, no ID. They get the minimum.')
+    if state['profile'].get('email2'):
+        print('Letters will list both email addresses so brokers can find either one.')
     if old['place'] == 'california':
         print('\n' + DROP_TIP)
 
@@ -1177,7 +1202,7 @@ def do_letters(state, limit=20, match=None, everything=False):
     if not made:
         print('\nNo new letters to write. Either everyone ' + ('matching "' + match + '" ' if match else '') + 'has been asked, or you have no brokers yet (run "brokers").')
         return
-    print('\nEach letter gives the broker three things: your name, your email address and your city. Nothing else.')
+    print('\nEach letter gives the broker your name, your email address' + ('es' if need_profile(state).get('email2') else '') + ' and your city. Nothing else.')
     print('\nWrote ' + str(len(made)) + ' letters. Drafts are in ' + str(home() / 'outbox') + '\n')
     for request in made[:5]:
         broker = state['brokers'][request['broker']]

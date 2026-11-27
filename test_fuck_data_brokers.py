@@ -73,6 +73,16 @@ class Case(unittest.TestCase):
         profile = fdb.set_profile(self.state, '  Avery   Exampleton ', 'avery@example.com', 'Sampleville', 'CA', 'USA', 'california')
         self.assertEqual(profile['name'], 'Avery Exampleton')
         self.assertEqual(sorted(profile), ['city', 'country', 'email', 'name', 'place', 'region'], 'no street, birthday or ID is ever stored')
+        with self.assertRaises(fdb.Oops):
+            fdb.set_profile(self.state, 'Avery Exampleton', 'avery@example.com', '', '', '', 'california', 'nope')
+        with self.assertRaises(fdb.Oops):
+            fdb.set_profile(self.state, 'Avery Exampleton', 'avery@example.com', '', '', '', 'california', 'avery@example.com')
+        both = fdb.set_profile(self.state, 'Avery Exampleton', 'avery@example.com', 'Sampleville', 'CA', 'USA', 'california', 'avery.other@example.com')
+        self.assertEqual(both['email2'], 'avery.other@example.com')
+        self.assertIn('Other email address: avery.other@example.com', '\n'.join(fdb.details(both)))
+        self.assertEqual(fdb.own_emails(both), ['avery@example.com', 'avery.other@example.com'])
+        cleared = fdb.set_profile(self.state, 'Avery Exampleton', 'avery@example.com', 'Sampleville', 'CA', 'USA', 'california', '')
+        self.assertNotIn('email2', cleared)
 
     def test_registry_import_reads_real_columns_and_invents_nothing(self):
         counts = fdb.import_registry(self.state, REGISTRY)
@@ -604,7 +614,7 @@ class Case(unittest.TestCase):
         self.assertEqual(self.state['requests'][request['ref']]['state'], 'sent', 'the request stays open')
 
     def test_setup_asks_again_when_someone_says_they_live_everywhere(self):
-        answers = iter(['Avery Exampleton', 'avery@example.com', '', '', '', 'everywhere', 'the moon', '4'])
+        answers = iter(['Avery Exampleton', 'avery@example.com', '', '', '', '', 'everywhere', 'the moon', '4'])
         shown = io.StringIO()
         with mock.patch('builtins.input', lambda prompt='': next(answers)), contextlib.redirect_stdout(shown):
             fdb.do_setup(self.state)
@@ -612,7 +622,7 @@ class Case(unittest.TestCase):
         self.assertEqual(self.state['profile']['name'], 'Avery Exampleton', 'nothing they typed was thrown away')
         self.assertIn('Pick one number from the list', shown.getvalue())
         # A bad name keeps the other answers and asks again.
-        answers = iter(['Avery', 'avery@example.com', '', '', '', '8', 'Avery Exampleton', '', '', '', '', ''])
+        answers = iter(['Avery', 'avery@example.com', '', '', '', '', '8', 'Avery Exampleton', '', '', '', '', '', ''])
         with mock.patch('builtins.input', lambda prompt='': next(answers)), contextlib.redirect_stdout(io.StringIO()):
             fdb.do_setup(self.state)
         self.assertEqual((self.state['profile']['name'], self.state['profile']['place']), ('Avery Exampleton', 'other'))
@@ -918,15 +928,17 @@ class Case(unittest.TestCase):
         self.assertIn('edpb.europa.eu', fdb.REGULATOR['gdpr'][1])
 
     def test_a_californian_is_told_about_the_states_own_service(self):
-        answers = iter(['Avery Exampleton', 'avery@example.com', '', '', '', '1'])
+        answers = iter(['Avery Exampleton', 'avery@example.com', '', '', '', '', '1'])
         with mock.patch('builtins.input', lambda prompt='': next(answers)), contextlib.redirect_stdout(io.StringIO()) as shown:
             fdb.do_setup(self.state)
         self.assertIn('https://privacy.ca.gov/drop/', shown.getvalue())
         self.assertIn('every 45 days', shown.getvalue())
-        answers = iter(['Avery Exampleton', 'avery@example.com', '', '', '', '6'])
+        answers = iter(['Avery Exampleton', 'avery@example.com', 'avery.other@example.com', '', '', '', '6'])
         with mock.patch('builtins.input', lambda prompt='': next(answers)), contextlib.redirect_stdout(io.StringIO()) as shown:
             fdb.do_setup(self.state)
         self.assertNotIn('DROP', shown.getvalue())
+        self.assertEqual(self.state['profile']['email2'], 'avery.other@example.com')
+        self.assertIn('both email addresses', shown.getvalue())
         fdb.save(self.state)
         result = fdb.mcp_reply({'jsonrpc': '2.0', 'id': 1, 'method': 'tools/call', 'params': {'name': 'fdb_setup', 'arguments': {'name': 'Avery Exampleton', 'email': 'avery@example.com', 'place': 'california'}}})['result']
         self.assertIn('privacy.ca.gov/drop', result['content'][0]['text'])
