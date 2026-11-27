@@ -23,8 +23,11 @@ get past a CAPTCHA for you, or believe a broker that says "we value your privacy
 """
 import argparse
 import csv
+import email
+import email.policy
 import getpass
 import html
+import imaplib
 import io
 import json
 import os
@@ -212,55 +215,28 @@ def cell(row, index):
     return row[index].strip() if index < len(row) else ''
 
 
-def read_registry(text):
-    """California's registry. Nothing is invented: a row without a number and a name is skipped."""
-    rows, column = rows_of(text)
-    col_id = column(lambda h: h.startswith('broker id'))
-    col_name = column(lambda h: h.startswith('data broker name'))
-    col_site = column(lambda h: h.startswith('data broker primary website') and 'exercise' not in h)
-    col_mail = column(lambda h: 'primary contact email' in h)
-    col_rights = column(lambda h: 'how consumers can exercise' in h)
-    brokers = {}
-    for row in rows:
-        number, name = cell(row, col_id), ' '.join(cell(row, col_name).split())
-        if not number.isdigit() or not name:
-            continue
-        rights = cell(row, col_rights)
-        brokers['ca-' + number] = {'name': name[:200], 'email': clean_email(cell(row, col_mail)), 'website': cell(row, col_site)[:300],
-                                   'rights_url': rights.split()[0][:300] if rights else '', 'source': 'california registry'}
-    return brokers
+def reader(prefix, source, good, columns, rights_of):
+    """One reader for every registry. Nothing is invented: a row without a proper number and a name is skipped.
+    `columns` finds the number, name, email, website and rights headings, in that order."""
+    def read(text):
+        rows, column = rows_of(text)
+        at, brokers = [column(test) for test in columns], {}
+        for row in rows:
+            number, name, mail, site, rights = (cell(row, index) for index in at)
+            if good(number) and name.split():
+                brokers[prefix + number.lower()] = {'name': ' '.join(name.split())[:200], 'email': clean_email(mail), 'website': site[:300], 'rights_url': rights_of(rights, site[:300]), 'source': source}
+        return brokers
+    return read
 
 
-def read_oregon(text):
-    """Oregon's registry. It publishes each broker's opt-out email and opt-out page."""
-    rows, column = rows_of(text)
-    col_id, col_name = column(lambda h: h == 'license no.'), column(lambda h: h == 'facility name')
-    col_mail, col_site, col_other = column(lambda h: h == 'opt out email'), column(lambda h: h == 'opt out website'), column(lambda h: h == 'opt out other methods')
-    brokers = {}
-    for row in rows:
-        licence, name = cell(row, col_id), ' '.join(cell(row, col_name).split())
-        if not re.fullmatch(r'[A-Za-z]+-\d+', licence) or not name:
-            continue
-        site, other = cell(row, col_site)[:300], cell(row, col_other)[:300]
-        brokers['or-' + licence.lower()] = {'name': name[:200], 'email': clean_email(cell(row, col_mail)), 'website': site,
-                                            'rights_url': other if web_address(other) else site, 'source': 'oregon registry'}
-    return brokers
+def page_or_site(rights, site):
+    return rights[:300] if web_address(rights[:300]) else site
 
 
-def read_texas(text):
-    """Texas's registry, from the spreadsheet its website exports."""
-    rows, column = rows_of(text)
-    col_id, col_name = column(lambda h: h == 'registration number'), column(lambda h: h == 'full legal name')
-    col_mail, col_site, col_rights = column(lambda h: h == 'data broker email address'), column(lambda h: h == 'website'), column(lambda h: h == 'consumer rights link')
-    brokers = {}
-    for row in rows:
-        number, name = cell(row, col_id), ' '.join(cell(row, col_name).split())
-        if not number.isdigit() or not name:
-            continue
-        site, rights = cell(row, col_site)[:300], cell(row, col_rights)[:300]
-        brokers['tx-' + number] = {'name': name[:200], 'email': clean_email(cell(row, col_mail)), 'website': site,
-                                   'rights_url': rights if web_address(rights) else site, 'source': 'texas registry'}
-    return brokers
+read_registry = reader('ca-', 'california registry', str.isdigit, [lambda h: h.startswith('broker id'), lambda h: h.startswith('data broker name'), lambda h: 'primary contact email' in h,
+                       lambda h: h.startswith('data broker primary website') and 'exercise' not in h, lambda h: 'how consumers can exercise' in h], lambda rights, site: rights.split()[0][:300] if rights else '')
+read_oregon = reader('or-', 'oregon registry', re.compile(r'[A-Za-z]+-\d+').fullmatch, ['license no.'.__eq__, 'facility name'.__eq__, 'opt out email'.__eq__, 'opt out website'.__eq__, 'opt out other methods'.__eq__], page_or_site)
+read_texas = reader('tx-', 'texas registry', str.isdigit, ['registration number'.__eq__, 'full legal name'.__eq__, 'data broker email address'.__eq__, 'website'.__eq__, 'consumer rights link'.__eq__], page_or_site)
 
 
 # Every place the list comes from. Each is an official public registry: a company is on this list because a
@@ -425,11 +401,11 @@ def add_broker(state, name, email, website=''):
 
 
 def details(profile):
-    lines = ['  Full legal name: ' + profile['name'], '  Email address: ' + profile['email']]
-    where = ', '.join(part for part in (profile['city'], profile['region'], profile['country']) if part)
-    if where:
-        lines.append('  City and region (no street address): ' + where)
-    return lines
+    return ['  Full legal name: ' + profile['name'], '  Email address: ' + profile['email']] + ['  City and region (no street address): ' + where(profile)] * bool(where(profile))
+
+
+def where(profile):
+    return ', '.join(part for part in (profile['city'], profile['region'], profile['country']) if part)
 
 
 def first_letter(profile, broker, law, ref):
@@ -518,10 +494,6 @@ def smtp_host(profile):
     return os.environ.get('FDB_SMTP_HOST') or FREE_MAIL.get(profile['email'].rsplit('@', 1)[-1].lower(), '')
 
 
-def smtp_ready(profile):
-    return bool(smtp_host(profile))
-
-
 # The copy buttons. Browsers differ: the modern clipboard can be missing or refused, so there is an older method
 # behind it, and if both fail the button says so and the letter is right there to select by hand.
 COPY_SCRIPT = ('<script>document.addEventListener("click",function(e){var b=e.target,v=b.getAttribute&&b.getAttribute("data-copy");if(v===null||v===undefined)return;'
@@ -557,18 +529,24 @@ def write_send_page(state):
                      + ('<p><strong>This letter is too long for some mail apps to open in one go.</strong> If it opens empty, press Copy letter and paste it in.</p>' if paste else '') +
                      '<p>Or copy and paste: <button data-copy="' + e(to) + '">Copy address</button> <button data-copy="' + e(subject) + '">Copy subject</button> '
                      '<button data-copy="' + e(body) + '">Copy letter</button></p><pre>' + e(body) + '</pre></section>')
-    page = ('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Letters to send</title>'
-            '<style>html{background:#fff;color-scheme:light}body{background:#fff;color:#000;font:16px/1.5 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}section{border-top:2px solid #000;padding:1rem 0}'
-            'pre{white-space:pre-wrap;background:#f4f4f4;padding:1rem}small{font-weight:400;color:#555}.go,button{display:inline-block;margin:.2rem .3rem .2rem 0;padding:.5rem .8rem;'
-            'border:2px solid #000;background:#fff;color:#000;text-decoration:none;font:inherit;cursor:pointer}.go{background:#000;color:#fff}</style>'
-            '<h1>' + str(len(cards)) + ' letters to send</h1><p>Each button opens a ready letter in your own email. Press send, then come back for the next one. '
-            'When you are done, run <code>sent all</code> so the clock starts.</p>' + ''.join(cards) +
-            COPY_SCRIPT)
-    box = home() / 'outbox'
-    box.mkdir(exist_ok=True)
-    file = box / 'send.html'
-    file.write_text(page, encoding='utf-8')
-    return str(file)
+    return write_page('send.html', 'Letters to send', 'letters to send', 'Each button opens a ready letter in your own email. Press send, then come back for the next one. '
+                      'When you are done, run <code>sent all</code> so the clock starts.', cards)
+
+
+PAGE = ('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>%s</title>'
+        '<style>html{background:#fff;color-scheme:light}body{background:#fff;color:#000;font:16px/1.5 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}section{border-top:2px solid #000;padding:1rem 0}'
+        'pre{white-space:pre-wrap;background:#f4f4f4;padding:1rem}small{font-weight:400;color:#555}.go,button{display:inline-block;margin:.2rem .3rem .2rem 0;padding:.5rem .8rem;'
+        'border:2px solid #000;background:#fff;color:#000;text-decoration:none;font:inherit;cursor:pointer}.go{background:#000;color:#fff}</style><h1>%d %s</h1><p>%s</p>%s')
+
+
+def outbox(name):
+    (home() / 'outbox').mkdir(exist_ok=True)
+    return home() / 'outbox' / name
+
+
+def write_page(name, title, heading, intro, cards):
+    outbox(name).write_text(PAGE % (title, len(cards), heading, intro, ''.join(cards)) + COPY_SCRIPT, encoding='utf-8')
+    return str(outbox(name))
 
 
 def make_email(profile, to, subject, body):
@@ -579,11 +557,8 @@ def make_email(profile, to, subject, body):
 
 
 def write_draft(profile, to, subject, body, ref, label):
-    box = home() / 'outbox'
-    box.mkdir(exist_ok=True)
-    file = box / (ref + '-' + label + '.eml')
-    file.write_bytes(bytes(make_email(profile, to, subject, body)))
-    return str(file)
+    outbox(ref + '-' + label + '.eml').write_bytes(bytes(make_email(profile, to, subject, body)))
+    return str(outbox(ref + '-' + label + '.eml'))
 
 
 def mailto(to, subject, body):
@@ -605,7 +580,7 @@ def smtp_send(profile, items, password=None, sent=lambda item: None):
     """Send through your own mailbox. The password is read from the environment or asked for, and never saved.
     The connection is encrypted and the server's identity is checked before the password is given.
     `sent` is called after each email the server accepts, so a failure half way never causes a second copy."""
-    if not smtp_ready(profile):
+    if not smtp_host(profile):
         raise Oops(SMTP_HELP)
     host, port = smtp_host(profile), int(os.environ.get('FDB_SMTP_PORT') or 587)
     with smtplib.SMTP(host, port, timeout=60) as server:
@@ -654,23 +629,23 @@ def skip_brokers(state, text, undo=False):
     return {'brokers': sorted(state['brokers'][key]['name'] for key in keys), 'skipped_now': not undo}
 
 
-def prepare(state, limit=20, match=''):
+def prepare(state, limit=20, match='', forms=False):
     """Write first letters for brokers that have an email address and no request yet. `match` keeps it to
-    brokers whose name contains that text."""
+    brokers whose name contains that text. With `forms`, it is the brokers with no email address instead."""
     profile, law = need_profile(state), law_of(state)
     # A broker that said "done" or "nothing here" is asked again after AGAIN_DAYS: they buy the same data again. No law sets the number.
-    asked, skipped, want = {r['broker'] for r in state['requests'].values() if r['state'] not in ('done', 'no_record') or r['sent_at'] > now() - AGAIN_DAYS * DAY}, set(state.get('skip', [])), str(match or '').strip().lower()
-    made = []
+    asked = {r['broker'] for r in state['requests'].values() if forms or r['state'] not in ('done', 'no_record') or r['sent_at'] > now() - AGAIN_DAYS * DAY}
+    skipped, want, made = set(state.get('skip', [])), str(match or '').strip().lower(), []
     for key, broker in sorted(state['brokers'].items(), key=lambda item: item[1]['name'].lower()):
         if len(made) >= limit:
             break
-        if key in asked or key in skipped or not broker.get('email') or want not in broker['name'].lower():
+        if key in asked or key in skipped or want not in broker['name'].lower() or (broker.get('email') or not form_url(broker) if forms else not broker.get('email')):
             continue
         ref = new_ref()
-        subject, body = first_letter(profile, broker, law, ref)
+        subject, body = (LAW_NAME[law] + ' [' + ref + ']', form_text(profile, law, ref)) if forms else first_letter(profile, broker, law, ref)
         request = {'ref': ref, 'broker': key, 'law': law, 'state': 'draft', 'subject': subject, 'body': body, 'sent_at': 0, 'due_at': 0, 'answers': []}
-        request['draft'] = write_draft(profile, broker['email'], subject, body, ref, 'request')
-        log(request, 'Letter written.')
+        request.update({'via': 'form'} if forms else {'draft': write_draft(profile, broker['email'], subject, body, ref, 'request')})
+        log(request, 'Form sheet written.' if forms else 'Letter written.')
         state['requests'][ref] = request
         made.append(request)
     return made
@@ -700,26 +675,11 @@ def form_waiting(request):
 def prepare_forms(state, limit=10):
     """For brokers with no email address: the form you fill in yourself, with everything ready to paste.
     You are the person, so you press submit and you do any CAPTCHA. Nothing is bypassed and nothing is submitted for you."""
-    profile, law = need_profile(state), law_of(state)
-    asked, skipped = {r['broker'] for r in state['requests'].values()}, set(state.get('skip', []))
-    made = []
-    for key, broker in sorted(state['brokers'].items(), key=lambda item: item[1]['name'].lower()):
-        if len(made) >= limit:
-            break
-        if key in asked or key in skipped or broker.get('email') or not form_url(broker):
-            continue
-        ref = new_ref()
-        request = {'ref': ref, 'broker': key, 'law': law, 'state': 'draft', 'via': 'form', 'subject': LAW_NAME[law] + ' [' + ref + ']', 'body': form_text(profile, law, ref),
-                   'sent_at': 0, 'due_at': 0, 'answers': []}
-        log(request, 'Form sheet written.')
-        state['requests'][ref] = request
-        made.append(request)
-    return made
+    return prepare(state, limit, forms=True)
 
 
 def write_forms_page(state):
     profile, cards, e = need_profile(state), [], html.escape
-    where = ', '.join(part for part in (profile['city'], profile['region'], profile['country']) if part)
     for request in state['requests'].values():
         if not form_waiting(request):
             continue
@@ -727,22 +687,12 @@ def write_forms_page(state):
         cards.append('<section><h2>' + e(broker['name']) + ' <small>' + e(request['ref']) + '</small></h2>'
                      '<p><a class="go" href="' + e(form_url(broker)) + '" target="_blank" rel="noopener noreferrer">Open their form</a></p>'
                      '<p>Paste as needed: <button data-copy="' + e(profile['name']) + '">Copy name</button> <button data-copy="' + e(profile['email']) + '">Copy email</button> '
-                     + ('<button data-copy="' + e(where) + '">Copy city</button> ' if where else '') + '<button data-copy="' + e(request['body']) + '">Copy request text</button></p>'
+                     + ('<button data-copy="' + e(where(profile)) + '">Copy city</button> ' if where(profile) else '') + '<button data-copy="' + e(request['body']) + '">Copy request text</button></p>'
                      '<pre>' + e(request['body']) + '</pre></section>')
-    page = ('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Forms to fill in</title>'
-            '<style>html{background:#fff;color-scheme:light}body{background:#fff;color:#000;font:16px/1.5 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem}section{border-top:2px solid #000;padding:1rem 0}'
-            'pre{white-space:pre-wrap;background:#f4f4f4;padding:1rem}small{font-weight:400;color:#555}.go,button{display:inline-block;margin:.2rem .3rem .2rem 0;padding:.5rem .8rem;'
-            'border:2px solid #000;background:#fff;color:#000;text-decoration:none;font:inherit;cursor:pointer}.go{background:#000;color:#fff}</style>'
-            '<h1>' + str(len(cards)) + ' brokers that hide behind a form</h1><p>These ones will not act on an email, so you fill in their form. Open it, pick "delete" and "do not sell or share", '
-            'paste your details, do their CAPTCHA, submit. Give them only what is on this page. If a form demands a photo of your ID, close the tab '
-            'and run <code>noid</code> with that reference: the request carries on without the form. '
-            'When you are done, run <code>sent</code> with the references you submitted.</p>' + ''.join(cards) +
-            COPY_SCRIPT)
-    box = home() / 'outbox'
-    box.mkdir(exist_ok=True)
-    file = box / 'forms.html'
-    file.write_text(page, encoding='utf-8')
-    return str(file)
+    return write_page('forms.html', 'Forms to fill in', 'brokers that hide behind a form', 'These ones will not act on an email, so you fill in their form. Open it, pick "delete" and "do not sell or share", '
+                      'paste your details, do their CAPTCHA, submit. Give them only what is on this page. If a form demands a photo of your ID, close the tab '
+                      'and run <code>noid</code> with that reference: the request carries on without the form. '
+                      'When you are done, run <code>sent</code> with the references you submitted.', cards)
 
 
 def queue(state, profile, broker, ref, label, subject, body):
@@ -923,6 +873,40 @@ def read_reply(state, ref, text):
     return result
 
 
+def imap_host(profile):  # the reading server is the sending server's twin: smtp.example.com, imap.example.com
+    host = os.environ.get('FDB_IMAP_HOST') or smtp_host(profile).replace('smtp', 'imap', 1)
+    if not host:
+        raise Oops('I do not know your provider\'s mail server. Set FDB_IMAP_HOST, or paste replies with "reply".')
+    return host
+
+
+def inbox(state, password=None, connect=imaplib.IMAP4_SSL):
+    """Read the brokers' replies straight from your own mailbox, the way a mail app does: this computer to your
+    provider, nobody in between. It only looks, it changes nothing there, and it asks for nothing but mail whose
+    subject carries one of your references. A reply is acted on only when it comes from the broker's own mail domain."""
+    profile, out, seen = need_profile(state), [], set(state.get('read', []))
+    host = imap_host(profile)
+    try:
+        with connect(host, ssl_context=ssl.create_default_context()) as box:
+            box.login(os.environ.get('FDB_SMTP_USER') or profile['email'], password or os.environ.get('FDB_SMTP_PASS') or '')
+            box.select('INBOX', readonly=True)
+            for ref, request in list(state['requests'].items()):
+                for number in (box.search(None, 'SUBJECT', '"' + ref + '"')[1][0] or b'').split() if request['sent_at'] and request['state'] != 'draft' else []:
+                    message = email.message_from_bytes(box.fetch(number, '(BODY.PEEK[])')[1][0][1], policy=email.policy.default)
+                    sender, ident, part, broker = clean_email(message['From']), str(message['Message-ID']), message.get_body(('plain', 'html')), state['brokers'][request['broker']]
+                    if ident in seen or sender == profile['email'].lower():
+                        continue
+                    seen.add(ident)
+                    body = part.get_content() if part else ''
+                    text = str(message['Subject']) + '\n' + (re.sub(r'<[^>]+>', ' ', body) if part and part.get_content_subtype() == 'html' else body)
+                    out.append(read_reply(state, ref, text) if sender.split('@')[-1] == broker['email'].split('@')[-1] or classify(text) == 'bounced' else
+                               {'ref': ref, 'broker': broker['name'], 'kind': 'stranger', 'answer': None, 'meaning': 'A reply came from ' + sender + ', which is not the broker\'s own address, so I changed nothing. Read it yourself; if it is theirs, paste it with "reply".'})
+    except imaplib.IMAP4.error as problem:
+        raise Oops('Your mailbox said no (' + str(problem)[:120] + '). It wants an app password, and mail-app access (IMAP) switched on in your email settings.')
+    state['read'] = sorted(seen)
+    return out
+
+
 ID_WALL = 'Your web form will not accept this request without a government identity document, which I do not agree to provide. This letter is my request, made in writing to the address you publish for privacy matters.'
 WALL_WHY = 'takes requests only through a form that demands an identity document'
 
@@ -981,7 +965,7 @@ def chase(state):
     return out
 
 
-def routine(state, limit=20, send=False):
+def routine(state, limit=20, send=False, read=False):
     """Everything that needs no decision from you, in one go: refresh the broker list, write the next letters,
     write reminders for brokers that are late, rebuild your pages, and send if you asked for that. Safe to run
     as often as you like and built to be put on a schedule; it never writes to the same broker twice."""
@@ -994,6 +978,11 @@ def routine(state, limit=20, send=False):
     done['letters_written'] = len(prepare(state, limit))
     prepare_forms(state, limit)
     done['forms_waiting'] = sum(1 for r in state['requests'].values() if form_waiting(r))
+    if read:
+        try:
+            done['notes'].append(str(len(inbox(state))) + ' new replies read from your mailbox.')
+        except (Oops, OSError) as problem:
+            done['notes'].append('Your mailbox was not read: ' + str(problem)[:200])
     chased = chase(state)
     done['reminders_written'], done['complaints_ready'] = len(chased['reminders']), len(chased['complaints'])
     done['waiting_to_send'], done['send_page'], done['forms_page'] = len(unsent(state)), write_send_page(state), write_forms_page(state)
@@ -1216,7 +1205,7 @@ def do_forms(state, limit=10):
 
 
 def do_send(state, limit=20):
-    password = None if os.environ.get('FDB_SMTP_PASS') or not smtp_ready(need_profile(state)) else getpass.getpass('App password for ' + state['profile']['email'] + ' (not saved): ')
+    password = None if os.environ.get('FDB_SMTP_PASS') or not smtp_host(need_profile(state)) else getpass.getpass('App password for ' + state['profile']['email'] + ' (not saved): ')
     done = send_all(state, limit, password)
     print(('Sent: ' + ', '.join(done) + '\nThe clock is running. They hate that.') if done else 'Nothing is waiting to be sent.')
 
@@ -1249,13 +1238,20 @@ def do_chase(state):
         print('\n' + item['broker'] + ' ' + item['why'] + '.\nComplain to ' + item['regulator'] + '. ' + item['how'] + '\nInclude: ' + item['include'])
 
 
+def do_inbox(state):
+    found = inbox(state, None if not imap_host(need_profile(state)) or os.environ.get('FDB_SMTP_PASS') else getpass.getpass('App password for ' + state['profile']['email'] + ' (not saved): '))
+    print('\n\n'.join(item['broker'] + ': ' + item['meaning'] for item in found) or 'No new replies.')
+    if any(item['answer'] for item in found):
+        print('\nYour answers are written. Send them from your send page, or run "send":\n  ' + write_send_page(state))
+
+
 def do_more(state):
     print('\n' + ('\n\n'.join(more(state)) or 'Nothing checked for where you live yet. The letters are still yours to send.'))
 
 
 MENU = [('setup', 'Tell it who you are', do_setup), ('brokers', 'Get the list of data brokers', do_import), ('letters', 'Write the deletion letters', do_letters),
         ('send', 'Send them from here (optional)', do_send), ('forms', 'Brokers with only a web form', do_forms), ('reply', 'A broker answered. What now?', do_reply), ('chase', 'Chase the quiet ones, complain about the rest', do_chase),
-        ('status', 'Where things stand', lambda state: show(status(state))), ('more', 'More you can do for free', do_more)]
+        ('status', 'Where things stand', lambda state: show(status(state))), ('more', 'More you can do for free', do_more), ('inbox', 'Read their replies from my mailbox', do_inbox)]
 
 
 def explain(problem):
@@ -1309,7 +1305,8 @@ COMMANDS = [
     ('reply', 'read a broker reply and get your answer', [('ref', dict(nargs='?', help='the req-... reference; leave out if the reply contains it')), ('file', dict(nargs='?', help='file with the reply text; otherwise paste it'))]),
     ('chase', 'reminders and complaint routes', []), ('share', 'print what you taught it, with nothing about you in it, to post as an issue', []),
     ('teach', 'it misread a reply: tell it what a few words meant, and it reads the next one itself', [('kind', {}), ('phrase', {})]),
-    ('auto', 'the whole routine in one command; put it on a schedule', [('--limit', dict(type=int, default=20, help='how many new letters each run (default 20)')), ('--send', dict(action='store_true', help='also send, using the app password in FDB_SMTP_PASS'))]),
+    ('auto', 'the whole routine in one command; put it on a schedule', [('--limit', dict(type=int, default=20, help='how many new letters each run (default 20)')), ('--send', dict(action='store_true', help='also send, using the app password in FDB_SMTP_PASS')), ('--inbox', dict(action='store_true', help='also read replies from your mailbox, with the same app password'))]),
+    ('inbox', 'read the brokers\' replies straight from your own mailbox; it only looks', []),
     ('status', 'where things stand', []), ('more', 'free official steps beyond brokers, for where you live', []), ('mcp', 'run as an MCP server for your AI', []),
 ]
 
@@ -1345,8 +1342,8 @@ def do_noid(state, ref):
         print('\nYour answer is written and on your send page:\n  ' + write_send_page(state) + '\n\n' + result['answer']['body'])
 
 
-def do_auto(state, limit, send):
-    done = routine(state, limit, send)
+def do_auto(state, limit, send, read):
+    done = routine(state, limit, send, read)
     for label, value, page in [('Brokers new to the list: ', done['new_brokers'], None), ('Letters written:         ', done['letters_written'], None), ('Reminders written:       ', done['reminders_written'], None),
                                ('Sent:                    ', len(done['sent']), None), ('Waiting for you to send: ', done['waiting_to_send'], 'send_page'), ('Forms waiting for you:   ', done['forms_waiting'], 'forms_page')]:
         print(label + str(value) + ('   ' + done[page] if page and value else ''))
@@ -1376,7 +1373,7 @@ def main(argv=None):
         'add': lambda: print('Added ' + add_broker(state, args.name, args.email, args.website)),
         'letters': lambda: do_letters(state, args.limit, args.match), 'find': lambda: do_find(state, args.text), 'skip': lambda: do_skip(state, args.text, args.undo),
         'noid': lambda: do_noid(state, args.ref), 'send': lambda: do_send(state, args.limit), 'forms': lambda: do_forms(state, args.limit),
-        'sent': lambda: print('Marked as sent: ' + (', '.join(record_sent(state, args.refs)) or 'nothing')), 'reply': lambda: do_reply(state, args.ref, args.file), 'auto': lambda: do_auto(state, args.limit, args.send),
+        'sent': lambda: print('Marked as sent: ' + (', '.join(record_sent(state, args.refs)) or 'nothing')), 'reply': lambda: do_reply(state, args.ref, args.file), 'auto': lambda: do_auto(state, args.limit, args.send, args.inbox), 'inbox': lambda: do_inbox(state),
         'teach': lambda: print('Learned. Rules you taught it: ' + str(teach(state, args.kind, args.phrase)['rules_you_taught']) + '. Run "share" to give them to everyone.'),
         'share': lambda: print('\n'.join(share(state)) or 'Nothing taught yet.'),
     }

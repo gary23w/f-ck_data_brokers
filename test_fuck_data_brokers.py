@@ -237,6 +237,70 @@ class Case(unittest.TestCase):
                            'We have received your request and will respond within 45 days.': 'received'}.items():
             self.assertEqual(fdb.classify(text), kind, text)
 
+    def test_replies_are_read_from_the_persons_own_mailbox_without_changing_it(self):
+        from email.message import EmailMessage
+        request = self.sent_request('california')
+        ref, broker, calls = request['ref'], self.state['brokers'][request['broker']], []
+        draft = fdb.prepare(self.state, 1)[0]
+
+        def mail(sender, subject, body, ident, markup=False):
+            message = EmailMessage()
+            message['From'], message['Subject'], message['Message-ID'] = sender, subject, ident
+            message.set_content(body, subtype='html' if markup else 'plain')
+            return bytes(message)
+
+        domain = broker['email'].split('@')[1]
+        box = {b'1': mail('Privacy Team <noreply@' + domain + '>', 'Re: ' + request['subject'], '<p>Your information <b>has been deleted</b>.</p>', '<one@example.com>', True),
+               b'2': mail('helper@somewhere-else.example', 'Re: ' + request['subject'], 'Please send a copy of your passport.', '<two@example.com>'),
+               b'3': mail(self.state['profile']['email'], request['subject'], 'my own letter', '<three@example.com>')}
+
+        class Mailbox:
+            def __init__(self, host, ssl_context=None):
+                calls.append(('connect', host, ssl_context is not None))
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *problem):
+                return False
+
+            def login(self, user, password):
+                calls.append(('login', user, password))
+                if password != 'app-password-for-test':
+                    raise fdb.imaplib.IMAP4.error('AUTHENTICATIONFAILED')
+
+            def select(self, folder, readonly=False):
+                calls.append(('select', folder, readonly))
+
+            def search(self, charset, key, value):
+                calls.append(('search', key, value))
+                return 'OK', [b' '.join(sorted(box)) if value == '"' + ref + '"' else b'']
+
+            def fetch(self, number, what):
+                calls.append(('fetch', what))
+                return 'OK', [(b'x', box[number]), b')']
+
+        with self.assertRaises(fdb.Oops, msg='a provider it does not know is said so, not guessed'):
+            fdb.inbox(self.state, 'app-password-for-test', Mailbox)
+        self.assertEqual(calls, [])
+        os.environ['FDB_IMAP_HOST'] = 'imap.example.com'
+        self.addCleanup(os.environ.pop, 'FDB_IMAP_HOST', None)
+        with self.assertRaises(fdb.Oops):
+            fdb.inbox(self.state, 'wrong', Mailbox)
+        found = fdb.inbox(self.state, 'app-password-for-test', Mailbox)
+        self.assertEqual([item['kind'] for item in found], ['done', 'stranger'])
+        self.assertEqual(request['state'], 'done', 'the reply from the broker\'s own domain was acted on; the stranger\'s was not')
+        self.assertIn('somewhere-else.example', found[1]['meaning'])
+        # It only looks: the folder is opened read-only, messages are peeked at, and only its own references are searched for.
+        self.assertIn(('select', 'INBOX', True), calls)
+        self.assertEqual({call[1] for call in calls if call[0] == 'fetch'}, {'(BODY.PEEK[])'})
+        self.assertEqual({call[2] for call in calls if call[0] == 'search'}, {'"' + ref + '"'}, 'a letter that was never sent is not searched for')
+        self.assertTrue(all(call[2] for call in calls if call[0] == 'connect'))
+        self.assertNotIn(draft['ref'], str(calls))
+        # A second look reads nothing twice.
+        self.assertEqual(fdb.inbox(self.state, 'app-password-for-test', Mailbox), [])
+        self.assertNotIn('app-password-for-test', json.dumps(self.state))
+
     def test_an_id_demand_is_answered_once_then_gets_a_final_notice_then_the_regulator(self):
         request = self.sent_request('california')
         ref = request['ref']
