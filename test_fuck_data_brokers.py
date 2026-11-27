@@ -136,10 +136,40 @@ class Case(unittest.TestCase):
             'To opt out, please visit https://example.com/optout': 'use_form',
             'Please click the link below to verify your email address and confirm your request.': 'click_link',
             'Your information has been deleted. If you need additional information, contact us.': 'done',
+            # Something that will happen later, or is not needed, is not what the reply says now.
+            'We will be in touch once all necessary actions have been completed.': 'received',
+            'We will contact you if we need any additional information.': 'received',
+            'You do not need to fill in the opt-out form.': 'unclear',
+            'It has not been completed yet. Our team will email you when it is done.': 'received',
+            # ... and the rest of a reply still counts.
+            'After review, your information has been deleted.': 'done',
+            'If you want us to proceed, please send a copy of your passport.': 'wants_id',
+            'Once you provide additional information, we will continue.': 'wants_details',
+            'You do not need to call us. Please submit your request through our privacy portal.': 'use_form',
         }
         for text, kind in cases.items():
             self.assertEqual(fdb.classify(text), kind, text)
         self.assertEqual(set(fdb.MEANING), {kind for kind, _ in fdb.REPLY_RULES} | {'unclear'})
+
+    def test_real_replies_that_were_misread(self):
+        # An acknowledgement that was read as "done", which would have closed the request and stopped the reminders.
+        acknowledgement = (
+            'Hi, Thank you for contacting us. We\'re writing to confirm that we have received your privacy request and have '
+            'begun processing it in accordance with applicable privacy regulations. Our team is now working on your request, '
+            'and we will be in touch if we need any additional information from you or once all necessary actions have been '
+            'completed. If you have any questions or need additional assistance, please feel free to contact us. '
+            'Reference Code: 0000. Regards, Privacy Officer')
+        self.assertEqual(fdb.classify(acknowledgement), 'received')
+        # A status update that was read as "use our form", though it says the form is not needed.
+        status = (
+            'Thank you for following up, and we apologize for the delay in getting back to you. Here is where your request '
+            'stands. The deletion request we submitted for you on November 26 is on file with our Data Privacy team under '
+            'reference #0000. It has not been completed yet, so your information can still appear on our site until it is. '
+            'You do not need to submit another request or fill in the opt-out form. The request on file covers it. Our Data '
+            'Privacy team will email you directly once it is completed, or if they need anything more from you to verify the '
+            'request. We are closing this ticket only because your question has been answered. Your removal request itself '
+            'stays open with the Data Privacy team under reference #0000.')
+        self.assertEqual(fdb.classify(status), 'received')
 
     def test_an_id_demand_is_answered_once_then_gets_a_final_notice_then_the_regulator(self):
         request = self.sent_request('california')

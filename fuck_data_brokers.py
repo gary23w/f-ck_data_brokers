@@ -781,7 +781,8 @@ REPLY_RULES = [
     ('no_record', r'\b(?:found no|did not (?:locate|find)|(?:were|are) unable to (?:locate|find)|could not (?:find|locate)|no records? (?:matching|found|were found))\b[^.!?]{0,120}\b(?:records?|information|data|match)|\b(?:have|has|hold|holds) no (?:records?|data|information)\b|\b(?:do|does) not (?:have|hold) (?:any )?(?:records?|data|personal information)\b[^.!?]{0,60}\b(?:about|on|for|matching|associated)\b'),
     ('use_form', r'\b(?:web ?form|online form|our form|privacy (?:portal|center|request page)|opt[- ]?out (?:form|page|portal)|submit (?:your|the|a) request (?:through|via|using|at|on)|complete (?:the|our) (?:form|portal)|does not (?:accept|process)[^.!?]{0,60}(?:by|via) e-?mail|not monitored)\b|\bto (?:opt[- ]?out|submit (?:a|your) request|exercise your (?:privacy )?rights)\b[^.!?]{0,80}\b(?:visit|go to|use)\b|\bplease visit\b[^.!?]{0,80}\b(?:opt[- ]?out|privacy|request)'),
     ('refused', r'\b(?:unable to (?:process|verify|honou?r|complete|fulfil)|cannot (?:process|verify|honou?r|complete|fulfil)|can\'?t (?:process|verify)|(?:is|has been|are) (?:denied|declined|rejected)|we (?:deny|decline)|not (?:subject to|covered by|applicable)|does not apply|exempt)\b|\b(?:have|has) not (?:been )?(?:deleted|removed|erased|processed)\b|\bcannot be (?:deleted|removed|erased|processed|completed|honou?red)\b'),
-    ('received', r'\b(?:received|receipt of|acknowledge|thank you for (?:contacting|your)|ticket|case (?:number|id)|will (?:respond|review|process|get back)|will be (?:deleted|removed|erased|processed|completed))\b'),
+    ('received', r'\b(?:received|receipt of|acknowledge|thank you for (?:contacting|your)|ticket|case (?:number|id)|will (?:respond|review|process|get back)|will be (?:deleted|removed|erased|processed|completed))\b'
+                 r'|\b(?:not (?:been )?(?:completed|processed|finished) yet|(?:stays?|remains?) open|on file|in progress|being processed|will (?:email|contact|notify|update) you|will be in touch)\b'),
 ]
 
 MEANING = {
@@ -797,10 +798,21 @@ MEANING = {
 }
 
 
+# Words that mention something without saying it happened or is wanted. Each runs to the next comma or the end of the
+# sentence, and is removed before the rules named for it are checked.
+# "You do not need to fill in the opt-out form" is not a demand to use the form (checked for every rule).
+NOT_NEEDED = r'\b(?:(?:do|does|did) not|don\'?t|doesn\'?t|no) need to\b[^.!?;]*'
+# "We will write once all actions have been completed" is not done; "after review, it has been deleted" still is.
+NOT_YET = r'\b(?:once|when|after|until|as soon as|if)\b[^,.!?;]*'
+# "We will be in touch if we need any additional information" is not a request for more details.
+IF_WE_NEED = r'\bif (?:we|they|our team) (?:need|require)s?\b[^,.!?;]*'
+SET_ASIDE = {'done': NOT_YET, 'wants_details': IF_WE_NEED}
+
+
 def classify(text):
-    flat = ' '.join(str(text).lower().split())
+    flat = re.sub(NOT_NEEDED, ' ', ' '.join(str(text).lower().split()))
     for kind, pattern in REPLY_RULES:
-        if re.search(pattern, flat):
+        if re.search(pattern, re.sub(SET_ASIDE[kind], ' ', flat) if kind in SET_ASIDE else flat):
             return kind
     return 'unclear'
 
