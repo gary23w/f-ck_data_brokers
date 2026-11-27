@@ -1,5 +1,351 @@
 {
  "brokers": {
+  "app-adobe": {
+   "email": "",
+   "name": "Adobe",
+   "rights_url": "https://www.adobe.com/privacy/privacy-contact.html",
+   "source": "platform, read on its own pages",
+   "website": "https://www.adobe.com"
+  },
+  "app-airbnb": {
+   "email": "",
+   "name": "Airbnb",
+   "rights_url": "https://www.airbnb.com/help/article/2273",
+   "source": "platform, read on its own pages",
+   "website": "https://www.airbnb.com"
+  },
+  "app-aliexpress": {
+   "email": "dataprotection.ae@aliexpress.com",
+   "name": "AliExpress",
+   "rights_url": "https://privacy.aliexpress.com/",
+   "source": "platform, read on its own pages",
+   "website": "https://www.aliexpress.com"
+  },
+  "app-apple": {
+   "delete_url": "https://privacy.apple.com",
+   "email": "",
+   "export_url": "https://privacy.apple.com",
+   "name": "Apple",
+   "rights_url": "https://www.apple.com/legal/privacy/contact/",
+   "source": "platform, read on its own pages",
+   "website": "https://www.apple.com"
+  },
+  "app-booking-com": {
+   "email": "dataprotectionoffice@booking.com",
+   "name": "Booking.com",
+   "rights_url": "https://www.booking.com/content/dsar.en-us.html",
+   "source": "platform, read on its own pages",
+   "website": "https://www.booking.com"
+  },
+  "app-cash-app": {
+   "email": "",
+   "name": "Cash App",
+   "rights_url": "https://cash.app/support",
+   "source": "platform, read on its own pages",
+   "website": "https://cash.app"
+  },
+  "app-craigslist": {
+   "email": "privacy@craigslist.org",
+   "name": "Craigslist",
+   "rights_url": "https://www.craigslist.org/about/ccpa",
+   "source": "platform, read on its own pages",
+   "website": "https://www.craigslist.org"
+  },
+  "app-discord": {
+   "delete_url": "https://support.discord.com/hc/en-us/articles/212500837-How-do-I-permanently-delete-my-account-",
+   "email": "privacy@discord.com",
+   "export_url": "https://support.discord.com/hc/en-us/articles/360004027692-Requesting-a-Copy-of-your-Data",
+   "name": "Discord",
+   "rights_url": "",
+   "source": "platform, read on its own pages",
+   "website": "https://discord.com"
+  },
+  "app-doordash": {
+   "delete_url": "https://www.doordash.com/consumer/privacy/manage_account",
+   "email": "privacy@doordash.com",
+   "export_url": "https://www.doordash.com/consumer/privacy/manage_account",
+   "name": "DoorDash",
+   "rights_url": "https://www.doordash.com/consumer/privacy/manage_account",
+   "source": "platform, read on its own pages",
+   "website": "https://www.doordash.com"
+  },
+  "app-dropbox": {
+   "delete_url": "https://www.dropbox.com/account",
+   "email": "privacy@dropbox.com",
+   "export_url": "https://help.dropbox.com/installs-integrations/sync-uploads/download-entire-folders",
+   "name": "Dropbox",
+   "rights_url": "https://www.dropbox.com/privacy/dsr/submission",
+   "source": "platform, read on its own pages",
+   "website": "https://www.dropbox.com"
+  },
+  "app-ebay": {
+   "delete_url": "https://www.ebay.com/help/account/changing-account-settings/deleting-data?id=5365",
+   "email": "",
+   "export_url": "https://www.ebay.com/help/account/default/ebay-account?id=5089#request",
+   "name": "eBay",
+   "rights_url": "https://www.ebayinc.com/company/privacy-center/privacy-contact/",
+   "source": "platform, read on its own pages",
+   "website": "https://www.ebay.com"
+  },
+  "app-etsy": {
+   "delete_url": "https://help.etsy.com/hc/en-us/articles/360021647754-Can-I-Permanently-Delete-My-Etsy-Account-",
+   "email": "",
+   "export_url": "https://help.etsy.com/hc/en-us/articles/360035753053-How-Do-I-Download-My-Etsy-Data-",
+   "name": "Etsy",
+   "rights_url": "https://www.etsy.com/your/account/privacy",
+   "source": "platform, read on its own pages",
+   "website": "https://www.etsy.com"
+  },
+  "app-expedia": {
+   "delete_url": "https://www.expedia.com/helpcenter/privacyrequest",
+   "email": "",
+   "export_url": "https://www.expedia.com/helpcenter/privacyrequest",
+   "name": "Expedia",
+   "rights_url": "https://www.expedia.com/helpcenter/privacyrequest",
+   "source": "platform, read on its own pages",
+   "website": "https://www.expedia.com"
+  },
+  "app-facebook": {
+   "delete_url": "https://www.facebook.com/help/224562897555674",
+   "email": "",
+   "export_url": "https://www.facebook.com/help/212802592074644",
+   "name": "Facebook",
+   "rights_url": "https://help.meta.com/support/privacy",
+   "source": "platform, read on its own pages",
+   "website": "https://www.facebook.com"
+  },
+  "app-google": {
+   "delete_url": "https://myaccount.google.com/deleteaccount",
+   "email": "",
+   "export_url": "https://takeout.google.com/",
+   "name": "Google",
+   "rights_url": "https://support.google.com/policies/contact/general_privacy_form",
+   "source": "platform, read on its own pages",
+   "website": "https://www.google.com"
+  },
+  "app-instagram": {
+   "email": "",
+   "name": "Instagram",
+   "rights_url": "https://help.meta.com/support/privacy",
+   "source": "platform, read on its own pages",
+   "website": "https://www.instagram.com"
+  },
+  "app-linkedin": {
+   "delete_url": "https://www.linkedin.com/help/linkedin/answer/63",
+   "email": "",
+   "export_url": "https://www.linkedin.com/help/linkedin/answer/a1339364/",
+   "name": "LinkedIn",
+   "rights_url": "https://www.linkedin.com/help/linkedin/ask/TSO-DPO",
+   "source": "platform, read on its own pages",
+   "website": "https://www.linkedin.com"
+  },
+  "app-lyft": {
+   "delete_url": "https://www.lyft.com/privacy/data",
+   "email": "",
+   "export_url": "https://www.lyft.com/privacy/data",
+   "name": "Lyft",
+   "rights_url": "https://www.lyft.com/privacy/data",
+   "source": "platform, read on its own pages",
+   "website": "https://www.lyft.com"
+  },
+  "app-microsoft": {
+   "delete_url": "https://go.microsoft.com/fwlink/?LinkId=523898",
+   "email": "",
+   "export_url": "https://account.microsoft.com/privacy",
+   "name": "Microsoft",
+   "rights_url": "https://go.microsoft.com/fwlink/?linkid=2126612",
+   "source": "platform, read on its own pages",
+   "website": "https://www.microsoft.com"
+  },
+  "app-netflix": {
+   "delete_url": "https://help.netflix.com/node/100625",
+   "email": "privacy@netflix.com",
+   "export_url": "https://www.netflix.com/account/getmyinfo",
+   "name": "Netflix",
+   "rights_url": "https://www.netflix.com/account/getmyinfo",
+   "source": "platform, read on its own pages",
+   "website": "https://www.netflix.com"
+  },
+  "app-nextdoor": {
+   "email": "privacy@nextdoor.com",
+   "name": "Nextdoor",
+   "rights_url": "",
+   "source": "platform, read on its own pages",
+   "website": "https://nextdoor.com"
+  },
+  "app-openai": {
+   "delete_url": "https://help.openai.com/en/articles/7730893-data-controls-faq",
+   "email": "dsar@openai.com",
+   "export_url": "https://help.openai.com/en/articles/7730893-data-controls-faq",
+   "name": "OpenAI",
+   "rights_url": "https://privacy.openai.com/",
+   "source": "platform, read on its own pages",
+   "website": "https://openai.com"
+  },
+  "app-paypal": {
+   "email": "",
+   "name": "PayPal",
+   "rights_url": "https://www.paypal.com/smarthelp/contact-us/privacy",
+   "source": "platform, read on its own pages",
+   "website": "https://www.paypal.com"
+  },
+  "app-pinterest": {
+   "delete_url": "https://help.pinterest.com/article/deactivate-or-close-your-account",
+   "email": "privacy-support@pinterest.com",
+   "export_url": "https://help.pinterest.com/article/download-your-pinterest-data",
+   "name": "Pinterest",
+   "rights_url": "https://help.pinterest.com/article/review-personal-data-options",
+   "source": "platform, read on its own pages",
+   "website": "https://www.pinterest.com"
+  },
+  "app-shein": {
+   "email": "privacy@sheingroup.com",
+   "name": "Shein",
+   "rights_url": "https://us.shein.com/Privacy-Center-a-1045.html",
+   "source": "platform, read on its own pages",
+   "website": "https://us.shein.com"
+  },
+  "app-shop-shopify": {
+   "email": "",
+   "name": "Shop (Shopify)",
+   "rights_url": "https://privacy.shopify.com/en",
+   "source": "platform, read on its own pages",
+   "website": "https://shop.app"
+  },
+  "app-snapchat": {
+   "delete_url": "https://help.snapchat.com/hc/articles/7012328360596",
+   "email": "",
+   "export_url": "https://accounts.snapchat.com/accounts/downloadmydata",
+   "name": "Snapchat",
+   "rights_url": "https://help.snapchat.com/hc/requests/new",
+   "source": "platform, read on its own pages",
+   "website": "https://www.snapchat.com"
+  },
+  "app-spotify": {
+   "delete_url": "https://support.spotify.com/article/close-account/",
+   "email": "privacy@spotify.com",
+   "export_url": "https://www.spotify.com/account/privacy/",
+   "name": "Spotify",
+   "rights_url": "https://www.spotify.com/account/privacy/",
+   "source": "platform, read on its own pages",
+   "website": "https://www.spotify.com"
+  },
+  "app-square": {
+   "email": "",
+   "name": "Square",
+   "rights_url": "https://privacy.block.xyz",
+   "source": "platform, read on its own pages",
+   "website": "https://squareup.com"
+  },
+  "app-stripe-and-link": {
+   "delete_url": "https://support.stripe.com/questions/i-would-like-to-delete-the-information-stripe-has-collected-from-me",
+   "email": "privacy@stripe.com",
+   "export_url": "https://stripe.com/legal/privacy-center#how-do-i-access-my-data",
+   "name": "Stripe and Link",
+   "rights_url": "https://stripe.com/legal/privacy-center",
+   "source": "platform, read on its own pages",
+   "website": "https://stripe.com"
+  },
+  "app-target": {
+   "email": "",
+   "name": "Target",
+   "rights_url": "https://www.target.com/guest-privacy",
+   "source": "platform, read on its own pages",
+   "website": "https://www.target.com"
+  },
+  "app-telegram": {
+   "delete_url": "https://telegram.org/deactivate",
+   "email": "",
+   "name": "Telegram",
+   "rights_url": "https://edpo.com/telegram-gdpr-data-request/",
+   "source": "platform, read on its own pages",
+   "website": "https://telegram.org"
+  },
+  "app-temu": {
+   "email": "",
+   "name": "Temu",
+   "rights_url": "https://www.temu.com/data_protection_officer_webform.html",
+   "source": "platform, read on its own pages",
+   "website": "https://www.temu.com"
+  },
+  "app-tiktok": {
+   "email": "",
+   "name": "TikTok",
+   "rights_url": "https://www.tiktok.com/legal/report/privacy",
+   "source": "platform, read on its own pages",
+   "website": "https://www.tiktok.com"
+  },
+  "app-twitch": {
+   "delete_url": "https://www.twitch.tv/user/delete_account",
+   "email": "privacy@twitch.tv",
+   "name": "Twitch",
+   "rights_url": "https://legal.twitch.com/en/legal/privacy-choices/",
+   "source": "platform, read on its own pages",
+   "website": "https://www.twitch.tv"
+  },
+  "app-uber": {
+   "delete_url": "https://privacy.uber.com/privacy/center",
+   "email": "",
+   "export_url": "https://myprivacy.uber.com/exploreyourdata/download",
+   "name": "Uber",
+   "rights_url": "https://help.uber.com/riders/article/submit-a-privacy-inquiry?nodeId=489292a2-27ce-42f5-9a47-d4dd017559fd",
+   "source": "platform, read on its own pages",
+   "website": "https://www.uber.com"
+  },
+  "app-venmo": {
+   "email": "",
+   "name": "Venmo",
+   "rights_url": "https://help.venmo.com/hc/en-us/requests/new",
+   "source": "platform, read on its own pages",
+   "website": "https://venmo.com"
+  },
+  "app-walmart": {
+   "email": "",
+   "name": "Walmart",
+   "rights_url": "https://cpa-ui.walmart.com/dc/privacy/en-US/affirmation?brandCode=WMT&languageCode=en-US&market=US",
+   "source": "platform, read on its own pages",
+   "website": "https://www.walmart.com"
+  },
+  "app-whatsapp": {
+   "delete_url": "https://faq.whatsapp.com/android/account-and-profile/how-to-delete-your-account/",
+   "email": "",
+   "export_url": "https://faq.whatsapp.com/general/account-and-profile/how-to-request-your-account-information",
+   "name": "WhatsApp",
+   "rights_url": "https://www.whatsapp.com/contact/forms/915483389072145",
+   "source": "platform, read on its own pages",
+   "website": "https://www.whatsapp.com"
+  },
+  "app-x-twitter": {
+   "delete_url": "https://help.x.com/managing-your-account/how-to-deactivate-x-account",
+   "email": "",
+   "export_url": "https://help.x.com/managing-your-account/how-to-download-your-x-archive",
+   "name": "X (Twitter)",
+   "rights_url": "https://help.x.com/forms/privacy",
+   "source": "platform, read on its own pages",
+   "website": "https://x.com"
+  },
+  "app-yelp": {
+   "delete_url": "https://www.yelp-support.com/article/How-do-I-close-my-account?l=en_US",
+   "email": "",
+   "name": "Yelp",
+   "rights_url": "https://www.yelp-support.com/article/How-do-I-make-a-data-rights-request?l=en_US",
+   "source": "platform, read on its own pages",
+   "website": "https://www.yelp.com"
+  },
+  "app-zillow": {
+   "email": "",
+   "name": "Zillow",
+   "rights_url": "https://privacy.zillowgroup.com/",
+   "source": "platform, read on its own pages",
+   "website": "https://www.zillow.com"
+  },
+  "app-zoom": {
+   "email": "",
+   "name": "Zoom",
+   "rights_url": "https://privacyportal.onetrust.com/webform/65962359-ef0d-4399-9db4-572d06de08aa/f277f9f7-bfee-4233-815e-80e290139bc2",
+   "source": "platform, read on its own pages",
+   "website": "https://www.zoom.com"
+  },
   "ca-1000": {
    "email": "privacy@01advertising.com",
    "name": "01Advertising Inc.",
