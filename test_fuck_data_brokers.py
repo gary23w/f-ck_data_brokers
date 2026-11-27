@@ -49,8 +49,11 @@ class Case(unittest.TestCase):
         for key in ('FDB_SMTP_HOST', 'FDB_SMTP_PASS', 'FDB_SMTP_USER'):
             os.environ.pop(key, None)
         self.state = fdb.load()
+        # The tests build their own lists; the platform file shipped with the tool is used only by the tests that say so.
+        self.platforms, fdb.APPS_LIST = fdb.APPS_LIST, Path(self.folder.name, 'no-platforms.json')
 
     def tearDown(self):
+        fdb.APPS_LIST = self.platforms
         self.folder.cleanup()
 
     def person(self, place='california'):
@@ -300,6 +303,58 @@ class Case(unittest.TestCase):
         # A second look reads nothing twice.
         self.assertEqual(fdb.inbox(self.state, 'app-password-for-test', Mailbox), [])
         self.assertNotIn('app-password-for-test', json.dumps(self.state))
+
+    def test_a_platform_is_never_written_to_unless_named_and_its_account_is_left_alone_unless_asked(self):
+        shipped = json.loads(self.platforms.read_text(encoding='utf-8'))
+        self.assertGreater(len(shipped['platforms']), 10)
+        for entry in shipped['platforms']:
+            self.assertEqual(sorted(set(entry) - {'name', 'email', 'website', 'rights_url', 'delete_url', 'export_url', 'evidence', 'checked'}), [], entry['name'])
+            self.assertRegex(entry['evidence'], r'^https://', entry['name'] + ' says where it was read')
+            self.assertRegex(entry['checked'], r'^\d{4}-\d\d-\d\d$')
+            self.assertTrue(all(str(value).startswith('https://') for key, value in entry.items() if key.endswith('_url')), entry['name'])
+        fdb.APPS_LIST = self.platforms
+        found = fdb.read_more()
+        self.assertEqual(len(found), len(shipped['platforms']), 'every shipped platform has a name, a way to reach it and evidence')
+        self.assertTrue(all(key.startswith('app-') and broker['source'] == 'platform, read on its own pages' for key, broker in found.items()))
+        self.person('eu')
+        fdb.take(self.state, found)
+        named = next(broker for broker in found.values() if broker['email'])
+        # The routine, plain letters and the forms page never touch a platform.
+        everyone = fdb.prepare(self.state, 9999) + fdb.prepare_forms(self.state, 9999)
+        self.assertGreater(len(everyone), 5)
+        self.assertFalse([r for r in everyone if r['broker'].startswith('app-')])
+        self.assertEqual(fdb.prepare(self.state, 9999), [], 'a second pass, as the routine makes, still writes to no platform')
+        self.assertFalse([r for r in self.state['requests'].values() if r['broker'].startswith('app-')])
+        # Named, it gets a letter that leaves the account alone.
+        kept = fdb.prepare(self.state, 5, named['name'])
+        self.assertEqual(len(kept), 1)
+        self.assertIn('I am not asking you to close it', kept[0]['body'])
+        self.assertIn('Article 17', kept[0]['body'], 'the law of the place the person lives is still the one quoted')
+        self.assertNotIn('closes the account', kept[0]['body'])
+        self.assertNotIn('I am not pointing to one listing', kept[0]['body'])
+        # Asked for everything, the letter says so in words nobody can misread. An AI cannot ask for that.
+        del self.state['requests'][kept[0]['ref']]
+        everything = fdb.prepare(self.state, 5, named['name'], everything=True)
+        self.assertIn('this closes the account and cannot be undone', everything[0]['body'])
+        self.assertNotIn('I am not asking you to close it', everything[0]['body'])
+        del self.state['requests'][everything[0]['ref']]
+        fdb.save(self.state)
+        written = fdb.call_tool('fdb_write_letters', {'match': named['name'], 'everything': 'yes'})
+        self.assertEqual(written['written'], 1)
+        self.assertIn('I am not asking you to close it', Path(written['letters'][0]['draft']).read_text(encoding='utf-8').replace('=\n', ''))
+        # "everything" changes nothing for a broker: its letter is the same one as before.
+        broker = next(b for key, b in self.state['brokers'].items() if key.startswith('ca-'))
+        profile = self.state['profile']
+        self.assertEqual(fdb.first_letter(profile, broker, 'gdpr', 'req-00000000'), fdb.first_letter(profile, broker, 'gdpr', 'req-00000000', None))
+        # The company's own pages are shown, and the list reports a platform as what it is.
+        listed = fdb.apps(self.state, named['name'])
+        self.assertEqual([item['name'] for item in listed], [named['name']])
+        self.assertEqual(len(fdb.call_tool('fdb_apps', {})['platforms']), len(found))
+        self.assertTrue(all(item['their_privacy_page'].startswith('https://') or item['letter'].startswith('letters') for item in fdb.apps(self.state)))
+        target = Path(self.folder.name, 'list.json')
+        with mock.patch.object(fdb, 'SOURCES', [dict(source, least=1, url='') for source in fdb.SOURCES]):
+            report = fdb.write_list(target)
+        self.assertTrue(report['new'] and all(name.endswith('(a platform, not a broker)') for name in report['new']))
 
     def test_an_id_demand_is_answered_once_then_gets_a_final_notice_then_the_regulator(self):
         request = self.sent_request('california')
@@ -646,8 +701,8 @@ class Case(unittest.TestCase):
                 self.assertRegex(bundled['sources'][source['key']]['captured'], r'^\d{4}-\d\d-\d\d$', 'a hand-refreshed registry says when it was taken')
         self.assertGreater(len(fdb.usable(bundled['brokers'])), 100)
         for key, broker in bundled['brokers'].items():
-            self.assertRegex(key, r'^(ca-\d+|or-[a-z]+-\d+|tx-\d+|more-[a-z0-9-]+)$')
-            self.assertEqual(sorted(k for k in broker if k != 'same_as'), ['email', 'name', 'rights_url', 'source', 'website'])
+            self.assertRegex(key, r'^(ca-\d+|or-[a-z]+-\d+|tx-\d+|more-[a-z0-9-]+|app-[a-z0-9-]+)$')
+            self.assertEqual(sorted(k for k in broker if k not in ('same_as', 'delete_url', 'export_url')), ['email', 'name', 'rights_url', 'source', 'website'])
             if 'same_as' in broker:
                 self.assertIn(broker['same_as'], bundled['brokers'])
                 self.assertNotIn('same_as', bundled['brokers'][broker['same_as']], 'a duplicate points at a real entry, never at another duplicate')
@@ -950,8 +1005,8 @@ class Case(unittest.TestCase):
             for what, shape in shapes.items():
                 for hit in re.finditer(shape, text):
                     found.append(name + ': ' + what + ': ' + hit.group(0)[:40])
-            if name in ('brokers.json', 'more_brokers.json'):
-                continue  # the brokers' own published privacy contacts
+            if name in ('brokers.json', 'more_brokers.json', 'platforms.json'):
+                continue  # the companies' own published privacy contacts
             for address in set(re.findall(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', text)):
                 if not allowed_mail.search(address.lower()) and address.lower() not in known_mail:
                     found.append(name + ': an email address that is not a made-up one: ' + address)

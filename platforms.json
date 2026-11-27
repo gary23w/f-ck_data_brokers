@@ -1,0 +1,363 @@
+{
+ "about": "Social media, shops and other companies you may hold an account with. They are not data brokers and are never written to unless you name one. Every address and page here was read on the company's own pages on the date in \"checked\"; \"evidence\" is that page. A value the company does not publish is left out, never guessed. To add or correct one, open an issue with the link to the company's own page.",
+ "platforms": [
+  {
+   "name": "Adobe",
+   "website": "https://www.adobe.com",
+   "rights_url": "https://www.adobe.com/privacy/privacy-contact.html",
+   "evidence": "https://www.adobe.com/privacy/policy.html",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Airbnb",
+   "website": "https://www.airbnb.com",
+   "rights_url": "https://www.airbnb.com/help/article/2273",
+   "evidence": "https://www.airbnb.com/help/article/3175",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "AliExpress",
+   "email": "DataProtection.AE@aliexpress.com",
+   "website": "https://www.aliexpress.com",
+   "rights_url": "https://privacy.aliexpress.com/",
+   "evidence": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_aliexpress/suit_bu1_aliexpress201909171350_82407.html",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Apple",
+   "website": "https://www.apple.com",
+   "rights_url": "https://www.apple.com/legal/privacy/contact/",
+   "delete_url": "https://privacy.apple.com",
+   "export_url": "https://privacy.apple.com",
+   "evidence": "https://www.apple.com/legal/privacy/en-ww/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Booking.com",
+   "email": "dataprotectionoffice@booking.com",
+   "website": "https://www.booking.com",
+   "rights_url": "https://www.booking.com/content/dsar.en-us.html",
+   "evidence": "https://www.booking.com/content/privacy.html",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Cash App",
+   "website": "https://cash.app",
+   "rights_url": "https://cash.app/support",
+   "evidence": "https://cash.app/legal/us/en-us/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Craigslist",
+   "email": "privacy@craigslist.org",
+   "website": "https://www.craigslist.org",
+   "rights_url": "https://www.craigslist.org/about/ccpa",
+   "evidence": "https://www.craigslist.org/about/privacy.policy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Discord",
+   "email": "privacy@discord.com",
+   "website": "https://discord.com",
+   "delete_url": "https://support.discord.com/hc/en-us/articles/212500837-How-do-I-permanently-delete-my-account-",
+   "export_url": "https://support.discord.com/hc/en-us/articles/360004027692-Requesting-a-Copy-of-your-Data",
+   "evidence": "https://discord.com/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "DoorDash",
+   "email": "privacy@doordash.com",
+   "website": "https://www.doordash.com",
+   "rights_url": "https://www.doordash.com/consumer/privacy/manage_account",
+   "delete_url": "https://www.doordash.com/consumer/privacy/manage_account",
+   "export_url": "https://www.doordash.com/consumer/privacy/manage_account",
+   "evidence": "https://help.doordash.com/legal/document?type=cx-privacy-policy&region=US&locale=en-US",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Dropbox",
+   "email": "privacy@dropbox.com",
+   "website": "https://www.dropbox.com",
+   "rights_url": "https://www.dropbox.com/privacy/dsr/submission",
+   "delete_url": "https://www.dropbox.com/account",
+   "export_url": "https://help.dropbox.com/installs-integrations/sync-uploads/download-entire-folders",
+   "evidence": "https://www.dropbox.com/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "eBay",
+   "website": "https://www.ebay.com",
+   "rights_url": "https://www.ebayinc.com/company/privacy-center/privacy-contact/",
+   "delete_url": "https://www.ebay.com/help/account/changing-account-settings/deleting-data?id=5365",
+   "export_url": "https://www.ebay.com/help/account/default/ebay-account?id=5089#request",
+   "evidence": "https://www.ebayinc.com/company/privacy-center/privacy-contact/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Etsy",
+   "website": "https://www.etsy.com",
+   "rights_url": "https://www.etsy.com/your/account/privacy",
+   "delete_url": "https://help.etsy.com/hc/en-us/articles/360021647754-Can-I-Permanently-Delete-My-Etsy-Account-",
+   "export_url": "https://help.etsy.com/hc/en-us/articles/360035753053-How-Do-I-Download-My-Etsy-Data-",
+   "evidence": "https://www.etsy.com/legal/privacy/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Expedia",
+   "website": "https://www.expedia.com",
+   "rights_url": "https://www.expedia.com/helpcenter/privacyrequest",
+   "delete_url": "https://www.expedia.com/helpcenter/privacyrequest",
+   "export_url": "https://www.expedia.com/helpcenter/privacyrequest",
+   "evidence": "https://www.expedia.com/legal/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Facebook",
+   "website": "https://www.facebook.com",
+   "rights_url": "https://help.meta.com/support/privacy",
+   "delete_url": "https://www.facebook.com/help/224562897555674",
+   "export_url": "https://www.facebook.com/help/212802592074644",
+   "evidence": "https://www.facebook.com/help/224562897555674",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Google",
+   "website": "https://www.google.com",
+   "rights_url": "https://support.google.com/policies/contact/general_privacy_form",
+   "delete_url": "https://myaccount.google.com/deleteaccount",
+   "export_url": "https://takeout.google.com/",
+   "evidence": "https://policies.google.com/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Instagram",
+   "website": "https://www.instagram.com",
+   "rights_url": "https://help.meta.com/support/privacy",
+   "evidence": "https://privacycenter.instagram.com/policy/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "LinkedIn",
+   "website": "https://www.linkedin.com",
+   "rights_url": "https://www.linkedin.com/help/linkedin/ask/TSO-DPO",
+   "delete_url": "https://www.linkedin.com/help/linkedin/answer/63",
+   "export_url": "https://www.linkedin.com/help/linkedin/answer/a1339364/",
+   "evidence": "https://www.linkedin.com/legal/privacy-policy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Lyft",
+   "website": "https://www.lyft.com",
+   "rights_url": "https://www.lyft.com/privacy/data",
+   "delete_url": "https://www.lyft.com/privacy/data",
+   "export_url": "https://www.lyft.com/privacy/data",
+   "evidence": "https://www.lyft.com/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Microsoft",
+   "website": "https://www.microsoft.com",
+   "rights_url": "https://go.microsoft.com/fwlink/?linkid=2126612",
+   "delete_url": "https://go.microsoft.com/fwlink/?LinkId=523898",
+   "export_url": "https://account.microsoft.com/privacy",
+   "evidence": "https://www.microsoft.com/en-us/privacy/privacystatement",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Netflix",
+   "email": "privacy@netflix.com",
+   "website": "https://www.netflix.com",
+   "rights_url": "https://www.netflix.com/account/getmyinfo",
+   "delete_url": "https://help.netflix.com/node/100625",
+   "export_url": "https://www.netflix.com/account/getmyinfo",
+   "evidence": "https://help.netflix.com/legal/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Nextdoor",
+   "email": "privacy@nextdoor.com",
+   "website": "https://nextdoor.com",
+   "evidence": "https://help.nextdoor.com/s/article/Privacy-Policy-2026?language=en_US",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "OpenAI",
+   "email": "dsar@openai.com",
+   "website": "https://openai.com",
+   "rights_url": "https://privacy.openai.com/",
+   "delete_url": "https://help.openai.com/en/articles/7730893-data-controls-faq",
+   "export_url": "https://help.openai.com/en/articles/7730893-data-controls-faq",
+   "evidence": "https://openai.com/policies/row-privacy-policy/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "PayPal",
+   "website": "https://www.paypal.com",
+   "rights_url": "https://www.paypal.com/smarthelp/contact-us/privacy",
+   "evidence": "https://www.paypal.com/us/legalhub/paypal/privacy-full",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Pinterest",
+   "email": "privacy-support@pinterest.com",
+   "website": "https://www.pinterest.com",
+   "rights_url": "https://help.pinterest.com/article/review-personal-data-options",
+   "delete_url": "https://help.pinterest.com/article/deactivate-or-close-your-account",
+   "export_url": "https://help.pinterest.com/article/download-your-pinterest-data",
+   "evidence": "https://policy.pinterest.com/en/privacy-policy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Shein",
+   "email": "privacy@sheingroup.com",
+   "website": "https://us.shein.com",
+   "rights_url": "https://us.shein.com/Privacy-Center-a-1045.html",
+   "evidence": "https://us.shein.com/Consumer-Privacy-Notice-s-101.html",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Shop (Shopify)",
+   "website": "https://shop.app",
+   "rights_url": "https://privacy.shopify.com/en",
+   "evidence": "https://www.shopify.com/legal/privacy/app-users",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Snapchat",
+   "website": "https://www.snapchat.com",
+   "rights_url": "https://help.snapchat.com/hc/requests/new",
+   "delete_url": "https://help.snapchat.com/hc/articles/7012328360596",
+   "export_url": "https://accounts.snapchat.com/accounts/downloadmydata",
+   "evidence": "https://values.snap.com/privacy/privacy-policy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Spotify",
+   "email": "privacy@spotify.com",
+   "website": "https://www.spotify.com",
+   "rights_url": "https://www.spotify.com/account/privacy/",
+   "delete_url": "https://support.spotify.com/article/close-account/",
+   "export_url": "https://www.spotify.com/account/privacy/",
+   "evidence": "https://www.spotify.com/us/legal/privacy-policy/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Square",
+   "website": "https://squareup.com",
+   "rights_url": "https://privacy.block.xyz",
+   "evidence": "https://squareup.com/us/en/legal/general/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Stripe and Link",
+   "email": "privacy@stripe.com",
+   "website": "https://stripe.com",
+   "rights_url": "https://stripe.com/legal/privacy-center",
+   "delete_url": "https://support.stripe.com/questions/i-would-like-to-delete-the-information-stripe-has-collected-from-me",
+   "export_url": "https://stripe.com/legal/privacy-center#how-do-i-access-my-data",
+   "evidence": "https://stripe.com/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Target",
+   "website": "https://www.target.com",
+   "rights_url": "https://www.target.com/guest-privacy",
+   "evidence": "https://www.target.com/c/target-privacy-policy/-/N-4sr7p",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Telegram",
+   "website": "https://telegram.org",
+   "rights_url": "https://edpo.com/telegram-gdpr-data-request/",
+   "delete_url": "https://telegram.org/deactivate",
+   "evidence": "https://telegram.org/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Temu",
+   "website": "https://www.temu.com",
+   "rights_url": "https://www.temu.com/data_protection_officer_webform.html",
+   "evidence": "https://www.temu.com/privacy-and-cookie-policy.html",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "TikTok",
+   "website": "https://www.tiktok.com",
+   "rights_url": "https://www.tiktok.com/legal/report/privacy",
+   "evidence": "https://www.tiktok.com/legal/privacy-policy-us",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Twitch",
+   "email": "privacy@twitch.tv",
+   "website": "https://www.twitch.tv",
+   "rights_url": "https://legal.twitch.com/en/legal/privacy-choices/",
+   "delete_url": "https://www.twitch.tv/user/delete_account",
+   "evidence": "https://legal.twitch.com/en/legal/privacy-notice/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Uber",
+   "website": "https://www.uber.com",
+   "rights_url": "https://help.uber.com/riders/article/submit-a-privacy-inquiry?nodeId=489292a2-27ce-42f5-9a47-d4dd017559fd",
+   "delete_url": "https://privacy.uber.com/privacy/center",
+   "export_url": "https://myprivacy.uber.com/exploreyourdata/download",
+   "evidence": "https://www.uber.com/legal/en/document/?name=privacy-notice&country=united-states&lang=en",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Venmo",
+   "website": "https://venmo.com",
+   "rights_url": "https://help.venmo.com/hc/en-us/requests/new",
+   "evidence": "https://venmo.com/legal/us-privacy-policy/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Walmart",
+   "website": "https://www.walmart.com",
+   "rights_url": "https://cpa-ui.walmart.com/dc/privacy/en-US/affirmation?brandCode=WMT&languageCode=en-US&market=US",
+   "evidence": "https://corporate.walmart.com/privacy-security/walmart-privacy-notice",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "WhatsApp",
+   "website": "https://www.whatsapp.com",
+   "rights_url": "https://www.whatsapp.com/contact/forms/915483389072145",
+   "delete_url": "https://faq.whatsapp.com/android/account-and-profile/how-to-delete-your-account/",
+   "export_url": "https://faq.whatsapp.com/general/account-and-profile/how-to-request-your-account-information",
+   "evidence": "https://www.whatsapp.com/legal/privacy-policy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "X (Twitter)",
+   "website": "https://x.com",
+   "rights_url": "https://help.x.com/forms/privacy",
+   "delete_url": "https://help.x.com/managing-your-account/how-to-deactivate-x-account",
+   "export_url": "https://help.x.com/managing-your-account/how-to-download-your-x-archive",
+   "evidence": "https://x.com/en/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Yelp",
+   "website": "https://www.yelp.com",
+   "rights_url": "https://www.yelp-support.com/article/How-do-I-make-a-data-rights-request?l=en_US",
+   "delete_url": "https://www.yelp-support.com/article/How-do-I-close-my-account?l=en_US",
+   "evidence": "https://terms.yelp.com/privacy/en_us/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Zillow",
+   "website": "https://www.zillow.com",
+   "rights_url": "https://privacy.zillowgroup.com/",
+   "evidence": "https://www.zillow.com/corporate/zg-privacy-notice/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Zoom",
+   "website": "https://www.zoom.com",
+   "rights_url": "https://privacyportal.onetrust.com/webform/65962359-ef0d-4399-9db4-572d06de08aa/f277f9f7-bfee-4233-815e-80e290139bc2",
+   "evidence": "https://www.zoom.com/en/trust/privacy/privacy-statement/",
+   "checked": "2026-11-27"
+  }
+ ]
+}

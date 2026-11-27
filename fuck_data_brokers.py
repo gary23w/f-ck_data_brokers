@@ -253,7 +253,7 @@ SOURCES = [
 ]
 REGISTRY_CREDIT = 'Broker list: ' + '; '.join(source['name'] for source in SOURCES) + '.'
 BUNDLED_LIST = Path(__file__).resolve().parent / 'brokers.json'
-MORE_LIST = Path(__file__).resolve().parent / 'more_brokers.json'
+MORE_LIST, APPS_LIST = Path(__file__).resolve().parent / 'more_brokers.json', Path(__file__).resolve().parent / 'platforms.json'
 
 
 def name_key(name):
@@ -282,16 +282,15 @@ def fetch(url, known=None):
 
 
 def read_more():
-    """Brokers people reported that are on no registry. Each needs a name, a way to reach it, and evidence."""
-    if not MORE_LIST.exists():
-        return {}
+    """Companies on no registry. A reported broker needs a name, a way to reach it, and evidence. A platform (its key
+    starts with "app-") is a company you may hold an account with; what is listed was read on its own pages, linked as evidence."""
     brokers = {}
-    for entry in json.loads(MORE_LIST.read_text(encoding='utf-8')).get('brokers', []):
-        name, email = ' '.join(str(entry.get('name', '')).split()), clean_email(entry.get('email'))
-        page = web_address(entry.get('rights_url')) or web_address(entry.get('website'))
-        if name_key(name) and (email or page) and web_address(entry.get('evidence')):
-            brokers['more-' + name_key(name).replace(' ', '-')] = {'name': name[:200], 'email': email, 'website': str(entry.get('website') or '')[:300],
-                                                                  'rights_url': str(entry.get('rights_url') or '')[:300], 'source': 'reported, with evidence'}
+    for file, group, prefix, source in ((MORE_LIST, 'brokers', 'more-', 'reported, with evidence'), (APPS_LIST, 'platforms', 'app-', 'platform, read on its own pages')):
+        for entry in json.loads(file.read_text(encoding='utf-8')).get(group, []) if file.exists() else []:
+            name, email = ' '.join(str(entry.get('name', '')).split()), clean_email(entry.get('email'))
+            if name_key(name) and (email or web_address(entry.get('rights_url')) or web_address(entry.get('website'))) and web_address(entry.get('evidence')):
+                brokers[prefix + name_key(name).replace(' ', '-')] = {'name': name[:200], 'email': email, 'website': str(entry.get('website') or '')[:300], 'rights_url': str(entry.get('rights_url') or '')[:300], 'source': source,
+                                                                    **{k: web_address(entry.get(k)) for k in ('delete_url', 'export_url') if web_address(entry.get(k))}}
     return brokers
 
 
@@ -347,8 +346,7 @@ def write_list(file, files=None):
     if not new['brokers']:
         raise Oops('No source could be reached and there is no earlier list. Nothing was written.')
     before, after = usable(old.get('brokers') or {}), usable(new['brokers'])
-    added = sorted(after[key]['name'] for key in after if key not in before)
-    gone = sorted(before[key]['name'] for key in before if key not in after)
+    added, gone = (sorted(b[key]['name'] + ' (a platform, not a broker)' * key.startswith('app-') for key in b if key not in a) for a, b in ((before, after), (after, before)))
     with open(target, 'w', encoding='utf-8', newline='\n') as out:  # the same bytes on every system, so the file only changes when a registry does
         out.write(json.dumps({'credit': REGISTRY_CREDIT, **new}, indent=1, ensure_ascii=False, sort_keys=True) + '\n')
     line = 'Broker list: ' + str(len(after)) + ' brokers'
@@ -408,37 +406,32 @@ def where(profile):
     return ', '.join(part for part in (profile['city'], profile['region'], profile['country']) if part)
 
 
-def first_letter(profile, broker, law, ref):
+BROKER_ASK = 'I am not pointing to one listing. Please locate only records matching me and the details below; do not affect people who share my name. Delete matching personal information, opt me out of its sale or sharing, and keep only the minimum suppression record needed to prevent re-listing. If you hold no matching record, please confirm that.'
+# A platform is not a broker: you probably hold an account there. By default the letter leaves the account alone.
+APP_KEEP = 'I am limiting this request. I hold or may hold an account with you, and I am not asking you to close it or to delete what I keep in it. Please apply the request above to the personal information you hold about me outside that account, such as information obtained from other companies, from other websites and apps, or from other people, and to any sale, sharing or use of my personal information for targeted advertising. If you hold nothing of that kind, please confirm that.'
+APP_ALL = 'This request covers everything: any account registered to the email address below, everything in it, and any other personal information you hold about me. I understand that this closes the account and cannot be undone. If you need me to confirm it from inside the account, tell me how.'
+
+
+def first_letter(profile, broker, law, ref, everything=None):
     subject = LAW_NAME[law] + ' from ' + profile['name'] + ' [' + ref + ']'
-    body = '\n'.join([
+    body = '\n\n'.join([
         'To the privacy contact at ' + broker['name'] + ',',
-        '',
         'I am ' + profile['name'] + '. This is my own request about my own personal information.',
-        '',
         LAW_TEXT[law],
-        '',
-        'I am not pointing to one listing. Please locate only records matching me and the details below; do not affect people who share my name. Delete matching personal information, opt me out of its sale or sharing, and keep only the minimum suppression record needed to prevent re-listing. If you hold no matching record, please confirm that.',
-        '',
-        'Details, provided only so that you can locate my records:',
-        *details(profile),
-        '',
+        BROKER_ASK if everything is None else APP_ALL if everything else APP_KEEP,
+        'Details, provided only so that you can locate my records:\n' + '\n'.join(details(profile)),
         'Please reply to this address with confirmation of the action taken and the date it was completed, or the specific reason any part of this request is declined. Please do not use these details for any purpose other than processing this request.',
-        '',
         'Reference ' + ref + '.',
-        '',
         profile['name'],
     ])
     return subject, body
 
 
 def reminder_letter(profile, broker, law, request):
-    return 'Re: ' + request['subject'], '\n'.join([
+    return 'Re: ' + request['subject'], '\n\n'.join([
         'To the privacy contact at ' + broker['name'] + ',',
-        '',
         'I sent you a privacy request on ' + day(request['sent_at']) + ' (reference ' + request['ref'] + '). That was ' + str(max(1, (now() - request['sent_at']) // DAY)) + ' days ago and I have no answer.',
-        '',
         'Please act on it now and confirm the action taken and the date, or state the specific reason any part is declined. If you hold no record matching the details in that request, a reply saying so settles it.',
-        '',
         profile['name'],
     ])
 
@@ -464,17 +457,12 @@ def final_notice(profile, broker, law, request):
     if not regulator:
         raise Oops('No privacy law backs this request, so there is nobody to complain to. Skip this one.')
     deadline = day(now() + NOTICE_DAYS * DAY)
-    return 'Re: ' + request['subject'], '\n'.join([
+    return 'Re: ' + request['subject'], '\n\n'.join([
         'To the privacy contact at ' + broker['name'] + ',',
-        '',
         'This concerns my privacy request ' + request['ref'] + ' of ' + day(request['sent_at']) + '. You have declined it again.',
-        '',
         'I would like to settle this with you directly. Please act on the request, or reply with a way to verify it that I can complete by email, by ' + deadline + '.',
-        '',
         'If the request is still refused after that date, I will file a complaint about this refusal with ' + regulator + ' and will include this request and your replies.',
-        '',
         'If you hold no record matching the details I provided, a reply saying so settles this request.',
-        '',
         profile['name'],
     ])
 
@@ -604,6 +592,14 @@ def log(request, text):
     request.setdefault('log', []).append(day(now()) + '  ' + text)
 
 
+def apps(state, text=''):
+    """Social media, shops and big tech. Nothing is ever written to one of these unless you name it: letters --match NAME.
+    That letter leaves your account alone. With --everything it asks for all of it, account included; download your data first."""
+    return [{'name': b['name'], 'letter': 'letters --match "' + b['name'] + '"' if b.get('email') else 'they publish no privacy email; use their page', 'their_privacy_page': form_url(b),
+             'download_your_data_first': b.get('export_url', ''), 'close_your_account_yourself': b.get('delete_url', '')}
+            for key, b in sorted(state['brokers'].items(), key=lambda item: item[1]['name'].lower()) if key.startswith('app-') and str(text).strip().lower() in b['name'].lower()]
+
+
 def find_brokers(state, text='', limit=50):
     """Look through the list by name, so you can see who is on it before you write to anyone."""
     asked, skipped, want = {r['broker'] for r in state['requests'].values()}, set(state.get('skip', [])), str(text).strip().lower()
@@ -629,7 +625,7 @@ def skip_brokers(state, text, undo=False):
     return {'brokers': sorted(state['brokers'][key]['name'] for key in keys), 'skipped_now': not undo}
 
 
-def prepare(state, limit=20, match='', forms=False):
+def prepare(state, limit=20, match='', forms=False, everything=False):
     """Write first letters for brokers that have an email address and no request yet. `match` keeps it to
     brokers whose name contains that text. With `forms`, it is the brokers with no email address instead."""
     profile, law = need_profile(state), law_of(state)
@@ -639,10 +635,10 @@ def prepare(state, limit=20, match='', forms=False):
     for key, broker in sorted(state['brokers'].items(), key=lambda item: item[1]['name'].lower()):
         if len(made) >= limit:
             break
-        if key in asked or key in skipped or want not in broker['name'].lower() or (broker.get('email') or not form_url(broker) if forms else not broker.get('email')):
+        if key in asked or key in skipped or want not in broker['name'].lower() or key.startswith('app-') and not want or (broker.get('email') or not form_url(broker) if forms else not broker.get('email')):
             continue
         ref = new_ref()
-        subject, body = (LAW_NAME[law] + ' [' + ref + ']', form_text(profile, law, ref)) if forms else first_letter(profile, broker, law, ref)
+        subject, body = (LAW_NAME[law] + ' [' + ref + ']', form_text(profile, law, ref)) if forms else first_letter(profile, broker, law, ref, everything if key.startswith('app-') else None)
         request = {'ref': ref, 'broker': key, 'law': law, 'state': 'draft', 'subject': subject, 'body': body, 'sent_at': 0, 'due_at': 0, 'answers': []}
         request.update({'via': 'form'} if forms else {'draft': write_draft(profile, broker['email'], subject, body, ref, 'request')})
         log(request, 'Form sheet written.' if forms else 'Letter written.')
@@ -1030,6 +1026,7 @@ TOOLS = [
     ('fdb_routine', 'Do everything that needs no decision in one call: refresh the broker list, write the next letters, write reminders for late brokers and rebuild the pages. Sends nothing. Good for a regular check-in.', {'limit': 'How many new letters (default 20)'}, []),
     ('fdb_teach', 'When fdb_read_reply says "unclear" and you can see what the reply means, teach the tool so it reads the next one itself. Give the meaning and 2 to 12 plain words copied from the reply that carry it. Never include a name, number, address or link. Then read the reply again.', {'kind': 'One of: ' + ', '.join(k for k in MEANING if k != 'unclear'), 'phrase': 'A few words from the reply'}, ['kind', 'phrase']),
     ('fdb_more', 'Free official steps beyond data brokers for where the person lives: do-not-call lists, credit freezes and the like. Each was read on the official page it links to. Tell the person about them; do none of them yourself.', {}, []),
+    ('fdb_apps', 'Social media, shops and big tech, with each company\'s own privacy, data download and account deletion pages. These are never written to unless the person names one: then call fdb_write_letters with match. That letter leaves the person\'s account alone. You cannot ask for an account to be deleted; only the person can.', {'text': 'Part of a company name; leave out for all'}, []),
     ('fdb_chase', 'Write reminders for brokers past their deadline, and list where to complain about the ones that refused twice.', {}, []),
 ]
 
@@ -1050,7 +1047,7 @@ def call_tool(name, args):
         'fdb_mark_sent': lambda: {'marked_sent': record_sent(state, [r.strip() for r in str(args.get('refs', '')).split(',') if r.strip()])},
         'fdb_read_reply': lambda: read_reply(state, str(args.get('ref', '')).strip(), args.get('text', '')),
         'fdb_routine': lambda: routine(state, int(args.get('limit') or 20)), 'fdb_chase': lambda: {**chase(state), 'send_page': write_send_page(state)},
-        'fdb_more': lambda: {'steps': more(state)}, 'fdb_teach': lambda: teach(state, str(args.get('kind', '')).strip(), args.get('phrase', '')),
+        'fdb_more': lambda: {'steps': more(state)}, 'fdb_apps': lambda: {'platforms': apps(state, args.get('text', ''))}, 'fdb_teach': lambda: teach(state, str(args.get('kind', '')).strip(), args.get('phrase', '')),
     }
     if name in simple:
         out = simple[name]()
@@ -1171,10 +1168,12 @@ def do_import(state):
     print(REGISTRY_CREDIT)
 
 
-def do_letters(state, limit=20, match=None):
+def do_letters(state, limit=20, match=None, everything=False):
     if match is None:
         match = ask('\nWrite to every broker, or only names containing a word? (Enter for every broker)')
-    made = prepare(state, limit, match)
+    made = prepare(state, limit, match, everything=everything)
+    if everything and made:
+        print('\nYou asked for everything. A platform that gets one of these letters is asked to close your account and delete all of it. Download your data first: run "apps".')
     if not made:
         print('\nNo new letters to write. Either everyone ' + ('matching "' + match + '" ' if match else '') + 'has been asked, or you have no brokers yet (run "brokers").')
         return
@@ -1251,7 +1250,7 @@ def do_more(state):
 
 MENU = [('setup', 'Tell it who you are', do_setup), ('brokers', 'Get the list of data brokers', do_import), ('letters', 'Write the deletion letters', do_letters),
         ('send', 'Send them from here (optional)', do_send), ('forms', 'Brokers with only a web form', do_forms), ('reply', 'A broker answered. What now?', do_reply), ('chase', 'Chase the quiet ones, complain about the rest', do_chase),
-        ('status', 'Where things stand', lambda state: show(status(state))), ('more', 'More you can do for free', do_more), ('inbox', 'Read their replies from my mailbox', do_inbox)]
+        ('status', 'Where things stand', lambda state: show(status(state))), ('more', 'More you can do for free', do_more), ('inbox', 'Read their replies from my mailbox', do_inbox), ('apps', 'Social media, shops and big tech', lambda state: show(apps(state)))]
 
 
 def explain(problem):
@@ -1294,7 +1293,8 @@ def menu():
 COMMANDS = [
     ('setup', 'tell it who you are', []), ('brokers', 'download the public list of data brokers', []),
     ('add', 'add one broker by hand', [('name', {}), ('email', {}), ('website', dict(nargs='?', default=''))]),
-    ('letters', 'write deletion letters as drafts', [('--limit', dict(type=int, default=20)), ('--match', dict(default='', help='only brokers whose name contains this text'))]),
+    ('letters', 'write deletion letters as drafts', [('--limit', dict(type=int, default=20)), ('--match', dict(default='', help='only brokers whose name contains this text')), ('--everything', dict(action='store_true', help='for a platform you name with --match: ask for all of it, your account included'))]),
+    ('apps', 'social media, shops and big tech: their pages, and how to write to one', [('text', dict(nargs='?', default=''))]),
     ('find', 'look through the broker list by name', [('text', dict(nargs='?', default=''))]),
     ('skip', 'never write to brokers whose name contains this text', [('text', {}), ('--undo', dict(action='store_true', help='stop skipping them'))]),
     ('noid', 'a form demanded your ID: carry the request on without it', [('ref', {})]),
@@ -1371,7 +1371,7 @@ def main(argv=None):
     run = {
         'setup': lambda: do_setup(state), 'brokers': lambda: do_import(state), 'chase': lambda: do_chase(state), 'status': lambda: show(status(state)), 'more': lambda: do_more(state),
         'add': lambda: print('Added ' + add_broker(state, args.name, args.email, args.website)),
-        'letters': lambda: do_letters(state, args.limit, args.match), 'find': lambda: do_find(state, args.text), 'skip': lambda: do_skip(state, args.text, args.undo),
+        'letters': lambda: do_letters(state, args.limit, args.match, args.everything), 'apps': lambda: show(apps(state, args.text)), 'find': lambda: do_find(state, args.text), 'skip': lambda: do_skip(state, args.text, args.undo),
         'noid': lambda: do_noid(state, args.ref), 'send': lambda: do_send(state, args.limit), 'forms': lambda: do_forms(state, args.limit),
         'sent': lambda: print('Marked as sent: ' + (', '.join(record_sent(state, args.refs)) or 'nothing')), 'reply': lambda: do_reply(state, args.ref, args.file), 'auto': lambda: do_auto(state, args.limit, args.send, args.inbox), 'inbox': lambda: do_inbox(state),
         'teach': lambda: print('Learned. Rules you taught it: ' + str(teach(state, args.kind, args.phrase)['rules_you_taught']) + '. Run "share" to give them to everyone.'),
