@@ -205,6 +205,38 @@ class Case(unittest.TestCase):
         fdb.set_profile(self.state, 'Sample Person', 'sample@example.com', 'Town', '', '', 'uk')
         self.assertTrue(all('Do Not Call' not in step and 'credit' not in step.lower() for step in fdb.more(self.state)))
 
+    def test_a_bounce_a_moved_address_and_a_broker_that_said_done_long_ago(self):
+        request = self.sent_request('california')
+        ref, broker = request['ref'], self.state['brokers'][request['broker']]
+        domain = broker['email'].split('@')[1]
+        # An address somewhere else is never believed, whatever the reply says.
+        elsewhere = fdb.read_reply(self.state, ref, 'This mailbox is no longer monitored. Please write to privacy@somewhere-else.example instead.')
+        self.assertEqual((elsewhere['kind'], request['state'], broker['email'].split('@')[1]), ('moved', 'sent', domain))
+        # An address on the broker's own domain is, and the same letter is ready to go there.
+        moved = fdb.read_reply(self.state, ref, 'Please send your request to dsar@' + domain + ' instead. Thank you.')
+        self.assertEqual((moved['kind'], request['state'], broker['email']), ('moved', 'draft', 'dsar@' + domain))
+        self.assertIn(ref, [item['ref'] for item in fdb.unsent(self.state)])
+        fdb.mark_sent(self.state, [ref])
+        # A bounce is not silence to be chased: the request stops at "their address is dead", or moves to their form.
+        bounce = 'Delivery Status Notification (Failure). Address not found. Your message was not delivered. Subject: ' + request['subject']
+        self.assertEqual(fdb.classify(bounce), 'bounced')
+        self.assertEqual(fdb.read_reply(self.state, '', bounce)['kind'], 'bounced')
+        self.assertIn(request['state'], ('bounced', 'form'))
+        self.assertEqual(fdb.chase(self.state)['reminders'], [])
+        fdb.status(self.state)
+        # A broker that said "done" is left alone for AGAIN_DAYS, then asked again with a new letter.
+        request['state'] = 'done'
+        self.assertNotIn(request['broker'], [r['broker'] for r in fdb.prepare(self.state, 999)])
+        request['sent_at'] = fdb.now() - (fdb.AGAIN_DAYS + 1) * fdb.DAY
+        again = [r for r in fdb.prepare(self.state, 999) if r['broker'] == request['broker']]
+        self.assertEqual(len(again), 1)
+        self.assertNotEqual(again[0]['ref'], ref)
+        self.assertEqual(fdb.prepare(self.state, 999), [])
+        for text, kind in {'Your information has been deleted. Questions? Write to privacy@example.com instead of replying.': 'done',
+                           'This mailbox is not monitored. Please use our web form.': 'use_form',
+                           'We have received your request and will respond within 45 days.': 'received'}.items():
+            self.assertEqual(fdb.classify(text), kind, text)
+
     def test_an_id_demand_is_answered_once_then_gets_a_final_notice_then_the_regulator(self):
         request = self.sent_request('california')
         ref = request['ref']

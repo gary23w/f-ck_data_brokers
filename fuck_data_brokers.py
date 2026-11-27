@@ -658,7 +658,8 @@ def prepare(state, limit=20, match=''):
     """Write first letters for brokers that have an email address and no request yet. `match` keeps it to
     brokers whose name contains that text."""
     profile, law = need_profile(state), law_of(state)
-    asked, skipped, want = {r['broker'] for r in state['requests'].values()}, set(state.get('skip', [])), str(match or '').strip().lower()
+    # A broker that said "done" or "nothing here" is asked again after AGAIN_DAYS: they buy the same data again. No law sets the number.
+    asked, skipped, want = {r['broker'] for r in state['requests'].values() if r['state'] not in ('done', 'no_record') or r['sent_at'] > now() - AGAIN_DAYS * DAY}, set(state.get('skip', [])), str(match or '').strip().lower()
     made = []
     for key, broker in sorted(state['brokers'].items(), key=lambda item: item[1]['name'].lower()):
         if len(made) >= limit:
@@ -790,11 +791,13 @@ def send_all(state, limit=20, password=None):
 
 # What a broker's reply usually means. Checked in this order; the first match wins.
 REPLY_RULES = [
+    ('bounced', r'\b(?:undeliverable|delivery (?:status notification|has failed|failed|incomplete)|could ?n[o\']t be delivered|address (?:not found|couldn\'?t be found)|mailbox (?:unavailable|not found|is full)|user unknown|no such (?:user|recipient|address)|recipient address rejected|mailer-daemon)\b'),
     ('done', r'\b(?:has|have) been (?:deleted|removed|erased|suppressed|opted out|processed|completed)\b|\b(?:we have|we\'ve) (?:deleted|removed|erased|suppressed|completed|processed|opted you out)\b|\bsuccessfully (?:deleted|removed|opted|processed)\b|\brequest (?:is|has been) complete'),
     ('click_link', r'\b(?:click|follow|open|use) (?:on )?(?:the|this) (?:link|button)\b|\bverification (?:link|code)\b|\b(?:verify|confirm) your e-?mail\b'),
     ('wants_id', r'\b(?:government[- ]issued|photo id|driver\'?s licen[cs]e|passport|identity document|proof of identity|copy of (?:your )?id|notari[sz]ed|power of attorney)\b'),
     ('wants_details', r'\b(?:additional|more|further) (?:information|details|identifiers)\b|\b(?:insufficient|not (?:have )?(?:sufficient|enough)|(?:do|does) not have (?:sufficient|enough)) information\b|\bplease (?:provide|reply with|send)\b[^.!?]{0,80}\b(?:date of birth|address|phone|full name)\b'),
     ('no_record', r'\b(?:found no|did not (?:locate|find)|(?:were|are) unable to (?:locate|find)|could not (?:find|locate)|no records? (?:matching|found|were found))\b[^.!?]{0,120}\b(?:records?|information|data|match)|\b(?:have|has|hold|holds) no (?:records?|data|information)\b|\b(?:do|does) not (?:have|hold) (?:any )?(?:records?|data|personal information)\b[^.!?]{0,60}\b(?:about|on|for|matching|associated)\b'),
+    ('moved', r'\b(?:instead|no longer (?:monitored|used|in use|active)|not monitored|new (?:e-?mail )?address|(?:send|direct|forward|submit|resubmit) (?:your|this|the|all|any|such)\b[^.!?]{0,60}\bto)\b[^!?]{0,160}?[\w.+-]+@[\w-]+\.\w'),
     ('use_form', r'\b(?:web ?form|online form|our form|privacy (?:portal|center|request page)|opt[- ]?out (?:form|page|portal)|submit (?:your|the|a) request (?:through|via|using|at|on)|complete (?:the|our) (?:form|portal)|does not (?:accept|process)[^.!?]{0,60}(?:by|via) e-?mail|not monitored)\b|\bto (?:opt[- ]?out|submit (?:a|your) request|exercise your (?:privacy )?rights)\b[^.!?]{0,80}\b(?:visit|go to|use)\b|\bplease visit\b[^.!?]{0,80}\b(?:opt[- ]?out|privacy|request)'),
     ('refused', r'\b(?:unable to (?:process|verify|honou?r|complete|fulfil)|cannot (?:process|verify|honou?r|complete|fulfil)|can\'?t (?:process|verify)|(?:is|has been|are) (?:denied|declined|rejected)|we (?:deny|decline)|not (?:subject to|covered by|applicable)|does not apply|exempt)\b|\b(?:have|has) not (?:been )?(?:deleted|removed|erased|processed)\b|\bcannot be (?:deleted|removed|erased|processed|completed|honou?red)\b'),
     ('received', r'\b(?:received|receipt of|acknowledge|thank you for (?:contacting|your)|ticket|case (?:number|id)|will (?:respond|review|process|get back)|will be (?:deleted|removed|erased|processed|completed))\b'
@@ -810,6 +813,8 @@ MEANING = {
     'wants_details': 'They want more details about you before they will delete the details they have about you.',
     'refused': 'They refused. Answer once; if they refuse again, send the final notice.',
     'received': 'An automatic "we got it". Means nothing yet. The clock keeps running.',
+    'bounced': 'Your letter bounced: that address is dead and nothing reached them. Look on their own website for a privacy address or a form.',
+    'moved': 'They want the request sent to a different address. I only believe an address on the broker\'s own domain; check any other one on their website before you use it.',
     'unclear': 'I cannot tell what this means. Read it yourself; if they ask for a link click or an ID, do not.',
 }
 
@@ -881,15 +886,18 @@ def read_reply(state, ref, text):
     log(request, 'Reply: ' + kind + '.')
     if kind == 'unclear':
         result['meaning'] += ' Then teach me, so I read the next one myself: teach KIND "a few words from it". KIND is one of: ' + ', '.join(k for k in MEANING if k != 'unclear') + '.'
-    if kind == 'use_form' and form_url(broker):
+    moved = next((a for a in re.findall(r'[\w.+-]+@[\w-]+(?:\.[\w-]+)+', str(text).lower()) if kind == 'moved' and a != broker['email'] and a.split('@')[1] == broker['email'].split('@')[-1]), '')
+    if moved:  # only an address on the broker's own domain is believed; anything else could be anyone
+        broker['email'] = moved
+        request.update(state='draft', draft=write_draft(profile, moved, request['subject'], request['body'], ref, 'request'))
+        result['meaning'] += ' The letter now goes to ' + moved + '. It is on your send page.'
+    elif kind in ('use_form', 'bounced') and form_url(broker):
         # You are right here, so filling their form beats arguing about it by email.
         request.update(state='form', via='form', body=form_text(profile, request['law'], ref))
         result['form'] = form_url(broker)
         result['meaning'] += ' It is on your forms page now: run "forms".'
-    elif kind == 'done':
-        request['state'] = 'done'
-    elif kind == 'no_record':
-        request['state'] = 'no_record'
+    elif kind in ('done', 'no_record', 'bounced'):
+        request['state'] = kind
     elif kind == 'received':
         request['state'] = 'acknowledged' if request['state'] == 'sent' else request['state']
     elif kind in ANSWERS:
@@ -937,9 +945,8 @@ def form_demands_id(state, ref):
     if broker.get('email'):
         subject, body = first_letter(profile, broker, request['law'], request['ref'])
         body = body.replace('\n\nReference ' + request['ref'] + '.', '\n\n' + ID_WALL + '\n\nReference ' + request['ref'] + '.')
-        request.update(state='draft', subject=subject, body=body)
         request.pop('via', None)
-        request['draft'] = write_draft(profile, broker['email'], subject, body, request['ref'], 'request')
+        request.update(state='draft', subject=subject, body=body, draft=write_draft(profile, broker['email'], subject, body, request['ref'], 'request'))
         result['meaning'] = 'You did the right thing. Your request now goes to them by email instead, and says why. It is on your send page.'
         return result
     request['state'] = 'id_wall'
@@ -949,7 +956,7 @@ def form_demands_id(state, ref):
     return result
 
 
-SILENCE_DAYS = 14
+SILENCE_DAYS, AGAIN_DAYS = 14, 180
 
 
 def chase(state):
@@ -965,13 +972,8 @@ def chase(state):
                                      'draft': queue(state, profile, broker, request['ref'], 'reminder', subject, body)})
             continue
         regulator, how = REGULATOR[request['law']]
-        why = ''
-        if 'final_notice' in request['answers'] and request.get('notice_due', 0) < now() and request['state'] not in ('done', 'no_record'):
-            why = 'refused twice and ignored the final notice'
-        elif waiting and request.get('reminded') and request['reminded'] + SILENCE_DAYS * DAY < now():
-            why = 'never answered, even after a reminder'
-        elif request['state'] == 'id_wall':
-            why = WALL_WHY
+        why = ('refused twice and ignored the final notice' if 'final_notice' in request['answers'] and request.get('notice_due', 0) < now() and request['state'] not in ('done', 'no_record') else
+               'never answered, even after a reminder' if waiting and request.get('reminded') and request['reminded'] + SILENCE_DAYS * DAY < now() else WALL_WHY if request['state'] == 'id_wall' else '')
         if why and regulator:
             out['complaints'].append({'ref': request['ref'], 'broker': broker['name'], 'why': why, 'regulator': regulator, 'how': how,
                                       'include': 'A screenshot of the form demanding the document, and the address of that page.' if why == WALL_WHY else
@@ -994,8 +996,7 @@ def routine(state, limit=20, send=False):
     done['forms_waiting'] = sum(1 for r in state['requests'].values() if form_waiting(r))
     chased = chase(state)
     done['reminders_written'], done['complaints_ready'] = len(chased['reminders']), len(chased['complaints'])
-    done['waiting_to_send'] = len(unsent(state))
-    done['send_page'], done['forms_page'] = write_send_page(state), write_forms_page(state)
+    done['waiting_to_send'], done['send_page'], done['forms_page'] = len(unsent(state)), write_send_page(state), write_forms_page(state)
     if send:
         if not os.environ.get('FDB_SMTP_PASS'):
             done['notes'].append('Nothing was sent: set FDB_SMTP_PASS to your app password to send on a schedule, or open the send page.')
@@ -1006,7 +1007,7 @@ def routine(state, limit=20, send=False):
 
 
 STATE_WORDS = {'id_wall': 'their only form demands ID', 'form': 'they want their form filled in', 'draft': 'letter written, not sent', 'sent': 'sent, waiting', 'acknowledged': 'they said "received"', 'answered': 'you answered their excuse',
-               'refused': 'refused twice', 'done': 'they say deleted', 'no_record': 'they hold nothing'}
+               'refused': 'refused twice', 'bounced': 'their address is dead', 'done': 'they say deleted', 'no_record': 'they hold nothing'}
 
 
 def status(state):
