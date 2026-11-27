@@ -192,6 +192,19 @@ class Case(unittest.TestCase):
         self.assertEqual(fdb.classify(odd), 'unclear')
         self.assertTrue(all(len(rule) == 2 and rule[0] in fdb.MEANING for rule in fdb.LEARNED))
 
+    def test_more_than_brokers_lists_only_steps_for_where_the_person_lives_each_with_its_official_page(self):
+        seen = set()
+        for place in fdb.PLACES:
+            fdb.set_profile(self.state, 'Sample Person', 'sample@example.com', 'Town', '', '', place)
+            steps = fdb.more(self.state)
+            seen.update(steps)
+            self.assertTrue(all('https://' in step for step in steps), place)
+            self.assertEqual(bool(steps), place not in ('brazil', 'other'), place)
+        self.assertEqual(len(seen), len(fdb.MORE))
+        self.assertTrue(all(place in fdb.PLACES for places, _ in fdb.MORE for place in places))
+        fdb.set_profile(self.state, 'Sample Person', 'sample@example.com', 'Town', '', '', 'uk')
+        self.assertTrue(all('Do Not Call' not in step and 'credit' not in step.lower() for step in fdb.more(self.state)))
+
     def test_an_id_demand_is_answered_once_then_gets_a_final_notice_then_the_regulator(self):
         request = self.sent_request('california')
         ref = request['ref']

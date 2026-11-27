@@ -158,6 +158,22 @@ DROP_TIP = ('You live in California, so use the state\'s own free service as wel
             'This tool still covers brokers registered elsewhere, and it reads and answers what brokers write back.')
 
 
+MORE = [(('california',), DROP_TIP),  # more than brokers: each step is free, and each line was read on the official page it links to
+        (('california',), 'Turn on Global Privacy Control in your browser; Brave, DuckDuckGo and Firefox have it built in. California says covered businesses must honour it as your request not to sell or share your data. https://oag.ca.gov/privacy/ccpa/gpc'),
+        (('california', 'us_other'), 'Stop sales calls: the National Do Not Call Registry is free and never expires. Register online, or by phone from the number you want listed. It does not stop scammers. https://consumer.ftc.gov/articles/national-do-not-call-registry-faqs'),
+        (('california', 'us_other'), 'Freeze your credit: free at Equifax, Experian and TransUnion, each one separately. Nobody can open a new credit account in your name until you lift it. https://consumer.ftc.gov/articles/credit-freezes-and-fraud-alerts'),
+        (('california', 'us_other'), 'Identity stolen? Report it to the FTC and get a free recovery plan with the letters already filled in. https://consumer.ftc.gov/articles/what-know-about-identity-theft'),
+        (('quebec', 'canada_other'), 'Stop sales calls: the National Do Not Call List is free and your number stays on it permanently. Telemarketers get 31 days to comply; charities, political parties and pollsters are exempt. https://lnnte-dncl.gc.ca/en'),
+        (('quebec', 'canada_other'), 'See what the credit bureaus hold on you: the report is free from both Equifax and TransUnion. https://www.canada.ca/en/financial-consumer-agency/services/credit-reports-score/order-credit-report.html'),
+        (('uk',), 'Stop sales calls: register your landline or mobile with the Telephone Preference Service, free of charge. https://ico.org.uk/for-the-public/nuisance-calls/'),
+        (('uk',), 'Stop addressed marketing mail: the Mailing Preference Service is free and takes up to three months to work fully. It does not cover mail to "The Occupier". https://www.mpsonline.org.uk/'),
+        (('eu',), 'Any organisation, not only a broker, has one month to answer a deletion request (two more for a complex one) and cannot charge for an ordinary one. No answer? Complain to your data protection authority: https://www.edpb.europa.eu/about-edpb/about-edpb/members_en')]
+
+
+def more(state):
+    return [text for places, text in MORE if need_profile(state)['place'] in places]
+
+
 def need_profile(state):
     if not state.get('profile'):
         raise Oops('Tell me who you are first: run "setup".')
@@ -1023,6 +1039,7 @@ TOOLS = [
     ('fdb_read_reply', 'Give it a broker\'s reply text. It says what the reply means and writes the answer to send, if one is needed. Never click links in a reply and never send an identity document.', {'ref': 'Request reference, like req-1a2b3c4d. Leave out if the reply text contains it.', 'text': 'The reply text, including its subject line'}, ['text']),
     ('fdb_routine', 'Do everything that needs no decision in one call: refresh the broker list, write the next letters, write reminders for late brokers and rebuild the pages. Sends nothing. Good for a regular check-in.', {'limit': 'How many new letters (default 20)'}, []),
     ('fdb_teach', 'When fdb_read_reply says "unclear" and you can see what the reply means, teach the tool so it reads the next one itself. Give the meaning and 2 to 12 plain words copied from the reply that carry it. Never include a name, number, address or link. Then read the reply again.', {'kind': 'One of: ' + ', '.join(k for k in MEANING if k != 'unclear'), 'phrase': 'A few words from the reply'}, ['kind', 'phrase']),
+    ('fdb_more', 'Free official steps beyond data brokers for where the person lives: do-not-call lists, credit freezes and the like. Each was read on the official page it links to. Tell the person about them; do none of them yourself.', {}, []),
     ('fdb_chase', 'Write reminders for brokers past their deadline, and list where to complain about the ones that refused twice.', {}, []),
 ]
 
@@ -1043,7 +1060,7 @@ def call_tool(name, args):
         'fdb_mark_sent': lambda: {'marked_sent': record_sent(state, [r.strip() for r in str(args.get('refs', '')).split(',') if r.strip()])},
         'fdb_read_reply': lambda: read_reply(state, str(args.get('ref', '')).strip(), args.get('text', '')),
         'fdb_routine': lambda: routine(state, int(args.get('limit') or 20)), 'fdb_chase': lambda: {**chase(state), 'send_page': write_send_page(state)},
-        'fdb_teach': lambda: teach(state, str(args.get('kind', '')).strip(), args.get('phrase', '')),
+        'fdb_more': lambda: {'steps': more(state)}, 'fdb_teach': lambda: teach(state, str(args.get('kind', '')).strip(), args.get('phrase', '')),
     }
     if name in simple:
         out = simple[name]()
@@ -1091,27 +1108,21 @@ def mcp_reply(message):
         params = message.get('params') or {}
         try:
             result = {'content': [{'type': 'text', 'text': json.dumps(call_tool(params.get('name'), params.get('arguments') or {}), indent=1, ensure_ascii=False)}], 'isError': False}
-        except Oops as problem:
-            result = {'content': [{'type': 'text', 'text': str(problem)}], 'isError': True}
         except Exception as problem:  # the AI gets the reason, the server stays up
-            result = {'content': [{'type': 'text', 'text': 'It failed: ' + str(problem)}], 'isError': True}
+            result = {'content': [{'type': 'text', 'text': ('' if isinstance(problem, Oops) else 'It failed: ') + str(problem)}], 'isError': True}
     else:
         return {'jsonrpc': '2.0', 'id': ident, 'error': {'code': -32601, 'message': 'Unknown method: ' + str(method)}}
     return {'jsonrpc': '2.0', 'id': ident, 'result': result}
 
 
 def mcp_serve():
-    for line in sys.stdin:
-        line = line.strip()
-        if not line:
-            continue
+    for line in filter(None, map(str.strip, sys.stdin)):
         try:
             answer = mcp_reply(json.loads(line))
         except json.JSONDecodeError:
             answer = {'jsonrpc': '2.0', 'id': None, 'error': {'code': -32700, 'message': 'That was not JSON.'}}
         if answer is not None:
-            sys.stdout.write(json.dumps(answer) + '\n')
-            sys.stdout.flush()
+            print(json.dumps(answer), flush=True)
 
 
 # ---------------------------------------------------------------- manual mode, for humans
@@ -1230,34 +1241,43 @@ def do_chase(state):
     out = chase(state)
     if not out['reminders'] and not out['complaints']:
         print('\nNobody to chase today. Come back when they are late. They will be late.')
-    for item in out['reminders']:
-        print('\nReminder for ' + item['broker'] + ' written.')
+    print(''.join('\nReminder for ' + item['broker'] + ' written.\n' for item in out['reminders']), end='')
     if out['reminders']:
         print('\nSend the reminders from your send page, or run "send":\n  ' + write_send_page(state))
     for item in out['complaints']:
-        print('\n' + item['broker'] + ' ' + item['why'] + '.')
-        print('Complain to ' + item['regulator'] + '. ' + item['how'])
-        print('Include: ' + item['include'])
+        print('\n' + item['broker'] + ' ' + item['why'] + '.\nComplain to ' + item['regulator'] + '. ' + item['how'] + '\nInclude: ' + item['include'])
+
+
+def do_more(state):
+    print('\n' + ('\n\n'.join(more(state)) or 'Nothing checked for where you live yet. The letters are still yours to send.'))
 
 
 MENU = [('setup', 'Tell it who you are', do_setup), ('brokers', 'Get the list of data brokers', do_import), ('letters', 'Write the deletion letters', do_letters),
         ('send', 'Send them from here (optional)', do_send), ('forms', 'Brokers with only a web form', do_forms), ('reply', 'A broker answered. What now?', do_reply), ('chase', 'Chase the quiet ones, complain about the rest', do_chase),
-        ('status', 'Where things stand', lambda state: show(status(state)))]
+        ('status', 'Where things stand', lambda state: show(status(state))), ('more', 'More you can do for free', do_more)]
 
 
 def explain(problem):
-    if isinstance(problem, smtplib.SMTPAuthenticationError):
-        return 'Your email provider refused that password. It wants an app password, not your normal one. ' + SMTP_HELP
-    return 'That did not work: ' + str(problem)
+    return 'Your email provider refused that password. It wants an app password, not your normal one. ' + SMTP_HELP if isinstance(problem, smtplib.SMTPAuthenticationError) else 'That did not work: ' + str(problem)
+
+
+def attempt(action, gap=''):
+    try:
+        return action() and 0 or 0  # whatever a command returns, working is 0
+    except Oops as problem:
+        print(gap + str(problem))
+    except (EOFError, KeyboardInterrupt):
+        print('\nStopped. Nothing was lost.')
+        return 130
+    except (OSError, smtplib.SMTPException) as problem:
+        print(gap + explain(problem))
+    return 1
 
 
 def menu():
     print(BANNER)
     while True:
-        print()
-        for number, (_, label, _) in enumerate(MENU, 1):
-            print('  ' + str(number) + '. ' + label)
-        print('  0. Quit')
+        print('\n' + ''.join('  ' + str(number) + '. ' + label + '\n' for number, (_, label, _) in enumerate(MENU, 1)) + '  0. Quit')
         try:
             choice = input('\nPick a number: ').strip()
         except (EOFError, KeyboardInterrupt):
@@ -1269,14 +1289,7 @@ def menu():
         if not choice.isdigit() or not 1 <= int(choice) <= len(MENU):
             continue
         state = load()
-        try:
-            MENU[int(choice) - 1][2](state)
-        except Oops as problem:
-            print('\n' + str(problem))
-        except (EOFError, KeyboardInterrupt):
-            print('\nStopped. Nothing was lost.')
-        except (OSError, smtplib.SMTPException) as problem:
-            print('\n' + explain(problem))
+        attempt(lambda: MENU[int(choice) - 1][2](state), '\n')
         save(state)
 
 
@@ -1296,7 +1309,7 @@ COMMANDS = [
     ('chase', 'reminders and complaint routes', []), ('share', 'print what you taught it, with nothing about you in it, to post as an issue', []),
     ('teach', 'it misread a reply: tell it what a few words meant, and it reads the next one itself', [('kind', {}), ('phrase', {})]),
     ('auto', 'the whole routine in one command; put it on a schedule', [('--limit', dict(type=int, default=20, help='how many new letters each run (default 20)')), ('--send', dict(action='store_true', help='also send, using the app password in FDB_SMTP_PASS'))]),
-    ('status', 'where things stand', []), ('mcp', 'run as an MCP server for your AI', []),
+    ('status', 'where things stand', []), ('more', 'free official steps beyond brokers, for where you live', []), ('mcp', 'run as an MCP server for your AI', []),
 ]
 
 
@@ -1315,9 +1328,8 @@ def do_update_list(args):
 
 def do_find(state, text):
     found = find_brokers(state, text)
-    for broker in found['brokers']:
-        print('  ' + broker['name'] + '  <' + (broker['email'] or 'no email, form only') + '>  ' + broker['status'])
-    print(str(found['matching']) + ' brokers match.' + (' Showing the first 50.' if found['matching'] > 50 else ''))
+    print(''.join('  ' + broker['name'] + '  <' + (broker['email'] or 'no email, form only') + '>  ' + broker['status'] + '\n' for broker in found['brokers'])
+          + str(found['matching']) + ' brokers match.' + (' Showing the first 50.' if found['matching'] > 50 else ''))
 
 
 def do_skip(state, text, undo):
@@ -1357,9 +1369,9 @@ def main(argv=None):
             pass
     if args.command in (None, 'mcp', 'update-list'):
         return menu() if not args.command else mcp_serve() if args.command == 'mcp' else do_update_list(args)
-    state, code = load(), 0
+    state = load()
     run = {
-        'setup': lambda: do_setup(state), 'brokers': lambda: do_import(state), 'chase': lambda: do_chase(state), 'status': lambda: show(status(state)),
+        'setup': lambda: do_setup(state), 'brokers': lambda: do_import(state), 'chase': lambda: do_chase(state), 'status': lambda: show(status(state)), 'more': lambda: do_more(state),
         'add': lambda: print('Added ' + add_broker(state, args.name, args.email, args.website)),
         'letters': lambda: do_letters(state, args.limit, args.match), 'find': lambda: do_find(state, args.text), 'skip': lambda: do_skip(state, args.text, args.undo),
         'noid': lambda: do_noid(state, args.ref), 'send': lambda: do_send(state, args.limit), 'forms': lambda: do_forms(state, args.limit),
@@ -1367,19 +1379,7 @@ def main(argv=None):
         'teach': lambda: print('Learned. Rules you taught it: ' + str(teach(state, args.kind, args.phrase)['rules_you_taught']) + '. Run "share" to give them to everyone.'),
         'share': lambda: print('\n'.join(share(state)) or 'Nothing taught yet.'),
     }
-    try:
-        run[args.command]()
-    except Oops as problem:
-        print(str(problem))
-        code = 1
-    except (EOFError, KeyboardInterrupt):
-        print('\nStopped. Nothing was lost.')
-        code = 130
-    except (OSError, smtplib.SMTPException) as problem:
-        print(explain(problem))
-        code = 1
-    save(state)
-    return code
+    return (attempt(run[args.command]), save(state))[0]
 
 
 if __name__ == '__main__':
