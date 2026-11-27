@@ -898,7 +898,7 @@ def inbox(state, password=None, connect=imaplib.IMAP4_SSL):
                         continue
                     seen.add(ident)
                     body = part.get_content() if part else ''
-                    text = str(message['Subject']) + '\n' + (re.sub(r'<[^>]+>', ' ', body) if part and part.get_content_subtype() == 'html' else body)
+                    text = str(message['Subject']) + '\n' + (html.unescape(re.sub(r'<[^>]+>', ' ', body)) if part and part.get_content_subtype() == 'html' else body)
                     out.append(read_reply(state, ref, text) if sender.split('@')[-1] == broker['email'].split('@')[-1] or classify(text) == 'bounced' else
                                {'ref': ref, 'broker': broker['name'], 'kind': 'stranger', 'answer': None, 'meaning': 'A reply came from ' + sender + ', which is not the broker\'s own address, so I changed nothing. Read it yourself; if it is theirs, paste it with "reply".'})
     except imaplib.IMAP4.error as problem:

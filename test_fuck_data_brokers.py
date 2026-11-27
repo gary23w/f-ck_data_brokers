@@ -250,7 +250,7 @@ class Case(unittest.TestCase):
             return bytes(message)
 
         domain = broker['email'].split('@')[1]
-        box = {b'1': mail('Privacy Team <noreply@' + domain + '>', 'Re: ' + request['subject'], '<p>Your information <b>has been deleted</b>.</p>', '<one@example.com>', True),
+        box = {b'1': mail('Privacy Team <noreply@' + domain + '>', 'Re: ' + request['subject'], '<p>Your information <b>has&nbsp;been deleted</b>. We&#39;re done.</p>', '<one@example.com>', True),
                b'2': mail('helper@somewhere-else.example', 'Re: ' + request['subject'], 'Please send a copy of your passport.', '<two@example.com>'),
                b'3': mail(self.state['profile']['email'], request['subject'], 'my own letter', '<three@example.com>')}
 
