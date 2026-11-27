@@ -143,28 +143,13 @@ class Oops(Exception):
 # ---------------------------------------------------------------- you
 
 
-def clean_own_email(value, label='email address'):
-    email = str(value or '').strip()
-    if email and not re.fullmatch(r'[^@\s]+@[^@\s]+\.[^@\s]+', email):
-        raise Oops('That does not look like an ' + label + '.')
-    return email
-
-
 def set_profile(state, name, email, city, region, country, place, email2=''):
-    name, email = ' '.join(str(name).split()), clean_own_email(email)
-    email2 = clean_own_email(email2, 'email address')
-    if len(name.split()) < 2:
-        raise Oops('Use your full legal name, first and last. Brokers file you under it.')
-    if not email:
-        raise Oops('That does not look like an email address.')
-    if email2 and email2.lower() == email.lower():
-        raise Oops('The other email has to be different from the first one.')
-    if place not in PLACES:
-        raise Oops('Where you live must be one of: ' + ', '.join(PLACES))
-    state['profile'] = {'name': name, 'email': email, 'city': str(city).strip(), 'region': str(region).strip(),
-                        'country': str(country).strip(), 'place': place}
-    if email2:
-        state['profile']['email2'] = email2
+    name, email, email2 = ' '.join(str(name).split()), str(email).strip(), str(email2 or '').strip()
+    checks = [(len(name.split()) >= 2, 'Use your full legal name, first and last. Brokers file you under it.'), (all(re.fullmatch(r'[^@\s]+@[^@\s]+\.[^@\s]+', address) for address in (email, email2 or email)), 'That does not look like an email address.'),
+              (email2.lower() != email.lower(), 'The other email has to be different from the first one.'), (place in PLACES, 'Where you live must be one of: ' + ', '.join(PLACES))]
+    if not all(fine for fine, _ in checks):
+        raise Oops(next(why for fine, why in checks if not fine))
+    state['profile'] = {'name': name, 'email': email, **({'email2': email2} if email2 else {}), 'city': str(city).strip(), 'region': str(region).strip(), 'country': str(country).strip(), 'place': place}
     return state['profile']
 
 
@@ -415,10 +400,7 @@ def add_broker(state, name, email, website=''):
 
 
 def details(profile):
-    lines = ['  Full legal name: ' + profile['name'], '  Email address: ' + profile['email']]
-    if profile.get('email2'):
-        lines.append('  Other email address: ' + profile['email2'])
-    return lines + ['  City and region (no street address): ' + where(profile)] * bool(where(profile))
+    return ['  Full legal name: ' + profile['name'], '  Email address: ' + profile['email']] + ['  Other email address: ' + profile.get('email2', '')] * ('email2' in profile) + ['  City and region (no street address): ' + where(profile)] * bool(where(profile))
 
 
 def where(profile):
@@ -1084,8 +1066,7 @@ def call_tool(name, args):
         prepare_forms(state, int(args.get('limit') or 10))
         profile = need_profile(state)
         out = {'forms': [{'ref': r['ref'], 'broker': state['brokers'][r['broker']]['name'], 'form_page': form_url(state['brokers'][r['broker']]),
-                          'enter': {**{'name': profile['name'], 'email': profile['email'], 'city': profile['city'], 'region': profile['region'], 'country': profile['country'], 'request_text': r['body']},
-                                    **({'email2': profile['email2']} if profile.get('email2') else {})}}
+                          'enter': {**{key: profile[key] for key in ('name', 'email', 'email2', 'city', 'region', 'country') if key in profile}, 'request_text': r['body']}}
                          for r in state['requests'].values() if form_waiting(r)],
                'page_for_the_person': write_forms_page(state)}
     elif name == 'fdb_send':
@@ -1175,14 +1156,11 @@ def do_setup(state):
         old['city'], old['region'], old['country'] = ask('City', old.get('city', '')), ask('State or province', old.get('region', '')), ask('Country', old.get('country', ''))
         old['place'] = pick_place(old.get('place', ''))
         try:
-            set_profile(state, old['name'], old['email'], old['city'], old['region'], old['country'], old['place'],
-                        '' if old['email2'].strip() == '-' else old['email2'])
+            set_profile(state, old['name'], old['email'], old['city'], old['region'], old['country'], old['place'], '' if old['email2'].strip() == '-' else old['email2'])
             break
         except Oops as problem:
             print('\n' + str(problem) + ' Try again; press Enter to keep an answer.\n')
-    print('Saved. No street address, no birthday, no ID. They get the minimum.')
-    if state['profile'].get('email2'):
-        print('Letters will list both email addresses so brokers can find either one.')
+    print('Saved. No street address, no birthday, no ID. They get the minimum.' + '\nLetters will list both email addresses so brokers can find either one.' * ('email2' in state['profile']))
     if old['place'] == 'california':
         print('\n' + DROP_TIP)
 
