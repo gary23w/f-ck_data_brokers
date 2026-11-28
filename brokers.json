@@ -4721,6 +4721,226 @@
    "source": "california registry",
    "website": "https://www.tracerfy.com"
   },
+  "more-acxiom-deutschland": {
+   "email": "",
+   "name": "Acxiom Deutschland GmbH",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://www.acxiom.de/datenschutzanfragen/",
+   "source": "reported, with evidence",
+   "website": "https://www.acxiom.de"
+  },
+  "more-addressvitt-s-r-l": {
+   "email": "dpo@addressvitt.com",
+   "name": "Addressvitt S.r.l.",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://www.addressvitt.it"
+  },
+  "more-avanci": {
+   "email": "dpo@avanci.fr",
+   "name": "AVANCI",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://www.avanci.fr"
+  },
+  "more-az-direct": {
+   "email": "datenschutz@az-direct.com",
+   "name": "AZ Direct GmbH",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://www.az-direct.com/site/ib/",
+   "source": "reported, with evidence",
+   "website": "https://www.az-direct.com/site/"
+  },
+  "more-az-direct-sterreich": {
+   "email": "datenschutz@bertelsmann.at",
+   "name": "AZ Direct Österreich GmbH",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://at.az-direct.com/links/datenschutz-adressverlag",
+   "source": "reported, with evidence",
+   "website": "https://at.az-direct.com"
+  },
+  "more-bpost-sa": {
+   "email": "",
+   "name": "bpost SA",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://www.bpost.be/en/forms/personal_data/step1",
+   "source": "reported, with evidence",
+   "website": "https://www.bpost.be"
+  },
+  "more-capaneo": {
+   "email": "datenschutz@capaneo.de",
+   "name": "Capaneo GmbH",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://capaneo.de"
+  },
+  "more-datacentric-accumin-intelligence-s-l-u": {
+   "email": "privacidad.datacentric@accumin.com",
+   "name": "Datacentric (ACCUMIN INTELLIGENCE, S.L.U.)",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://www.datacentric.es"
+  },
+  "more-dun-bradstreet-denmark": {
+   "email": "",
+   "name": "Dun & Bradstreet (Denmark)",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://www.dnb.com/da-dk/hvorfor-dnb/data-gennemsigtighed/privatpersoner.html",
+   "source": "reported, with evidence",
+   "website": "https://www.dnb.com/da-dk/"
+  },
+  "more-dun-bradstreet-finland-oy": {
+   "email": "",
+   "name": "Dun & Bradstreet Finland Oy",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://submit-irm.trustarc.eu/services/validation/ba81b98f-997d-4216-b4cc-d64cf261b082",
+   "source": "reported, with evidence",
+   "website": "https://www.dnb.com/fi-fi/"
+  },
+  "more-ediscom-s-p-a": {
+   "email": "responsabileprivacy@ediscom.com",
+   "name": "Ediscom S.p.A.",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://www.ediscom.it"
+  },
+  "more-elenchi-telefonici-s-r-l": {
+   "email": "privacy@elenchitelefonici.it",
+   "name": "Elenchi Telefonici S.r.l.",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://www.indirizzi.it"
+  },
+  "more-global-group-tda-germany": {
+   "email": "",
+   "name": "Global Group TDA Germany GmbH",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://www.global-group.de/de-weitere-betroffenenrechte",
+   "source": "reported, with evidence",
+   "website": "https://www.global-group.de"
+  },
+  "more-idaia-easyfichiers-cartegie": {
+   "email": "dpo@idaia.group",
+   "name": "IDAIA (EasyFichiers, Cartegie)",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://www.easyfichiers.com"
+  },
+  "more-informa-d-b-s-a-u": {
+   "email": "dpo@informa.es",
+   "name": "INFORMA D&B, S.A.U.",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://www.informa.es/textos-legales#privacidadbd",
+   "source": "reported, with evidence",
+   "website": "https://www.informa.es"
+  },
+  "more-itl": {
+   "email": "rgpd@itl.fr",
+   "name": "ITL",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://www.itl.fr"
+  },
+  "more-la-poste": {
+   "email": "",
+   "name": "La Poste",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://aide.laposte.fr/mesdonneespersonnelles",
+   "source": "reported, with evidence",
+   "website": "https://www.laposte.fr"
+  },
+  "more-marknadsinformation-analys-mia-ab": {
+   "email": "dininfo.se@dnb.com",
+   "name": "Marknadsinformation Analys MIA AB",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://www.dnb.com/sv-se/"
+  },
+  "more-mediaposte": {
+   "email": "exercicedesdroits@mediaposte.fr",
+   "name": "MEDIAPOSTE",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://www.mediaposte.fr"
+  },
+  "more-soluciones-nodo-norte-s-l": {
+   "email": "info@comprarbasesdedatos.com",
+   "name": "Soluciones Nodo Norte, S.L.",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "",
+   "source": "reported, with evidence",
+   "website": "https://comprarbasesdedatos.com"
+  },
+  "more-sterreichische-post-ag": {
+   "email": "team-datenschutz@post.at",
+   "name": "Österreichische Post AG",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://www.post.at/datenschutz",
+   "source": "reported, with evidence",
+   "website": "https://www.post.at"
+  },
+  "more-zecible-note-bleue-sas": {
+   "email": "confidentialite@notebleue.com",
+   "name": "Zecible (NOTE BLEUE SAS)",
+   "only": [
+    "eu"
+   ],
+   "rights_url": "https://mydata.zecible.fr",
+   "source": "reported, with evidence",
+   "website": "https://www.zecible.fr"
+  },
   "or-data-00009": {
    "email": "privacy@crunchbase.com",
    "name": "Crunchbase Inc",
