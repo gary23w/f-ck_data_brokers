@@ -30,12 +30,33 @@
    "source": "platform, read on its own pages",
    "website": "https://www.apple.com"
   },
+  "app-best-buy": {
+   "email": "",
+   "name": "Best Buy",
+   "rights_url": "https://www.bestbuy.com/site/privacy-policy/state-privacy-rights/pcmcat204400050063.c?id=pcmcat204400050063",
+   "source": "platform, read on its own pages",
+   "website": "https://www.bestbuy.com"
+  },
   "app-booking-com": {
    "email": "dataprotectionoffice@booking.com",
    "name": "Booking.com",
    "rights_url": "https://www.booking.com/content/dsar.en-us.html",
    "source": "platform, read on its own pages",
    "website": "https://www.booking.com"
+  },
+  "app-bumble": {
+   "email": "dpo@bumble.com",
+   "name": "Bumble",
+   "rights_url": "https://bumble.com/contact-us",
+   "source": "platform, read on its own pages",
+   "website": "https://bumble.com"
+  },
+  "app-canadian-tire": {
+   "email": "privacyoffice@cantire.com",
+   "name": "Canadian Tire",
+   "rights_url": "",
+   "source": "platform, read on its own pages",
+   "website": "https://www.canadiantire.ca"
   },
   "app-cash-app": {
    "email": "",
@@ -50,6 +71,13 @@
    "rights_url": "https://www.craigslist.org/about/ccpa",
    "source": "platform, read on its own pages",
    "website": "https://www.craigslist.org"
+  },
+  "app-cvs": {
+   "email": "",
+   "name": "CVS",
+   "rights_url": "https://privacyportal.onetrust.com/webform/1885551f-146f-4594-ae8d-5966aac0551f/1eb23c44-cba9-45c6-bd0f-4f89053910f4?formField136=web",
+   "source": "platform, read on its own pages",
+   "website": "https://www.cvs.com"
   },
   "app-discord": {
    "delete_url": "https://support.discord.com/hc/en-us/articles/212500837-How-do-I-permanently-delete-my-account-",
@@ -123,12 +151,40 @@
    "source": "platform, read on its own pages",
    "website": "https://www.google.com"
   },
+  "app-home-depot": {
+   "email": "",
+   "name": "Home Depot",
+   "rights_url": "https://www.homedepot.com/privacy/Exercise-My-Privacy-Rights",
+   "source": "platform, read on its own pages",
+   "website": "https://www.homedepot.com"
+  },
+  "app-ikea": {
+   "email": "infosec.dataprivacy.us@ikea.com",
+   "name": "IKEA",
+   "rights_url": "https://us.irr.privacy.ingka.com/en",
+   "source": "platform, read on its own pages",
+   "website": "https://www.ikea.com"
+  },
+  "app-instacart": {
+   "email": "",
+   "name": "Instacart",
+   "rights_url": "https://www.instacart.com/accounts/your-privacy-choices",
+   "source": "platform, read on its own pages",
+   "website": "https://www.instacart.com"
+  },
   "app-instagram": {
    "email": "",
    "name": "Instagram",
    "rights_url": "https://help.meta.com/support/privacy",
    "source": "platform, read on its own pages",
    "website": "https://www.instagram.com"
+  },
+  "app-kroger": {
+   "email": "",
+   "name": "Kroger",
+   "rights_url": "https://www.kroger.com/i/privacy-policy?showPrivacyCenter=true",
+   "source": "platform, read on its own pages",
+   "website": "https://www.kroger.com"
   },
   "app-linkedin": {
    "delete_url": "https://www.linkedin.com/help/linkedin/answer/63",
@@ -138,6 +194,13 @@
    "rights_url": "https://www.linkedin.com/help/linkedin/ask/TSO-DPO",
    "source": "platform, read on its own pages",
    "website": "https://www.linkedin.com"
+  },
+  "app-loblaw-and-pc-optimum": {
+   "email": "loblawprivacy@loblaw.ca",
+   "name": "Loblaw and PC Optimum",
+   "rights_url": "https://ccmapp.loblaw.ca/webform/27ac7ad8-1ac7-4c80-8720-5df837f07d3f/cddddcb4-290b-4830-96f9-830c6aa6b476",
+   "source": "platform, read on its own pages",
+   "website": "https://www.loblaw.ca"
   },
   "app-lyft": {
    "delete_url": "https://www.lyft.com/privacy/data",
@@ -173,6 +236,20 @@
    "source": "platform, read on its own pages",
    "website": "https://nextdoor.com"
   },
+  "app-nike": {
+   "email": "",
+   "name": "Nike",
+   "rights_url": "https://www.nike.com/help/privacy",
+   "source": "platform, read on its own pages",
+   "website": "https://www.nike.com"
+  },
+  "app-nintendo": {
+   "email": "",
+   "name": "Nintendo",
+   "rights_url": "https://www.nintendo.com/privacy-request/",
+   "source": "platform, read on its own pages",
+   "website": "https://www.nintendo.com"
+  },
   "app-openai": {
    "delete_url": "https://help.openai.com/en/articles/7730893-data-controls-faq",
    "email": "dsar@openai.com",
@@ -197,6 +274,20 @@
    "rights_url": "https://help.pinterest.com/article/review-personal-data-options",
    "source": "platform, read on its own pages",
    "website": "https://www.pinterest.com"
+  },
+  "app-playstation-sony": {
+   "email": "",
+   "name": "PlayStation (Sony)",
+   "rights_url": "https://ps-support.playstation.com/s/consumer-privacy?language=en_US&locale=en-us",
+   "source": "platform, read on its own pages",
+   "website": "https://www.playstation.com"
+  },
+  "app-samsung": {
+   "email": "",
+   "name": "Samsung",
+   "rights_url": "https://www.samsung.com/us/privacy/rights/",
+   "source": "platform, read on its own pages",
+   "website": "https://www.samsung.com"
   },
   "app-shein": {
    "email": "privacy@sheingroup.com",
@@ -237,6 +328,13 @@
    "source": "platform, read on its own pages",
    "website": "https://squareup.com"
   },
+  "app-steam-valve": {
+   "email": "",
+   "name": "Steam (Valve)",
+   "rights_url": "https://help.steampowered.com/wizard/HelpAccountDataQuestion",
+   "source": "platform, read on its own pages",
+   "website": "https://store.steampowered.com"
+  },
   "app-stripe-and-link": {
    "delete_url": "https://support.stripe.com/questions/i-would-like-to-delete-the-information-stripe-has-collected-from-me",
    "email": "privacy@stripe.com",
@@ -268,12 +366,28 @@
    "source": "platform, read on its own pages",
    "website": "https://www.temu.com"
   },
+  "app-ticketmaster": {
+   "email": "",
+   "name": "Ticketmaster",
+   "rights_url": "https://privacyportal.onetrust.com/webform/ba6f9c5b-dda5-43bd-bac4-4e06afccd928/a912475c-660e-40a7-b320-844ea439062a",
+   "source": "platform, read on its own pages",
+   "website": "https://www.ticketmaster.com"
+  },
   "app-tiktok": {
    "email": "",
    "name": "TikTok",
    "rights_url": "https://www.tiktok.com/legal/report/privacy",
    "source": "platform, read on its own pages",
    "website": "https://www.tiktok.com"
+  },
+  "app-tinder": {
+   "delete_url": "https://www.help.tinder.com/hc/en-us/articles/6956972185229-Delete-Your-Tinder-Account",
+   "email": "",
+   "export_url": "https://www.help.tinder.com/hc/en-us/articles/115005626726-How-do-I-request-a-copy-of-my-personal-data",
+   "name": "Tinder",
+   "rights_url": "https://www.help.tinder.com/hc/en-us/requests/new?ticket_form_id=360000234472",
+   "source": "platform, read on its own pages",
+   "website": "https://tinder.com"
   },
   "app-twitch": {
    "delete_url": "https://www.twitch.tv/user/delete_account",
@@ -298,6 +412,21 @@
    "rights_url": "https://help.venmo.com/hc/en-us/requests/new",
    "source": "platform, read on its own pages",
    "website": "https://venmo.com"
+  },
+  "app-verizon": {
+   "email": "",
+   "export_url": "https://www.verizon.com/privacy/your-data",
+   "name": "Verizon",
+   "rights_url": "https://www.verizon.com/privacy/your-data",
+   "source": "platform, read on its own pages",
+   "website": "https://www.verizon.com"
+  },
+  "app-walgreens": {
+   "email": "",
+   "name": "Walgreens",
+   "rights_url": "https://www.walgreens.com/topic/donotsellmyinfo.jsp?o=acs",
+   "source": "platform, read on its own pages",
+   "website": "https://www.walgreens.com"
   },
   "app-walmart": {
    "email": "",
