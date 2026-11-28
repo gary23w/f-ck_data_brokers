@@ -2,9 +2,15 @@ name: Remind to refresh the hand-kept lists
 
 # Some registries do not allow programs to fetch their lists, so a person downloads them. Nobody remembers to.
 # Once a month this checks how old each of those lists is and opens an issue when one is more than 45 days old.
-# It does the same for the platform list (social media, shops and other companies people hold accounts with):
-# an entry whose pages were last read more than 90 days ago is listed, with the page to read again.
-# It contacts no registry and no company. It only reads brokers.json and platforms.json in this repository.
+# It does the same for the platform list (social media, shops and other companies people hold accounts with) and for
+# the reported brokers: an entry whose pages were last read more than 90 days ago is listed, with the page to read again.
+#
+# Europe has no official register of data brokers, so nothing can be imported there. The open Data Requests directory
+# (github.com/datenanfragen/data, public domain) marks some companies as address traders. Once a month this lists the
+# European ones nobody here has looked at yet, as a to-do for a person. A directory entry is not evidence: nothing from
+# it is added to the tool. A company is added only after its own pages were read.
+#
+# It contacts no registry and no company. It reads the files in this repository and that public directory.
 
 on:
   schedule:
@@ -40,18 +46,43 @@ jobs:
               print('These broker lists are refreshed by hand, because their websites do not allow programs to fetch them. They are getting old:\n')
               print('\n'.join(lines))
               print('\nBrokers that registered since then are missing from the list until this is done. Commit the changed `brokers.json` and close this issue.')
-          old = [entry for entry in json.load(open('platforms.json', encoding='utf-8'))['platforms'] if (today - datetime.date.fromisoformat(entry['checked'])).days > 90]
-          if old:
-              print('\nThese platforms were last read on their own pages more than 90 days ago. Open each page, correct `platforms.json` if anything moved, and set `checked` to today:\n')
-              print('\n'.join('- **' + entry['name'] + '**: read ' + entry['checked'] + ' on ' + entry['evidence'] for entry in old))
+          for file, group, what in (('platforms.json', 'platforms', 'platforms'), ('more_brokers.json', 'brokers', 'reported brokers')):
+              old = [entry for entry in json.load(open(file, encoding='utf-8'))[group] if (today - datetime.date.fromisoformat(entry['checked'])).days > 90]
+              if old:
+                  print('\nThese ' + what + ' were last read on their own pages more than 90 days ago. Open each page, correct `' + file + '` if anything moved, and set `checked` to today:\n')
+                  print('\n'.join('- **' + entry['name'] + '**: read ' + entry['checked'] + ' on ' + entry['evidence'] for entry in old))
           EOF
           cat stale.md
-      - name: Open an issue unless one is already open
+      - name: Look for European address traders nobody has checked yet
+        run: |
+          git clone --quiet --depth 1 https://github.com/datenanfragen/data directory
+          python - > hunt.md <<'EOF'
+          import glob, json, re
+          EUROPE = set('at be bg hr cy cz dk ee fi fr de gr hu ie it lv lt lu mt nl pl pt ro sk si es se'.split())
+          key = lambda name: re.sub(r'[^a-z0-9]+', ' ', name.lower()).strip()
+          more = json.load(open('more_brokers.json', encoding='utf-8'))
+          known = {key(entry['name']) for entry in more['brokers']} | {key(name) for name in more.get('looked_at', {})}
+          found = []
+          for file in sorted(glob.glob('directory/companies/*.json')):
+              record = json.load(open(file, encoding='utf-8'))
+              if 'addresses' in record.get('categories', []) and EUROPE & set(record.get('relevant-countries', [])) and key(record['name']) not in known:
+                  found.append('- **' + record['name'] + '** (' + ', '.join(record['relevant-countries']) + '): ' + (record.get('web') or 'no website listed')
+                               + ' , their record: https://github.com/datenanfragen/data/blob/master/companies/' + record['slug'] + '.json')
+          if found:
+              print('The open Data Requests directory lists these European companies as address traders, and nobody here has looked at them yet. A directory entry is not evidence.\n')
+              print('For each one, read the company\'s own pages. If it rents, sells or passes on consumer data, add it to `more_brokers.json` with the privacy address printed on its own pages, a link to the evidence, `"only": ["eu"]` and today as `checked`. If it does not, add its name to `looked_at` in that file with the reason. Either way it leaves this list.\n')
+              print('\n'.join(found))
+          EOF
+          cat hunt.md
+      - name: Open an issue for each list unless one is already open
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ ! -s stale.md ]; then echo "Every hand-kept list is fresh."; exit 0; fi
-          title="Refresh the hand-kept broker registries"
-          open=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number --jq 'length')
-          if [ "$open" != "0" ]; then echo "An issue is already open."; exit 0; fi
-          gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body-file stale.md
+          report() {
+            if [ ! -s "$1" ]; then echo "Nothing to report for: $2"; return 0; fi
+            open=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "\"$2\" in:title" --json number --jq 'length')
+            if [ "$open" != "0" ]; then echo "An issue is already open for: $2"; return 0; fi
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$2" --body-file "$1"
+          }
+          report stale.md "Refresh the hand-kept broker registries"
+          report hunt.md "European address traders to check"

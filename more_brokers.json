@@ -1,5 +1,5 @@
 {
- "about": "Data brokers that are on no official registry. Each entry needs a name, a privacy email or a privacy page, and a link to evidence that the company sells, rents or shares personal information. Every address here was read on the company's own pages on the date in \"checked\". A company that holds people of one place only lists it in \"only\" (the place names this tool uses, such as \"eu\"), and nobody living elsewhere is made to write to it. Entries are reviewed before they are merged.",
+ "about": "Data brokers that are on no official registry. Each entry needs a name, a privacy email or a privacy page, and a link to evidence that the company sells, rents or shares personal information. Every address here was read on the company's own pages on the date in \"checked\". A company that holds people of one place only lists it in \"only\" (the place names this tool uses, such as \"eu\"), and nobody living elsewhere is made to write to it. Entries are reviewed before they are merged. \"looked_at\" names companies that were checked and not added, with the reason, so nobody checks them twice.",
  "brokers": [
   {
    "name": "Acxiom Deutschland GmbH",
@@ -226,5 +226,12 @@
    ],
    "checked": "2026-11-28"
   }
- ]
+ ],
+ "looked_at": {
+  "HEROLD Business Data GmbH": "Read 2026-11-28. A phone directory; its privacy notice says changes and deletions of entries go through the telephone provider.",
+  "SAZ Services AG": "Read 2026-11-28. The address business is the Swiss company, outside the European Union.",
+  "CRIF GmbH": "Credit reporting, which this tool does not cover.",
+  "Nexiga GmbH": "Read 2026-11-28. Its own pages did not show named consumer data being passed on.",
+  "Black Tiger Belgium SA/NV": "Read 2026-11-28. Its own policy describes working on its customers' data and says it does not sell personal data."
+ }
 }
