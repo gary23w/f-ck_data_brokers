@@ -1,4 +1,38 @@
 {
- "about": "Data brokers that are on no official registry. Each entry needs a name, a privacy email or a privacy page, and a link to evidence that the company sells or shares personal information. Entries are reviewed before they are merged.",
- "brokers": []
+ "about": "Data brokers that are on no official registry. Each entry needs a name, a privacy email or a privacy page, and a link to evidence that the company sells, rents or shares personal information. Every address here was read on the company's own pages on the date in \"checked\". A company that holds people of one place only lists it in \"only\" (the place names this tool uses, such as \"eu\"), and nobody living elsewhere is made to write to it. Entries are reviewed before they are merged.",
+ "brokers": [
+  {
+   "name": "AZ Direct Österreich GmbH",
+   "email": "datenschutz@bertelsmann.at",
+   "website": "https://at.az-direct.com",
+   "rights_url": "https://at.az-direct.com/links/datenschutz-adressverlag",
+   "evidence": "https://at.az-direct.com/links/datenschutz-adressverlag",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Österreichische Post AG",
+   "email": "team-datenschutz@post.at",
+   "website": "https://www.post.at",
+   "rights_url": "https://www.post.at/datenschutz",
+   "evidence": "https://www.post.at/i/c/datenschutz-marketing",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Zecible (NOTE BLEUE SAS)",
+   "email": "confidentialite@notebleue.com",
+   "website": "https://www.zecible.fr",
+   "rights_url": "https://mydata.zecible.fr",
+   "evidence": "https://www.zecible.fr/actualites-zecible/faq-sur-les-fichiers-zecible",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  }
+ ]
 }

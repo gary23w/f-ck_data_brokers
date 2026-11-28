@@ -51,9 +51,10 @@ class Case(unittest.TestCase):
         self.state = fdb.load()
         # The tests build their own lists; the platform file shipped with the tool is used only by the tests that say so.
         self.platforms, fdb.APPS_LIST = fdb.APPS_LIST, Path(self.folder.name, 'no-platforms.json')
+        self.more, fdb.MORE_LIST = fdb.MORE_LIST, Path(self.folder.name, 'no-more.json')
 
     def tearDown(self):
-        fdb.APPS_LIST = self.platforms
+        fdb.APPS_LIST, fdb.MORE_LIST = self.platforms, self.more
         self.folder.cleanup()
 
     def person(self, place='california'):
@@ -366,6 +367,24 @@ class Case(unittest.TestCase):
             report = fdb.write_list(target)
         self.assertTrue(report['new'] and all(name.endswith('(a platform, not a broker)') for name in report['new']))
 
+    def test_a_reported_broker_of_one_place_is_only_written_to_by_people_who_live_there(self):
+        fdb.MORE_LIST = self.more
+        shipped = json.loads(fdb.MORE_LIST.read_text(encoding='utf-8'))['brokers']
+        self.assertTrue(shipped)
+        for entry in shipped:
+            self.assertEqual(sorted(set(entry) - {'name', 'email', 'website', 'rights_url', 'evidence', 'checked', 'only'}), [], entry['name'])
+            self.assertRegex(entry['evidence'], r'^https://', entry['name'] + ' says where it was read')
+            self.assertTrue(set(entry.get('only', [])) <= set(fdb.PLACES), entry['name'])
+        found = fdb.read_more()
+        self.assertEqual(len(found), len(shipped))
+        local = {key for key, broker in found.items() if broker.get('only') == ['eu'] and broker['email']}
+        self.assertTrue(local)
+        self.person('california')
+        fdb.take(self.state, found)
+        self.assertFalse(local & {r['broker'] for r in fdb.prepare(self.state, 9999) + fdb.prepare_forms(self.state, 9999)}, 'someone in California is never made to write to them')
+        fdb.set_profile(self.state, 'Avery Exampleton', 'avery@example.com', 'Sampleville', '', 'Austria', 'eu')
+        self.assertEqual(local & {r['broker'] for r in fdb.prepare(self.state, 9999)}, local, 'someone in the European Union is')
+
     def test_an_id_demand_is_answered_once_then_gets_a_final_notice_then_the_regulator(self):
         request = self.sent_request('california')
         ref = request['ref']
@@ -452,8 +471,8 @@ class Case(unittest.TestCase):
         seen = {'messages': [], 'tls': None, 'login': None, 'host': None}
 
         class Server:
-            def __init__(self, host, port, timeout=None):
-                seen['host'] = (host, port)
+            def __init__(self, host, port, local_hostname=None, timeout=None):
+                seen['host'], seen['hello'] = (host, port), local_hostname
 
             def __enter__(self):
                 return self
@@ -482,6 +501,7 @@ class Case(unittest.TestCase):
         with server, no_wait:
             done = fdb.send_all(self.state, 20, 'app-password-for-test')
         self.assertEqual(seen['host'], ('smtp.gmail.com', 587))
+        self.assertEqual(seen['hello'], 'localhost', 'the name of the computer is never given to the mail server')
         self.assertIsInstance(seen['tls'], ssl.SSLContext)
         self.assertEqual(seen['tls'].verify_mode, ssl.CERT_REQUIRED, 'the server is checked before the password is given')
         self.assertTrue(seen['tls'].check_hostname)
@@ -712,7 +732,7 @@ class Case(unittest.TestCase):
         self.assertGreater(len(fdb.usable(bundled['brokers'])), 100)
         for key, broker in bundled['brokers'].items():
             self.assertRegex(key, r'^(ca-\d+|or-[a-z]+-\d+|tx-\d+|more-[a-z0-9-]+|app-[a-z0-9-]+)$')
-            self.assertEqual(sorted(k for k in broker if k not in ('same_as', 'delete_url', 'export_url')), ['email', 'name', 'rights_url', 'source', 'website'])
+            self.assertEqual(sorted(k for k in broker if k not in ('same_as', 'delete_url', 'export_url', 'only')), ['email', 'name', 'rights_url', 'source', 'website'])
             if 'same_as' in broker:
                 self.assertIn(broker['same_as'], bundled['brokers'])
                 self.assertNotIn('same_as', bundled['brokers'][broker['same_as']], 'a duplicate points at a real entry, never at another duplicate')

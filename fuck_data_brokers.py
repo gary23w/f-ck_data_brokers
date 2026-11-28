@@ -284,14 +284,14 @@ def fetch(url, known=None):
 
 def read_more():
     """Companies on no registry. A reported broker needs a name, a way to reach it, and evidence. A platform (its key
-    starts with "app-") is a company you may hold an account with; what is listed was read on its own pages, linked as evidence."""
+    starts with "app-") is a company you may hold an account with; what is listed was read on its own pages, linked as evidence. One that holds people of one place says so in "only"; nobody living elsewhere writes to it."""
     brokers = {}
     for file, group, prefix, source in ((MORE_LIST, 'brokers', 'more-', 'reported, with evidence'), (APPS_LIST, 'platforms', 'app-', 'platform, read on its own pages')):
         for entry in json.loads(file.read_text(encoding='utf-8')).get(group, []) if file.exists() else []:
             name, email = ' '.join(str(entry.get('name', '')).split()), clean_email(entry.get('email'))
             if name_key(name) and (email or web_address(entry.get('rights_url')) or web_address(entry.get('website'))) and web_address(entry.get('evidence')):
                 brokers[prefix + name_key(name).replace(' ', '-')] = {'name': name[:200], 'email': email, 'website': str(entry.get('website') or '')[:300], 'rights_url': str(entry.get('rights_url') or '')[:300], 'source': source,
-                                                                    **{k: web_address(entry.get(k)) for k in ('delete_url', 'export_url') if web_address(entry.get(k))}}
+                                                                    **{k: web_address(entry.get(k)) for k in ('delete_url', 'export_url') if web_address(entry.get(k))}, **({'only': sorted(set(entry['only']) & set(PLACES))} if entry.get('only') else {})}
     return brokers
 
 
@@ -572,7 +572,7 @@ def smtp_send(profile, items, password=None, sent=lambda item: None):
     if not smtp_host(profile):
         raise Oops(SMTP_HELP)
     host, port = smtp_host(profile), int(os.environ.get('FDB_SMTP_PORT') or 587)
-    with smtplib.SMTP(host, port, timeout=60) as server:
+    with smtplib.SMTP(host, port, local_hostname='localhost', timeout=60) as server:  # your computer's name is never given; outlook.com also refuses some names
         server.starttls(context=ssl.create_default_context())
         server.login(os.environ.get('FDB_SMTP_USER') or profile['email'], password or os.environ.get('FDB_SMTP_PASS') or '')
         for number, item in enumerate(items):
@@ -636,7 +636,7 @@ def prepare(state, limit=20, match='', forms=False, everything=False):
     for key, broker in sorted(state['brokers'].items(), key=lambda item: item[1]['name'].lower()):
         if len(made) >= limit:
             break
-        if key in asked or key in skipped or want not in broker['name'].lower() or key.startswith('app-') and not want or (broker.get('email') or not form_url(broker) if forms else not broker.get('email')):
+        if key in asked or key in skipped or want not in broker['name'].lower() or key.startswith('app-') and not want or profile['place'] not in broker.get('only', PLACES) or (broker.get('email') or not form_url(broker) if forms else not broker.get('email')):
             continue
         ref = new_ref()
         subject, body = (LAW_NAME[law] + ' [' + ref + ']', form_text(profile, law, ref)) if forms else first_letter(profile, broker, law, ref, everything if key.startswith('app-') else None)
