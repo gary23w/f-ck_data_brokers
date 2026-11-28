@@ -134,10 +134,40 @@
    "checked": "2026-11-28"
   },
   {
+   "name": "Corpdata Ltd",
+   "email": "updates@corpdata.co.uk",
+   "website": "https://www.corpdata.co.uk",
+   "evidence": "https://www.corpdata.co.uk/terms-conditions",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Creditsafe (UK Trace)",
+   "email": "help@creditsafeuk.com",
+   "website": "https://www.creditsafe.com/gb/en.html",
+   "evidence": "https://www.creditsafe.com/gb/en/credit-risk/compliance/tracing-investigation.html",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
    "name": "Data Bubble Consultancy Limited",
    "email": "info@databubble.co.uk",
    "website": "https://databubble.co.uk",
    "evidence": "https://databubble.co.uk/b2c-data/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Data HQ Limited",
+   "email": "legal@datahq.co.uk",
+   "website": "https://datahq.co.uk",
+   "evidence": "https://datahq.co.uk/ideas-library/blog/data-hq-marketing-lists-how-compliant-is-our-data",
    "only": [
     "uk"
    ],
@@ -168,6 +198,16 @@
    "email": "myinfo@dataondemand.co.uk",
    "website": "https://dataondemand.co.uk",
    "evidence": "https://dataondemand.co.uk/privacy-policy/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Databroker Ltd",
+   "email": "compliance@data-broker.co.uk",
+   "website": "https://www.data-broker.co.uk",
+   "evidence": "https://www.data-broker.co.uk/frequently-asked-questions/",
    "only": [
     "uk"
    ],
@@ -225,6 +265,16 @@
    "checked": "2026-11-28"
   },
   {
+   "name": "Electric Marketing Ltd",
+   "email": "compliance@electricmarketing.co.uk",
+   "website": "https://www.electricmarketing.co.uk",
+   "evidence": "https://www.electricmarketing.co.uk/privacy",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
    "name": "Elenchi Telefonici S.r.l.",
    "email": "privacy@elenchitelefonici.it",
    "website": "https://www.indirizzi.it",
@@ -260,6 +310,26 @@
    "website": "https://www.experian.co.uk",
    "rights_url": "https://www.experian.co.uk/privacy/consumer-information-portal/opt-out-options/",
    "evidence": "https://www.experian.co.uk/privacy/consumer-information-portal/using-data/personal-data/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "First Locate UK Limited (Tracegenie)",
+   "website": "https://www.tracegenie.com",
+   "rights_url": "https://www.tracegenie.com/privacy.html",
+   "evidence": "https://www.tracegenie.com/privacy.html",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "GB Group plc (GBG)",
+   "email": "privacy.rights@gbg.com",
+   "website": "https://www.gbgplc.com",
+   "evidence": "https://www.gbgplc.com/legal-and-regulatory/products-and-services-privacy-policy-1/",
    "only": [
     "uk"
    ],
@@ -303,6 +373,16 @@
    "evidence": "https://www.itl.fr/",
    "only": [
     "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Kinesso (UK services)",
+   "website": "https://kinesso.com",
+   "rights_url": "https://kinesso.com/privacy-rights-request-uk/",
+   "evidence": "https://kinesso.com/non-us-kinesso-services-privacy-notice/",
+   "only": [
+    "uk"
    ],
    "checked": "2026-11-28"
   },
@@ -368,6 +448,16 @@
    "checked": "2026-11-28"
   },
   {
+   "name": "People Trace UK Ltd",
+   "website": "https://www.peopletraceuk.com",
+   "rights_url": "https://www.peopletraceuk.com/RequestRecordRemoval.asp",
+   "evidence": "https://www.peopletraceuk.com/Privacy_Policy.asp",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
    "name": "PMDSC Ltd",
    "email": "compliance@pmdsc.co.uk",
    "website": "https://pmdsc.co.uk",
@@ -402,6 +492,16 @@
    "website": "https://www.selectabase.co.uk",
    "rights_url": "https://www.selectabase.co.uk/data-protection/data-optout/",
    "evidence": "https://www.selectabase.co.uk/privacy-policy/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Simunix Limited (ukphonebook.com)",
+   "website": "https://www.ukphonebook.com",
+   "rights_url": "https://www.ukphonebook.com/remove-me",
+   "evidence": "https://www.ukphonebook.com/help/our-data-sources",
    "only": [
     "uk"
    ],
