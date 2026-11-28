@@ -2,6 +2,47 @@
  "about": "Data brokers that are on no official registry. Each entry needs a name, a privacy email or a privacy page, and a link to evidence that the company sells, rents or shares personal information. Every address here was read on the company's own pages on the date in \"checked\". A company that holds people of one place only lists it in \"only\" (the place names this tool uses, such as \"eu\"), and nobody living elsewhere is made to write to it. Entries are reviewed before they are merged.",
  "brokers": [
   {
+   "name": "Acxiom Deutschland GmbH",
+   "website": "https://www.acxiom.de",
+   "rights_url": "https://www.acxiom.de/datenschutzanfragen/",
+   "evidence": "https://www.acxiom.de/datenschutz/datenschutzinformationen-fuer-verbraucher-und-firmendatenbank/",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Addressvitt S.r.l.",
+   "email": "dpo@addressvitt.com",
+   "website": "https://www.addressvitt.it",
+   "evidence": "https://www.addressvitt.it/servizi/data-intelligence/",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "AVANCI",
+   "email": "dpo@avanci.fr",
+   "website": "https://www.avanci.fr",
+   "evidence": "https://www.avanci.fr/expertises/data-activation/acquisition/calculette-btoc/",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "AZ Direct GmbH",
+   "email": "datenschutz@az-direct.com",
+   "website": "https://www.az-direct.com/site/",
+   "rights_url": "https://www.az-direct.com/site/ib/",
+   "evidence": "https://www.az-direct.com/site/multichannel-marketing-produkte/postalische-werbung",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
    "name": "AZ Direct Österreich GmbH",
    "email": "datenschutz@bertelsmann.at",
    "website": "https://at.az-direct.com",
@@ -13,11 +54,151 @@
    "checked": "2026-11-28"
   },
   {
-   "name": "Österreichische Post AG",
-   "email": "team-datenschutz@post.at",
-   "website": "https://www.post.at",
-   "rights_url": "https://www.post.at/datenschutz",
-   "evidence": "https://www.post.at/i/c/datenschutz-marketing",
+   "name": "bpost SA",
+   "website": "https://www.bpost.be",
+   "rights_url": "https://www.bpost.be/en/forms/personal_data/step1",
+   "evidence": "https://www.bpost.be/en/data-supply",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Capaneo GmbH",
+   "email": "datenschutz@capaneo.de",
+   "website": "https://capaneo.de",
+   "evidence": "https://capaneo.de/",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Datacentric (ACCUMIN INTELLIGENCE, S.L.U.)",
+   "email": "privacidad.datacentric@accumin.com",
+   "website": "https://www.datacentric.es",
+   "evidence": "https://www.datacentric.es/bases-de-datos-telefonos-particulares/",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Dun & Bradstreet (Denmark)",
+   "website": "https://www.dnb.com/da-dk/",
+   "rights_url": "https://www.dnb.com/da-dk/hvorfor-dnb/data-gennemsigtighed/privatpersoner.html",
+   "evidence": "https://www.dnb.com/da-dk/hvorfor-dnb/data-gennemsigtighed/privatpersoner.html",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Dun & Bradstreet Finland Oy",
+   "website": "https://www.dnb.com/fi-fi/",
+   "rights_url": "https://submit-irm.trustarc.eu/services/validation/ba81b98f-997d-4216-b4cc-d64cf261b082",
+   "evidence": "https://www.dnb.com/fi-fi/miksi-dnb/tietojen-lapinakyvyys/henkilotiedot/yhteystieto-ja-henkilomarkkinointirekisterin-tietosuojaseloste.html",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Ediscom S.p.A.",
+   "email": "responsabileprivacy@ediscom.com",
+   "website": "https://www.ediscom.it",
+   "evidence": "https://www.ediscom.it/privacy.htm",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Elenchi Telefonici S.r.l.",
+   "email": "privacy@elenchitelefonici.it",
+   "website": "https://www.indirizzi.it",
+   "evidence": "https://www.indirizzi.it/liste_b2c.asp",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Global Group TDA Germany GmbH",
+   "website": "https://www.global-group.de",
+   "rights_url": "https://www.global-group.de/de-weitere-betroffenenrechte",
+   "evidence": "https://www.global-group.de/multi-channel-zielgruppen-potentiale",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "IDAIA (EasyFichiers, Cartegie)",
+   "email": "dpo@idaia.group",
+   "website": "https://www.easyfichiers.com",
+   "evidence": "https://www.easyfichiers.com/fr/politique-de-donnees-personnelles",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "INFORMA D&B, S.A.U.",
+   "email": "dpo@informa.es",
+   "website": "https://www.informa.es",
+   "rights_url": "https://www.informa.es/textos-legales#privacidadbd",
+   "evidence": "https://www.informa.es/marketing-ventas/bases-de-datos-de-particulares",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "ITL",
+   "email": "rgpd@itl.fr",
+   "website": "https://www.itl.fr",
+   "evidence": "https://www.itl.fr/",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "La Poste",
+   "website": "https://www.laposte.fr",
+   "rights_url": "https://aide.laposte.fr/mesdonneespersonnelles",
+   "evidence": "https://www.laposte.fr/professionnel/media-relationnel/solutions-ciblage",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Marknadsinformation Analys MIA AB",
+   "email": "dininfo.se@dnb.com",
+   "website": "https://www.dnb.com/sv-se/",
+   "evidence": "https://www.dnb.com/sv-se/varfor-dnb/dataskydd/personuppgifter/personuppgifter-mia.html",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "MEDIAPOSTE",
+   "email": "exercicedesdroits@mediaposte.fr",
+   "website": "https://www.mediaposte.fr",
+   "evidence": "https://www.mediaposte.fr/expertises/data-location-de-donnees/",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Soluciones Nodo Norte, S.L.",
+   "email": "info@comprarbasesdedatos.com",
+   "website": "https://comprarbasesdedatos.com",
+   "evidence": "https://comprarbasesdedatos.com/bases-de-datos/comprar-bases-de-datos-de-particulares/",
    "only": [
     "eu"
    ],
@@ -29,6 +210,17 @@
    "website": "https://www.zecible.fr",
    "rights_url": "https://mydata.zecible.fr",
    "evidence": "https://www.zecible.fr/actualites-zecible/faq-sur-les-fichiers-zecible",
+   "only": [
+    "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Österreichische Post AG",
+   "email": "team-datenschutz@post.at",
+   "website": "https://www.post.at",
+   "rights_url": "https://www.post.at/datenschutz",
+   "evidence": "https://www.post.at/i/c/datenschutz-marketing",
    "only": [
     "eu"
    ],
