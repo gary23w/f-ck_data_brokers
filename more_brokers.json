@@ -12,12 +12,42 @@
    "checked": "2026-11-28"
   },
   {
+   "name": "Acxiom Limited",
+   "email": "ukconsumerservices@acxiom.com",
+   "website": "https://www.acxiom.co.uk",
+   "evidence": "https://www.acxiom.co.uk/privacy/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
    "name": "Addressvitt S.r.l.",
    "email": "dpo@addressvitt.com",
    "website": "https://www.addressvitt.it",
    "evidence": "https://www.addressvitt.it/servizi/data-intelligence/",
    "only": [
     "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "AffilyAds B.V. (UK Freebies)",
+   "email": "dpo@affilyads.com",
+   "website": "https://affilyads.com",
+   "evidence": "https://affilyads.com/privacy-policy/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Aura Media Group Limited (YourOffers)",
+   "email": "compliance@auramediagroup.co.uk",
+   "website": "https://www.auramediagroup.co.uk",
+   "evidence": "https://www.auramediagroup.co.uk/privacy-policy.html",
+   "only": [
+    "uk"
    ],
    "checked": "2026-11-28"
   },
@@ -54,12 +84,32 @@
    "checked": "2026-11-28"
   },
   {
+   "name": "Blue Volt Marketing Ltd (UK Best Offers)",
+   "website": "https://ukbestoffers.co.uk",
+   "rights_url": "https://ukbestoffers.co.uk/unsubscribe.php",
+   "evidence": "https://ukbestoffers.co.uk/privacy.php",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
    "name": "bpost SA",
    "website": "https://www.bpost.be",
    "rights_url": "https://www.bpost.be/en/forms/personal_data/step1",
    "evidence": "https://www.bpost.be/en/data-supply",
    "only": [
     "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "CACI Limited",
+   "website": "https://www.caci.co.uk",
+   "rights_url": "https://www.caci.co.uk/data-privacy/privacy-policy/gdpr-suppression-form-address/",
+   "evidence": "https://www.caci.co.uk/data-privacy/privacy-policy/",
+   "only": [
+    "uk"
    ],
    "checked": "2026-11-28"
   },
@@ -74,12 +124,73 @@
    "checked": "2026-11-28"
   },
   {
+   "name": "Choose Leads Limited",
+   "email": "compliance@chooseleads.co.uk",
+   "website": "https://www.chooseleads.co.uk",
+   "evidence": "https://www.chooseleads.co.uk/img/2025/03/privacy_policy.pdf",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Data Bubble Consultancy Limited",
+   "email": "info@databubble.co.uk",
+   "website": "https://databubble.co.uk",
+   "evidence": "https://databubble.co.uk/b2c-data/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Data Locator Group Ltd (Consumer Lifestyles, Surveys.co.uk)",
+   "email": "compliance@dlg.co.uk",
+   "website": "https://www.surveys.co.uk",
+   "evidence": "https://www.surveys.co.uk/docs/privacypolicy_surveys.pdf",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Data Mixx Limited (DML Connect)",
+   "email": "compliance@datamixx.co.uk",
+   "website": "https://dmlconnect.com",
+   "evidence": "https://dmlconnect.com/privacy-policy",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Data OD Ltd (Data on Demand)",
+   "email": "myinfo@dataondemand.co.uk",
+   "website": "https://dataondemand.co.uk",
+   "evidence": "https://dataondemand.co.uk/privacy-policy/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
    "name": "Datacentric (ACCUMIN INTELLIGENCE, S.L.U.)",
    "email": "privacidad.datacentric@accumin.com",
    "website": "https://www.datacentric.es",
    "evidence": "https://www.datacentric.es/bases-de-datos-telefonos-particulares/",
    "only": [
     "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "DBS Datamarketing Ltd",
+   "email": "complianceteam@dbsdata.co.uk",
+   "website": "https://dbsdata.co.uk",
+   "rights_url": "https://dbsdata.co.uk/remove-my-details/",
+   "evidence": "https://dbsdata.co.uk/trading-business-and-consumer-data/",
+   "only": [
+    "uk"
    ],
    "checked": "2026-11-28"
   },
@@ -120,6 +231,37 @@
    "evidence": "https://www.indirizzi.it/liste_b2c.asp",
    "only": [
     "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Epsilon International UK Ltd (Abacus)",
+   "email": "nomail@epsilon.com",
+   "website": "https://legal.epsilon.com",
+   "rights_url": "https://legal.epsilon.com/abacus/consumer-data-deletion-requests",
+   "evidence": "https://legal.epsilon.com/abacus/services-privacy-policy",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "ESB Connect Limited (Opt-Me-In)",
+   "email": "data@esbconnect.com",
+   "website": "https://opt-me-in.com",
+   "evidence": "https://opt-me-in.com/privacy-policy/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Experian Limited (UK marketing services)",
+   "website": "https://www.experian.co.uk",
+   "rights_url": "https://www.experian.co.uk/privacy/consumer-information-portal/opt-out-options/",
+   "evidence": "https://www.experian.co.uk/privacy/consumer-information-portal/using-data/personal-data/",
+   "only": [
+    "uk"
    ],
    "checked": "2026-11-28"
   },
@@ -175,12 +317,32 @@
    "checked": "2026-11-28"
   },
   {
+   "name": "Marketing Punch Ltd (OfferX, Active You)",
+   "email": "datacompliance@marketingpunch.co.uk",
+   "website": "https://www.activeyou.co.uk",
+   "evidence": "https://www.activeyou.co.uk/documents/privacy",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
    "name": "Marknadsinformation Analys MIA AB",
    "email": "dininfo.se@dnb.com",
    "website": "https://www.dnb.com/sv-se/",
    "evidence": "https://www.dnb.com/sv-se/varfor-dnb/dataskydd/personuppgifter/personuppgifter-mia.html",
    "only": [
     "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Mdeg Limited",
+   "email": "compliance@mdeg.co.uk",
+   "website": "https://mdeg.co.uk",
+   "evidence": "https://mdeg.co.uk/privacy-policy/",
+   "only": [
+    "uk"
    ],
    "checked": "2026-11-28"
   },
@@ -195,12 +357,73 @@
    "checked": "2026-11-28"
   },
   {
+   "name": "Omnis Data Limited",
+   "email": "dataprotection@omnisdata.co.uk",
+   "website": "https://omnisdata.co.uk",
+   "rights_url": "https://omnisdata.co.uk/remove-my-details/",
+   "evidence": "https://omnisdata.co.uk/privacy-cookies/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "PMDSC Ltd",
+   "email": "compliance@pmdsc.co.uk",
+   "website": "https://pmdsc.co.uk",
+   "evidence": "https://pmdsc.co.uk/PMDSCPrivacyPolicy.pdf",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Sagacity Solutions Limited (My Data Choices)",
+   "website": "https://www.mydatachoices.co.uk",
+   "rights_url": "https://www.mydatachoices.co.uk/Suppress",
+   "evidence": "https://www.mydatachoices.co.uk/Privacy",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Seawave Media Ltd",
+   "email": "tulip@seawavemedia.com",
+   "website": "https://seawavemedia.com",
+   "evidence": "https://seawavemedia.com/services/data/uk-consumer-data/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "Selectabase Limited",
+   "website": "https://www.selectabase.co.uk",
+   "rights_url": "https://www.selectabase.co.uk/data-protection/data-optout/",
+   "evidence": "https://www.selectabase.co.uk/privacy-policy/",
+   "only": [
+    "uk"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
    "name": "Soluciones Nodo Norte, S.L.",
    "email": "info@comprarbasesdedatos.com",
    "website": "https://comprarbasesdedatos.com",
    "evidence": "https://comprarbasesdedatos.com/bases-de-datos/comprar-bases-de-datos-de-particulares/",
    "only": [
     "eu"
+   ],
+   "checked": "2026-11-28"
+  },
+  {
+   "name": "TwentyCi Data Ltd",
+   "email": "dataprotection@twentyci.co.uk",
+   "website": "https://www.twentyci.co.uk",
+   "evidence": "https://www.twentyci.co.uk/data-privacy-policy/",
+   "only": [
+    "uk"
    ],
    "checked": "2026-11-28"
   },
