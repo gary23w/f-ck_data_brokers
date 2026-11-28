@@ -33,11 +33,33 @@
    "checked": "2026-11-27"
   },
   {
+   "name": "Best Buy",
+   "website": "https://www.bestbuy.com",
+   "rights_url": "https://www.bestbuy.com/site/privacy-policy/state-privacy-rights/pcmcat204400050063.c?id=pcmcat204400050063",
+   "evidence": "https://www.bestbuy.com/site/help-topics/privacy-policy/pcmcat204400050062.c?id=pcmcat204400050062&intl=nosplash",
+   "checked": "2026-11-27"
+  },
+  {
    "name": "Booking.com",
    "email": "dataprotectionoffice@booking.com",
    "website": "https://www.booking.com",
    "rights_url": "https://www.booking.com/content/dsar.en-us.html",
    "evidence": "https://www.booking.com/content/privacy.html",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Bumble",
+   "email": "DPO@bumble.com",
+   "website": "https://bumble.com",
+   "rights_url": "https://bumble.com/contact-us",
+   "evidence": "https://bumble.com/en/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Canadian Tire",
+   "email": "privacyoffice@cantire.com",
+   "website": "https://www.canadiantire.ca",
+   "evidence": "https://triangle.canadiantire.ca/en/support/legal-and-privacy/privacy-charter.html",
    "checked": "2026-11-27"
   },
   {
@@ -53,6 +75,13 @@
    "website": "https://www.craigslist.org",
    "rights_url": "https://www.craigslist.org/about/ccpa",
    "evidence": "https://www.craigslist.org/about/privacy.policy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "CVS",
+   "website": "https://www.cvs.com",
+   "rights_url": "https://privacyportal.onetrust.com/webform/1885551f-146f-4594-ae8d-5966aac0551f/1eb23c44-cba9-45c6-bd0f-4f89053910f4?formField136=web",
+   "evidence": "https://www.cvs.com/retail/help/privacy_policy",
    "checked": "2026-11-27"
   },
   {
@@ -130,10 +159,39 @@
    "checked": "2026-11-27"
   },
   {
+   "name": "Home Depot",
+   "website": "https://www.homedepot.com",
+   "rights_url": "https://www.homedepot.com/privacy/Exercise-My-Privacy-Rights",
+   "evidence": "https://www.homedepot.com/privacy/privacy-and-security-statement",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "IKEA",
+   "email": "infosec.dataprivacy.us@ikea.com",
+   "website": "https://www.ikea.com",
+   "rights_url": "https://us.irr.privacy.ingka.com/en",
+   "evidence": "https://www.ikea.com/us/en/customer-service/privacy-policy/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Instacart",
+   "website": "https://www.instacart.com",
+   "rights_url": "https://www.instacart.com/accounts/your-privacy-choices",
+   "evidence": "https://www.instacart.com/privacy",
+   "checked": "2026-11-27"
+  },
+  {
    "name": "Instagram",
    "website": "https://www.instagram.com",
    "rights_url": "https://help.meta.com/support/privacy",
    "evidence": "https://privacycenter.instagram.com/policy/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Kroger",
+   "website": "https://www.kroger.com",
+   "rights_url": "https://www.kroger.com/i/privacy-policy?showPrivacyCenter=true",
+   "evidence": "https://www.kroger.com/i/privacy-policy",
    "checked": "2026-11-27"
   },
   {
@@ -143,6 +201,14 @@
    "delete_url": "https://www.linkedin.com/help/linkedin/answer/63",
    "export_url": "https://www.linkedin.com/help/linkedin/answer/a1339364/",
    "evidence": "https://www.linkedin.com/legal/privacy-policy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Loblaw and PC Optimum",
+   "email": "loblawprivacy@loblaw.ca",
+   "website": "https://www.loblaw.ca",
+   "rights_url": "https://ccmapp.loblaw.ca/webform/27ac7ad8-1ac7-4c80-8720-5df837f07d3f/cddddcb4-290b-4830-96f9-830c6aa6b476",
+   "evidence": "https://www.loblaw.ca/en/privacy-policy/",
    "checked": "2026-11-27"
   },
   {
@@ -181,6 +247,20 @@
    "checked": "2026-11-27"
   },
   {
+   "name": "Nike",
+   "website": "https://www.nike.com",
+   "rights_url": "https://www.nike.com/help/privacy",
+   "evidence": "https://www.nike.com/help/privacy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Nintendo",
+   "website": "https://www.nintendo.com",
+   "rights_url": "https://www.nintendo.com/privacy-request/",
+   "evidence": "https://www.nintendo.com/us/privacy-policy/",
+   "checked": "2026-11-27"
+  },
+  {
    "name": "OpenAI",
    "email": "dsar@openai.com",
    "website": "https://openai.com",
@@ -205,6 +285,20 @@
    "delete_url": "https://help.pinterest.com/article/deactivate-or-close-your-account",
    "export_url": "https://help.pinterest.com/article/download-your-pinterest-data",
    "evidence": "https://policy.pinterest.com/en/privacy-policy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "PlayStation (Sony)",
+   "website": "https://www.playstation.com",
+   "rights_url": "https://ps-support.playstation.com/s/consumer-privacy?language=en_US&locale=en-us",
+   "evidence": "https://www.playstation.com/en-us/legal/privacy-policy/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Samsung",
+   "website": "https://www.samsung.com",
+   "rights_url": "https://www.samsung.com/us/privacy/rights/",
+   "evidence": "https://www.samsung.com/us/account/privacy-policy/",
    "checked": "2026-11-27"
   },
   {
@@ -249,6 +343,13 @@
    "checked": "2026-11-27"
   },
   {
+   "name": "Steam (Valve)",
+   "website": "https://store.steampowered.com",
+   "rights_url": "https://help.steampowered.com/wizard/HelpAccountDataQuestion",
+   "evidence": "https://store.steampowered.com/privacy_agreement/",
+   "checked": "2026-11-27"
+  },
+  {
    "name": "Stripe and Link",
    "email": "privacy@stripe.com",
    "website": "https://stripe.com",
@@ -281,10 +382,26 @@
    "checked": "2026-11-27"
   },
   {
+   "name": "Ticketmaster",
+   "website": "https://www.ticketmaster.com",
+   "rights_url": "https://privacyportal.onetrust.com/webform/ba6f9c5b-dda5-43bd-bac4-4e06afccd928/a912475c-660e-40a7-b320-844ea439062a",
+   "evidence": "https://privacy.ticketmaster.com/privacy-policy",
+   "checked": "2026-11-27"
+  },
+  {
    "name": "TikTok",
    "website": "https://www.tiktok.com",
    "rights_url": "https://www.tiktok.com/legal/report/privacy",
    "evidence": "https://www.tiktok.com/legal/privacy-policy-us",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Tinder",
+   "website": "https://tinder.com",
+   "rights_url": "https://www.help.tinder.com/hc/en-us/requests/new?ticket_form_id=360000234472",
+   "delete_url": "https://www.help.tinder.com/hc/en-us/articles/6956972185229-Delete-Your-Tinder-Account",
+   "export_url": "https://www.help.tinder.com/hc/en-us/articles/115005626726-How-do-I-request-a-copy-of-my-personal-data",
+   "evidence": "https://policies.tinder.com/privacy/intl/en/",
    "checked": "2026-11-27"
   },
   {
@@ -310,6 +427,21 @@
    "website": "https://venmo.com",
    "rights_url": "https://help.venmo.com/hc/en-us/requests/new",
    "evidence": "https://venmo.com/legal/us-privacy-policy/",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Verizon",
+   "website": "https://www.verizon.com",
+   "rights_url": "https://www.verizon.com/privacy/your-data",
+   "export_url": "https://www.verizon.com/privacy/your-data",
+   "evidence": "https://www.verizon.com/about/privacy/full-privacy-policy",
+   "checked": "2026-11-27"
+  },
+  {
+   "name": "Walgreens",
+   "website": "https://www.walgreens.com",
+   "rights_url": "https://www.walgreens.com/topic/donotsellmyinfo.jsp?o=acs",
+   "evidence": "https://www.walgreens.com/topic/help/generalhelp/privacyandsecurity.jsp",
    "checked": "2026-11-27"
   },
   {
